@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b17"/>
+      <stop offset="1" stop-color="#0a1024"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="15%" cy="10%" r="50%">
+      <stop offset="0" stop-color="#132042" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#070b17" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="95%" cy="30%" r="45%">
+      <stop offset="0" stop-color="#0c2d2a" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#070b17" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Massive Rx watermark, bottom-right -->
+  <text x="1180" y="720" font-family="Georgia, 'Times New Roman', serif" font-size="720" font-style="italic" font-weight="900" fill="#94a3b8" opacity="0.05" text-anchor="end">℞</text>
+
+  <!-- Dateline -->
+  <text x="80" y="100" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" fill="#94a3b8" letter-spacing="4">WELLRX &#183; DECISION SUPPORT &#183; LIVE DATA</text>
+  <line x1="80" y1="120" x2="1120" y2="120" stroke="#94a3b8" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- Rx + Brand -->
+  <text x="80" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="220" font-style="italic" font-weight="900" fill="#fbbf24">℞</text>
+  <text x="260" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="220" font-style="italic" font-weight="900" fill="#f8fafc" letter-spacing="-6">WellRX</text>
+
+  <!-- Tagline -->
+  <text x="80" y="400" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-style="italic" fill="#e6edf7">Your wells are already telling you what's wrong.</text>
+  <text x="80" y="465" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-style="italic" fill="#94a3b8">WellRX listens via your data streams, diagnoses, and writes the Rx.</text>
+
+  <!-- Bottom band -->
+  <line x1="80" y1="530" x2="1120" y2="530" stroke="#94a3b8" stroke-opacity="0.2" stroke-width="1"/>
+  <text x="80" y="575" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#34d399" letter-spacing="3">DAILY RX &#183; FIELD ROUTE BRIEF &#183; OPERATIONS DESK &#183; CHEMISTRY &#183; PORTFOLIO &#183; PHOTO ANALYSIS</text>
+  <text x="1120" y="575" font-family="'JetBrains Mono', monospace" font-size="18" font-weight="700" fill="#94a3b8" text-anchor="end" letter-spacing="3">WELLRX.APP</text>
+</svg>
