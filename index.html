@@ -152,6 +152,46 @@
   .tile ul { margin: 8px 0 0; padding-left: 18px; font-size: 12.5px; color: var(--muted); line-height: 1.65; }
   .tile ul li { margin-bottom: 3px; }
 
+  /* Feature lede — the explanatory "what WellRX is" paragraph, elevated to a callout */
+  .feature-lede { margin: 22px 0 28px; padding: 32px 36px 28px;
+    background: linear-gradient(135deg, rgba(251,191,36,0.06) 0%, rgba(52,211,153,0.03) 55%, transparent 100%);
+    border: 1px solid var(--line-strong); border-left: 4px solid var(--gold);
+    border-radius: 14px; box-shadow: 0 30px 70px -30px rgba(251,191,36,0.12); position: relative; }
+  .feature-lede::before { content: "\203D"; position: absolute; top: 14px; right: 20px;
+    font-family: var(--font-brand); font-style: italic; font-size: 84px; font-weight: 900;
+    color: var(--gold); opacity: 0.08; line-height: 1;
+    font-variation-settings: "opsz" 144; pointer-events: none; }
+  .feature-lede .fl-para { font-size: 17px; line-height: 1.75; color: var(--ink);
+    margin: 0 0 18px; max-width: 880px; position: relative; z-index: 1; }
+  .feature-lede .fl-para:last-of-type { margin-bottom: 0; }
+  .feature-lede .fl-para strong { color: var(--ink-strong); font-weight: 700; }
+  .feature-lede .fl-para em { color: var(--muted); font-style: italic; }
+  .feature-lede .drop-cap { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+    font-size: 74px; line-height: 0.85; float: left;
+    color: var(--gold); margin: 4px 14px -6px 0;
+    font-variation-settings: "opsz" 144; }
+  .feature-lede .fl-hook { display: inline-block; padding: 2px 10px; margin: 0 2px;
+    background: rgba(52,211,153,0.10); border: 1px solid rgba(52,211,153,0.30);
+    border-radius: 6px; color: var(--money); font-weight: 700; font-size: 16.5px; }
+  .feature-lede .fl-warn { color: var(--danger); font-weight: 700; }
+
+  .role-deliverables { list-style: none; padding: 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 24px;
+    margin: 26px 0 0; border-top: 1px dashed var(--line-strong); padding-top: 22px; }
+  .role-deliverables li { font-size: 14px; line-height: 1.55; color: var(--ink);
+    padding-left: 16px; border-left: 2px solid var(--accent); }
+  .role-deliverables li.r-pumper  { border-color: var(--money); }
+  .role-deliverables li.r-spec    { border-color: var(--accent); }
+  .role-deliverables li.r-foreman { border-color: var(--warn); }
+  .role-deliverables li.r-exec    { border-color: var(--gold); }
+  .role-deliverables li .role-label { display: block;
+    font-family: var(--font-brand); font-style: italic; font-weight: 700;
+    font-size: 19px; color: var(--ink-strong); margin-bottom: 4px;
+    font-variation-settings: "opsz" 32; }
+  .role-deliverables li .role-arrow { color: var(--muted); font-weight: 400;
+    margin: 0 4px; }
+  @media (max-width: 860px) { .role-deliverables { grid-template-columns: 1fr; gap: 14px; } }
+
   /* How it works */
   .flow { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
            padding: 24px 20px; margin: 18px 0 12px;
@@ -271,7 +311,21 @@
   <div class="sec">
     <div class="kick">§ I · What WellRX Is</div>
     <h2>Every well is telling you what's wrong. WellRX hears every signal — live or historical — diagnoses, and writes the Rx.</h2>
-    <div class="lede">Most gas-well operators look at their production through a spreadsheet — SCADA in one tab, FSR logs in another, gauge sheets on paper, delivery tickets in email, alarms in a dashboard nobody refreshes. Thresholds fire, the field gets busy, and production slips a few percent a month until someone loses a well. WellRX wires into whatever data you've already got — SCADA (zdSCADA live today, generic adapters for the rest), historian exports, FSR records, gauge sheets, photos from the field — runs every well through a petroleum-engineering diagnostic every morning, and puts a specific, ROI-scored action on the right person's desk before coffee. Your pumper gets a field route brief, not a dashboard. Your production specialist gets a daily Rx, not a raw data dump. Your foreman gets a sign-off queue. Your exec team gets a portfolio diagnostic that reads like a memo from a VP of Production.</div>
+  </div>
+
+  <div class="feature-lede">
+    <p class="fl-para">
+      <span class="drop-cap">M</span>ost gas-well operators look at their production through a spreadsheet — <em>SCADA in one tab, FSR logs in another, gauge sheets on paper, delivery tickets in email, alarms in a dashboard nobody refreshes.</em> Thresholds fire, the field gets busy, and <span class="fl-warn">production slips a few percent a month until someone loses a well.</span>
+    </p>
+    <p class="fl-para">
+      WellRX wires into <strong>whatever data you've already got</strong> — SCADA (zdSCADA live today, generic adapters for the rest), historian exports, FSR records, gauge sheets, photos from the field — and runs every well through a <strong>virtual AI petroleum engineer, a virtual AI production engineer, and a virtual AI chemist</strong> working in concert every morning. The result lands as <span class="fl-hook">a specific, ROI-scored action</span> on the right person's desk <strong>before coffee</strong>.
+    </p>
+    <ul class="role-deliverables">
+      <li class="r-pumper"><span class="role-label">Your Pumper</span>gets a <strong>field route brief</strong> — <span class="role-arrow">not</span> a dashboard.</li>
+      <li class="r-spec"><span class="role-label">Your Production Specialist</span>gets a <strong>daily Rx</strong> — <span class="role-arrow">not</span> a raw data dump.</li>
+      <li class="r-foreman"><span class="role-label">Your Foreman</span>gets a <strong>sign-off queue</strong> — ranked by cost of delay.</li>
+      <li class="r-exec"><span class="role-label">Your Executive Team</span>gets a <strong>portfolio diagnostic</strong> that reads like a memo from a VP of Production.</li>
+    </ul>
   </div>
 
   <div class="deliver">
