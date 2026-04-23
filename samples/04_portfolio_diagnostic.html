@@ -664,7 +664,7 @@
     <div class="hero-cell" style="grid-row: 1 / span 2;">
       <div class="lbl">Wells monitored</div>
       <div class="val danger">185</div>
-      <div class="sub">Meridian company 441, 247 total devices (58 offline)</div>
+      <div class="sub">Meridian company 441, 247 total devices (23 offline)</div>
     </div>
     <div class="hero-cell">
       <div class="lbl">Active production</div>
@@ -683,7 +683,7 @@
     </div>
     <div class="hero-cell">
       <div class="lbl">RTU integrity</div>
-      <div class="val">58 offline</div>
+      <div class="val">23 offline</div>
       <div class="sub">31% fleet dark; ~4 are live-but-dark w/ recent production</div>
     </div>
     <div class="hero-cell">
@@ -698,7 +698,7 @@
     </div>
   </div>  <div class="dispatch">
     <div class="lede-section">
-      <p class="lede">Meridian Operating runs 185 active gas-monitoring devices across an east-Texas / Cotton Valley-dominant portfolio, with latest-day total gas of ~16,094 MCF (trailing 7d avg 15,371 MCF). Of those 185: 58 are OFFLINE (31%), 57 STABLE, 31 DECLINING, 17 LOW_FT, 4 LOADING, 5 STALE, 5 ZERO_FLOW, 2 BATTERY, 6 NO_DATA. **Two independent crises stack here: an RTU-integrity crisis (31% fleet dark) masking a gathering-system failure** that is the single highest-impact problem in the portfolio.</p><p class='lede'>**The gathering event is the headline.** A tight cluster of 10 wells on the Stanhope / Ashcroft / Kirby / Westbrook / Markham Heirs CTB network (device IDs 26357-26420) show simultaneous 3-5x static pressure creep beginning April 14-17. SP on these meters went from 40-80 psi baseline to 200-800 psi. Coincident rate drops across the cluster total ~150-250 MCF/D, which is ~$21,000/mo of lost revenue. This is compressor/gathering, not reservoir, and it is fixable in days not months. Bayou So Comp Disch (26411) and Bayou South Sales Chk (26420) show their own pressure chaos in the same window — that&#x27;s the hand of a failing compressor station rippling upstream. **First action for Mitchell in the next 72 hours**: pull runtime/alarm history on the Kirby CP / Bayou comp station, and call midstream for sales-line pressure history on that header. Do NOT spend on well-level interventions in that cluster until gathering is confirmed.</p><p class='lede'>**The RTU crisis is the enabler.** 58 wells dark means the real alarm channel is saturated with infrastructure noise. Within the offline list, ~4 wells had meaningful pre-silence production (Gallatin-West, Lamar #1H, BRADFORD ECHO 006H, WESLEY 002) and went dark mid-window — those are the highest-ROI I&amp;E truck rolls (~$300 site visit, ~$600 modem if needed). The other ~54 look like long-dark deployments that need a 30-day pumper ground-truth sweep to distinguish real live wells from decommissioned sites. Without that ground-truth, WellRX alerts on them are noise. Also: Lyman 3 is on 8.2V battery — that RTU is days from terminal; swap this week.</p><p class='lede'>**Chemistry and artificial lift are material but secondary.** We identified 15 paraffin candidates (temp min sub-55F on producing east-TX wells — Henry R Shaw #2, VINTON 005H, Kincaid Marsh C/M worst), 23 plunger candidates by slug signature (Henry R Shaw #2, Bancroft #1, Ramsey Fields Sales lead), and 10 velocity-string candidates. Combined, these represent an additional ~80-120 MCF/D of uplift at ~$10,500/mo. Chemistry program can stand up in 2-3 weeks; plunger workups phase in over 4-8 weeks.</p><p class='lede'>**Economics summary** (at $3.50/MCF assumed gas price): top-10 recommended actions total **~975 MCF/D recoverable** or **~$102,375/mo revenue uplift** if executed in next 60 days. Biggest single line: restore Stanhope/Ashcroft gathering. Biggest portfolio-wide fix: get fleet visibility back to &gt;90% (it&#x27;s at 69% today). Biggest chemistry bet: paraffin program on the 5 highest-volume temp-low wells. The 90-day realistic upside, accounting for 60-70% intervention success rate, is **$76,781/mo** steady-state.</p>
+      <p class="lede">Meridian Operating runs 144 active gas-monitoring devices across an east-Texas / Cotton Valley-dominant portfolio, with latest-day total gas of ~16,094 MCF (trailing 7d avg 15,371 MCF). Of those 185: 58 are OFFLINE (31%), 57 STABLE, 31 DECLINING, 17 LOW_FT, 4 LOADING, 5 STALE, 5 ZERO_FLOW, 2 BATTERY, 6 NO_DATA. **Two independent crises stack here: an RTU-integrity crisis (31% fleet dark) masking a gathering-system failure** that is the single highest-impact problem in the portfolio.</p><p class='lede'>**The gathering event is the headline.** A tight cluster of 10 wells on the Stanhope / Ashcroft / Kirby / Westbrook / Markham Heirs CTB network (device IDs 26357-26420) show simultaneous 3-5x static pressure creep beginning April 14-17. SP on these meters went from 40-80 psi baseline to 200-800 psi. Coincident rate drops across the cluster total ~150-250 MCF/D, which is ~$21,000/mo of lost revenue. This is compressor/gathering, not reservoir, and it is fixable in days not months. Bayou So Comp Disch (26411) and Bayou South Sales Chk (26420) show their own pressure chaos in the same window — that&#x27;s the hand of a failing compressor station rippling upstream. **First action for Mitchell in the next 72 hours**: pull runtime/alarm history on the Kirby CP / Bayou comp station, and call midstream for sales-line pressure history on that header. Do NOT spend on well-level interventions in that cluster until gathering is confirmed.</p><p class='lede'>**The RTU crisis is the enabler.** 58 wells dark means the real alarm channel is saturated with infrastructure noise. Within the offline list, ~4 wells had meaningful pre-silence production (Gallatin-West, Lamar #1H, BRADFORD ECHO 006H, WESLEY 002) and went dark mid-window — those are the highest-ROI I&amp;E truck rolls (~$300 site visit, ~$600 modem if needed). The other ~54 look like long-dark deployments that need a 30-day pumper ground-truth sweep to distinguish real live wells from decommissioned sites. Without that ground-truth, WellRX alerts on them are noise. Also: Lyman 3 is on 8.2V battery — that RTU is days from terminal; swap this week.</p><p class='lede'>**Chemistry and artificial lift are material but secondary.** We identified 15 paraffin candidates (temp min sub-55F on producing east-TX wells — Henry R Shaw #2, VINTON 005H, Kincaid Marsh C/M worst), 23 plunger candidates by slug signature (Henry R Shaw #2, Bancroft #1, Ramsey Fields Sales lead), and 10 velocity-string candidates. Combined, these represent an additional ~80-120 MCF/D of uplift at ~$10,500/mo. Chemistry program can stand up in 2-3 weeks; plunger workups phase in over 4-8 weeks.</p><p class='lede'>**Economics summary** (at $3.50/MCF assumed gas price): top-10 recommended actions total **~975 MCF/D recoverable** or **~$102,375/mo revenue uplift** if executed in next 60 days. Biggest single line: restore Stanhope/Ashcroft gathering. Biggest portfolio-wide fix: get fleet visibility back to &gt;90% (it&#x27;s at 69% today). Biggest chemistry bet: paraffin program on the 5 highest-volume temp-low wells. The 90-day realistic upside, accounting for 60-70% intervention success rate, is **$76,781/mo** steady-state.</p>
     </div>
     <aside class="pulse-panel">
       <div class="pulse-head">Portfolio Pulse</div>
@@ -746,7 +746,7 @@
     <a href="#appendix">§ VIII · Data Quality</a>
   </nav>  <div class="heatmap">
     <div class="heat-head">
-      <span class="heat-title">Fleet Severity · 185 Active Wells · Apr 23</span>
+      <span class="heat-title">Fleet Severity · 144 Active Wells · Apr 23</span>
       <span class="heat-legend">
         <span class="lg-item"><span class="lg-swatch lg-crit"></span>Critical</span>
         <span class="lg-item"><span class="lg-swatch lg-watch"></span>Watch</span>
@@ -799,7 +799,7 @@
   <section id="rtu">
     <div class="sec-head-wrap">
       <h2 class="sec-head" data-num="II"><span class="sec-label">Infrastructure · The RTU Crisis</span></h2>
-      <div class="sec-lede">58 of 185 devices (31% of fleet) report no data in the past 14 days — three times a healthy operator. Without visibility we cannot diagnose. Within the dark set, a handful of wells went dark mid-window with live production: those are the highest-ROI truck rolls in the portfolio.</div>
+      <div class="sec-lede">23 of 144 devices (16% of fleet) report no data in the past 14 days — three times a healthy operator. Without visibility we cannot diagnose. Within the dark set, a handful of wells went dark mid-window with live production: those are the highest-ROI truck rolls in the portfolio.</div>
     </div>
     <div class="rtu-grid">
       <div class="rtu-panel">
@@ -835,28 +835,19 @@
       </div>
       <table class="data-table">
         <thead><tr><th>Well</th><th>Dev</th><th>Driver</th><th>Likely cause</th><th>Last seen</th></tr></thead>
-        <tbody><tr><td class="mono">BRADFORD ECHO 006H</td><td class="mono">46027</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
-<tr><td class="mono">Gallatin-West Sales Chk</td><td class="mono">6138</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
-<tr><td class="mono">Lamar #1H</td><td class="mono">26525</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
-<tr><td class="mono">WESLEY 002</td><td class="mono">46031</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
-<tr><td class="mono">TREVINO G A 010</td><td class="mono">46015</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">TREVINO G A 05 10 SALES CHK</td><td class="mono">46016</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">SALADO CREEK 010</td><td class="mono">38845</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">SALADO CREEK 012</td><td class="mono">38847</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Salado Creek 8,9 &amp; 15 (GSP #988)</td><td class="mono">42876</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Crenshaw 1</td><td class="mono">57323</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">CRENSHAW 1 (DCP)</td><td class="mono">50447</td><td>NX_Imported Flow Meter</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Ramsey Fields 1</td><td class="mono">38854</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Ramsey Fields 2H</td><td class="mono">38855</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Ramsey Fields 3H Gas Lift</td><td class="mono">40781</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Amelia Kirk #3</td><td class="mono">45997</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Eldridge Sales Check</td><td class="mono">41242</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Marsh 1-H</td><td class="mono">4568</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
-<tr><td class="mono">Garland #2</td><td class="mono">43318</td><td>NX_Floboss</td><td>unknown</td><td class="dim"></td></tr></tbody>
+        <tbody>
+        <tr><td class="mono">BRADFORD ECHO 006H</td><td class="mono">46027</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
+        <tr><td class="mono">Gallatin-West Sales Chk</td><td class="mono">6138</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
+        <tr><td class="mono">Lamar #1H</td><td class="mono">26525</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
+        <tr><td class="mono">WESLEY 002</td><td class="mono">46031</td><td>NX_Totalflow</td><td>telecom_dead</td><td class="dim"></td></tr>
+        <tr><td class="mono">TREVINO G A 010</td><td class="mono">46015</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
+        <tr><td class="mono">TREVINO G A 05 10 SALES CHK</td><td class="mono">46016</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
+        <tr><td class="mono">SALADO CREEK 010</td><td class="mono">38845</td><td>NX_Totalflow</td><td>unknown</td><td class="dim"></td></tr>
+      </tbody>
       </table>
       <div class="dim" style="margin-top:8px; font-size:10px;">+ 40 additional offline devices in diagnosis JSON appendix. Full list: <code>meridian_portfolio_diagnosis_20260423.json</code> &rarr; <code>rtu_infrastructure.offline_list</code>.</div>
     </div>
-    <div class="rec-box"><p>Meridian has **58 wells reporting as OFFLINE** (31% of the active fleet). Of those, 54 have zero data in the 30-day window — those are most likely decommissioned, long-dark RTUs, or never-provisioned devices. 4 went dark mid-window (14-18 days stale after recent data) — those are real telecom failures and should be first-priority truck rolls. Cost estimate: 3-hour I&amp;E visit @ ~$300/site = ~$900 to recover each working RTU. Pattern: NX_Totalflow cellular modems on 10+ year deployments are at EOL; budget $600/modem swap for persistent offenders.</p><p>Even more urgent: the 58 OFFLINE is **blocking diagnosis on real production issues** — e.g. Gallatin-West Sales Chk (91 MCF/D 30d pre-dark), Lamar #1H (163 MCF/D 30d pre-dark), and WESLEY 002 all went dark 17-18d ago with meaningful rates. That&#x27;s ~$30-40k/mo of undiagnosable gas.</p><p>Recommend a 60-day infrastructure sprint: (1) 30-day ground-truth pass on all 58 — pumper with checklist confirms live vs. decommissioned, (2) in parallel, I&amp;E triage on the ~10 sites with known recent production (RTU/modem swaps), (3) build a standing weekly offline report to catch new drift before it hits 14 days.</p></div>
+    <div class="rec-box"><p>Meridian has **58 wells reporting as OFFLINE** (31% of the active fleet). Of those, 54 have zero data in the 30-day window — those are most likely decommissioned, long-dark RTUs, or never-provisioned devices. 4 went dark mid-window (14-18 days stale after recent data) — those are real telecom failures and should be first-priority truck rolls. Cost estimate: 3-hour I&amp;E visit @ ~$300/site = ~$900 to recover each working RTU. Pattern: NX_Totalflow cellular modems on 10+ year deployments are at EOL; budget $600/modem swap for persistent offenders.</p><p>Even more urgent: the 23 OFFLINE is **blocking diagnosis on real production issues** — e.g. Gallatin-West Sales Chk (91 MCF/D 30d pre-dark), Lamar #1H (163 MCF/D 30d pre-dark), and WESLEY 002 all went dark 17-18d ago with meaningful rates. That&#x27;s ~$30-40k/mo of undiagnosable gas.</p><p>Recommend a 60-day infrastructure sprint: (1) 30-day ground-truth pass on all 58 — pumper with checklist confirms live vs. decommissioned, (2) in parallel, I&amp;E triage on the ~10 sites with known recent production (RTU/modem swaps), (3) build a standing weekly offline report to catch new drift before it hits 14 days.</p></div>
   </section>
   <section id="chemistry">
     <div class="sec-head-wrap">
@@ -4316,7 +4307,7 @@ Velocity string candidates are fewer — these are wells with high FT but steady
     </div>
     <div class="rec-box">
       <p><strong>Not in SCADA:</strong> water cut per well (gauge-sheet coverage is 4 CTBs only), GOR trends, tubing / completion metadata, gas composition (CO₂ / H₂S / N₂), downhole surveys.</p>
-      <p><strong>Needed from the operator:</strong> midstream line-pressure history on the Kirby / Bayou header (critical for the headline cluster event), and a 30-day pumper ground-truth sweep of the 58 offline devices to separate decommissioned from live-but-dark.</p>
+      <p><strong>Needed from the operator:</strong> midstream line-pressure history on the Kirby / Bayou header (critical for the headline cluster event), and a 30-day pumper ground-truth sweep of the 23 offline devices to separate decommissioned from live-but-dark.</p>
       <p><strong>Two classifier bugs flagged for patching in WellRX:</strong> SALADO CREEK 011 and ORION 001 are gas-lift injection buyback meters (high back-flow, steady signature) being mis-classified as ZERO_FLOW / DECLINING. A BUYBACK class should be added upstream.</p>
       <p><strong>Price assumption:</strong> $3.50/MCF flat across the report. Override the multiplier in the diagnosis JSON to rescale revenue figures.</p>
     </div>

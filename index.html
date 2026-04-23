@@ -97,8 +97,9 @@
                 color: var(--muted); text-transform: uppercase; letter-spacing: 0.26em;
                 font-weight: 700; margin-bottom: 6px; }
   .sec h2 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
-             font-size: 42px; margin: 0; color: var(--ink-strong);
-             letter-spacing: -0.02em; font-variation-settings: "opsz" 72; }
+             font-size: clamp(26px, 3.4vw, 38px); margin: 0; color: var(--ink-strong);
+             letter-spacing: -0.02em; font-variation-settings: "opsz" 72;
+             line-height: 1.15; }
   .sec .lede { font-size: 15px; color: var(--ink); margin: 14px 0 0;
                 line-height: 1.65; max-width: 820px; }
 
@@ -348,7 +349,7 @@
   <div class="tagline">Decision support for gas-well operators. Live data in — field-ready Rx out.</div>
 
   <div class="hero">
-    <div class="cell"><div class="lbl">Wells in sample engagement</div><div class="val">185</div><div class="sub">Every active device reviewed — one mid-size East-Texas gas operator</div></div>
+    <div class="cell"><div class="lbl">Wells in sample engagement</div><div class="val">144</div><div class="sub">Every active device reviewed — one mid-size East-Texas gas operator</div></div>
     <div class="cell"><div class="lbl">Priority cases surfaced</div><div class="val money">46</div><div class="sub">Ranked by cost-of-delay, not severity alone</div></div>
     <div class="cell"><div class="lbl">Modeled 90-day recovery</div><div class="val gold">$77k/mo</div><div class="sub">MCF Δ × $3.50 · 75% execution · confidence-weighted</div></div>
     <div class="cell"><div class="lbl">Delivery window</div><div class="val">06:30 CT</div><div class="sub">Inbox, every morning, covered wells only</div></div>
@@ -382,6 +383,9 @@
     </div>
   </div>
 
+  <div class="sec" style="margin-top: 24px; margin-bottom: 8px;">
+    <div class="kick">Sample Reports · click any tile to open</div>
+  </div>
   <div class="deliver">
     <a class="tile" href="samples/01_vendor_daily.html">
       <div class="ico">℞</div>
@@ -429,9 +433,9 @@
     </a>
     <a class="tile t5" href="samples/06_photo_diagnosis.html">
       <div class="ico">📷</div>
-      <div class="cad">On-demand · Minutes to Hours</div>
+      <div class="cad">On-demand · Within Minutes</div>
       <h3>Photo / Video Analysis</h3>
-      <p>Send a photo or short video from the field and WellRX's virtual petroleum engineer, production engineer, and chemist review it <em>together</em> — Rx back in minutes for urgent calls, hours for full engineering briefs. Iron in oil, paraffin on a stem, a rusted-out lateral, a leaky valve body, a suspect sludge pad — if you can capture it, we can diagnose it.</p>
+      <p>Send a photo or short video from the field and WellRX's virtual petroleum engineer, production engineer, and chemist review it <em>together</em> — <strong>Rx back in minutes</strong>, not hours or days. Iron in oil, paraffin on a stem, a rusted-out lateral, a leaky valve body, a suspect sludge pad — if you can capture it, we can diagnose it.</p>
       <ul>
         <li>Image-level root-cause analysis with ranked likely causes</li>
         <li>Immediate field actions + next-step diagnostics</li>
@@ -509,7 +513,7 @@
   <div class="sec">
     <div class="kick">§ IV · Sample Deliverables</div>
     <h2>What your team actually gets.</h2>
-    <div class="lede">The samples below are rendered against a live SCADA feed (operator name &amp; well identifiers scrubbed for confidentiality). Each is a real artifact a real recipient received. <strong>These are not an exhaustive list</strong> — WellRX can tailor a report for any personnel position inside <em>or</em> outside your company: CFO, compliance officer, midstream coordinator, trucking foreman, chemical vendor, engineering consultant, lender, board. If they have a job, we can write their Rx. Click any sample to open.</div>
+    <div class="lede">The samples below are rendered against a live SCADA feed (operator name &amp; well identifiers scrubbed for confidentiality). Each is a real artifact a real recipient received. <strong style="font-size:16.5px; display:inline-block; margin: 8px 0 6px; line-height: 1.55;">These are not an exhaustive list — WellRX can tailor a report for any personnel position inside or outside your company:</strong> CFO, compliance officer, midstream coordinator, trucking foreman, chemical vendor, engineering consultant, lender, board. If they have a job, we can write their Rx. Click any sample to open.</div>
   </div>
   <div class="samples">
     <a class="sample" href="samples/01_vendor_daily.html">
@@ -545,7 +549,7 @@
     <a class="sample" href="samples/06_photo_diagnosis.html">
       <div class="kick">On-demand · Photo / Video Analysis</div>
       <h3>Photo / Video Analysis — Iron in Oil</h3>
-      <p>Four field photos in. Within hours: a multi-page engineering Rx from virtual petro + production + chemistry reviewers working together — corrosion root cause surfaced and ranked, chemistry prescribed with dose and compatibility flags, payback quantified. Urgent calls come back in minutes.</p>
+      <p>Four field photos in. <strong>Within minutes:</strong> a multi-page engineering Rx from virtual petro + production + chemistry reviewers working together — corrosion root cause surfaced and ranked, chemistry prescribed with dose and compatibility flags, payback quantified.</p>
       <div class="btn">Open sample →</div>
     </a>
   </div>
