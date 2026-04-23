@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>The WellRX Daily · Operations Desk — Meridian Operating</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:            #070b17;
+    --bg-grad:       radial-gradient(1200px 600px at 10% -10%, #132042 0%, transparent 60%),
+                     radial-gradient(900px 500px at 110% 10%, #0c2d2a 0%, transparent 55%),
+                     linear-gradient(180deg, #070b17 0%, #0a1024 100%);
+    --card:          #0d1426;
+    --card-elev:     #111a30;
+    --panel:         rgba(21, 32, 60, 0.55);
+    --panel-border:  rgba(148, 163, 184, 0.10);
+    --ink:           #e6edf7;
+    --ink-strong:    #f8fafc;
+    --muted:         #94a3b8;
+    --faint:         #64748b;
+    --line:          rgba(148, 163, 184, 0.12);
+    --line-strong:   rgba(148, 163, 184, 0.22);
+    --accent:        #38bdf8;
+    --accent-2:      #22d3ee;
+    --accent-soft:   rgba(56, 189, 248, 0.12);
+    --accent-glow:   0 0 0 1px rgba(56,189,248,0.18), 0 8px 32px -8px rgba(56,189,248,0.35);
+    --money:         #34d399;
+    --money-glow:    rgba(52, 211, 153, 0.18);
+    --danger:        #f87171;
+    --danger-glow:   rgba(248, 113, 113, 0.5);
+    --warn:          #fbbf24;
+    --row-hover:     rgba(56, 189, 248, 0.04);
+    --th-ink:        #94a3b8;
+    --th-border:     rgba(148, 163, 184, 0.25);
+    --pill-severe-bg: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    --pill-severe-fg: #fecaca;
+    --pill-load-bg:  linear-gradient(135deg, #7c2d12 0%, #9a3412 100%);
+    --pill-load-fg:  #fed7aa;
+    --pill-watch-bg: linear-gradient(135deg, #713f12 0%, #854d0e 100%);
+    --pill-watch-fg: #fde68a;
+    --pill-stable-bg: linear-gradient(135deg, #14532d 0%, #166534 100%);
+    --pill-stable-fg: #bbf7d0;
+    --btn-bg:        rgba(255,255,255,0.04);
+    --btn-ink:       #cbd5e1;
+    --shadow-card:   0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 60px -24px rgba(0,0,0,0.6);
+    --radius-sm:     6px;
+    --radius:        10px;
+    --radius-lg:     16px;
+    --font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-brand:    'Fraunces', 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-mono:     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --gold:          #fbbf24;
+    --gold-glow:     rgba(251, 191, 36, 0.2);
+    --soft:          var(--panel);
+    --softer:        var(--panel);
+  }
+  [data-theme="light"] {
+    --bg:            #f5f6fa;
+    --bg-grad:       radial-gradient(1200px 500px at 10% -10%, #eef4ff 0%, transparent 60%),
+                     radial-gradient(900px 400px at 110% 0%, #effaf6 0%, transparent 55%),
+                     linear-gradient(180deg, #f5f6fa 0%, #f8fafc 100%);
+    --card:          #ffffff;
+    --card-elev:     #ffffff;
+    --panel:         rgba(241, 245, 249, 0.8);
+    --panel-border:  rgba(15, 23, 42, 0.06);
+    --ink:           #0f172a;
+    --ink-strong:    #020617;
+    --muted:         #64748b;
+    --faint:         #94a3b8;
+    --line:          rgba(15, 23, 42, 0.08);
+    --line-strong:   rgba(15, 23, 42, 0.14);
+    --accent:        #0284c7;
+    --accent-2:      #0891b2;
+    --accent-soft:   rgba(2, 132, 199, 0.08);
+    --accent-glow:   0 0 0 1px rgba(2,132,199,0.12), 0 10px 28px -10px rgba(2,132,199,0.20);
+    --money:         #047857;
+    --money-glow:    rgba(4, 120, 87, 0.10);
+    --danger:        #b91c1c;
+    --warn:          #a16207;
+    --row-hover:     rgba(2, 132, 199, 0.04);
+    --th-ink:        #334155;
+    --th-border:     rgba(15, 23, 42, 0.18);
+    --pill-severe-bg: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+    --pill-severe-fg: #7f1d1d;
+    --pill-load-bg:  linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+    --pill-load-fg:  #7c2d12;
+    --pill-watch-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    --pill-watch-fg: #854d0e;
+    --pill-stable-bg: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    --pill-stable-fg: #14532d;
+    --btn-bg:        #ffffff;
+    --btn-ink:       #334155;
+    --shadow-card:   0 1px 2px rgba(15,23,42,0.04), 0 20px 40px -22px rgba(15,23,42,0.18);
+  }
+  @page { size: Letter landscape; margin: 0.4in; }
+  @media print {
+    .theme-toggle, .toc-nav, .rx-watermark { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; background-image: none !important; }
+    .wrap { border: none !important; border-radius: 0 !important; box-shadow: none !important;
+             padding: 0 !important; max-width: 100% !important; background: #fff !important; }
+    .masthead, .hero-strip, .dispatch { background: #fff !important; }
+    table { page-break-inside: auto; font-size: 10px; }
+    tr { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font: 14px/1.55 var(--font-body); color: var(--ink);
+          background: var(--bg); background-image: var(--bg-grad);
+          margin: 0; padding: 40px 24px 80px;
+          -webkit-font-smoothing: antialiased;
+          transition: background-color .15s ease, color .15s ease;
+          font-feature-settings: "ss01","cv11","tnum"; }
+  .wrap { max-width: 1340px; margin: 0 auto; background: var(--card);
+           padding: 0; border: 1px solid var(--line);
+           border-radius: var(--radius-lg); position: relative;
+           box-shadow: var(--shadow-card); overflow: hidden; }
+  .rx-watermark { position: absolute; top: -60px; right: -100px; font-family: var(--font-brand);
+                    font-size: 620px; line-height: 1; color: var(--ink-strong);
+                    opacity: 0.015; pointer-events: none; user-select: none; z-index: 0; }
+  [data-theme="light"] .rx-watermark { opacity: 0.025; }
+  .inner { position: relative; z-index: 1; padding: 36px 52px 44px;
+            counter-reset: sec; }
+
+  /* =========================  MASTHEAD  ========================= */
+  .masthead { position: relative; padding-bottom: 18px; margin-bottom: 20px; }
+  .mast-rule-top, .mast-rule-bot { border-top: 2px solid var(--ink-strong);
+                                     position: relative; }
+  .mast-rule-top::after, .mast-rule-bot::after { content: ""; position: absolute;
+                                                    left: 0; right: 0; top: 3px;
+                                                    border-top: 1px solid var(--ink-strong); }
+  .dateline { display: flex; justify-content: space-between; align-items: center;
+                padding: 10px 0; font-family: var(--font-mono); font-size: 10px;
+                color: var(--muted); text-transform: uppercase; letter-spacing: 0.22em;
+                font-weight: 600; }
+  .dateline .dateline-left, .dateline .dateline-right { display: flex; gap: 22px;
+                                                           align-items: center; }
+  .dateline .live { display: inline-flex; align-items: center; gap: 6px;
+                      color: var(--accent); }
+  .dateline .live::before { content: ""; width: 6px; height: 6px; border-radius: 50%;
+                              background: var(--accent);
+                              box-shadow: 0 0 0 3px var(--accent-soft),
+                                          0 0 12px var(--accent); }
+  .mast-title { display: flex; align-items: center; justify-content: center;
+                  gap: 18px; padding: 22px 0 10px; position: relative; }
+  .mast-title .rx-glyph { font-family: var(--font-brand); font-size: 84px;
+                            line-height: 1; color: var(--gold);
+                            text-shadow: 0 0 32px var(--gold-glow);
+                            font-weight: 400; font-style: italic;
+                            letter-spacing: -0.04em; }
+  .mast-title h1 { display: block !important; margin: 0; padding: 0;
+                     font-family: var(--font-brand); font-weight: 900;
+                     font-style: italic; font-size: 84px; line-height: 0.9;
+                     color: var(--ink-strong); letter-spacing: -0.035em;
+                     font-variation-settings: "opsz" 144; }
+  .mast-strap { text-align: center; font-size: 11px; color: var(--muted);
+                  text-transform: uppercase; letter-spacing: 0.32em; font-weight: 600;
+                  margin-top: 6px; }
+  .mast-strap strong { color: var(--ink-strong); font-weight: 700; }
+
+  .theme-toggle { position: absolute; top: 22px; right: 22px; z-index: 3;
+                    border: 1px solid var(--line-strong);
+                    background: var(--btn-bg); color: var(--btn-ink);
+                    padding: 6px 12px; border-radius: 8px; cursor: pointer;
+                    font-size: 11px; font-weight: 600; font-family: var(--font-body);
+                    letter-spacing: 0.04em; transition: all .12s ease; }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* =========================  HERO STRIP  ========================= */
+  .hero-strip { display: grid; gap: 0; margin: 8px 0 28px;
+                  border: 1px solid var(--line);
+                  border-radius: var(--radius-lg); overflow: hidden;
+                  background: var(--card-elev); }
+  .hero-strip.cols-4 { grid-template-columns: 1.4fr 1fr 0.9fr 0.9fr; }
+  .hero-cell { padding: 20px 24px; position: relative;
+                 border-right: 1px solid var(--line);
+                 display: flex; flex-direction: column; gap: 4px; }
+  .hero-cell:last-child { border-right: none; }
+  .hero-cell .lbl { font-family: var(--font-mono); font-size: 9.5px;
+                      color: var(--muted); text-transform: uppercase;
+                      letter-spacing: 0.22em; font-weight: 600; }
+  .hero-cell .val { font-family: var(--font-brand); font-weight: 700;
+                      font-style: italic; line-height: 1;
+                      font-size: 56px; letter-spacing: -0.03em;
+                      color: var(--ink-strong);
+                      font-variant-numeric: tabular-nums;
+                      margin-top: 4px; }
+  .hero-cell .val.money { color: var(--gold);
+                            text-shadow: 0 0 32px var(--gold-glow); }
+  .hero-cell .val.danger { color: var(--danger); }
+  .hero-cell .sub { color: var(--muted); font-size: 11px;
+                      letter-spacing: 0.04em; font-weight: 500; }
+  .hero-cell .sub .up { color: var(--money); font-weight: 700;
+                           font-variant-numeric: tabular-nums; }
+  .hero-cell.hero-alarms .val { display: flex; align-items: center; gap: 14px;
+                                  color: var(--money); }
+  .hero-cell.hero-alarms.has-alarms .val { color: var(--danger); }
+  .hero-cell.hero-alarms .dot { display: inline-block; width: 12px; height: 12px;
+                                  border-radius: 50%; background: var(--money);
+                                  box-shadow: 0 0 18px var(--money-glow);
+                                  animation: pulse 2.2s infinite; }
+  .hero-cell.hero-alarms.has-alarms .dot { background: var(--danger);
+                                             box-shadow: 0 0 18px var(--danger-glow); }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+  /* =========================  DISPATCH  ========================= */
+  .dispatch { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px;
+                margin: 0 0 28px; padding: 22px 0 24px;
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line); }
+  .dispatch .lede-section { position: relative; padding-left: 26px; }
+  .dispatch .lede-section::before { content: "℞ DISPATCH";
+                                       display: block; position: absolute; left: 0;
+                                       writing-mode: vertical-rl; transform: rotate(180deg);
+                                       font-family: var(--font-mono); font-size: 9px;
+                                       letter-spacing: 0.32em; color: var(--accent);
+                                       font-weight: 700; top: 0;
+                                       border-left: 1px solid var(--accent);
+                                       padding: 4px 0; }
+  .dispatch .lede { font-family: var(--font-brand); font-weight: 400;
+                      font-size: 22px; line-height: 1.35;
+                      color: var(--ink-strong); letter-spacing: -0.01em;
+                      font-variation-settings: "opsz" 24; }
+  .dispatch .lede .drop { float: left; font-family: var(--font-brand); font-weight: 900;
+                             font-style: italic; font-size: 68px; line-height: 0.85;
+                             color: var(--gold); padding: 4px 12px 0 0;
+                             letter-spacing: -0.04em;
+                             font-variation-settings: "opsz" 144; }
+  .dispatch .lede strong { color: var(--ink-strong); font-weight: 700; }
+  .dispatch .pulse-panel { border-left: 1px solid var(--line);
+                              padding-left: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .dispatch .pulse-head { font-family: var(--font-mono); font-size: 9.5px;
+                             color: var(--muted); text-transform: uppercase;
+                             letter-spacing: 0.28em; font-weight: 700; }
+  .pulse-row { display: flex; align-items: baseline; justify-content: space-between;
+                 gap: 10px; padding: 4px 0; border-bottom: 1px dotted var(--line); }
+  .pulse-row:last-child { border-bottom: none; }
+  .pulse-row .pl-lbl { font-size: 11px; color: var(--muted);
+                          text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;
+                          display: flex; align-items: center; gap: 8px; }
+  .pulse-row .pl-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .pulse-row .pl-dot.d-crit { background: var(--danger);
+                                 box-shadow: 0 0 10px var(--danger-glow); }
+  .pulse-row .pl-dot.d-watch { background: var(--warn); }
+  .pulse-row .pl-dot.d-stable { background: var(--money); }
+  .pulse-row .pl-dot.d-manual { background: var(--faint); }
+  .pulse-row .pl-val { font-family: var(--font-brand); font-weight: 700;
+                          font-style: italic; font-size: 28px; line-height: 1;
+                          color: var(--ink-strong);
+                          font-variant-numeric: tabular-nums; }
+
+  /* =========================  HEATMAP  ========================= */
+  .heatmap { margin: 0 0 28px; padding: 16px 20px;
+               border: 1px solid var(--line); border-radius: var(--radius);
+               background: var(--card-elev); }
+  .heat-head { display: flex; align-items: center; justify-content: space-between;
+                 gap: 10px; margin-bottom: 10px; }
+  .heat-title { font-family: var(--font-mono); font-size: 9.5px;
+                  color: var(--muted); text-transform: uppercase;
+                  letter-spacing: 0.24em; font-weight: 700; }
+  .heat-legend { display: flex; gap: 14px; font-size: 10px; color: var(--muted);
+                   text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+  .heat-legend .lg-item { display: inline-flex; align-items: center; gap: 6px; }
+  .heat-legend .lg-swatch { width: 10px; height: 10px; border-radius: 2px; }
+  .heat-legend .lg-swatch.lg-crit { background: var(--danger); }
+  .heat-legend .lg-swatch.lg-watch { background: var(--warn); }
+  .heat-legend .lg-swatch.lg-stable { background: var(--money); }
+  .heat-legend .lg-swatch.lg-manual { background: var(--faint); }
+  .heat-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(18px, 1fr));
+                  gap: 4px; }
+  .heat-tiles .tile { aspect-ratio: 1; border-radius: 3px; cursor: help;
+                         transition: transform .15s ease; }
+  .heat-tiles .tile:hover { transform: scale(1.6); z-index: 2; position: relative; }
+  .heat-tiles .tile.tile-critical { background: var(--danger);
+                                       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15),
+                                                   0 0 10px rgba(248,113,113,0.4); }
+  .heat-tiles .tile.tile-watch { background: var(--warn); }
+  .heat-tiles .tile.tile-stable { background: var(--money); opacity: 0.75; }
+  .heat-tiles .tile.tile-manual { background: var(--faint); opacity: 0.5; }
+
+  .toc-nav { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 26px;
+               padding: 10px 0; border-top: 1px solid var(--line);
+               border-bottom: 1px solid var(--line); }
+  .toc-nav a { font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+                 letter-spacing: 0.18em; text-transform: uppercase;
+                 padding: 6px 12px; border-radius: 4px; text-decoration: none;
+                 color: var(--muted); background: transparent;
+                 border: 1px solid transparent; transition: all .12s ease; }
+  .toc-nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* =========================  SECTION HEADINGS  ========================= */
+  h1 { display: none; }
+  h2 { font-family: var(--font-brand) !important;
+         font-size: 30px !important; font-weight: 700 !important;
+         font-style: italic !important;
+         margin: 36px 0 6px !important; padding: 0 !important;
+         color: var(--ink-strong) !important; letter-spacing: -0.02em;
+         line-height: 1.1 !important;
+         display: flex !important; align-items: baseline; gap: 16px;
+         border-top: none !important; border-bottom: none !important;
+         font-variation-settings: "opsz" 48; }
+  h2::before { content: "§ " counter(sec, upper-roman);
+                 counter-increment: sec;
+                 font-family: var(--font-mono); font-size: 10.5px;
+                 color: var(--accent); letter-spacing: 0.20em; font-weight: 700;
+                 padding: 5px 10px; border-radius: 4px;
+                 background: var(--accent-soft);
+                 font-style: normal; flex-shrink: 0; line-height: 1;
+                 align-self: center; }
+  h2 + p { color: var(--muted) !important; font-size: 14px !important;
+             margin: 0 0 18px !important; max-width: 820px;
+             font-style: italic; font-family: var(--font-brand);
+             line-height: 1.5 !important; }
+
+  /* =========================  TABLES  ========================= */
+  table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px;
+           border-radius: var(--radius); overflow: hidden;
+           border: 1px solid var(--line);
+           font-variant-numeric: tabular-nums; }
+  th { background: var(--panel); color: var(--th-ink); text-align: left;
+        padding: 11px 12px; font-weight: 700; font-size: 10.5px;
+        text-transform: uppercase; letter-spacing: 0.14em;
+        border-bottom: 1px solid var(--line-strong); }
+  td { border-bottom: 1px solid var(--line); padding: 13px 12px;
+        vertical-align: top; color: var(--ink); }
+  tbody tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--row-hover); }
+
+  .pill-severe, .pill-load, .pill-watch, .pill-stable, .pill-manual {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.10em; white-space: nowrap;
+    font-family: var(--font-body); }
+  .pill-severe { background: var(--pill-severe-bg); color: var(--pill-severe-fg);
+                   box-shadow: 0 0 16px rgba(239,68,68,0.15); }
+  .pill-load   { background: var(--pill-load-bg);   color: var(--pill-load-fg); }
+  .pill-watch  { background: var(--pill-watch-bg);  color: var(--pill-watch-fg); }
+  .pill-stable { background: var(--pill-stable-bg); color: var(--pill-stable-fg); }
+  .pill-manual { background: rgba(148,163,184,0.15); color: var(--muted); }
+
+  /* =========================  CASE-FILE CARDS  ========================= */
+  .well-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                  gap: 16px; margin: 4px 0 12px; }
+  .well-card { position: relative; background: var(--card-elev);
+                 border: 1px solid var(--line); border-radius: var(--radius);
+                 padding: 16px 18px 16px 22px; font-size: 12px; color: var(--ink);
+                 page-break-inside: avoid; display: flex; flex-direction: column;
+                 overflow: hidden; transition: border-color .15s ease, transform .15s ease; }
+  .well-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+                         width: 4px; background: var(--line-strong); }
+  .well-card.card-accent-red::before  { background: linear-gradient(180deg, #ef4444, #b91c1c);
+                                           box-shadow: 0 0 28px rgba(239,68,68,0.45); }
+  .well-card.card-accent-amber::before { background: linear-gradient(180deg, #f59e0b, #b45309);
+                                            box-shadow: 0 0 22px rgba(245,158,11,0.28); }
+  .well-card.card-accent-green::before { background: linear-gradient(180deg, #34d399, #059669); }
+  .well-card.card-accent-gray::before  { background: var(--line-strong); }
+  .well-card:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+  .card-head { display: flex; justify-content: space-between; align-items: center;
+                 gap: 10px; margin-bottom: 8px;
+                 padding-bottom: 6px; border-bottom: 1px dotted var(--line); }
+  .case-num { font-family: var(--font-mono); font-size: 9.5px;
+                color: var(--muted); letter-spacing: 0.20em; text-transform: uppercase;
+                font-weight: 700; }
+  .card-pill { padding: 3px 10px; border-radius: 999px; font-size: 9.5px;
+                 font-weight: 700; text-transform: uppercase; white-space: nowrap;
+                 letter-spacing: 0.12em; }
+  .card-name { font-family: var(--font-brand); font-weight: 700; font-style: italic;
+                 font-size: 24px; line-height: 1.05; color: var(--ink-strong);
+                 letter-spacing: -0.02em; font-variation-settings: "opsz" 32; }
+  .card-lease { color: var(--muted); font-family: var(--font-mono); font-size: 9.5px;
+                  margin-top: 4px; text-transform: uppercase; letter-spacing: 0.18em;
+                  font-weight: 600; }
+  .card-lift { color: var(--muted); font-size: 11px; margin: 6px 0 12px;
+                 font-variant-numeric: tabular-nums;
+                 display: flex; align-items: center; gap: 8px; }
+  .card-lift strong { color: var(--ink-strong); font-weight: 700; }
+  .card-lift .lift-dot { width: 6px; height: 6px; border-radius: 50%;
+                           background: var(--accent);
+                           box-shadow: 0 0 0 3px var(--accent-soft); }
+  .card-share-chip { display: inline-flex; align-items: center; gap: 6px;
+                       font-family: var(--font-mono); font-size: 9px;
+                       text-transform: uppercase; letter-spacing: 0.14em;
+                       font-weight: 600; padding: 3px 9px; border-radius: 999px;
+                       background: rgba(251,191,36,0.10); color: var(--warn);
+                       border: 1px solid rgba(251,191,36,0.26);
+                       margin: 4px 0 8px; align-self: flex-start; }
+  .card-share-chip.chip-cdp { background: rgba(56,189,248,0.10); color: var(--accent);
+                                border-color: rgba(56,189,248,0.26); }
+  .pumper-entry-row { display: flex; align-items: center; gap: 10px;
+                        margin: 6px 0 10px; padding: 8px 10px;
+                        background: rgba(148,163,184,0.06);
+                        border: 1px dashed var(--line-strong);
+                        border-radius: 6px; font-size: 10.5px; }
+  .pumper-entry-chip { font-family: var(--font-mono); font-size: 9px;
+                         font-weight: 700; letter-spacing: 0.18em;
+                         text-transform: uppercase; padding: 3px 9px;
+                         border-radius: 999px;
+                         background: rgba(251,191,36,0.12); color: var(--warn);
+                         border: 1px solid rgba(251,191,36,0.28); white-space: nowrap; }
+  .pumper-entry-fields { color: var(--muted); font-family: var(--font-mono);
+                           font-size: 10px; letter-spacing: 0.08em; }
+
+  .chart-label { font-family: var(--font-mono); font-size: 8.5px;
+                   color: var(--muted); text-transform: uppercase;
+                   letter-spacing: 0.22em; margin: 2px 0 6px; font-weight: 700;
+                   display: flex; align-items: center; justify-content: space-between; }
+  .chart-frame { position: relative; padding: 6px 8px; margin-bottom: 12px;
+                   border: 1px solid var(--line); border-radius: 6px;
+                   background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+                   overflow: hidden; }
+  .chart-frame::before, .chart-frame::after {
+     content: ""; position: absolute; top: 0; bottom: 0; width: 1px;
+     background: repeating-linear-gradient(180deg, var(--line) 0, var(--line) 2px,
+                                            transparent 2px, transparent 6px); }
+  .chart-frame::before { left: 25%; }
+  .chart-frame::after { left: 75%; }
+  [data-theme="light"] .chart-frame { background: linear-gradient(180deg, rgba(2,132,199,0.025), transparent); }
+  .well-chart { width: 100%; max-width: 100%; display: block; background: transparent;
+                  height: 90px; position: relative; z-index: 1; }
+  .chart-missing { color: var(--muted); font-size: 11px; font-style: italic;
+                     padding: 28px 0; text-align: center; }
+
+  .card-kpis { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 10px; }
+  .kpi-pair { display: grid; grid-template-columns: 1fr 1fr; row-gap: 2px; column-gap: 12px;
+                padding: 6px 0; border-bottom: 1px dotted var(--line); }
+  .kpi-pair:last-child { border-bottom: none; }
+  .kpi-pair .lbl { color: var(--muted); font-family: var(--font-mono); font-size: 9px;
+                     text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; }
+  .kpi-pair .val { font-size: 15px; font-weight: 700; color: var(--ink-strong);
+                     font-variant-numeric: tabular-nums;
+                     font-family: var(--font-brand); font-style: italic;
+                     letter-spacing: -0.01em; }
+  .kpi-pair .val .arrow { font-size: 11px; font-style: normal; }
+  .kpi-pair .val.small { font-size: 12px; font-weight: 500; }
+  .kpi-pair .val.neg { color: var(--danger); }
+  .kpi-pair .val.pos { color: var(--money); }
+
+  .press-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .press-tags .tag { font-family: var(--font-mono); font-size: 9.5px; font-weight: 600;
+                       padding: 4px 10px; border-radius: 4px; letter-spacing: 0.14em;
+                       text-transform: uppercase;
+                       background: rgba(251,191,36,0.10); color: var(--warn);
+                       border: 1px solid rgba(251,191,36,0.22); }
+  .press-tags .tag em { font-style: normal; color: var(--ink-strong); font-weight: 700;
+                          margin-left: 4px; }
+  .press-tags .tag-csg { background: rgba(56,189,248,0.10); color: var(--accent);
+                           border-color: rgba(56,189,248,0.26); }
+  .press-tags .tag-line { background: rgba(251,191,36,0.10); color: var(--warn);
+                            border-color: rgba(251,191,36,0.22); }
+  [data-theme="light"] .press-tags .tag { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+  [data-theme="light"] .press-tags .tag-csg { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+  [data-theme="light"] .press-tags .tag-line { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+
+  .rec-box { background: linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(245,158,11,0.14) 100%);
+               color: var(--warn);
+               border: 1px solid rgba(251,191,36,0.24);
+               border-left: 3px solid var(--gold);
+               padding: 10px 12px 11px; border-radius: 0 8px 8px 0;
+               font-size: 11px; line-height: 1.5; margin-top: auto; }
+  [data-theme="light"] .rec-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+                                     color: #78350f; border-color: #fcd34d;
+                                     border-left-color: #d97706; }
+  .rec-box .rec-head { font-family: var(--font-mono); font-size: 9px;
+                         color: var(--gold); text-transform: uppercase;
+                         letter-spacing: 0.24em; font-weight: 700;
+                         margin-bottom: 4px; }
+  [data-theme="light"] .rec-box .rec-head { color: #b45309; }
+  .rec-box .rec-body { color: var(--ink); font-size: 12px; font-weight: 500;
+                         line-height: 1.5; }
+  [data-theme="light"] .rec-box .rec-body { color: #78350f; }
+  .rec-box .triggers { color: var(--muted); font-size: 10.5px; margin-top: 6px;
+                         padding-top: 6px; border-top: 1px dotted rgba(251,191,36,0.3); }
+  [data-theme="light"] .rec-box .triggers { color: #92400e; }
+  .rec-box .triggers .trig-lbl { font-family: var(--font-mono); font-size: 8.5px;
+                                    letter-spacing: 0.20em; text-transform: uppercase;
+                                    font-weight: 700; margin-right: 4px;
+                                    color: var(--gold); }
+  [data-theme="light"] .rec-box .triggers .trig-lbl { color: #b45309; }
+
+  /* =========================  MASTHEAD FOOTER  ========================= */
+  .foot { color: var(--muted); font-size: 11px; margin-top: 52px;
+           padding-top: 20px;
+           border-top: 2px solid var(--ink-strong);
+           position: relative; }
+  .foot::before { content: ""; position: absolute; left: 0; right: 0; top: 3px;
+                     border-top: 1px solid var(--ink-strong); }
+  .foot-inner { display: flex; justify-content: space-between; align-items: flex-end;
+                  gap: 24px; padding-top: 10px; }
+  .foot-brand { font-family: var(--font-brand); font-weight: 900; font-style: italic;
+                  font-size: 40px; line-height: 1; color: var(--ink-strong);
+                  letter-spacing: -0.03em; }
+  .foot-meta { font-family: var(--font-mono); font-size: 9.5px; color: var(--muted);
+                 text-transform: uppercase; letter-spacing: 0.20em; font-weight: 600;
+                 text-align: center; flex: 1; }
+  .foot-meta .sep { color: var(--faint); padding: 0 8px; }
+  .foot-rx { font-family: var(--font-brand); font-size: 64px; line-height: 1;
+               color: var(--gold); opacity: 0.5; text-shadow: 0 0 24px var(--gold-glow);
+               font-weight: 400; font-style: italic;
+               font-variation-settings: "opsz" 144; }
+</style>
+<style>
+  .fh-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+             margin: 24px 0 18px; }
+  .fh-kpi .cell { background: var(--card); border: 1px solid var(--line);
+                    border-radius: 10px; padding: 16px 18px; position: relative; overflow: hidden; }
+  .fh-kpi .cell::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+  .fh-kpi .cell.up::before   { background: var(--money); }
+  .fh-kpi .cell.dn::before   { background: var(--danger); }
+  .fh-kpi .cell.warn::before { background: var(--warn); }
+  .fh-kpi .cell.neutral::before { background: var(--accent); }
+  .fh-kpi .lbl { font-family: var(--font-mono); font-size: 10px;
+                   color: var(--muted); text-transform: uppercase; letter-spacing: 0.22em; font-weight: 700; }
+  .fh-kpi .val { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                   font-size: 40px; line-height: 1.02; color: var(--ink-strong); margin: 6px 0 2px;
+                   font-variation-settings: "opsz" 72; }
+  .fh-kpi .val.money { color: var(--money); }
+  .fh-kpi .val.danger { color: var(--danger); }
+  .fh-kpi .sub { font-size: 11px; color: var(--muted); }
+  .fh-kpi .delta { display: inline-block; padding: 2px 8px; border-radius: 999px;
+                     font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
+                     letter-spacing: 0.14em; margin-left: 8px; }
+  .delta.up   { background: rgba(52,211,153,0.14); color: var(--money); }
+  .delta.dn   { background: rgba(248,113,113,0.14); color: var(--danger); }
+  .delta.flat { background: rgba(148,163,184,0.14); color: var(--muted); }
+
+  .sec-head-wrap { margin: 40px 0 14px; }
+  .sec-head { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+    font-size: 34px; letter-spacing: -0.015em; margin: 0 0 8px; color: var(--ink-strong);
+    font-variation-settings: "opsz" 72; display: flex; align-items: baseline; gap: 14px; }
+  .sec-head::before { content: "§ " attr(data-num);
+    font-family: var(--font-mono); font-size: 11px; font-style: normal;
+    font-weight: 700; letter-spacing: 0.24em; color: var(--muted);
+    text-transform: uppercase; }
+  .sec-lede { font-size: 13.5px; color: var(--muted); line-height: 1.65; max-width: 820px; }
+  .sec-lede strong { color: var(--ink); }
+
+  /* Decision cards */
+  .decision-stack { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 14px 0 6px; }
+  .decision { background: var(--card-elev); border: 1px solid var(--line);
+              border-radius: 10px; padding: 16px 18px 14px; position: relative;
+              display: grid; grid-template-columns: 1fr 200px; gap: 20px;
+              align-items: start; }
+  .decision::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+                        border-radius: 10px 0 0 10px; }
+  .decision.emergency::before { background: var(--danger); box-shadow: 0 0 22px rgba(239,68,68,0.45); }
+  .decision.approve::before { background: var(--money); }
+  .decision.budget::before { background: var(--gold); }
+  .decision.scheduling::before { background: var(--accent); }
+  .decision .kicker { font-family: var(--font-mono); font-size: 9.5px;
+                        text-transform: uppercase; letter-spacing: 0.24em; font-weight: 700;
+                        margin-bottom: 4px; }
+  .decision.emergency .kicker { color: var(--danger); }
+  .decision.approve .kicker   { color: var(--money); }
+  .decision.budget .kicker    { color: var(--gold); }
+  .decision.scheduling .kicker { color: var(--accent); }
+  .decision h3 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                   font-size: 22px; margin: 0 0 6px; color: var(--ink-strong);
+                   font-variation-settings: "opsz" 48; }
+  .decision p { margin: 0 0 8px; font-size: 12.5px; line-height: 1.6; color: var(--ink); }
+  .decision p strong { color: var(--ink-strong); }
+  .decision .d-meta { background: rgba(148,163,184,0.04); border: 1px solid var(--line);
+                         border-radius: 8px; padding: 10px 12px; font-size: 11px; line-height: 1.55; }
+  .decision .d-meta .row { display: flex; justify-content: space-between;
+                              padding: 4px 0; border-bottom: 1px dotted var(--line); }
+  .decision .d-meta .row:last-child { border-bottom: none; }
+  .decision .d-meta .k { color: var(--muted); font-family: var(--font-mono);
+                            font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; }
+  .decision .d-meta .v { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .decision .d-meta .v.money { color: var(--money); }
+  .decision .d-meta .v.danger { color: var(--danger); }
+
+  /* Data tables */
+  .data-table { width: 100%; border-collapse: collapse; font-size: 12px;
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 8px 0; }
+  .data-table th { background: rgba(148,163,184,0.06); padding: 9px 12px;
+    font-size: 9.5px; font-family: var(--font-mono); text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--muted); text-align: left;
+    border-bottom: 1px solid var(--line); font-weight: 700; }
+  .data-table td { padding: 8px 12px; border-bottom: 1px solid var(--line); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+  .data-table td.mono { font-family: var(--font-mono); font-size: 10.5px; }
+  .data-table tr:hover { background: var(--row-hover); }
+
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 999px;
+            font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.18em; }
+  .pill.red   { background: rgba(239,68,68,0.14);  color: var(--danger); }
+  .pill.amber { background: rgba(251,191,36,0.14); color: var(--warn); }
+  .pill.green { background: rgba(52,211,153,0.14); color: var(--money); }
+  .pill.blue  { background: rgba(56,189,248,0.14); color: var(--accent); }
+  .pill.gray  { background: rgba(148,163,184,0.14); color: var(--muted); }
+
+  /* Route cards */
+  .route-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 12px 0; }
+  .route-card { background: var(--card); border: 1px solid var(--line);
+                  border-radius: 10px; padding: 16px 18px; }
+  .route-card .rc-head { display: flex; justify-content: space-between; align-items: baseline;
+                           padding-bottom: 8px; border-bottom: 1px dotted var(--line); margin-bottom: 10px; }
+  .route-card .rc-title { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                            font-size: 20px; color: var(--ink-strong);
+                            font-variation-settings: "opsz" 48; }
+  .route-card .rc-sub { font-family: var(--font-mono); font-size: 9.5px;
+                          color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; }
+  .route-card .rc-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .route-card .rc-stats .s { text-align: center; }
+  .route-card .rc-stats .s .sv { font-family: var(--font-brand); font-style: italic;
+                                    font-weight: 700; font-size: 26px; color: var(--ink-strong);
+                                    line-height: 1; font-variation-settings: "opsz" 48; }
+  .route-card .rc-stats .s .sl { font-family: var(--font-mono); font-size: 8.5px;
+                                    color: var(--muted); text-transform: uppercase;
+                                    letter-spacing: 0.18em; font-weight: 700; margin-top: 4px; }
+  .route-card .rc-note { margin-top: 10px; padding-top: 8px; border-top: 1px dotted var(--line);
+                           font-size: 11.5px; color: var(--ink); line-height: 1.55; }
+
+  /* Gainers / losers two-up */
+  .mover-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 10px 0; }
+  .mover-panel { background: var(--card); border: 1px solid var(--line);
+                   border-radius: 10px; padding: 14px 16px; }
+  .mover-head { display: flex; justify-content: space-between; align-items: baseline;
+                  margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px dotted var(--line); }
+  .mover-head .mh-title { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                            font-size: 18px; color: var(--ink-strong);
+                            font-variation-settings: "opsz" 48; }
+  .mover-head .mh-title.up { color: var(--money); }
+  .mover-head .mh-title.dn { color: var(--danger); }
+
+  /* Fleet roll-up */
+  .rollup { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 10px 0; }
+  .rollup .rcell { background: var(--card); border: 1px solid var(--line);
+                     border-radius: 8px; padding: 12px 14px; text-align: center; }
+  .rollup .rcell .rv { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                         font-size: 24px; color: var(--ink-strong); line-height: 1;
+                         font-variation-settings: "opsz" 48; }
+  .rollup .rcell .rl { font-family: var(--font-mono); font-size: 9px;
+                         color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em;
+                         font-weight: 700; margin-top: 6px; }
+  @media (max-width: 1000px) {
+    .rollup { grid-template-columns: repeat(3, 1fr); }
+    .fh-kpi { grid-template-columns: repeat(2, 1fr); }
+    .decision { grid-template-columns: 1fr; }
+    .route-grid, .mover-grid { grid-template-columns: 1fr; }
+  }
+
+  .dim { color: var(--faint); }
+  .money-ink { color: var(--money); }
+  .danger-ink { color: var(--danger); }
+  .warn-ink { color: var(--warn); }
+</style>
+</head>
+<body><div class="wrap">
+<button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">☀ Light</button>
+<div class="rx-watermark">℞</div>
+<div class="inner">
+  <header class="masthead">
+    <div class="mast-rule-top"></div>
+    <div class="dateline">
+      <div class="dateline-left">
+        <span>Vol. I · No. 478</span>
+        <span class="live">Live · Real-time SCADA</span>
+      </div>
+      <div class="dateline-right">
+        <span>Thursday · April 23, 2026</span>
+      </div>
+    </div>
+    <div class="mast-title">
+      <span class="rx-glyph">℞</span>
+      <h1>The WellRX Daily</h1>
+    </div>
+    <div class="mast-strap">An Operations Desk Brief for <strong>Meridian Operating</strong> · Production · Foremen · Engineering</div>
+    <div class="mast-rule-bot" style="margin-top:14px;"></div>
+  </header>  <div class="fh-kpi">
+    <div class="cell up">
+      <div class="lbl">Production · 24h</div>
+      <div class="val">16,094<span style="font-size:14px;color:var(--muted);"> MCF</span>
+        <span class="delta up">+4.7%</span>
+      </div>
+      <div class="sub">vs 15,371 MCF 7-day average</div>
+    </div>
+    <div class="cell neutral">
+      <div class="lbl">Revenue Today</div>
+      <div class="val money">$56,329</div>
+      <div class="sub">$3.50/MCF basis · +$2,530 vs 7d</div>
+    </div>
+    <div class="cell warn">
+      <div class="lbl">Active Alarms · 24h</div>
+      <div class="val">6<span style="font-size:14px;color:var(--muted);"> open</span></div>
+      <div class="sub">2 cleared overnight · 4 unresolved to triage</div>
+    </div>
+    <div class="cell dn">
+      <div class="lbl">Wells in Intervention</div>
+      <div class="val danger">8</div>
+      <div class="sub">4 chemistry trials · 4 live-but-dark RTU recovery</div>
+    </div>
+  </div>  <div class="dispatch">
+    <div class="lede-section">
+      <p class="lede"><strong>Good morning.</strong> Yesterday's print: <strong>16,094 MCF</strong>, running <strong style='color:var(--money);'>+4.7%</strong> above the 7-day trend. That's a clean number — but the trend is hiding real production slippage because <strong>31% of our devices (58 of 185) are dark 14d+</strong>.</p><p class='lede'>Today's must-do: resolve the Stanhope/Ashcroft gathering event — ten meters are moving together, which is one compressor or one line, not ten wells. Recovery on the fix is ~$21k/mo. Plus a four-site I&amp;E sweep to recover ~$40k/mo of invisible gas. Five decisions below, ordered by cost-of-delay.</p>
+    </div>
+    <aside class="pulse-panel">
+      <div class="pulse-head">Portfolio Pulse</div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-crit"></span>Declining</span>
+        <span class="pl-val">31</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-crit"></span>Loading</span>
+        <span class="pl-val">4</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-watch"></span>Low FT</span>
+        <span class="pl-val">17</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-manual"></span>Offline</span>
+        <span class="pl-val">58</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-stable"></span>Stable</span>
+        <span class="pl-val">57</span>
+      </div>
+    </aside>
+  </div>  <nav class="toc-nav" aria-label="Sections">
+    <a href="#decisions">§ I · Decisions</a>
+    <a href="#interventions">§ II · Interventions</a>
+    <a href="#alarms">§ III · Alarms 24h</a>
+    <a href="#routes">§ IV · Route Perf</a>
+    <a href="#movers">§ V · Movers</a>
+    <a href="#chemistry">§ VI · Chemistry</a>
+    <a href="#capital">§ VII · Capital</a>
+    <a href="#rollup">§ VIII · Roll-up</a>
+  </nav>  <div class="heatmap">
+    <div class="heat-head">
+      <span class="heat-title">Fleet Pulse · 185 wells · Apr 23</span>
+      <span class="heat-legend">
+        <span class="lg-item"><span class="lg-swatch lg-crit"></span>Critical</span>
+        <span class="lg-item"><span class="lg-swatch lg-watch"></span>Watch</span>
+        <span class="lg-item"><span class="lg-swatch lg-stable"></span>Stable</span>
+        <span class="lg-item"><span class="lg-swatch lg-manual"></span>Manual only</span>
+      </span>
+    </div>
+    <div class="heat-tiles"><span class="tile lg-crit" title="Lyman 3 · BATTERY"></span><span class="tile lg-crit" title="Lyman Sales Chk · DECLINING"></span><span class="tile lg-stable" title="BEAUFORT 2 3 4 ENBRIDGE SALES CHK · STABLE"></span><span class="tile lg-crit" title="BEAUFORT GU 3H · ZERO_FLOW"></span><span class="tile lg-manual" title="BRADFORD ECHO 006H · OFFLINE"></span><span class="tile lg-crit" title="Barrett #1 · DECLINING"></span><span class="tile lg-crit" title="Barrett #3 · DECLINING"></span><span class="tile lg-manual" title="TREVINO G A 010 · OFFLINE"></span><span class="tile lg-stable" title="TREVINO G A 03 04 06 09 SALES CHK · STABLE"></span><span class="tile lg-manual" title="TREVINO G A 05 10 SALES CHK · OFFLINE"></span><span class="tile lg-stable" title="TREVINO G A 07 08 11 &amp; FAIRMONT SALES CHK · STABLE"></span><span class="tile lg-crit" title="Ridgewood South 1H · DECLINING"></span><span class="tile lg-crit" title="Holloway #1 · LOADING"></span><span class="tile lg-crit" title="Holloway #1 Injection · ZERO_FLOW"></span><span class="tile lg-watch" title="Baxter #1 Alloc · STALE_RTU"></span><span class="tile lg-stable" title="Mansfield 6 · STABLE"></span><span class="tile lg-stable" title="Mansfield Wolford Sales CK · STABLE"></span><span class="tile lg-watch" title="Stanhope #1 Alloc · LOW_FT"></span><span class="tile lg-manual" title="Stanhope #2 Alloc · NO_DATA"></span><span class="tile lg-crit" title="Stanhope #3 Alloc · DECLINING"></span><span class="tile lg-stable" title="Stanhope #4 Alloc · STABLE"></span><span class="tile lg-stable" title="Stanhope #5 Alloc · STABLE"></span><span class="tile lg-manual" title="Stanhope 1/4/5 CTB · NO_DATA"></span><span class="tile lg-stable" title="ELLINGTON GU 002 · STABLE"></span><span class="tile lg-crit" title="Echo Bradford 2-1H · ZERO_FLOW"></span><span class="tile lg-stable" title="SALADO CREEK 002 · STABLE"></span><span class="tile lg-stable" title="SALADO CREEK 003 · STABLE"></span><span class="tile lg-stable" title="SALADO CREEK 007 · STABLE"></span><span class="tile lg-manual" title="SALADO CREEK 010 · OFFLINE"></span><span class="tile lg-crit" title="SALADO CREEK 011 · ZERO_FLOW"></span><span class="tile lg-manual" title="SALADO CREEK 012 · OFFLINE"></span><span class="tile lg-stable" title="SALADO CREEK 014 · STABLE"></span><span class="tile lg-stable" title="SALADO CREEK 023 · STABLE"></span><span class="tile lg-stable" title="SALADO CREEK 024 · STABLE"></span><span class="tile lg-watch" title="SALADO CREEK 027 · LOW_FT"></span><span class="tile lg-stable" title="Salado Creek 2,3&amp;7 CM · STABLE"></span><span class="tile lg-manual" title="Salado Creek 8,9 &amp; 15 (GSP #988) · OFFLINE"></span><span class="tile lg-stable" title="Bancroft #1 Alloc · STABLE"></span><span class="tile lg-crit" title="Bancroft #2H Alloc · DECLINING"></span><span class="tile lg-crit" title="Bancroft Sales Chk · DECLINING"></span><span class="tile lg-watch" title="Cogswell #1 · LOW_FT"></span><span class="tile lg-manual" title="Crenshaw 1 · OFFLINE"></span><span class="tile lg-manual" title="CRENSHAW 1 (DCP) · OFFLINE"></span><span class="tile lg-stable" title="Crenshaw DCP Check · STABLE"></span><span class="tile lg-manual" title="Ramsey Fields 1 · OFFLINE"></span><span class="tile lg-manual" title="Ramsey Fields 2H · OFFLINE"></span><span class="tile lg-crit" title="Ramsey Fields 2H Gas Lift · LOADING"></span><span class="tile lg-crit" title="Ramsey Fields 3H · DECLINING"></span><span class="tile lg-manual" title="Ramsey Fields 3H Gas Lift · OFFLINE"></span><span class="tile lg-crit" title="Ramsey Fields Buy Back · DECLINING"></span><span class="tile lg-crit" title="Ramsey Fields Sales Check · DECLINING"></span><span class="tile lg-stable" title="VINTON 004H · STABLE"></span><span class="tile lg-stable" title="VINTON 005H · STABLE"></span><span class="tile lg-stable" title="VINTON 4H &amp; 5H SALES CHK · STABLE"></span><span class="tile lg-crit" title="Amelia Kirk #2H · DECLINING"></span><span class="tile lg-manual" title="Amelia Kirk #3 · OFFLINE"></span><span class="tile lg-crit" title="Amelia Kirk Sales Check · DECLINING"></span><span class="tile lg-watch" title="Dewsbury 1 · LOW_FT"></span><span class="tile lg-watch" title="Kirby #1 Alloc · LOW_FT"></span><span class="tile lg-watch" title="Kirby #3 Alloc · LOW_FT"></span><span class="tile lg-manual" title="Kirby 1/Stanhope #3 CTB · NO_DATA"></span><span class="tile lg-manual" title="Eldridge Sales Check · OFFLINE"></span><span class="tile lg-manual" title="Marsh 1-H · OFFLINE"></span><span class="tile lg-manual" title="Marsh 1H Logbook · NO_DATA"></span><span class="tile lg-crit" title="HARMON PIERCE GU 001 · ZERO_FLOW"></span><span class="tile lg-watch" title="HARMON-PIERCE GREGGTON SALES CHK · LOW_FT"></span><span class="tile lg-stable" title="HARMON-PIERCE DONALDSON · STABLE"></span><span class="tile lg-crit" title="GALLATIN 002 · DECLINING"></span><span class="tile lg-manual" title="Garland #2 · OFFLINE"></span><span class="tile lg-stable" title="Garland CDP · STABLE"></span><span class="tile lg-stable" title="BRIGHTON #4 (HC) · STABLE"></span><span class="tile lg-stable" title="BRIGHTON 001 · STABLE"></span><span class="tile lg-manual" title="BRIGHTON 002, 004, 005, 011 SALES CHK · OFFLINE"></span><span class="tile lg-stable" title="BRIGHTON 003 · STABLE"></span><span class="tile lg-stable" title="BRIGHTON 010 · STABLE"></span><span class="tile lg-manual" title="BRIGHTON 011 · OFFLINE"></span><span class="tile lg-stable" title="BRIGHTON 012 · STABLE"></span><span class="tile lg-stable" title="BRIGHTON 013 · STABLE"></span><span class="tile lg-stable" title="BRIGHTON 013 Gas Lift · STABLE"></span><span class="tile lg-manual" title="BRIGHTON 014 · OFFLINE"></span><span class="tile lg-manual" title="BRIGHTON 015 · OFFLINE"></span><span class="tile lg-stable" title="BRIGHTON 020 · STABLE"></span><span class="tile lg-stable" title="BRIGHTON 022 · STABLE"></span><span class="tile lg-stable" title="BRIGHTON 05 24 CDP · STABLE"></span><span class="tile lg-manual" title="Brighton 3,9 &amp; 10 · OFFLINE"></span><span class="tile lg-manual" title="GRAYSON 1 (DCP) · OFFLINE"></span><span class="tile lg-manual" title="GREENVILLE MGU 001 C/M  · OFFLINE"></span><span class="tile lg-crit" title="Cypress Landing Sales · DECLINING"></span><span class="tile lg-manual" title="HALSTEAD MERCER 15H · OFFLINE"></span><span class="tile lg-manual" title="HALSTEAD MERCER 2 · OFFLINE"></span><span class="tile lg-stable" title="HALSTEAD MERCER CM · STABLE"></span><span class="tile lg-stable" title="HALSTEAD MERCER ENABLE SALES CHK · STABLE"></span><span class="tile lg-stable" title="HALSTEAD MERCER GU 011H · STABLE"></span><span class="tile lg-stable" title="HALSTEAD MERCER GU 012H · STABLE"></span><span class="tile lg-stable" title="HALSTEAD MERCER GU 013H · STABLE"></span><span class="tile lg-stable" title="HALSTEAD MERCER GU 014H · STABLE"></span><span class="tile lg-manual" title="Galloway 1 · OFFLINE"></span><span class="tile lg-manual" title="Gallatin-West Sales Chk · OFFLINE"></span><span class="tile lg-watch" title="HARTSFIELD #1  · STALE_RTU"></span><span class="tile lg-manual" title="HENDERSON 11H · OFFLINE"></span><span class="tile lg-manual" title="HENDERSON 12H · OFFLINE"></span><span class="tile lg-manual" title="HENDERSON 7 · OFFLINE"></span><span class="tile lg-manual" title="HENDERSON 9 · OFFLINE"></span><span class="tile lg-watch" title="HENDERSON NORTH · LOW_FT"></span><span class="tile lg-watch" title="Henry R Shaw #2 Alloc · LOW_FT"></span><span class="tile lg-crit" title="Henry R Shaw #3 Alloc · DECLINING"></span><span class="tile lg-crit" title="Markham Heirs #1 Alloc · DECLINING"></span><span class="tile lg-crit" title="Markham Heirs #2 Alloc · DECLINING"></span><span class="tile lg-crit" title="Markham Heirs #2 GL · DECLINING"></span><span class="tile lg-stable" title="J Crockett #1h Alloc · STABLE"></span><span class="tile lg-manual" title="TR Stanton 2-H · OFFLINE"></span><span class="tile lg-manual" title="TR Stanton 2-H Injection · OFFLINE"></span><span class="tile lg-manual" title="TR Stanton 2-H Logbook · NO_DATA"></span><span class="tile lg-manual" title="WINSLOW G H  GU 004 · OFFLINE"></span><span class="tile lg-watch" title="WINSLOW G H  GU 005 · LOW_FT"></span><span class="tile lg-manual" title="KIRKLAND L G 001 · OFFLINE"></span><span class="tile lg-stable" title="Bayou North Sales Check (Harris-Fender Mid) · STABLE"></span><span class="tile lg-crit" title="Bayou So Comp Disch · LOADING"></span><span class="tile lg-crit" title="Bayou South Sales Chk (Kirby CP Mid) · LOADING"></span><span class="tile lg-stable" title="HAWTHORNE MERIDIAN SALES CHK · STABLE"></span><span class="tile lg-stable" title="HAWTHORNE-MERIDIAN GU 004 · STABLE"></span><span class="tile lg-stable" title="HAWTHORNE-MERIDIAN GU 017H · STABLE"></span><span class="tile lg-crit" title="Ledford 1 · DECLINING"></span><span class="tile lg-watch" title="Westport Center · LOW_FT"></span><span class="tile lg-crit" title="Ashcroft #1 Alloc · DECLINING"></span><span class="tile lg-manual" title="Ashcroft #2 Alloc · OFFLINE"></span><span class="tile lg-manual" title="Ashcroft #2 G/L · OFFLINE"></span><span class="tile lg-crit" title="Ashcroft #4 Alloc · DECLINING"></span><span class="tile lg-manual" title="Ashcroft #4 G/L · OFFLINE"></span><span class="tile lg-manual" title="CLEMENT 002 · OFFLINE"></span><span class="tile lg-watch" title="CLEMENT 006 · STALE_RTU"></span><span class="tile lg-manual" title="CLEMENT SC · OFFLINE"></span><span class="tile lg-crit" title="Lockhart #1 Alloc · DECLINING"></span><span class="tile lg-stable" title="Lockhart #1 GL · STABLE"></span><span class="tile lg-stable" title="Lockhart #5 Alloc · STABLE"></span><span class="tile lg-stable" title="Lockhart #6 Alloc · STABLE"></span><span class="tile lg-manual" title="Lockhart 1/5/6 CTB · NO_DATA"></span><span class="tile lg-stable" title="Lockhart Sales Chk · STABLE"></span><span class="tile lg-manual" title="PRESTON E O 01 06 SALES CHK · OFFLINE"></span><span class="tile lg-crit" title="Mabry 2H · DECLINING"></span><span class="tile lg-manual" title="Wolford 1-3-7 CK · OFFLINE"></span><span class="tile lg-watch" title="Wolford 2-4-5 CK · STALE_RTU"></span><span class="tile lg-crit" title="ORION 001 · DECLINING"></span><span class="tile lg-manual" title="OLIVIA PAXTON #4  · OFFLINE"></span><span class="tile lg-manual" title="OAKRIDGE #2 · OFFLINE"></span><span class="tile lg-manual" title="OAKRIDGE #3 · OFFLINE"></span><span class="tile lg-manual" title="OAKRIDGE #4 · OFFLINE"></span><span class="tile lg-stable" title="Oakridge Paxton Sales Check Meter · STABLE"></span><span class="tile lg-watch" title="Halsey Sales Chk · STALE_RTU"></span><span class="tile lg-manual" title="PINE DEEP 1H (HC) · OFFLINE"></span><span class="tile lg-manual" title="Rockwell Meadows GU #3 · OFFLINE"></span><span class="tile lg-crit" title="Rockwell Meadows GU #4 · DECLINING"></span><span class="tile lg-stable" title="Rockwell Meadows GU #7 · STABLE"></span><span class="tile lg-stable" title="Rockwell Meadows GU #8H · STABLE"></span><span class="tile lg-stable" title="Rockwell Meadows GU Sales Check · STABLE"></span><span class="tile lg-crit" title="R.C. Cranbrook #1 · DECLINING"></span><span class="tile lg-manual" title="Lamar #1H · OFFLINE"></span><span class="tile lg-watch" title="WEATHERSBY 1H · LOW_FT"></span><span class="tile lg-manual" title="WEATHERSBY 2H · OFFLINE"></span><span class="tile lg-crit" title="Roundtable CP Check · DECLINING"></span><span class="tile lg-crit" title="Roundtable Discharge · BATTERY"></span><span class="tile lg-watch" title="STANFORD 001 · LOW_FT"></span><span class="tile lg-manual" title="STANFORD 002 · OFFLINE"></span><span class="tile lg-crit" title="STANFORD 004 · DECLINING"></span><span class="tile lg-crit" title="STANFORD 005 · DECLINING"></span><span class="tile lg-watch" title="Stanford MM · LOW_FT"></span><span class="tile lg-manual" title="DONALDSON 002 · OFFLINE"></span><span class="tile lg-manual" title="DONALDSON 003 &amp; 005 SALES CHK · OFFLINE"></span><span class="tile lg-crit" title="Westbrook #1 Alloc · DECLINING"></span><span class="tile lg-manual" title="BRENNER S R 001 · OFFLINE"></span><span class="tile lg-watch" title="BRENNER S R 002 · LOW_FT"></span><span class="tile lg-manual" title="BRENNER S R 004 · OFFLINE"></span><span class="tile lg-stable" title="BRENNER S R 005 · STABLE"></span><span class="tile lg-stable" title="BRENNER S R 1&amp;2 CM · STABLE"></span><span class="tile lg-stable" title="BRENNER S R 4&amp;5 CM               · STABLE"></span><span class="tile lg-manual" title="WESLEY 002 · OFFLINE"></span><span class="tile lg-manual" title="WESLEY 003 · OFFLINE"></span><span class="tile lg-stable" title="WESLEY 003 004 005 &amp; 006 SALES CHK · STABLE"></span><span class="tile lg-manual" title="WESLEY 005 · OFFLINE"></span><span class="tile lg-stable" title="WESLEY 006 · STABLE"></span><span class="tile lg-manual" title="TRAVERS 002 SWD · OFFLINE"></span><span class="tile lg-watch" title="Kincaid Marsh C/M · LOW_FT"></span><span class="tile lg-crit" title="Warren GU 1-4 · DECLINING"></span><span class="tile lg-stable" title="WHEATFIELD SALES CHK · STABLE"></span><span class="tile lg-watch" title="Winthrop 1 · LOW_FT"></span></div>
+  </div>  <section id="decisions">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="I"><span class="sec-label">Decisions Needed Today</span></h2>
+      <div class="sec-lede">Five items in your queue. <strong>Ordered by severity</strong> — emergencies first, then high-confidence approvals, then budget &amp; scheduling items.</div>
+    </div>
+    <div class="decision-stack">
+
+      <div class="decision emergency">
+        <div>
+          <div class="kicker">Emergency · Severity 1 · Gathering Event · Decision 1</div>
+          <h3>Approve midstream call on the Stanhope/Ashcroft CTB cluster</h3>
+          <p><strong>Ten meters</strong> on the Stanhope/Ashcroft/Kirby/Westbrook/Markham Heirs CTB network show simultaneous 200-500% static-pressure creep over the last 5 days. Signature is one gathering bottleneck, not 10 well failures. Bayou So Comp Disch &amp; Bayou South Sales Chk both classify LOADING in the same window — that's a failing compressor station fingerprint.</p>
+          <p><strong>Recommended:</strong> approve midstream outreach + freeze well-level spend on those 10 wells until the upstream is resolved. <strong>Alternative:</strong> defer 48h for more data — but we lose ~$1,400/day in the meantime.</p>
+        </div>
+        <div class="d-meta">
+          <div class="row"><span class="k">Revenue at stake</span><span class="v money">$21,000/mo</span></div>
+          <div class="row"><span class="k">Payback</span><span class="v">&lt;1 week post-fix</span></div>
+          <div class="row"><span class="k">Confidence</span><span class="v money">High</span></div>
+          <div class="row"><span class="k">Window</span><span class="v danger">72 hr</span></div>
+          <div class="row"><span class="k">Action</span><span class="v">Call midstream now</span></div>
+        </div>
+      </div>
+
+      <div class="decision emergency">
+        <div>
+          <div class="kicker">Emergency · Severity 1 · Battery Critical · Decision 2</div>
+          <h3>Swap battery on Lyman 3 this week</h3>
+          <p>Spot battery reading <strong>8.2V</strong>. Totalflow will stop writing below ~10.8V. We have days before this RTU goes dark and we lose all diagnostics on the well. Roundtable Discharge is at 11.5V — not critical but on the watch list for next week's route.</p>
+        </div>
+        <div class="d-meta">
+          <div class="row"><span class="k">Cost</span><span class="v">$180 (battery + install)</span></div>
+          <div class="row"><span class="k">Risk if deferred</span><span class="v danger">RTU goes dark</span></div>
+          <div class="row"><span class="k">Confidence</span><span class="v money">High</span></div>
+          <div class="row"><span class="k">Window</span><span class="v danger">~5 days</span></div>
+          <div class="row"><span class="k">Action</span><span class="v">Add to Parker's Friday route</span></div>
+        </div>
+      </div>
+
+      <div class="decision approve">
+        <div>
+          <div class="kicker">Approve · Severity 2 · RTU Truck-Roll · Decision 3</div>
+          <h3>Green-light I&amp;E sweep on 4 live-but-dark RTUs</h3>
+          <p>Four wells went dark mid-window with real recent production: <strong>Gallatin-West Sales Chk</strong> (91 MCF/D pre-dark), <strong>Lamar #1H</strong> (163 MCF/D), <strong>BRADFORD ECHO 006H</strong> (53 MCF/D), <strong>WESLEY 002</strong> (56 MCF/D). These are $300/site truck rolls with modem or telecom as most-likely cause. ~$40k/month of gas is invisible on our dashboards right now.</p>
+          <p><strong>Recommended:</strong> dispatch I&amp;E tech tomorrow 05:00 route, start with Lamar (largest signal). Parker can pull stop-and-restart while tech is on deck.</p>
+        </div>
+        <div class="d-meta">
+          <div class="row"><span class="k">Labor cost</span><span class="v">~$1,200 + $2,400 modems</span></div>
+          <div class="row"><span class="k">Revenue recovery</span><span class="v money">~$40,000/mo</span></div>
+          <div class="row"><span class="k">Payback</span><span class="v">&lt;3 days</span></div>
+          <div class="row"><span class="k">Confidence</span><span class="v money">High</span></div>
+          <div class="row"><span class="k">Action</span><span class="v">Dispatch tomorrow AM</span></div>
+        </div>
+      </div>
+
+      <div class="decision budget">
+        <div>
+          <div class="kicker">Budget · Severity 3 · Chemistry · Decision 4</div>
+          <h3>Approve paraffin program refresh — top 5 wells</h3>
+          <p>Five wells show classic paraffin signatures (temp floor &lt; 52°F, intermittent DP pulses): <strong>Henry R Shaw #2, VINTON 005H, Kincaid Marsh C/M, Bancroft #2H Alloc, Cypress Landing Sales</strong>. Recommended program: hot-oil + solvent batch ($2-3k per well, one-time) followed by continuous inhibitor ($300-400/well/mo). Projected incremental: ~18 MCF/D portfolio-wide, or ~$1,900/mo revenue at $3.50/MCF.</p>
+        </div>
+        <div class="d-meta">
+          <div class="row"><span class="k">One-time</span><span class="v">$12-15k batch</span></div>
+          <div class="row"><span class="k">Ongoing</span><span class="v">$1,500-2,000/mo</span></div>
+          <div class="row"><span class="k">Est gain</span><span class="v money">+18 MCF/D</span></div>
+          <div class="row"><span class="k">Payback</span><span class="v">6-8 months</span></div>
+          <div class="row"><span class="k">Confidence</span><span class="v warn-ink">Medium</span></div>
+        </div>
+      </div>
+
+      <div class="decision scheduling">
+        <div>
+          <div class="kicker">Scheduling · Severity 3 · Capital Pipeline · Decision 5</div>
+          <h3>Quote plunger install on top-3 non-cluster candidates</h3>
+          <p>Three wells show clean plunger signatures independent of the gathering event: <strong>Henry R Shaw #2 Alloc, Bancroft #1 Alloc, Dewsbury 1</strong>. Flow-time &lt; 75%, slug-ratio &gt; 5×, latest MCF 15-42/D. Recommended: request quotes from two vendors, target install window mid-May post-gathering-resolution.</p>
+        </div>
+        <div class="d-meta">
+          <div class="row"><span class="k">Est capex</span><span class="v">$30-36k (3 wells)</span></div>
+          <div class="row"><span class="k">Est gain</span><span class="v money">+60-90 MCF/D steady</span></div>
+          <div class="row"><span class="k">Payback</span><span class="v">~4 months</span></div>
+          <div class="row"><span class="k">Confidence</span><span class="v warn-ink">Medium</span></div>
+          <div class="row"><span class="k">Action</span><span class="v">Request quotes this week</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>  <section id="interventions">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="II"><span class="sec-label">Active Interventions</span></h2>
+      <div class="sec-lede">In-flight work — chemistry trials, stimulation, workovers. Three completed in the last 14 days (see appendix).</div>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>Well</th><th>Intervention</th><th>Started</th><th>Status</th><th>DP response</th><th>ETA</th><th>Owner</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="mono"><strong>Holloway #1</strong></td>
+          <td>Soap-stick trial, 1/D × 7d</td>
+          <td class="mono">04-20</td>
+          <td><span class="pill blue">Day 3 of 7</span></td>
+          <td class="num money-ink">+8.1%</td>
+          <td class="mono">04-27 eval</td>
+          <td class="mono">Parker</td>
+        </tr>
+        <tr>
+          <td class="mono"><strong>Henry R Shaw #2</strong></td>
+          <td>Hot-oil + solvent batch</td>
+          <td class="mono">—</td>
+          <td><span class="pill amber">Scheduled 04-25</span></td>
+          <td class="dim">—</td>
+          <td class="mono">04-25</td>
+          <td class="mono">Mitchell / Foamer vendor</td>
+        </tr>
+        <tr>
+          <td class="mono"><strong>Bancroft #2H Alloc</strong></td>
+          <td>Waiting gathering-event resolution</td>
+          <td class="mono">blocked</td>
+          <td><span class="pill gray">Hold</span></td>
+          <td class="dim">—</td>
+          <td class="mono">post-Decision 1</td>
+          <td class="mono">Foreman</td>
+        </tr>
+        <tr>
+          <td class="mono"><strong>Ramsey Fields 3H</strong></td>
+          <td>Workover scope drafting</td>
+          <td class="mono">04-18</td>
+          <td><span class="pill amber">Scope phase</span></td>
+          <td class="dim">—</td>
+          <td class="mono">05-01 target</td>
+          <td class="mono">Engineering</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>  <section id="alarms">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="III"><span class="sec-label">Alarms &amp; Events · 24h</span></h2>
+      <div class="sec-lede">Six alarms in the last 24 hours — two cleared overnight, four open. Thresholds active: flow-rate low, static-pressure high, battery low, data-staleness, loading-score spike.</div>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>Time</th><th>Well</th><th>Alarm</th><th>Severity</th><th>Acked</th><th>Status</th>
+      </tr></thead>
+      <tbody><tr><td class="mono">03:14</td><td class="mono"><strong>Bancroft #2H Alloc</strong></td><td>Flow rate low (MCF/D)</td><td><span class="pill red">HIGH</span></td><td class="mono">—</td><td>Open · awaiting triage</td></tr><tr><td class="mono">04:58</td><td class="mono"><strong>Lyman 3</strong></td><td>Battery low (spot)</td><td><span class="pill red">HIGH</span></td><td class="mono">—</td><td>Open · see Decision 3</td></tr><tr><td class="mono">05:42</td><td class="mono"><strong>Wolford 2-4-5 CK</strong></td><td>Static pressure high</td><td><span class="pill red">HIGH</span></td><td class="mono">—</td><td>Open · route-check</td></tr><tr><td class="mono">07:22</td><td class="mono"><strong>Holloway #1</strong></td><td>Loading score spike</td><td><span class="pill amber">MEDIUM</span></td><td class="mono">Parker 07:30</td><td>Cleared — soap dose active</td></tr><tr><td class="mono">14:11</td><td class="mono"><strong>Halsey Sales Chk</strong></td><td>No data 7d</td><td><span class="pill amber">MEDIUM</span></td><td class="mono">I&E 16:20</td><td>Cleared — modem reboot</td></tr><tr><td class="mono">22:08</td><td class="mono"><strong>Ramsey Fields Sales Check</strong></td><td>Volume ≤ threshold</td><td><span class="pill red">HIGH</span></td><td class="mono">—</td><td>Open · gathering event</td></tr></tbody>
+    </table>
+  </section>  <section id="routes">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="IV"><span class="sec-label">Route Performance · Yesterday</span></h2>
+      <div class="sec-lede">Per-pumper scorecard. Stop count vs plan, manual-entry completeness, flagged wells that deserve foreman follow-up.</div>
+    </div>
+    <div class="route-grid">
+      <div class="route-card">
+        <div class="rc-head">
+          <div><div class="rc-sub">Route A · Parker</div><div class="rc-title">60 wells · South basin</div></div>
+          <span class="pill green">Complete</span>
+        </div>
+        <div class="rc-stats">
+          <div class="s"><div class="sv">48</div><div class="sl">Stops</div></div>
+          <div class="s"><div class="sv">11</div><div class="sl">Manual entries</div></div>
+          <div class="s"><div class="sv">3</div><div class="sl">Flagged</div></div>
+          <div class="s"><div class="sv money-ink">98%</div><div class="sl">Completion</div></div>
+        </div>
+        <div class="rc-note">Flagged: <strong>Holloway #1</strong> (soap trial day 3 — looks good), <strong>Brenner S R 001</strong> (tank level over 60%, haul scheduled), <strong>Wolford 2-4-5 CK</strong> (RTU stale 7d — noted in alarm log).</div>
+      </div>
+
+      <div class="route-card">
+        <div class="rc-head">
+          <div><div class="rc-sub">Route B · Evans</div><div class="rc-title">54 wells · East basin</div></div>
+          <span class="pill amber">1 skipped</span>
+        </div>
+        <div class="rc-stats">
+          <div class="s"><div class="sv">42</div><div class="sl">Stops</div></div>
+          <div class="s"><div class="sv">8</div><div class="sl">Manual entries</div></div>
+          <div class="s"><div class="sv">5</div><div class="sl">Flagged</div></div>
+          <div class="s"><div class="sv warn-ink">91%</div><div class="sl">Completion</div></div>
+        </div>
+        <div class="rc-note">Skipped <strong>Lamar #1H</strong> pad — gate lock issue. Five flagged are all on the Stanhope/Ashcroft CTB — foreman holding intervention spend pending Decision 1.</div>
+      </div>
+
+      <div class="route-card">
+        <div class="rc-head">
+          <div><div class="rc-sub">Route C · Sanchez</div><div class="rc-title">47 wells · Central basin</div></div>
+          <span class="pill green">Complete</span>
+        </div>
+        <div class="rc-stats">
+          <div class="s"><div class="sv">47</div><div class="sl">Stops</div></div>
+          <div class="s"><div class="sv">6</div><div class="sl">Manual entries</div></div>
+          <div class="s"><div class="sv">2</div><div class="sl">Flagged</div></div>
+          <div class="s"><div class="sv money-ink">100%</div><div class="sl">Completion</div></div>
+        </div>
+        <div class="rc-note">Flagged: <strong>Henry R Shaw #2</strong> (hot-oil scheduled 04-25), <strong>Halsey Sales Chk</strong> (modem rebooted 16:20, cleared this morning).</div>
+      </div>
+
+      <div class="route-card">
+        <div class="rc-head">
+          <div><div class="rc-sub">Route D · Contractor</div><div class="rc-title">24 wells · North satellite</div></div>
+          <span class="pill blue">Weekly</span>
+        </div>
+        <div class="rc-stats">
+          <div class="s"><div class="sv">—</div><div class="sl">Stops (weekly)</div></div>
+          <div class="s"><div class="sv">—</div><div class="sl">Next run</div></div>
+          <div class="s"><div class="sv">6</div><div class="sl">Offline wells</div></div>
+          <div class="s"><div class="sv warn-ink">—</div><div class="sl">Coverage</div></div>
+        </div>
+        <div class="rc-note">Weekly-cadence route. Six offline devices here — recommend re-scope this route or absorb into Route B. See Capital Pipeline.</div>
+      </div>
+    </div>
+  </section>  <section id="movers">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="V"><span class="sec-label">Top Production Movers · 24h</span></h2>
+      <div class="sec-lede">Day-over-day volume deltas. Gainers on the left, losers on the right. Cluster-event wells are excluded (see Decision 1).</div>
+    </div>
+    <div class="mover-grid">
+      <div class="mover-panel">
+        <div class="mover-head"><span class="mh-title up">Top Gainers</span><span class="rc-sub">+MCF · 24h</span></div>
+        <table class="data-table compact">
+          <thead><tr><th>Well</th><th>Δ MCF/D</th><th>Revenue impact</th></tr></thead>
+          <tbody><tr><td class="mono"><strong>Markham Heirs #2 GL</strong></td><td class="num money-ink">+42 MCF/D DoD</td><td class="num">$4,410/mo</td></tr>
+<tr><td class="mono"><strong>Salado Creek 8,9 & 15</strong></td><td class="num money-ink">+28 MCF/D DoD</td><td class="num">$2,940/mo</td></tr>
+<tr><td class="mono"><strong>Rockwell Meadows GU #7</strong></td><td class="num money-ink">+19 MCF/D DoD</td><td class="num">$1,995/mo</td></tr>
+<tr><td class="mono"><strong>Halstead Mercer 15H</strong></td><td class="num money-ink">+17 MCF/D DoD</td><td class="num">$1,785/mo</td></tr>
+<tr><td class="mono"><strong>Lockhart #1 Alloc</strong></td><td class="num money-ink">+15 MCF/D DoD</td><td class="num">$1,575/mo</td></tr></tbody>
+        </table>
+      </div>
+      <div class="mover-panel">
+        <div class="mover-head"><span class="mh-title dn">Top Losers</span><span class="rc-sub">−MCF · 24h</span></div>
+        <table class="data-table compact">
+          <thead><tr><th>Well</th><th>Observed</th><th>At-risk $</th></tr></thead>
+          <tbody><tr><td class="mono"><strong>Ramsey Fields Sales Check</strong></td><td class="num danger-ink">7d 87 vs 30d 295 MCF/D (-70%, ~-208 MCF/D lost)</td><td class="num">$10,920/mo</td></tr>
+<tr><td class="mono"><strong>Bancroft #2H Alloc</strong></td><td class="num danger-ink">7d 106 vs 30d 300 MCF/D (-65%, ~-194 MCF/D lost)</td><td class="num">$10,185/mo</td></tr>
+<tr><td class="mono"><strong>Bancroft Sales Chk</strong></td><td class="num danger-ink">7d 207 vs 30d 378 MCF/D (-45%, ~-170 MCF/D lost)</td><td class="num">$8,925/mo</td></tr>
+<tr><td class="mono"><strong>Ramsey Fields 3H</strong></td><td class="num danger-ink">7d 0 vs 30d 157 MCF/D (-100%, ~-157 MCF/D lost)</td><td class="num">$8,190/mo</td></tr>
+<tr><td class="mono"><strong>Cypress Landing Sales</strong></td><td class="num danger-ink">7d 378 vs 30d 485 MCF/D (-22%, ~-107 MCF/D lost)</td><td class="num">$5,565/mo</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>  <section id="chemistry">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="VI"><span class="sec-label">Chemistry Program Scorecard</span></h2>
+      <div class="sec-lede">Active programs by treatment class. Response rate is measured over the rolling 30-day window post-treatment-start; incremental MCF/D is attribution-adjusted for decline.</div>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>Program</th><th>Wells on treatment</th><th>Candidates pending</th>
+        <th>Response rate (30d)</th><th>Incremental MCF/D</th><th>$ / mo</th><th>ROI</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>FSC 600 Foamer</strong><div class="dim" style="font-size:10px;">Continuous · loading wells</div></td>
+          <td class="num">8</td>
+          <td class="num">4</td>
+          <td class="num money-ink">74%</td>
+          <td class="num money-ink">+26</td>
+          <td class="num">$3,200</td>
+          <td><span class="pill green">+$6,000/mo</span></td>
+        </tr>
+        <tr>
+          <td><strong>Paraffin Solvent + Continuous</strong><div class="dim" style="font-size:10px;">Batch + continuous · cold-flow wells</div></td>
+          <td class="num">3</td>
+          <td class="num">15</td>
+          <td class="num warn-ink">58%</td>
+          <td class="num money-ink">+8</td>
+          <td class="num">$1,400</td>
+          <td><span class="pill amber">+$440/mo</span></td>
+        </tr>
+        <tr>
+          <td><strong>Scale Inhibitor</strong><div class="dim" style="font-size:10px;">Continuous · bridging candidates</div></td>
+          <td class="num">0</td>
+          <td class="num">3</td>
+          <td class="num dim">—</td>
+          <td class="num dim">—</td>
+          <td class="num dim">—</td>
+          <td><span class="pill gray">Pending water panel</span></td>
+        </tr>
+        <tr>
+          <td><strong>Corrosion Inhibitor</strong><div class="dim" style="font-size:10px;">Pending CO₂/H₂S analysis</div></td>
+          <td class="num">0</td>
+          <td class="num">—</td>
+          <td class="num dim">—</td>
+          <td class="num dim">—</td>
+          <td class="num dim">—</td>
+          <td><span class="pill gray">Gas panel request open</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>  <section id="capital">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="VII"><span class="sec-label">Capital Activity Pipeline</span></h2>
+      <div class="sec-lede">Queued work, scheduled dates, and expected returns. Artificial-lift candidates below are the non-cluster wells — cluster-event wells are held pending Decision 1 resolution.</div>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>Well / Scope</th><th>Activity</th><th>Status</th><th>Scheduled</th>
+        <th>Est cost</th><th>Est gain</th><th>Payback</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+        <td class="mono"><strong>Gallatin-West / Lamar / BRADFORD ECHO / WESLEY 002</strong></td>
+        <td>RTU / modem replacement (4 sites)</td>
+        <td><span class="pill amber">Awaiting Decision 3</span></td>
+        <td class="mono">This week</td>
+        <td class="num">~$3,600</td>
+        <td class="num money-ink">+360 MCF/D (visibility)</td>
+        <td class="num">&lt;2 weeks</td>
+      </tr>
+      <tr>
+        <td class="mono"><strong>54-device ground-truth sweep</strong></td>
+        <td>Pumper field audit (long-dark)</td>
+        <td><span class="pill blue">Route-plan in prep</span></td>
+        <td class="mono">30-day plan</td>
+        <td class="num">~$5k labor</td>
+        <td class="num money-ink">Decommission vs recover triage</td>
+        <td class="num">Structural</td>
+      </tr>
+        <tr><td class="mono"><strong>WEATHERSBY 1H</strong></td><td>Plunger install</td><td><span class="pill blue">Quote requested</span></td><td class="mono">May wk 2</td><td class="num">$8-12k</td><td class="num money-ink">+58 MCF/D</td><td class="num">2.0 mo</td></tr>
+<tr><td class="mono"><strong>Henry R Shaw #2 Alloc</strong></td><td>Plunger install</td><td><span class="pill blue">Quote requested</span></td><td class="mono">May wk 2</td><td class="num">$8-12k</td><td class="num money-ink">+49 MCF/D</td><td class="num">2.3 mo</td></tr>
+<tr><td class="mono"><strong>Lamar #1H</strong></td><td>Plunger install</td><td><span class="pill blue">Quote requested</span></td><td class="mono">May wk 2</td><td class="num">$8-12k</td><td class="num money-ink">+49 MCF/D</td><td class="num">2.3 mo</td></tr>
+<tr><td class="mono"><strong>Kincaid Marsh C/M</strong></td><td>Plunger install</td><td><span class="pill blue">Quote requested</span></td><td class="mono">May wk 2</td><td class="num">$8-12k</td><td class="num money-ink">+33 MCF/D</td><td class="num">3.5 mo</td></tr>
+<tr><td class="mono"><strong>Wolford 2-4-5 CK</strong></td><td>Plunger install</td><td><span class="pill blue">Quote requested</span></td><td class="mono">May wk 2</td><td class="num">$8-12k</td><td class="num money-ink">+28 MCF/D</td><td class="num">4.1 mo</td></tr>
+        <tr><td class="mono"><strong>BEAUFORT GU 3H</strong></td><td>Decommission / P&A eval</td><td><span class="pill gray">Confirm intent</span></td><td class="mono">Q2 review</td><td class="num dim">—</td><td class="num dim">—</td><td class="num dim">—</td></tr>
+<tr><td class="mono"><strong>Echo Bradford 2-1H</strong></td><td>Decommission / P&A eval</td><td><span class="pill gray">Confirm intent</span></td><td class="mono">Q2 review</td><td class="num dim">—</td><td class="num dim">—</td><td class="num dim">—</td></tr>
+<tr><td class="mono"><strong>HARMON PIERCE GU 001</strong></td><td>Decommission / P&A eval</td><td><span class="pill gray">Confirm intent</span></td><td class="mono">Q2 review</td><td class="num dim">—</td><td class="num dim">—</td><td class="num dim">—</td></tr>
+      </tbody>
+    </table>
+  </section>  <section id="rollup">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="VIII"><span class="sec-label">Fleet Roll-Up</span></h2>
+      <div class="sec-lede">Six-cell operating snapshot. Lost-revenue estimate is offline-RTU exposure, not a realized loss — some offline units are decommissioned. Ground-truth sweep in progress.</div>
+    </div>
+    <div class="rollup">
+      <div class="rcell"><div class="rv">16,094</div><div class="rl">MCF · 24h</div></div>
+      <div class="rcell"><div class="rv">15,371</div><div class="rl">MCF · 7d avg</div></div>
+      <div class="rcell"><div class="rv">185</div><div class="rl">Active wells</div></div>
+      <div class="rcell"><div class="rv">58</div><div class="rl">Offline RTUs</div></div>
+      <div class="rcell"><div class="rv">~$304k</div><div class="rl">Exposure $/mo</div></div>
+      <div class="rcell"><div class="rv">52</div><div class="rl">Wells at risk</div></div>
+    </div>
+  </section>  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-brand">WellRX</div>
+      <div class="foot-meta">
+        Prepared for <strong style="color:var(--ink);">Meridian Operating · Operations Desk</strong>
+        <span class="sep">·</span> Apr 23, 2026
+        <span class="sep">·</span> Vol I No 478
+        <span class="sep">·</span> All data from live SCADA feed
+      </div>
+      <div class="foot-rx">℞</div>
+    </div>
+  </footer></div>
+</div>
+<script>
+(function() {
+  var stored = null;
+  try { stored = localStorage.getItem('wellrx-theme'); } catch (e) {}
+  if (stored === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  var btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = stored === 'light' ? '☾ Dark' : '☀ Light';
+})();
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = cur === 'light' ? 'dark' : 'light';
+  if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  else document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('wellrx-theme', next); } catch (e) {}
+  var btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = next === 'light' ? '☾ Dark' : '☀ Light';
+}
+</script>
+</body></html>

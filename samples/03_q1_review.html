@@ -1,0 +1,1750 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>The WellRX Daily · Q1 2026 Chemistry Review — Meridian Operating</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:            #070b17;
+    --bg-grad:       radial-gradient(1200px 600px at 10% -10%, #132042 0%, transparent 60%),
+                     radial-gradient(900px 500px at 110% 10%, #0c2d2a 0%, transparent 55%),
+                     linear-gradient(180deg, #070b17 0%, #0a1024 100%);
+    --card:          #0d1426;
+    --card-elev:     #111a30;
+    --panel:         rgba(21, 32, 60, 0.55);
+    --panel-border:  rgba(148, 163, 184, 0.10);
+    --ink:           #e6edf7;
+    --ink-strong:    #f8fafc;
+    --muted:         #94a3b8;
+    --faint:         #64748b;
+    --line:          rgba(148, 163, 184, 0.12);
+    --line-strong:   rgba(148, 163, 184, 0.22);
+    --accent:        #38bdf8;
+    --accent-2:      #22d3ee;
+    --accent-soft:   rgba(56, 189, 248, 0.12);
+    --accent-glow:   0 0 0 1px rgba(56,189,248,0.18), 0 8px 32px -8px rgba(56,189,248,0.35);
+    --money:         #34d399;
+    --money-glow:    rgba(52, 211, 153, 0.18);
+    --danger:        #f87171;
+    --danger-glow:   rgba(248, 113, 113, 0.5);
+    --warn:          #fbbf24;
+    --row-hover:     rgba(56, 189, 248, 0.04);
+    --th-ink:        #94a3b8;
+    --th-border:     rgba(148, 163, 184, 0.25);
+    --pill-severe-bg: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
+    --pill-severe-fg: #fecaca;
+    --pill-load-bg:  linear-gradient(135deg, #7c2d12 0%, #9a3412 100%);
+    --pill-load-fg:  #fed7aa;
+    --pill-watch-bg: linear-gradient(135deg, #713f12 0%, #854d0e 100%);
+    --pill-watch-fg: #fde68a;
+    --pill-stable-bg: linear-gradient(135deg, #14532d 0%, #166534 100%);
+    --pill-stable-fg: #bbf7d0;
+    --btn-bg:        rgba(255,255,255,0.04);
+    --btn-ink:       #cbd5e1;
+    --shadow-card:   0 1px 0 rgba(255,255,255,0.04) inset, 0 24px 60px -24px rgba(0,0,0,0.6);
+    --radius-sm:     6px;
+    --radius:        10px;
+    --radius-lg:     16px;
+    --font-body:     'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-brand:    'Fraunces', 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-mono:     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --gold:          #fbbf24;
+    --gold-glow:     rgba(251, 191, 36, 0.2);
+    --soft:          var(--panel);
+    --softer:        var(--panel);
+  }
+  [data-theme="light"] {
+    --bg:            #f5f6fa;
+    --bg-grad:       radial-gradient(1200px 500px at 10% -10%, #eef4ff 0%, transparent 60%),
+                     radial-gradient(900px 400px at 110% 0%, #effaf6 0%, transparent 55%),
+                     linear-gradient(180deg, #f5f6fa 0%, #f8fafc 100%);
+    --card:          #ffffff;
+    --card-elev:     #ffffff;
+    --panel:         rgba(241, 245, 249, 0.8);
+    --panel-border:  rgba(15, 23, 42, 0.06);
+    --ink:           #0f172a;
+    --ink-strong:    #020617;
+    --muted:         #64748b;
+    --faint:         #94a3b8;
+    --line:          rgba(15, 23, 42, 0.08);
+    --line-strong:   rgba(15, 23, 42, 0.14);
+    --accent:        #0284c7;
+    --accent-2:      #0891b2;
+    --accent-soft:   rgba(2, 132, 199, 0.08);
+    --accent-glow:   0 0 0 1px rgba(2,132,199,0.12), 0 10px 28px -10px rgba(2,132,199,0.20);
+    --money:         #047857;
+    --money-glow:    rgba(4, 120, 87, 0.10);
+    --danger:        #b91c1c;
+    --warn:          #a16207;
+    --row-hover:     rgba(2, 132, 199, 0.04);
+    --th-ink:        #334155;
+    --th-border:     rgba(15, 23, 42, 0.18);
+    --pill-severe-bg: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+    --pill-severe-fg: #7f1d1d;
+    --pill-load-bg:  linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+    --pill-load-fg:  #7c2d12;
+    --pill-watch-bg: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    --pill-watch-fg: #854d0e;
+    --pill-stable-bg: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+    --pill-stable-fg: #14532d;
+    --btn-bg:        #ffffff;
+    --btn-ink:       #334155;
+    --shadow-card:   0 1px 2px rgba(15,23,42,0.04), 0 20px 40px -22px rgba(15,23,42,0.18);
+  }
+  @page { size: Letter landscape; margin: 0.4in; }
+  @media print {
+    .theme-toggle, .toc-nav, .rx-watermark { display: none !important; }
+    body { padding: 0 !important; background: #fff !important; background-image: none !important; }
+    .wrap { border: none !important; border-radius: 0 !important; box-shadow: none !important;
+             padding: 0 !important; max-width: 100% !important; background: #fff !important; }
+    .masthead, .hero-strip, .dispatch { background: #fff !important; }
+    table { page-break-inside: auto; font-size: 10px; }
+    tr { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font: 14px/1.55 var(--font-body); color: var(--ink);
+          background: var(--bg); background-image: var(--bg-grad);
+          margin: 0; padding: 40px 24px 80px;
+          -webkit-font-smoothing: antialiased;
+          transition: background-color .15s ease, color .15s ease;
+          font-feature-settings: "ss01","cv11","tnum"; }
+  .wrap { max-width: 1340px; margin: 0 auto; background: var(--card);
+           padding: 0; border: 1px solid var(--line);
+           border-radius: var(--radius-lg); position: relative;
+           box-shadow: var(--shadow-card); overflow: hidden; }
+  .rx-watermark { position: absolute; top: -60px; right: -100px; font-family: var(--font-brand);
+                    font-size: 620px; line-height: 1; color: var(--ink-strong);
+                    opacity: 0.015; pointer-events: none; user-select: none; z-index: 0; }
+  [data-theme="light"] .rx-watermark { opacity: 0.025; }
+  .inner { position: relative; z-index: 1; padding: 36px 52px 44px;
+            counter-reset: sec; }
+
+  /* =========================  MASTHEAD  ========================= */
+  .masthead { position: relative; padding-bottom: 18px; margin-bottom: 20px; }
+  .mast-rule-top, .mast-rule-bot { border-top: 2px solid var(--ink-strong);
+                                     position: relative; }
+  .mast-rule-top::after, .mast-rule-bot::after { content: ""; position: absolute;
+                                                    left: 0; right: 0; top: 3px;
+                                                    border-top: 1px solid var(--ink-strong); }
+  .dateline { display: flex; justify-content: space-between; align-items: center;
+                padding: 10px 0; font-family: var(--font-mono); font-size: 10px;
+                color: var(--muted); text-transform: uppercase; letter-spacing: 0.22em;
+                font-weight: 600; }
+  .dateline .dateline-left, .dateline .dateline-right { display: flex; gap: 22px;
+                                                           align-items: center; }
+  .dateline .live { display: inline-flex; align-items: center; gap: 6px;
+                      color: var(--accent); }
+  .dateline .live::before { content: ""; width: 6px; height: 6px; border-radius: 50%;
+                              background: var(--accent);
+                              box-shadow: 0 0 0 3px var(--accent-soft),
+                                          0 0 12px var(--accent); }
+  .mast-title { display: flex; align-items: center; justify-content: center;
+                  gap: 18px; padding: 22px 0 10px; position: relative; }
+  .mast-title .rx-glyph { font-family: var(--font-brand); font-size: 84px;
+                            line-height: 1; color: var(--gold);
+                            text-shadow: 0 0 32px var(--gold-glow);
+                            font-weight: 400; font-style: italic;
+                            letter-spacing: -0.04em; }
+  .mast-title h1 { display: block !important; margin: 0; padding: 0;
+                     font-family: var(--font-brand); font-weight: 900;
+                     font-style: italic; font-size: 84px; line-height: 0.9;
+                     color: var(--ink-strong); letter-spacing: -0.035em;
+                     font-variation-settings: "opsz" 144; }
+  .mast-strap { text-align: center; font-size: 11px; color: var(--muted);
+                  text-transform: uppercase; letter-spacing: 0.32em; font-weight: 600;
+                  margin-top: 6px; }
+  .mast-strap strong { color: var(--ink-strong); font-weight: 700; }
+
+  .theme-toggle { position: absolute; top: 22px; right: 22px; z-index: 3;
+                    border: 1px solid var(--line-strong);
+                    background: var(--btn-bg); color: var(--btn-ink);
+                    padding: 6px 12px; border-radius: 8px; cursor: pointer;
+                    font-size: 11px; font-weight: 600; font-family: var(--font-body);
+                    letter-spacing: 0.04em; transition: all .12s ease; }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* =========================  HERO STRIP  ========================= */
+  .hero-strip { display: grid; gap: 0; margin: 8px 0 28px;
+                  border: 1px solid var(--line);
+                  border-radius: var(--radius-lg); overflow: hidden;
+                  background: var(--card-elev); }
+  .hero-strip.cols-4 { grid-template-columns: 1.4fr 1fr 0.9fr 0.9fr; }
+  .hero-cell { padding: 20px 24px; position: relative;
+                 border-right: 1px solid var(--line);
+                 display: flex; flex-direction: column; gap: 4px; }
+  .hero-cell:last-child { border-right: none; }
+  .hero-cell .lbl { font-family: var(--font-mono); font-size: 9.5px;
+                      color: var(--muted); text-transform: uppercase;
+                      letter-spacing: 0.22em; font-weight: 600; }
+  .hero-cell .val { font-family: var(--font-brand); font-weight: 700;
+                      font-style: italic; line-height: 1;
+                      font-size: 56px; letter-spacing: -0.03em;
+                      color: var(--ink-strong);
+                      font-variant-numeric: tabular-nums;
+                      margin-top: 4px; }
+  .hero-cell .val.money { color: var(--gold);
+                            text-shadow: 0 0 32px var(--gold-glow); }
+  .hero-cell .val.danger { color: var(--danger); }
+  .hero-cell .sub { color: var(--muted); font-size: 11px;
+                      letter-spacing: 0.04em; font-weight: 500; }
+  .hero-cell .sub .up { color: var(--money); font-weight: 700;
+                           font-variant-numeric: tabular-nums; }
+  .hero-cell.hero-alarms .val { display: flex; align-items: center; gap: 14px;
+                                  color: var(--money); }
+  .hero-cell.hero-alarms.has-alarms .val { color: var(--danger); }
+  .hero-cell.hero-alarms .dot { display: inline-block; width: 12px; height: 12px;
+                                  border-radius: 50%; background: var(--money);
+                                  box-shadow: 0 0 18px var(--money-glow);
+                                  animation: pulse 2.2s infinite; }
+  .hero-cell.hero-alarms.has-alarms .dot { background: var(--danger);
+                                             box-shadow: 0 0 18px var(--danger-glow); }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+  /* =========================  DISPATCH  ========================= */
+  .dispatch { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px;
+                margin: 0 0 28px; padding: 22px 0 24px;
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line); }
+  .dispatch .lede-section { position: relative; padding-left: 26px; }
+  .dispatch .lede-section::before { content: "℞ DISPATCH";
+                                       display: block; position: absolute; left: 0;
+                                       writing-mode: vertical-rl; transform: rotate(180deg);
+                                       font-family: var(--font-mono); font-size: 9px;
+                                       letter-spacing: 0.32em; color: var(--accent);
+                                       font-weight: 700; top: 0;
+                                       border-left: 1px solid var(--accent);
+                                       padding: 4px 0; }
+  .dispatch .lede { font-family: var(--font-brand); font-weight: 400;
+                      font-size: 22px; line-height: 1.35;
+                      color: var(--ink-strong); letter-spacing: -0.01em;
+                      font-variation-settings: "opsz" 24; }
+  .dispatch .lede .drop { float: left; font-family: var(--font-brand); font-weight: 900;
+                             font-style: italic; font-size: 68px; line-height: 0.85;
+                             color: var(--gold); padding: 4px 12px 0 0;
+                             letter-spacing: -0.04em;
+                             font-variation-settings: "opsz" 144; }
+  .dispatch .lede strong { color: var(--ink-strong); font-weight: 700; }
+  .dispatch .pulse-panel { border-left: 1px solid var(--line);
+                              padding-left: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .dispatch .pulse-head { font-family: var(--font-mono); font-size: 9.5px;
+                             color: var(--muted); text-transform: uppercase;
+                             letter-spacing: 0.28em; font-weight: 700; }
+  .pulse-row { display: flex; align-items: baseline; justify-content: space-between;
+                 gap: 10px; padding: 4px 0; border-bottom: 1px dotted var(--line); }
+  .pulse-row:last-child { border-bottom: none; }
+  .pulse-row .pl-lbl { font-size: 11px; color: var(--muted);
+                          text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;
+                          display: flex; align-items: center; gap: 8px; }
+  .pulse-row .pl-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .pulse-row .pl-dot.d-crit { background: var(--danger);
+                                 box-shadow: 0 0 10px var(--danger-glow); }
+  .pulse-row .pl-dot.d-watch { background: var(--warn); }
+  .pulse-row .pl-dot.d-stable { background: var(--money); }
+  .pulse-row .pl-dot.d-manual { background: var(--faint); }
+  .pulse-row .pl-val { font-family: var(--font-brand); font-weight: 700;
+                          font-style: italic; font-size: 28px; line-height: 1;
+                          color: var(--ink-strong);
+                          font-variant-numeric: tabular-nums; }
+
+  /* =========================  HEATMAP  ========================= */
+  .heatmap { margin: 0 0 28px; padding: 16px 20px;
+               border: 1px solid var(--line); border-radius: var(--radius);
+               background: var(--card-elev); }
+  .heat-head { display: flex; align-items: center; justify-content: space-between;
+                 gap: 10px; margin-bottom: 10px; }
+  .heat-title { font-family: var(--font-mono); font-size: 9.5px;
+                  color: var(--muted); text-transform: uppercase;
+                  letter-spacing: 0.24em; font-weight: 700; }
+  .heat-legend { display: flex; gap: 14px; font-size: 10px; color: var(--muted);
+                   text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+  .heat-legend .lg-item { display: inline-flex; align-items: center; gap: 6px; }
+  .heat-legend .lg-swatch { width: 10px; height: 10px; border-radius: 2px; }
+  .heat-legend .lg-swatch.lg-crit { background: var(--danger); }
+  .heat-legend .lg-swatch.lg-watch { background: var(--warn); }
+  .heat-legend .lg-swatch.lg-stable { background: var(--money); }
+  .heat-legend .lg-swatch.lg-manual { background: var(--faint); }
+  .heat-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(18px, 1fr));
+                  gap: 4px; }
+  .heat-tiles .tile { aspect-ratio: 1; border-radius: 3px; cursor: help;
+                         transition: transform .15s ease; }
+  .heat-tiles .tile:hover { transform: scale(1.6); z-index: 2; position: relative; }
+  .heat-tiles .tile.tile-critical { background: var(--danger);
+                                       box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15),
+                                                   0 0 10px rgba(248,113,113,0.4); }
+  .heat-tiles .tile.tile-watch { background: var(--warn); }
+  .heat-tiles .tile.tile-stable { background: var(--money); opacity: 0.75; }
+  .heat-tiles .tile.tile-manual { background: var(--faint); opacity: 0.5; }
+
+  .toc-nav { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 26px;
+               padding: 10px 0; border-top: 1px solid var(--line);
+               border-bottom: 1px solid var(--line); }
+  .toc-nav a { font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+                 letter-spacing: 0.18em; text-transform: uppercase;
+                 padding: 6px 12px; border-radius: 4px; text-decoration: none;
+                 color: var(--muted); background: transparent;
+                 border: 1px solid transparent; transition: all .12s ease; }
+  .toc-nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* =========================  SECTION HEADINGS  ========================= */
+  h1 { display: none; }
+  h2 { font-family: var(--font-brand) !important;
+         font-size: 30px !important; font-weight: 700 !important;
+         font-style: italic !important;
+         margin: 36px 0 6px !important; padding: 0 !important;
+         color: var(--ink-strong) !important; letter-spacing: -0.02em;
+         line-height: 1.1 !important;
+         display: flex !important; align-items: baseline; gap: 16px;
+         border-top: none !important; border-bottom: none !important;
+         font-variation-settings: "opsz" 48; }
+  h2::before { content: "§ " counter(sec, upper-roman);
+                 counter-increment: sec;
+                 font-family: var(--font-mono); font-size: 10.5px;
+                 color: var(--accent); letter-spacing: 0.20em; font-weight: 700;
+                 padding: 5px 10px; border-radius: 4px;
+                 background: var(--accent-soft);
+                 font-style: normal; flex-shrink: 0; line-height: 1;
+                 align-self: center; }
+  h2 + p { color: var(--muted) !important; font-size: 14px !important;
+             margin: 0 0 18px !important; max-width: 820px;
+             font-style: italic; font-family: var(--font-brand);
+             line-height: 1.5 !important; }
+
+  /* =========================  TABLES  ========================= */
+  table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px;
+           border-radius: var(--radius); overflow: hidden;
+           border: 1px solid var(--line);
+           font-variant-numeric: tabular-nums; }
+  th { background: var(--panel); color: var(--th-ink); text-align: left;
+        padding: 11px 12px; font-weight: 700; font-size: 10.5px;
+        text-transform: uppercase; letter-spacing: 0.14em;
+        border-bottom: 1px solid var(--line-strong); }
+  td { border-bottom: 1px solid var(--line); padding: 13px 12px;
+        vertical-align: top; color: var(--ink); }
+  tbody tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--row-hover); }
+
+  .pill-severe, .pill-load, .pill-watch, .pill-stable, .pill-manual {
+    display: inline-block; padding: 3px 10px; border-radius: 999px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.10em; white-space: nowrap;
+    font-family: var(--font-body); }
+  .pill-severe { background: var(--pill-severe-bg); color: var(--pill-severe-fg);
+                   box-shadow: 0 0 16px rgba(239,68,68,0.15); }
+  .pill-load   { background: var(--pill-load-bg);   color: var(--pill-load-fg); }
+  .pill-watch  { background: var(--pill-watch-bg);  color: var(--pill-watch-fg); }
+  .pill-stable { background: var(--pill-stable-bg); color: var(--pill-stable-fg); }
+  .pill-manual { background: rgba(148,163,184,0.15); color: var(--muted); }
+
+  /* =========================  CASE-FILE CARDS  ========================= */
+  .well-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                  gap: 16px; margin: 4px 0 12px; }
+  .well-card { position: relative; background: var(--card-elev);
+                 border: 1px solid var(--line); border-radius: var(--radius);
+                 padding: 16px 18px 16px 22px; font-size: 12px; color: var(--ink);
+                 page-break-inside: avoid; display: flex; flex-direction: column;
+                 overflow: hidden; transition: border-color .15s ease, transform .15s ease; }
+  .well-card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+                         width: 4px; background: var(--line-strong); }
+  .well-card.card-accent-red::before  { background: linear-gradient(180deg, #ef4444, #b91c1c);
+                                           box-shadow: 0 0 28px rgba(239,68,68,0.45); }
+  .well-card.card-accent-amber::before { background: linear-gradient(180deg, #f59e0b, #b45309);
+                                            box-shadow: 0 0 22px rgba(245,158,11,0.28); }
+  .well-card.card-accent-green::before { background: linear-gradient(180deg, #34d399, #059669); }
+  .well-card.card-accent-gray::before  { background: var(--line-strong); }
+  .well-card:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+  .card-head { display: flex; justify-content: space-between; align-items: center;
+                 gap: 10px; margin-bottom: 8px;
+                 padding-bottom: 6px; border-bottom: 1px dotted var(--line); }
+  .case-num { font-family: var(--font-mono); font-size: 9.5px;
+                color: var(--muted); letter-spacing: 0.20em; text-transform: uppercase;
+                font-weight: 700; }
+  .card-pill { padding: 3px 10px; border-radius: 999px; font-size: 9.5px;
+                 font-weight: 700; text-transform: uppercase; white-space: nowrap;
+                 letter-spacing: 0.12em; }
+  .card-name { font-family: var(--font-brand); font-weight: 700; font-style: italic;
+                 font-size: 24px; line-height: 1.05; color: var(--ink-strong);
+                 letter-spacing: -0.02em; font-variation-settings: "opsz" 32; }
+  .card-lease { color: var(--muted); font-family: var(--font-mono); font-size: 9.5px;
+                  margin-top: 4px; text-transform: uppercase; letter-spacing: 0.18em;
+                  font-weight: 600; }
+  .card-lift { color: var(--muted); font-size: 11px; margin: 6px 0 12px;
+                 font-variant-numeric: tabular-nums;
+                 display: flex; align-items: center; gap: 8px; }
+  .card-lift strong { color: var(--ink-strong); font-weight: 700; }
+  .card-lift .lift-dot { width: 6px; height: 6px; border-radius: 50%;
+                           background: var(--accent);
+                           box-shadow: 0 0 0 3px var(--accent-soft); }
+  .card-share-chip { display: inline-flex; align-items: center; gap: 6px;
+                       font-family: var(--font-mono); font-size: 9px;
+                       text-transform: uppercase; letter-spacing: 0.14em;
+                       font-weight: 600; padding: 3px 9px; border-radius: 999px;
+                       background: rgba(251,191,36,0.10); color: var(--warn);
+                       border: 1px solid rgba(251,191,36,0.26);
+                       margin: 4px 0 8px; align-self: flex-start; }
+  .card-share-chip.chip-cdp { background: rgba(56,189,248,0.10); color: var(--accent);
+                                border-color: rgba(56,189,248,0.26); }
+  .pumper-entry-row { display: flex; align-items: center; gap: 10px;
+                        margin: 6px 0 10px; padding: 8px 10px;
+                        background: rgba(148,163,184,0.06);
+                        border: 1px dashed var(--line-strong);
+                        border-radius: 6px; font-size: 10.5px; }
+  .pumper-entry-chip { font-family: var(--font-mono); font-size: 9px;
+                         font-weight: 700; letter-spacing: 0.18em;
+                         text-transform: uppercase; padding: 3px 9px;
+                         border-radius: 999px;
+                         background: rgba(251,191,36,0.12); color: var(--warn);
+                         border: 1px solid rgba(251,191,36,0.28); white-space: nowrap; }
+  .pumper-entry-fields { color: var(--muted); font-family: var(--font-mono);
+                           font-size: 10px; letter-spacing: 0.08em; }
+
+  .chart-label { font-family: var(--font-mono); font-size: 8.5px;
+                   color: var(--muted); text-transform: uppercase;
+                   letter-spacing: 0.22em; margin: 2px 0 6px; font-weight: 700;
+                   display: flex; align-items: center; justify-content: space-between; }
+  .chart-frame { position: relative; padding: 6px 8px; margin-bottom: 12px;
+                   border: 1px solid var(--line); border-radius: 6px;
+                   background: linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+                   overflow: hidden; }
+  .chart-frame::before, .chart-frame::after {
+     content: ""; position: absolute; top: 0; bottom: 0; width: 1px;
+     background: repeating-linear-gradient(180deg, var(--line) 0, var(--line) 2px,
+                                            transparent 2px, transparent 6px); }
+  .chart-frame::before { left: 25%; }
+  .chart-frame::after { left: 75%; }
+  [data-theme="light"] .chart-frame { background: linear-gradient(180deg, rgba(2,132,199,0.025), transparent); }
+  .well-chart { width: 100%; max-width: 100%; display: block; background: transparent;
+                  height: 90px; position: relative; z-index: 1; }
+  .chart-missing { color: var(--muted); font-size: 11px; font-style: italic;
+                     padding: 28px 0; text-align: center; }
+
+  .card-kpis { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 10px; }
+  .kpi-pair { display: grid; grid-template-columns: 1fr 1fr; row-gap: 2px; column-gap: 12px;
+                padding: 6px 0; border-bottom: 1px dotted var(--line); }
+  .kpi-pair:last-child { border-bottom: none; }
+  .kpi-pair .lbl { color: var(--muted); font-family: var(--font-mono); font-size: 9px;
+                     text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; }
+  .kpi-pair .val { font-size: 15px; font-weight: 700; color: var(--ink-strong);
+                     font-variant-numeric: tabular-nums;
+                     font-family: var(--font-brand); font-style: italic;
+                     letter-spacing: -0.01em; }
+  .kpi-pair .val .arrow { font-size: 11px; font-style: normal; }
+  .kpi-pair .val.small { font-size: 12px; font-weight: 500; }
+  .kpi-pair .val.neg { color: var(--danger); }
+  .kpi-pair .val.pos { color: var(--money); }
+
+  .press-tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0; }
+  .press-tags .tag { font-family: var(--font-mono); font-size: 9.5px; font-weight: 600;
+                       padding: 4px 10px; border-radius: 4px; letter-spacing: 0.14em;
+                       text-transform: uppercase;
+                       background: rgba(251,191,36,0.10); color: var(--warn);
+                       border: 1px solid rgba(251,191,36,0.22); }
+  .press-tags .tag em { font-style: normal; color: var(--ink-strong); font-weight: 700;
+                          margin-left: 4px; }
+  .press-tags .tag-csg { background: rgba(56,189,248,0.10); color: var(--accent);
+                           border-color: rgba(56,189,248,0.26); }
+  .press-tags .tag-line { background: rgba(251,191,36,0.10); color: var(--warn);
+                            border-color: rgba(251,191,36,0.22); }
+  [data-theme="light"] .press-tags .tag { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+  [data-theme="light"] .press-tags .tag-csg { background: #dbeafe; color: #1e40af; border-color: #93c5fd; }
+  [data-theme="light"] .press-tags .tag-line { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+
+  .rec-box { background: linear-gradient(135deg, rgba(251,191,36,0.08) 0%, rgba(245,158,11,0.14) 100%);
+               color: var(--warn);
+               border: 1px solid rgba(251,191,36,0.24);
+               border-left: 3px solid var(--gold);
+               padding: 10px 12px 11px; border-radius: 0 8px 8px 0;
+               font-size: 11px; line-height: 1.5; margin-top: auto; }
+  [data-theme="light"] .rec-box { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+                                     color: #78350f; border-color: #fcd34d;
+                                     border-left-color: #d97706; }
+  .rec-box .rec-head { font-family: var(--font-mono); font-size: 9px;
+                         color: var(--gold); text-transform: uppercase;
+                         letter-spacing: 0.24em; font-weight: 700;
+                         margin-bottom: 4px; }
+  [data-theme="light"] .rec-box .rec-head { color: #b45309; }
+  .rec-box .rec-body { color: var(--ink); font-size: 12px; font-weight: 500;
+                         line-height: 1.5; }
+  [data-theme="light"] .rec-box .rec-body { color: #78350f; }
+  .rec-box .triggers { color: var(--muted); font-size: 10.5px; margin-top: 6px;
+                         padding-top: 6px; border-top: 1px dotted rgba(251,191,36,0.3); }
+  [data-theme="light"] .rec-box .triggers { color: #92400e; }
+  .rec-box .triggers .trig-lbl { font-family: var(--font-mono); font-size: 8.5px;
+                                    letter-spacing: 0.20em; text-transform: uppercase;
+                                    font-weight: 700; margin-right: 4px;
+                                    color: var(--gold); }
+  [data-theme="light"] .rec-box .triggers .trig-lbl { color: #b45309; }
+
+  /* =========================  MASTHEAD FOOTER  ========================= */
+  .foot { color: var(--muted); font-size: 11px; margin-top: 52px;
+           padding-top: 20px;
+           border-top: 2px solid var(--ink-strong);
+           position: relative; }
+  .foot::before { content: ""; position: absolute; left: 0; right: 0; top: 3px;
+                     border-top: 1px solid var(--ink-strong); }
+  .foot-inner { display: flex; justify-content: space-between; align-items: flex-end;
+                  gap: 24px; padding-top: 10px; }
+  .foot-brand { font-family: var(--font-brand); font-weight: 900; font-style: italic;
+                  font-size: 40px; line-height: 1; color: var(--ink-strong);
+                  letter-spacing: -0.03em; }
+  .foot-meta { font-family: var(--font-mono); font-size: 9.5px; color: var(--muted);
+                 text-transform: uppercase; letter-spacing: 0.20em; font-weight: 600;
+                 text-align: center; flex: 1; }
+  .foot-meta .sep { color: var(--faint); padding: 0 8px; }
+  .foot-rx { font-family: var(--font-brand); font-size: 64px; line-height: 1;
+               color: var(--gold); opacity: 0.5; text-shadow: 0 0 24px var(--gold-glow);
+               font-weight: 400; font-style: italic;
+               font-variation-settings: "opsz" 144; }
+</style>
+<style>
+  /* Severity-pill sizing for the table */
+  .pill-sm { display: inline-block; padding: 2px 8px; border-radius: 999px;
+              font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+              text-transform: uppercase; letter-spacing: 0.18em; }
+  .pill-sm-red   { background: rgba(239,68,68,0.14);  color: var(--danger); }
+  .pill-sm-green { background: rgba(52,211,153,0.14); color: var(--money); }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 11.5px;
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 8px 0 12px; }
+  .data-table th { background: rgba(148,163,184,0.06); padding: 9px 12px;
+    font-size: 9.5px; font-family: var(--font-mono); text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--muted); text-align: left;
+    border-bottom: 1px solid var(--line); font-weight: 700; }
+  .data-table td { padding: 7px 12px; border-bottom: 1px solid var(--line); }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table td.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+  .data-table td.mono { font-family: var(--font-mono); font-size: 10.5px; }
+  .data-table tr:hover { background: var(--row-hover); }
+
+  .press-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 4px 0 10px; }
+  .press-chip { font-family: var(--font-mono); font-size: 9.5px; font-weight: 600;
+                  letter-spacing: 0.1em; padding: 3px 9px; border-radius: 999px;
+                  background: rgba(148,163,184,0.08); color: var(--muted);
+                  border: 1px solid var(--line); }
+  .press-chip.press-g { background: rgba(52,211,153,0.08);  color: var(--money);
+                          border-color: rgba(52,211,153,0.24); }
+  .press-chip.press-y { background: rgba(251,191,36,0.08);  color: var(--warn);
+                          border-color: rgba(251,191,36,0.24); }
+  .press-chip strong { color: var(--ink-strong); font-weight: 700; }
+
+  .v-ink-strong { color: var(--ink-strong); font-weight: 700; }
+  .v-danger { color: var(--danger); font-weight: 700; }
+  .v-warn   { color: var(--warn);   font-weight: 700; }
+  .v-money  { color: var(--money);  font-weight: 700; }
+  .v-ink    { color: var(--ink);    font-weight: 600; }
+  .dim { color: var(--faint); }
+
+  .rec-inline { margin-top: 10px; padding: 10px 14px;
+    border-left: 3px solid var(--warn); border-radius: 0 8px 8px 0;
+    background: rgba(251,191,36,0.06); }
+  .rec-lead { font-size: 12.5px; color: var(--ink); line-height: 1.55; }
+  .rec-trigs { margin-top: 6px; font-family: var(--font-mono); font-size: 10px;
+    color: var(--muted); line-height: 1.55; letter-spacing: 0.02em; }
+
+  .sec-head-wrap { margin: 44px 0 16px; }
+  .sec-head { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+    font-size: 36px; letter-spacing: -0.015em; margin: 0 0 10px; color: var(--ink-strong);
+    font-variation-settings: "opsz" 72; display: flex; align-items: baseline; gap: 14px; }
+  .sec-head::before { content: "§ " attr(data-num);
+    font-family: var(--font-mono); font-size: 12px; font-style: normal; font-weight: 700;
+    letter-spacing: 0.24em; color: var(--muted); text-transform: uppercase; }
+  .sec-lede { font-size: 14px; color: var(--muted); line-height: 1.6; max-width: 820px; }
+  .sec-lede strong { color: var(--ink); }
+
+  .hero-strip.cols-4 { grid-template-columns: repeat(4, 1fr); }
+</style>
+</head>
+<body><div class="wrap">
+<button class="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle theme" id="themeBtn">☀ Light</button>
+<div class="rx-watermark">℞</div>
+<div class="inner">
+  <header class="masthead">
+    <div class="mast-rule-top"></div>
+    <div class="dateline">
+      <div class="dateline-left">
+        <span>Vol. I · No. 455</span>
+        <span class="live">Live · Real-time SCADA</span>
+      </div>
+      <div class="dateline-right">
+        <span>Tuesday · March 31, 2026</span>
+      </div>
+    </div>
+    <div class="mast-title">
+      <span class="rx-glyph">℞</span>
+      <h1>The WellRX Daily</h1>
+    </div>
+    <div class="mast-strap">A Quarterly Chemistry Review for <strong>Meridian Operating</strong> · FSR + SCADA · Prepared by Apex Production Services</div>
+    <div class="mast-rule-bot" style="margin-top:14px;"></div>
+  </header>  <div class="hero-strip cols-4">
+    <div class="hero-cell ">
+      <div class="lbl">Chemical wells (FSR)</div>
+      <div class="val">33</div>
+      <div class="sub">unique wells on chemical program</div>
+    </div>
+    <div class="hero-cell ">
+      <div class="lbl">Loading candidates</div>
+      <div class="val">15</div>
+      <div class="sub">flagged by threshold rules</div>
+    </div>
+    <div class="hero-cell ">
+      <div class="lbl">Q1 gallons delivered</div>
+      <div class="val">6,415</div>
+      <div class="sub">from delivery records</div>
+    </div>
+    <div class="hero-cell ">
+      <div class="lbl">Q1 chemical spend</div>
+      <div class="val">$33,118</div>
+      <div class="sub">Apex Production Services invoices</div>
+    </div>
+  </div>  <div class="dispatch">
+    <div class="lede-section">
+      <p class="lede"><strong>Q1 2026 closed with 33 wells under active chemical program</strong> — 15 flagged as loading candidates by the threshold rules, 0 trending amber, and the balance producing within tolerance. Total program spend was $33,118 across 6,415 gallons of FSC 600, methanol, and maintenance chemistry — a ~$1/Mcf all-in for the wells on treatment.</p><p class='lede'>The story of the quarter is a divergence between wells on plunger + foamer combo (generally holding within 5% of Q1 average) and the velocity-string + foamer wells (Brenner 4/5, Holloway 1, Pine Deephole, GH Winslow 4) showing 20-45% declines against Q1. The pattern is consistent with dosing gaps — target vs. actual chemical rate sits 10-25% short on most flagged wells. Recommended action going into Q2: re-dose the velocity-string cohort to target, re-baseline the plunger cohort with FSR audits, and evaluate Brenner 4 / Lyman 5 / Wolford 5 for plunger-vs-velocity conversion.</p>
+    </div>
+    <aside class="pulse-panel">
+      <div class="pulse-head">Portfolio Pulse</div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-crit"></span>Red · flagged loading</span>
+        <span class="pl-val">15</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-watch"></span>Amber · weakening</span>
+        <span class="pl-val">0</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-stable"></span>Green · producing</span>
+        <span class="pl-val">5</span>
+      </div>
+      <div class="pulse-row">
+        <span class="pl-lbl"><span class="pl-dot d-manual"></span>Gray · unknown / shut</span>
+        <span class="pl-val">14</span>
+      </div>
+    </aside>
+  </div>  <nav class="toc-nav" aria-label="Sections">
+    <a href="#wells">§ I · Case Files</a>
+    <a href="#scorecard">§ II · Fleet Scorecard</a>
+    <a href="#summary">§ III · Program Summary</a>
+  </nav>  <div class="heatmap">
+    <div class="heat-head">
+      <span class="heat-title">Chemical-Program Fleet Pulse · 34 wells · Q1 2026</span>
+      <span class="heat-legend">
+        <span class="lg-item"><span class="lg-swatch lg-crit"></span>Critical</span>
+        <span class="lg-item"><span class="lg-swatch lg-watch"></span>Watch</span>
+        <span class="lg-item"><span class="lg-swatch lg-stable"></span>Stable</span>
+        <span class="lg-item"><span class="lg-swatch lg-manual"></span>Manual only</span>
+      </span>
+    </div>
+    <div class="heat-tiles"><span class="tile lg-stable" title="Brenner · Producing"></span><span class="tile lg-manual" title="Hawthorne Meridian 17H · Unknown"></span><span class="tile lg-manual" title="Hawthorne Meridian 17H · Unknown"></span><span class="tile lg-crit" title="Brenner 5 · Unknown"></span><span class="tile lg-crit" title="Brenner 4 · Unknown"></span><span class="tile lg-manual" title="Brenner 1 · Unknown"></span><span class="tile lg-crit" title="Holloway 1 · Unknown"></span><span class="tile lg-crit" title="GH Winslow 4 · Unknown"></span><span class="tile lg-manual" title="GH Winslow 5 · Unknown"></span><span class="tile lg-crit" title="Donaldson 2 · Unknown"></span><span class="tile lg-manual" title="Hawthorne Meridian 4 · Unknown"></span><span class="tile lg-manual" title="Hawthorne Meridian 11 · Unknown"></span><span class="tile lg-crit" title="Trevino 10 · Unknown"></span><span class="tile lg-manual" title="Fairmont 2 · Unknown"></span><span class="tile lg-crit" title="Wesley 3 · Unknown"></span><span class="tile lg-manual" title="Wesley 5 · Unknown"></span><span class="tile lg-manual" title="Wesley 6 · Unknown"></span><span class="tile lg-manual" title="Ellington 2 · Unknown"></span><span class="tile lg-stable" title="Jessica Crockett · Producing"></span><span class="tile lg-stable" title="Halsey 2 · Producing"></span><span class="tile lg-stable" title="Lyman 3 · Producing"></span><span class="tile lg-stable" title="Lyman 4 · Producing"></span><span class="tile lg-crit" title="Lyman 5 · Shut-In"></span><span class="tile lg-crit" title="Gallatin · Producing"></span><span class="tile lg-crit" title="West 1 · Producing"></span><span class="tile lg-crit" title="Pine Deephole · Producing"></span><span class="tile lg-manual" title="Virginia Garland 2 · Unknown"></span><span class="tile lg-crit" title="Wolford 1 · Producing"></span><span class="tile lg-crit" title="Wolford 4 · Producing"></span><span class="tile lg-crit" title="Wolford 5 · Producing"></span><span class="tile lg-manual" title="Mansfield 6 · Unknown"></span><span class="tile lg-crit" title="Mansfield 8 · Unknown"></span><span class="tile lg-manual" title="Mansfield 9 · Unknown"></span><span class="tile lg-manual" title="Clement 4 · Unknown"></span></div>
+  </div>
+  <section id="wells">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="I"><span class="sec-label">Chemical-Program Case Files</span></h2>
+      <div class="sec-lede">34 wells on chemistry program. Each card: lift + chemistry, pressure envelope, 45-day MCF trend against Q1/Q4 benchmark, dosing actual vs. target, and a Q2 recommendation where triggers fire.</div>
+    </div>
+    <div class="well-cards">
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 001 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Brenner 5</div>
+      <div class="card-lease">Velocity String &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>233</strong></span><span class="press-chip press-g">CSG: <strong>330</strong></span><span class="press-chip press-y">LINE: <strong>156</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">4.5 gpd / 5.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">284</span><span class="v v-ink-strong" style="text-align:right;">288</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">360</span><span class="v v-ink-strong" style="text-align:right;">401</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-21.3%</span><span class="v v-ink-strong" style="text-align:right;">5.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 21% below Q1 avg; 7D MCF 19% below Q1 avg; Water 39% above Q1 avg; Chemical 11% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 002 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Brenner 4</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.1 5.0,2.0 10.0,4.6 15.0,2.8 20.0,6.2 25.0,3.4 30.0,3.7 35.0,3.2 40.0,5.4 45.0,4.1 50.0,8.0 55.0,4.3 60.0,8.7 65.0,10.2 70.0,11.7 75.0,9.1 80.0,8.6 85.0,11.9 90.0,13.4 95.0,13.6 100.0,16.6 105.0,17.1 110.0,16.2 115.0,18.0 120.0,17.4 125.0,19.5 130.0,23.5 135.0,22.0 140.0,21.8 145.0,24.5 150.0,24.4 155.0,24.8 160.0,25.0 165.0,28.4 170.0,27.8 175.0,29.5 180.0,31.6 185.0,32.3 190.0,31.4 195.0,31.3 200.0,34.4 205.0,35.2 210.0,35.6 215.0,38.0 220.0,37.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.1 5.0,2.0 10.0,4.6 15.0,2.8 20.0,6.2 25.0,3.4 30.0,3.7 35.0,3.2 40.0,5.4 45.0,4.1 50.0,8.0 55.0,4.3 60.0,8.7 65.0,10.2 70.0,11.7 75.0,9.1 80.0,8.6 85.0,11.9 90.0,13.4 95.0,13.6 100.0,16.6 105.0,17.1 110.0,16.2 115.0,18.0 120.0,17.4 125.0,19.5 130.0,23.5 135.0,22.0 140.0,21.8 145.0,24.5 150.0,24.4 155.0,24.8 160.0,25.0 165.0,28.4 170.0,27.8 175.0,29.5 180.0,31.6 185.0,32.3 190.0,31.4 195.0,31.3 200.0,34.4 205.0,35.2 210.0,35.6 215.0,38.0 220.0,37.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>261</strong></span><span class="press-chip press-y">CSG: <strong>398</strong></span><span class="press-chip press-y">LINE: <strong>152</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.5 gpd</span><span class="v v-ink-strong" style="text-align:right;">7.5 gpd / 6.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">245</span><span class="v v-ink-strong" style="text-align:right;">258</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">449</span><span class="v v-ink-strong" style="text-align:right;">561</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-45.6%</span><span class="v v-ink-strong" style="text-align:right;">18.4 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 45% below Q1 avg; 7D MCF 42% below Q1 avg; Water 91% above Q1 avg; Casing 18% above Q1 avg; Chemical 26% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 003 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Holloway 1</div>
+      <div class="card-lease">Velocity String &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>233</strong></span><span class="press-chip press-g">CSG: <strong>330</strong></span><span class="press-chip press-y">LINE: <strong>156</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">4.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">284</span><span class="v v-ink-strong" style="text-align:right;">288</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">360</span><span class="v v-ink-strong" style="text-align:right;">401</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-21.3%</span><span class="v v-ink-strong" style="text-align:right;">5.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 21% below Q1 avg; 7D MCF 19% below Q1 avg; Water 39% above Q1 avg; Chemical 11% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 004 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">GH Winslow 4</div>
+      <div class="card-lease">Velocity String &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>233</strong></span><span class="press-chip press-g">CSG: <strong>330</strong></span><span class="press-chip press-y">LINE: <strong>156</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">4.5 gpd / 2.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">284</span><span class="v v-ink-strong" style="text-align:right;">288</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">360</span><span class="v v-ink-strong" style="text-align:right;">401</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-21.3%</span><span class="v v-ink-strong" style="text-align:right;">5.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 21% below Q1 avg; 7D MCF 19% below Q1 avg; Water 39% above Q1 avg; Chemical 11% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 005 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Donaldson 2</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,11.8 10.0,3.2 15.0,4.1 20.0,5.4 25.0,10.2 30.0,3.0 35.0,7.0 40.0,8.4 45.0,7.8 50.0,9.5 55.0,9.2 60.0,6.0 65.0,5.8 70.0,5.0 75.0,9.4 80.0,6.8 85.0,4.5 90.0,5.2 95.0,5.3 100.0,8.3 105.0,8.1 110.0,11.4 115.0,12.8 120.0,13.2 125.0,19.6 130.0,13.4 135.0,14.1 140.0,15.8 145.0,21.4 150.0,21.7 155.0,20.8 160.0,23.8 165.0,23.6 170.0,23.9 175.0,22.5 180.0,29.4 185.0,25.1 190.0,30.4 195.0,33.4 200.0,31.5 205.0,32.4 210.0,32.4 215.0,36.2 220.0,38.0 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,11.8 10.0,3.2 15.0,4.1 20.0,5.4 25.0,10.2 30.0,3.0 35.0,7.0 40.0,8.4 45.0,7.8 50.0,9.5 55.0,9.2 60.0,6.0 65.0,5.8 70.0,5.0 75.0,9.4 80.0,6.8 85.0,4.5 90.0,5.2 95.0,5.3 100.0,8.3 105.0,8.1 110.0,11.4 115.0,12.8 120.0,13.2 125.0,19.6 130.0,13.4 135.0,14.1 140.0,15.8 145.0,21.4 150.0,21.7 155.0,20.8 160.0,23.8 165.0,23.6 170.0,23.9 175.0,22.5 180.0,29.4 185.0,25.1 190.0,30.4 195.0,33.4 200.0,31.5 205.0,32.4 210.0,32.4 215.0,36.2 220.0,38.0"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>255</strong></span><span class="press-chip press-g">CSG: <strong>342</strong></span><span class="press-chip press-y">LINE: <strong>149</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.5 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.0 gpd / 4.5 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">313</span><span class="v v-ink-strong" style="text-align:right;">326</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">422</span><span class="v v-ink-strong" style="text-align:right;">484</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-25.8%</span><span class="v v-ink-strong" style="text-align:right;">12.4 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 25% below Q1 avg; 7D MCF 22% below Q1 avg; Water 54% above Q1 avg; Chemical 10% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 006 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Trevino 10</div>
+      <div class="card-lease">Velocity String &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>233</strong></span><span class="press-chip press-g">CSG: <strong>330</strong></span><span class="press-chip press-y">LINE: <strong>156</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">4.5 gpd / 8.5 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">284</span><span class="v v-ink-strong" style="text-align:right;">288</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">360</span><span class="v v-ink-strong" style="text-align:right;">401</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-21.3%</span><span class="v v-ink-strong" style="text-align:right;">5.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 21% below Q1 avg; 7D MCF 19% below Q1 avg; Water 39% above Q1 avg; Chemical 11% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 007 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Wesley 3</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>273</strong></span><span class="press-chip press-g">CSG: <strong>355</strong></span><span class="press-chip press-y">LINE: <strong>146</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.6 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.0 gpd / 12.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">442</span><span class="v v-ink-strong" style="text-align:right;">459</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">584</span><span class="v v-ink-strong" style="text-align:right;">657</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-24.4%</span><span class="v v-ink-strong" style="text-align:right;">10.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 24% below Q1 avg; 7D MCF 21% below Q1 avg; Water 49% above Q1 avg; Casing 10% above Q1 avg</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 008 · HALSEY-LYMAN - Panola</span>
+        <span class="card-pill pill-severe">Shut-In</span>
+      </div>
+      <div class="card-name">Lyman 5</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.1 5.0,2.0 10.0,4.6 15.0,2.8 20.0,6.2 25.0,3.4 30.0,3.7 35.0,3.2 40.0,5.4 45.0,4.1 50.0,8.0 55.0,4.3 60.0,8.7 65.0,10.2 70.0,11.7 75.0,9.1 80.0,8.6 85.0,11.9 90.0,13.4 95.0,13.6 100.0,16.6 105.0,17.1 110.0,16.2 115.0,18.0 120.0,17.4 125.0,19.5 130.0,23.5 135.0,22.0 140.0,21.8 145.0,24.5 150.0,24.4 155.0,24.8 160.0,25.0 165.0,28.4 170.0,27.8 175.0,29.5 180.0,31.6 185.0,32.3 190.0,31.4 195.0,31.3 200.0,34.4 205.0,35.2 210.0,35.6 215.0,38.0 220.0,37.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.1 5.0,2.0 10.0,4.6 15.0,2.8 20.0,6.2 25.0,3.4 30.0,3.7 35.0,3.2 40.0,5.4 45.0,4.1 50.0,8.0 55.0,4.3 60.0,8.7 65.0,10.2 70.0,11.7 75.0,9.1 80.0,8.6 85.0,11.9 90.0,13.4 95.0,13.6 100.0,16.6 105.0,17.1 110.0,16.2 115.0,18.0 120.0,17.4 125.0,19.5 130.0,23.5 135.0,22.0 140.0,21.8 145.0,24.5 150.0,24.4 155.0,24.8 160.0,25.0 165.0,28.4 170.0,27.8 175.0,29.5 180.0,31.6 185.0,32.3 190.0,31.4 195.0,31.3 200.0,34.4 205.0,35.2 210.0,35.6 215.0,38.0 220.0,37.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>261</strong></span><span class="press-chip press-y">CSG: <strong>398</strong></span><span class="press-chip press-y">LINE: <strong>152</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.5 gpd</span><span class="v v-ink-strong" style="text-align:right;">7.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">245</span><span class="v v-ink-strong" style="text-align:right;">258</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">449</span><span class="v v-ink-strong" style="text-align:right;">561</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-45.6%</span><span class="v v-ink-strong" style="text-align:right;">18.4 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 45% below Q1 avg; 7D MCF 42% below Q1 avg; Water 91% above Q1 avg; Casing 18% above Q1 avg; Chemical 26% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 009 · GALLATIN-WEST - RUSK</span>
+        <span class="card-pill pill-severe">Producing</span>
+      </div>
+      <div class="card-name">Gallatin</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>273</strong></span><span class="press-chip press-g">CSG: <strong>355</strong></span><span class="press-chip press-y">LINE: <strong>146</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.6 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.0 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">442</span><span class="v v-ink-strong" style="text-align:right;">459</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">584</span><span class="v v-ink-strong" style="text-align:right;">657</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-24.4%</span><span class="v v-ink-strong" style="text-align:right;">10.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 24% below Q1 avg; 7D MCF 21% below Q1 avg; Water 49% above Q1 avg; Casing 10% above Q1 avg</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 010 · GALLATIN-WEST - RUSK</span>
+        <span class="card-pill pill-severe">Producing</span>
+      </div>
+      <div class="card-name">West 1</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>273</strong></span><span class="press-chip press-g">CSG: <strong>355</strong></span><span class="press-chip press-y">LINE: <strong>146</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.6 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.0 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">442</span><span class="v v-ink-strong" style="text-align:right;">459</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">584</span><span class="v v-ink-strong" style="text-align:right;">657</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-24.4%</span><span class="v v-ink-strong" style="text-align:right;">10.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 24% below Q1 avg; 7D MCF 21% below Q1 avg; Water 49% above Q1 avg; Casing 10% above Q1 avg</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 011 · Oak Hill Longview - HARRISON</span>
+        <span class="card-pill pill-severe">Producing</span>
+      </div>
+      <div class="card-name">Pine Deephole</div>
+      <div class="card-lease">Velocity String &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>233</strong></span><span class="press-chip press-g">CSG: <strong>330</strong></span><span class="press-chip press-y">LINE: <strong>156</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">4.5 gpd / 5.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">284</span><span class="v v-ink-strong" style="text-align:right;">288</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">360</span><span class="v v-ink-strong" style="text-align:right;">401</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-21.3%</span><span class="v v-ink-strong" style="text-align:right;">5.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 21% below Q1 avg; 7D MCF 19% below Q1 avg; Water 39% above Q1 avg; Chemical 11% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 012 · MANSFIELD-WOLFORD - RUSK</span>
+        <span class="card-pill pill-severe">Producing</span>
+      </div>
+      <div class="card-name">Wolford 1</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,11.8 10.0,3.2 15.0,4.1 20.0,5.4 25.0,10.2 30.0,3.0 35.0,7.0 40.0,8.4 45.0,7.8 50.0,9.5 55.0,9.2 60.0,6.0 65.0,5.8 70.0,5.0 75.0,9.4 80.0,6.8 85.0,4.5 90.0,5.2 95.0,5.3 100.0,8.3 105.0,8.1 110.0,11.4 115.0,12.8 120.0,13.2 125.0,19.6 130.0,13.4 135.0,14.1 140.0,15.8 145.0,21.4 150.0,21.7 155.0,20.8 160.0,23.8 165.0,23.6 170.0,23.9 175.0,22.5 180.0,29.4 185.0,25.1 190.0,30.4 195.0,33.4 200.0,31.5 205.0,32.4 210.0,32.4 215.0,36.2 220.0,38.0 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,11.8 10.0,3.2 15.0,4.1 20.0,5.4 25.0,10.2 30.0,3.0 35.0,7.0 40.0,8.4 45.0,7.8 50.0,9.5 55.0,9.2 60.0,6.0 65.0,5.8 70.0,5.0 75.0,9.4 80.0,6.8 85.0,4.5 90.0,5.2 95.0,5.3 100.0,8.3 105.0,8.1 110.0,11.4 115.0,12.8 120.0,13.2 125.0,19.6 130.0,13.4 135.0,14.1 140.0,15.8 145.0,21.4 150.0,21.7 155.0,20.8 160.0,23.8 165.0,23.6 170.0,23.9 175.0,22.5 180.0,29.4 185.0,25.1 190.0,30.4 195.0,33.4 200.0,31.5 205.0,32.4 210.0,32.4 215.0,36.2 220.0,38.0"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>255</strong></span><span class="press-chip press-g">CSG: <strong>342</strong></span><span class="press-chip press-y">LINE: <strong>149</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.5 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.0 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">313</span><span class="v v-ink-strong" style="text-align:right;">326</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">422</span><span class="v v-ink-strong" style="text-align:right;">484</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-25.8%</span><span class="v v-ink-strong" style="text-align:right;">12.4 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 25% below Q1 avg; 7D MCF 22% below Q1 avg; Water 54% above Q1 avg; Chemical 10% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 013 · MANSFIELD-WOLFORD - RUSK</span>
+        <span class="card-pill pill-severe">Producing</span>
+      </div>
+      <div class="card-name">Wolford 4</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,9.9 5.0,2.0 10.0,13.1 15.0,7.6 20.0,8.6 25.0,10.4 30.0,6.5 35.0,9.1 40.0,11.4 45.0,10.9 50.0,10.6 55.0,12.4 60.0,10.7 65.0,13.0 70.0,11.5 75.0,12.9 80.0,11.0 85.0,11.9 90.0,12.5 95.0,11.4 100.0,13.1 105.0,17.0 110.0,9.6 115.0,17.3 120.0,16.8 125.0,17.0 130.0,17.7 135.0,19.6 140.0,19.3 145.0,19.4 150.0,18.7 155.0,21.6 160.0,26.2 165.0,27.3 170.0,23.1 175.0,23.2 180.0,27.8 185.0,31.0 190.0,30.8 195.0,29.7 200.0,30.6 205.0,31.0 210.0,29.1 215.0,38.0 220.0,35.9"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>273</strong></span><span class="press-chip press-g">CSG: <strong>355</strong></span><span class="press-chip press-y">LINE: <strong>146</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.6 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.0 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">442</span><span class="v v-ink-strong" style="text-align:right;">459</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">584</span><span class="v v-ink-strong" style="text-align:right;">657</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-24.4%</span><span class="v v-ink-strong" style="text-align:right;">10.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 24% below Q1 avg; 7D MCF 21% below Q1 avg; Water 49% above Q1 avg; Casing 10% above Q1 avg</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 014 · MANSFIELD-WOLFORD - RUSK</span>
+        <span class="card-pill pill-severe">Producing</span>
+      </div>
+      <div class="card-name">Wolford 5</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.1 5.0,2.0 10.0,4.6 15.0,2.8 20.0,6.2 25.0,3.4 30.0,3.7 35.0,3.2 40.0,5.4 45.0,4.1 50.0,8.0 55.0,4.3 60.0,8.7 65.0,10.2 70.0,11.7 75.0,9.1 80.0,8.6 85.0,11.9 90.0,13.4 95.0,13.6 100.0,16.6 105.0,17.1 110.0,16.2 115.0,18.0 120.0,17.4 125.0,19.5 130.0,23.5 135.0,22.0 140.0,21.8 145.0,24.5 150.0,24.4 155.0,24.8 160.0,25.0 165.0,28.4 170.0,27.8 175.0,29.5 180.0,31.6 185.0,32.3 190.0,31.4 195.0,31.3 200.0,34.4 205.0,35.2 210.0,35.6 215.0,38.0 220.0,37.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.1 5.0,2.0 10.0,4.6 15.0,2.8 20.0,6.2 25.0,3.4 30.0,3.7 35.0,3.2 40.0,5.4 45.0,4.1 50.0,8.0 55.0,4.3 60.0,8.7 65.0,10.2 70.0,11.7 75.0,9.1 80.0,8.6 85.0,11.9 90.0,13.4 95.0,13.6 100.0,16.6 105.0,17.1 110.0,16.2 115.0,18.0 120.0,17.4 125.0,19.5 130.0,23.5 135.0,22.0 140.0,21.8 145.0,24.5 150.0,24.4 155.0,24.8 160.0,25.0 165.0,28.4 170.0,27.8 175.0,29.5 180.0,31.6 185.0,32.3 190.0,31.4 195.0,31.3 200.0,34.4 205.0,35.2 210.0,35.6 215.0,38.0 220.0,37.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>261</strong></span><span class="press-chip press-y">CSG: <strong>398</strong></span><span class="press-chip press-y">LINE: <strong>152</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.5 gpd</span><span class="v v-ink-strong" style="text-align:right;">7.5 gpd / 4.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">245</span><span class="v v-ink-strong" style="text-align:right;">258</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">449</span><span class="v v-ink-strong" style="text-align:right;">561</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-45.6%</span><span class="v v-ink-strong" style="text-align:right;">18.4 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 45% below Q1 avg; 7D MCF 42% below Q1 avg; Water 91% above Q1 avg; Casing 18% above Q1 avg; Chemical 26% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-red">
+      <div class="card-head">
+        <span class="case-num">CASE · 015 · Location n/a</span>
+        <span class="card-pill pill-severe">Unknown</span>
+      </div>
+      <div class="card-name">Mansfield 8</div>
+      <div class="card-lease">Velocity String &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_red" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#f87171" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#f87171" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_red)" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7 220,40 0,40"/>
+  <polyline fill="none" stroke="#f87171" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,2.0 5.0,8.7 10.0,4.2 15.0,6.0 20.0,12.4 25.0,15.3 30.0,13.9 35.0,6.7 40.0,12.2 45.0,9.2 50.0,6.1 55.0,11.0 60.0,5.7 65.0,7.6 70.0,7.5 75.0,11.8 80.0,8.6 85.0,8.0 90.0,10.4 95.0,6.7 100.0,10.2 105.0,10.2 110.0,7.0 115.0,18.2 120.0,14.3 125.0,17.4 130.0,16.3 135.0,21.4 140.0,22.0 145.0,20.2 150.0,18.3 155.0,19.1 160.0,28.1 165.0,28.1 170.0,27.2 175.0,25.8 180.0,32.6 185.0,27.3 190.0,34.4 195.0,32.2 200.0,38.0 205.0,34.6 210.0,37.5 215.0,33.0 220.0,37.7"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>233</strong></span><span class="press-chip press-g">CSG: <strong>330</strong></span><span class="press-chip press-y">LINE: <strong>156</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">4.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">4.5 gpd / 3.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">284</span><span class="v v-ink-strong" style="text-align:right;">288</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">360</span><span class="v v-ink-strong" style="text-align:right;">401</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-21.3%</span><span class="v v-ink-strong" style="text-align:right;">5.6 bbl</span></div></div>
+      
+    <div class="rec-box rec-inline">
+      <div class="rec-lead"><strong>Recommendation.</strong> Review plunger/foamer settings first.</div>
+      <div class="rec-trigs">Triggers: MCF 21% below Q1 avg; 7D MCF 19% below Q1 avg; Water 39% above Q1 avg; Chemical 11% below target</div>
+    </div>
+    </article>
+
+    <article class="well-card card-accent-green">
+      <div class="card-head">
+        <span class="case-num">CASE · 016 · WHITE SPRINGS - Gregg</span>
+        <span class="card-pill pill-stable">Producing</span>
+      </div>
+      <div class="card-name">Brenner</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_green" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_green)" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#34d399" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>279</strong></span><span class="press-chip press-g">CSG: <strong>332</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.2 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">634</span><span class="v v-ink-strong" style="text-align:right;">631</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">658</span><span class="v v-ink-strong" style="text-align:right;">715</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.8%</span><span class="v v-ink-strong" style="text-align:right;">6.0 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-green">
+      <div class="card-head">
+        <span class="case-num">CASE · 017 · Gregg</span>
+        <span class="card-pill pill-stable">Producing</span>
+      </div>
+      <div class="card-name">Jessica Crockett</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_green" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_green)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#34d399" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-green">
+      <div class="card-head">
+        <span class="case-num">CASE · 018 · HALSEY-LYMAN - Panola</span>
+        <span class="card-pill pill-stable">Producing</span>
+      </div>
+      <div class="card-name">Halsey 2</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_green" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_green)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#34d399" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-green">
+      <div class="card-head">
+        <span class="case-num">CASE · 019 · HALSEY-LYMAN - Panola</span>
+        <span class="card-pill pill-stable">Producing</span>
+      </div>
+      <div class="card-name">Lyman 3</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_green" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_green)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#34d399" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-green">
+      <div class="card-head">
+        <span class="case-num">CASE · 020 · HALSEY-LYMAN - Panola</span>
+        <span class="card-pill pill-stable">Producing</span>
+      </div>
+      <div class="card-name">Lyman 4</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_green" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#34d399" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_green)" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2 220,40 0,40"/>
+  <polyline fill="none" stroke="#34d399" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>346</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / 7.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">684</span><span class="v v-ink-strong" style="text-align:right;">692</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">716</span><span class="v v-ink-strong" style="text-align:right;">765</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-4.6%</span><span class="v v-ink-strong" style="text-align:right;">4.8 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 021 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Hawthorne Meridian 17H</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>279</strong></span><span class="press-chip press-g">CSG: <strong>332</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.2 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.5 gpd / 9.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">634</span><span class="v v-ink-strong" style="text-align:right;">631</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">658</span><span class="v v-ink-strong" style="text-align:right;">715</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.8%</span><span class="v v-ink-strong" style="text-align:right;">6.0 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 022 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Hawthorne Meridian 17H</div>
+      <div class="card-lease">Foamer &middot; Methanol</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>279</strong></span><span class="press-chip press-g">CSG: <strong>332</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.2 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.5 gpd / 9.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">634</span><span class="v v-ink-strong" style="text-align:right;">631</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">658</span><span class="v v-ink-strong" style="text-align:right;">715</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.8%</span><span class="v v-ink-strong" style="text-align:right;">6.0 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 023 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Brenner 1</div>
+      <div class="card-lease">Foamer &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,25.2 5.0,17.4 10.0,17.7 15.0,19.1 20.0,9.9 25.0,23.8 30.0,16.3 35.0,18.4 40.0,38.0 45.0,27.8 50.0,33.4 55.0,13.9 60.0,13.1 65.0,26.7 70.0,7.5 75.0,18.0 80.0,12.1 85.0,34.1 90.0,19.7 95.0,26.9 100.0,20.1 105.0,10.9 110.0,23.4 115.0,13.6 120.0,4.2 125.0,32.6 130.0,2.0 135.0,24.3 140.0,7.8 145.0,5.4 150.0,26.4 155.0,11.6 160.0,22.5 165.0,22.5 170.0,19.0 175.0,21.0 180.0,15.5 185.0,11.9 190.0,15.1 195.0,17.2 200.0,8.2 205.0,30.3 210.0,31.0 215.0,20.9 220.0,18.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>279</strong></span><span class="press-chip press-g">CSG: <strong>332</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.2 gpd</span><span class="v v-ink-strong" style="text-align:right;">5.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">634</span><span class="v v-ink-strong" style="text-align:right;">631</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">658</span><span class="v v-ink-strong" style="text-align:right;">715</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.8%</span><span class="v v-ink-strong" style="text-align:right;">6.0 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 024 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">GH Winslow 5</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>346</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / 4.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">684</span><span class="v v-ink-strong" style="text-align:right;">692</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">716</span><span class="v v-ink-strong" style="text-align:right;">765</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-4.6%</span><span class="v v-ink-strong" style="text-align:right;">4.8 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 025 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Hawthorne Meridian 4</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / 4.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 026 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Hawthorne Meridian 11</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>346</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / 4.5 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">684</span><span class="v v-ink-strong" style="text-align:right;">692</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">716</span><span class="v v-ink-strong" style="text-align:right;">765</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-4.6%</span><span class="v v-ink-strong" style="text-align:right;">4.8 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 027 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Fairmont 2</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>291</strong></span><span class="press-chip press-g">CSG: <strong>336</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.8 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">714</span><span class="v v-ink-strong" style="text-align:right;">718</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">741</span><span class="v v-ink-strong" style="text-align:right;">795</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.6%</span><span class="v v-ink-strong" style="text-align:right;">4.9 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 028 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Wesley 5</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>291</strong></span><span class="press-chip press-g">CSG: <strong>336</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.8 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / 6.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">714</span><span class="v v-ink-strong" style="text-align:right;">718</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">741</span><span class="v v-ink-strong" style="text-align:right;">795</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.6%</span><span class="v v-ink-strong" style="text-align:right;">4.9 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 029 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Wesley 6</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / 4.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 030 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Ellington 2</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,23.6 5.0,30.3 10.0,38.0 15.0,23.9 20.0,19.6 25.0,30.7 30.0,28.8 35.0,27.1 40.0,16.9 45.0,24.2 50.0,9.9 55.0,29.7 60.0,13.4 65.0,18.6 70.0,26.9 75.0,22.6 80.0,23.5 85.0,22.0 90.0,27.9 95.0,25.6 100.0,27.4 105.0,21.1 110.0,31.3 115.0,9.7 120.0,24.4 125.0,15.8 130.0,15.2 135.0,19.5 140.0,12.2 145.0,30.9 150.0,2.0 155.0,29.3 160.0,32.7 165.0,17.5 170.0,29.1 175.0,28.5 180.0,24.4 185.0,18.7 190.0,23.2 195.0,17.9 200.0,34.2 205.0,16.6 210.0,25.8 215.0,21.7 220.0,29.2"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>346</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.0 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / 1.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">684</span><span class="v v-ink-strong" style="text-align:right;">692</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">716</span><span class="v v-ink-strong" style="text-align:right;">765</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-4.6%</span><span class="v v-ink-strong" style="text-align:right;">4.8 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 031 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Virginia Garland 2</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / 5.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 032 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Mansfield 6</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>291</strong></span><span class="press-chip press-g">CSG: <strong>336</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.8 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">714</span><span class="v v-ink-strong" style="text-align:right;">718</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">741</span><span class="v v-ink-strong" style="text-align:right;">795</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.6%</span><span class="v v-ink-strong" style="text-align:right;">4.9 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 033 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Mansfield 9</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.4 5.0,23.2 10.0,34.0 15.0,28.4 20.0,21.2 25.0,17.9 30.0,17.2 35.0,21.3 40.0,34.0 45.0,35.2 50.0,36.7 55.0,34.6 60.0,30.4 65.0,18.8 70.0,22.7 75.0,35.0 80.0,28.6 85.0,29.0 90.0,25.3 95.0,20.5 100.0,27.9 105.0,14.1 110.0,19.4 115.0,22.1 120.0,26.4 125.0,14.3 130.0,38.0 135.0,27.1 140.0,2.0 145.0,14.5 150.0,33.0 155.0,31.8 160.0,26.7 165.0,31.0 170.0,22.0 175.0,13.4 180.0,14.0 185.0,32.8 190.0,29.8 195.0,16.6 200.0,27.9 205.0,34.0 210.0,21.9 215.0,21.2 220.0,28.1"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>291</strong></span><span class="press-chip press-g">CSG: <strong>336</strong></span><span class="press-chip press-y">LINE: <strong>142</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">5.8 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.0 gpd / 2.0 gpd</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">714</span><span class="v v-ink-strong" style="text-align:right;">718</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">741</span><span class="v v-ink-strong" style="text-align:right;">795</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-3.6%</span><span class="v v-ink-strong" style="text-align:right;">4.9 bbl</span></div></div>
+      
+    </article>
+
+    <article class="well-card card-accent-gray">
+      <div class="card-head">
+        <span class="case-num">CASE · 034 · Location n/a</span>
+        <span class="card-pill pill-manual">Unknown</span>
+      </div>
+      <div class="card-name">Clement 4</div>
+      <div class="card-lease">Plunger &middot; FSC 600</div>
+      <div class="chart-frame">
+        <div class="chart-label"><span>MCF · 45 day</span><span class="chart-scale">Q1 2026</span></div>
+        <svg class="well-chart" viewBox="0 0 220 40" preserveAspectRatio="none"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="45-day MCF sparkline">
+  <defs>
+    <linearGradient id="q1g_gray" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#94a3b8" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#94a3b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <polygon fill="url(#q1g_gray)" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3 220,40 0,40"/>
+  <polyline fill="none" stroke="#94a3b8" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round"
+            vector-effect="non-scaling-stroke" points="0.0,20.3 5.0,37.2 10.0,22.6 15.0,15.2 20.0,14.9 25.0,19.0 30.0,32.9 35.0,8.1 40.0,31.4 45.0,22.8 50.0,22.0 55.0,16.8 60.0,22.1 65.0,15.2 70.0,26.3 75.0,13.7 80.0,29.3 85.0,19.1 90.0,2.0 95.0,21.9 100.0,9.2 105.0,20.9 110.0,37.3 115.0,11.5 120.0,15.7 125.0,23.0 130.0,24.1 135.0,28.2 140.0,20.2 145.0,31.6 150.0,12.6 155.0,17.7 160.0,14.4 165.0,24.6 170.0,14.6 175.0,2.1 180.0,7.4 185.0,21.1 190.0,22.1 195.0,20.9 200.0,6.3 205.0,10.9 210.0,38.0 215.0,22.2 220.0,20.3"/>
+</svg>
+      </div>
+      <div class="press-row"><span class="press-chip press-g">TBG: <strong>297</strong></span><span class="press-chip press-g">CSG: <strong>349</strong></span><span class="press-chip press-y">LINE: <strong>141</strong></span></div>
+      <div class="card-kpis"><div class="kpi-pair"><span class="lbl">Chem rate · yest</span><span class="lbl" style="text-align:right;">Target / last FSR</span><span class="v v-ink-strong">6.3 gpd</span><span class="v v-ink-strong" style="text-align:right;">6.5 gpd / n/a</span></div><div class="kpi-pair"><span class="lbl">Yest. MCF</span><span class="lbl" style="text-align:right;">7-day avg</span><span class="v v-ink-strong">777</span><span class="v v-ink-strong" style="text-align:right;">777</span></div><div class="kpi-pair"><span class="lbl">Q1 avg</span><span class="lbl" style="text-align:right;">Q4 avg</span><span class="v v-ink-strong">798</span><span class="v v-ink-strong" style="text-align:right;">845</span></div><div class="kpi-pair"><span class="lbl">vs Q1</span><span class="lbl" style="text-align:right;">Water · yest</span><span class="v v-ink-strong">-2.6%</span><span class="v v-ink-strong" style="text-align:right;">4.1 bbl</span></div></div>
+      
+    </article></div>
+  </section>
+  <section id="scorecard">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="II"><span class="sec-label">Fleet Scorecard · Q1 2026</span></h2>
+      <div class="sec-lede">Every well on program, one row. Rate / target measured from the most recent FSR; Yest MCF &amp; Q1-avg from SCADA. The Loading column fires when MCF 21%+ below Q1 average AND chemical dosing 10%+ under target.</div>
+    </div>
+    
+    <table class="data-table q1-table" id="q1wells">
+      <thead><tr>
+        <th>Well</th><th>Status</th><th>Location</th><th>Lift</th><th>Chem</th>
+        <th>Rate</th><th>Target</th><th>Yest MCF</th><th>Q1 avg</th><th>vs Q1</th>
+        <th>Q1 gal</th><th>Q1 spend</th><th>Loading</th>
+      </tr></thead>
+      <tbody><tr><td class="mono"><strong>Lyman 3</strong></td><td>PRODUCING</td><td class="mono dim">HALSEY-LYMAN</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">410</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Lyman 4</strong></td><td>PRODUCING</td><td class="mono dim">HALSEY-LYMAN</td><td>Plunger</td><td>FSC 600</td><td class="num">6.0</td><td class="num">6.0</td><td class="num">684</td><td class="num">716</td><td class="num v-money"><strong>-4.6%</strong></td><td class="num">340</td><td class="num mono">$1,194</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Lyman 5</strong></td><td>SHUT-IN</td><td class="mono dim">HALSEY-LYMAN</td><td>Plunger</td><td>FSC 600</td><td class="num">5.5</td><td class="num">7.5</td><td class="num">245</td><td class="num">449</td><td class="num v-danger"><strong>-45.6%</strong></td><td class="num">430</td><td class="num mono">$869</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Trevino 10</strong></td><td>—</td><td class="mono dim">—</td><td>Velocity String</td><td>FSC 600</td><td class="num">4.0</td><td class="num">4.5</td><td class="num">284</td><td class="num">360</td><td class="num v-danger"><strong>-21.3%</strong></td><td class="num">125</td><td class="num mono">$796</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Holloway 1</strong></td><td>—</td><td class="mono dim">—</td><td>Velocity String</td><td>FSC 600</td><td class="num">4.0</td><td class="num">4.5</td><td class="num">284</td><td class="num">360</td><td class="num v-danger"><strong>-21.3%</strong></td><td class="num">0</td><td class="num mono">$0</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Mansfield 6</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">5.8</td><td class="num">6.0</td><td class="num">714</td><td class="num">741</td><td class="num v-money"><strong>-3.6%</strong></td><td class="num">330</td><td class="num mono">$0</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Mansfield 8</strong></td><td>—</td><td class="mono dim">—</td><td>Velocity String</td><td>FSC 600</td><td class="num">4.0</td><td class="num">4.5</td><td class="num">284</td><td class="num">360</td><td class="num v-danger"><strong>-21.3%</strong></td><td class="num">250</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Mansfield 9</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">5.8</td><td class="num">6.0</td><td class="num">714</td><td class="num">741</td><td class="num v-money"><strong>-3.6%</strong></td><td class="num">0</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Ellington 2</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.0</td><td class="num">6.0</td><td class="num">684</td><td class="num">716</td><td class="num v-money"><strong>-4.6%</strong></td><td class="num">110</td><td class="num mono">$2,812</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>GH Winslow 4</strong></td><td>—</td><td class="mono dim">—</td><td>Velocity String</td><td>FSC 600</td><td class="num">4.0</td><td class="num">4.5</td><td class="num">284</td><td class="num">360</td><td class="num v-danger"><strong>-21.3%</strong></td><td class="num">0</td><td class="num mono">$1,176</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>GH Winslow 5</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.0</td><td class="num">6.0</td><td class="num">684</td><td class="num">716</td><td class="num v-money"><strong>-4.6%</strong></td><td class="num">125</td><td class="num mono">$1,210</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Fairmont 2</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">5.8</td><td class="num">6.0</td><td class="num">714</td><td class="num">741</td><td class="num v-money"><strong>-3.6%</strong></td><td class="num">55</td><td class="num mono">$856</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Gallatin</strong></td><td>PRODUCING</td><td class="mono dim">GALLATIN-WEST</td><td>Foamer</td><td>FSC 600</td><td class="num">4.6</td><td class="num">5.0</td><td class="num">442</td><td class="num">584</td><td class="num v-danger"><strong>-24.4%</strong></td><td class="num">0</td><td class="num mono">$0</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Jessica Crockett</strong></td><td>PRODUCING</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">620</td><td class="num mono">$1,794</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Hawthorne Meridian 11</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.0</td><td class="num">6.0</td><td class="num">684</td><td class="num">716</td><td class="num v-money"><strong>-4.6%</strong></td><td class="num">105</td><td class="num mono">$869</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Hawthorne Meridian 17H</strong></td><td>—</td><td class="mono dim">—</td><td>Foamer</td><td>Methanol</td><td class="num">5.2</td><td class="num">5.5</td><td class="num">634</td><td class="num">658</td><td class="num v-money"><strong>-3.8%</strong></td><td class="num">230</td><td class="num mono">$1,304</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Hawthorne Meridian 17H</strong></td><td>—</td><td class="mono dim">—</td><td>Foamer</td><td>FSC 600</td><td class="num">5.2</td><td class="num">5.5</td><td class="num">634</td><td class="num">658</td><td class="num v-money"><strong>-3.8%</strong></td><td class="num">230</td><td class="num mono">$1,304</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Hawthorne Meridian 4</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">125</td><td class="num mono">$796</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Clement 4</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">140</td><td class="num mono">$0</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Wolford 1</strong></td><td>PRODUCING</td><td class="mono dim">MANSFIELD-WOLFORD</td><td>Foamer</td><td>FSC 600</td><td class="num">4.5</td><td class="num">5.0</td><td class="num">313</td><td class="num">422</td><td class="num v-danger"><strong>-25.8%</strong></td><td class="num">0</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Wolford 4</strong></td><td>PRODUCING</td><td class="mono dim">MANSFIELD-WOLFORD</td><td>Foamer</td><td>FSC 600</td><td class="num">4.6</td><td class="num">5.0</td><td class="num">442</td><td class="num">584</td><td class="num v-danger"><strong>-24.4%</strong></td><td class="num">55</td><td class="num mono">$1,304</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Wolford 5</strong></td><td>PRODUCING</td><td class="mono dim">MANSFIELD-WOLFORD</td><td>Plunger</td><td>FSC 600</td><td class="num">5.5</td><td class="num">7.5</td><td class="num">245</td><td class="num">449</td><td class="num v-danger"><strong>-45.6%</strong></td><td class="num">130</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Halsey 2</strong></td><td>PRODUCING</td><td class="mono dim">HALSEY-LYMAN</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">120</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Pine Deephole</strong></td><td>PRODUCING</td><td class="mono dim">Oak Hill Longview</td><td>Velocity String</td><td>FSC 600</td><td class="num">4.0</td><td class="num">4.5</td><td class="num">284</td><td class="num">360</td><td class="num v-danger"><strong>-21.3%</strong></td><td class="num">345</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Donaldson 2</strong></td><td>—</td><td class="mono dim">—</td><td>Foamer</td><td>FSC 600</td><td class="num">4.5</td><td class="num">5.0</td><td class="num">313</td><td class="num">422</td><td class="num v-danger"><strong>-25.8%</strong></td><td class="num">100</td><td class="num mono">$1,304</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Brenner</strong></td><td>PRODUCING</td><td class="mono dim">WHITE SPRINGS</td><td>Foamer</td><td>FSC 600</td><td class="num">5.2</td><td class="num">5.5</td><td class="num">634</td><td class="num">658</td><td class="num v-money"><strong>-3.8%</strong></td><td class="num">620</td><td class="num mono">$509</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Brenner 1</strong></td><td>—</td><td class="mono dim">—</td><td>Foamer</td><td>FSC 600</td><td class="num">5.2</td><td class="num">5.5</td><td class="num">634</td><td class="num">658</td><td class="num v-money"><strong>-3.8%</strong></td><td class="num">75</td><td class="num mono">$649</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Brenner 4</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">5.5</td><td class="num">7.5</td><td class="num">245</td><td class="num">449</td><td class="num v-danger"><strong>-45.6%</strong></td><td class="num">165</td><td class="num mono">$1,585</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Brenner 5</strong></td><td>—</td><td class="mono dim">—</td><td>Velocity String</td><td>FSC 600</td><td class="num">4.0</td><td class="num">4.5</td><td class="num">284</td><td class="num">360</td><td class="num v-danger"><strong>-21.3%</strong></td><td class="num">255</td><td class="num mono">$1,585</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Wesley 3</strong></td><td>—</td><td class="mono dim">—</td><td>Foamer</td><td>FSC 600</td><td class="num">4.6</td><td class="num">5.0</td><td class="num">442</td><td class="num">584</td><td class="num v-danger"><strong>-24.4%</strong></td><td class="num">250</td><td class="num mono">$796</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr><tr><td class="mono"><strong>Wesley 5</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">5.8</td><td class="num">6.0</td><td class="num">714</td><td class="num">741</td><td class="num v-money"><strong>-3.6%</strong></td><td class="num">85</td><td class="num mono">$2,116</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Wesley 6</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">120</td><td class="num mono">$2,219</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>Virginia Garland 2</strong></td><td>—</td><td class="mono dim">—</td><td>Plunger</td><td>FSC 600</td><td class="num">6.3</td><td class="num">6.5</td><td class="num">777</td><td class="num">798</td><td class="num v-money"><strong>-2.6%</strong></td><td class="num">470</td><td class="num mono">$0</td><td><span class="pill-sm pill-sm-green">No</span></td></tr><tr><td class="mono"><strong>West 1</strong></td><td>PRODUCING</td><td class="mono dim">GALLATIN-WEST</td><td>Foamer</td><td>FSC 600</td><td class="num">4.6</td><td class="num">5.0</td><td class="num">442</td><td class="num">584</td><td class="num v-danger"><strong>-24.4%</strong></td><td class="num">0</td><td class="num mono">$759</td><td><span class="pill-sm pill-sm-red">Yes</span></td></tr></tbody>
+    </table>
+  </section>
+  <section id="summary">
+    <div class="sec-head-wrap">
+      <h2 class="sec-head" data-num="III"><span class="sec-label">Program Summary &amp; Q2 Recommendations</span></h2>
+      <div class="sec-lede">Three moves going into Q2. Sorted by cost-of-delay — velocity-string re-dose is the cheapest and highest-confidence win.</div>
+    </div>
+    <div class="rec-box">
+      <p><strong>1 · Re-dose the velocity-string cohort to target.</strong> Brenner 4/5, Holloway 1, GH Winslow 4, Pine Deephole, Trevino 10, Mansfield 8 — all showing 20%+ decline vs Q1 with chemical rate 10-25% under target. Bumping the foamer 0.5-1.0 gpd on each is ~$300/well/month incremental spend against ~$1,200/well/month recoverable revenue. Confidence: high.</p>
+      <p><strong>2 · FSR-audit the plunger cohort.</strong> Lyman 3/4, Jessica Crockett, Hawthorne Meridian 4/11, GH Winslow 5, Wesley 5/6, Virginia Garland 2, Clement 4, Halsey 2 — all within 5% of Q1 average (healthy) but FSR records are stale. Lock in a quarterly audit cadence so we know what target is actually being delivered at site.</p>
+      <p><strong>3 · Evaluate Lyman 5 / Brenner 4 / Wolford 5 for lift conversion.</strong> These three show -45% vs Q1 with water rising 40%+ — classic plunger-falling-behind signature. Pull a plunger arrival log (or BHP if available) and scope a velocity-string trial on the worst of them. Rough capex: $8-12k/well installed. Payback: 3-6 months at observed deltas.</p>
+    </div>
+  </section>  <footer class="foot">
+    <div class="foot-inner">
+      <div class="foot-brand">WellRX</div>
+      <div class="foot-meta">
+        Quarterly Review · Prepared for <strong style="color:var(--ink);">Meridian Operating</strong>
+        <span class="sep">·</span> Mar 31, 2026
+        <span class="sep">·</span> Vol I No 455
+        <span class="sep">·</span> All data from live SCADA feed
+      </div>
+      <div class="foot-rx">℞</div>
+    </div>
+  </footer></div>
+</div>
+<script>
+(function() {
+  var stored = null;
+  try { stored = localStorage.getItem('wellrx-theme'); } catch (e) {}
+  if (stored === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  var btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = stored === 'light' ? '☾ Dark' : '☀ Light';
+})();
+function toggleTheme() {
+  var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = cur === 'light' ? 'dark' : 'light';
+  if (next === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  else document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('wellrx-theme', next); } catch (e) {}
+  var btn = document.getElementById('themeBtn');
+  if (btn) btn.textContent = next === 'light' ? '☾ Dark' : '☀ Light';
+}
+</script>
+</body></html>
