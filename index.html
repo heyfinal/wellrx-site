@@ -203,6 +203,41 @@
   .fl-modular strong { color: var(--ink-strong); }
   .fl-modular em { color: var(--accent); font-style: normal; font-weight: 600; }
 
+  /* Cost-of-missed-signal grid */
+  .missed-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0 14px; }
+  @media (max-width: 900px) { .missed-grid { grid-template-columns: 1fr; } }
+  .missed-card { position: relative; background: var(--card-elev); border: 1px solid var(--line);
+    border-radius: 10px; padding: 20px 22px 18px 60px; overflow: hidden;
+    transition: border-color .15s, transform .15s; }
+  .missed-card:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+  .missed-card::before { content: attr(data-num); position: absolute; left: 16px; top: 20px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(248,113,113,0.14); color: var(--danger);
+    border: 1px solid rgba(248,113,113,0.4);
+    font-family: var(--font-brand); font-style: italic; font-weight: 700;
+    font-size: 16px; display: flex; align-items: center; justify-content: center;
+    font-variation-settings: "opsz" 24; }
+  .missed-card h4 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+    font-size: 21px; line-height: 1.15; margin: 0 0 10px; color: var(--ink-strong);
+    font-variation-settings: "opsz" 48; }
+  .missed-card .miss-body { font-size: 13px; line-height: 1.62; color: var(--ink); margin: 0 0 14px; }
+  .missed-card .miss-body strong { color: var(--ink-strong); }
+  .missed-card .miss-body em { color: var(--muted); font-style: italic; }
+  .missed-card .miss-cost { display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+    padding-top: 10px; border-top: 1px dotted var(--line); }
+  .missed-card .miss-cost .ml { font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--muted); }
+  .missed-card .miss-cost .dollar { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+    font-size: 22px; color: var(--danger); letter-spacing: -0.01em;
+    font-variation-settings: "opsz" 32; white-space: nowrap; }
+
+  .missed-foot { margin: 14px 0 10px; padding: 14px 18px;
+    background: rgba(248,113,113,0.05); border: 1px solid rgba(248,113,113,0.22);
+    border-left: 3px solid var(--danger); border-radius: 0 8px 8px 0;
+    font-size: 13px; line-height: 1.65; color: var(--ink); }
+  .missed-foot strong { color: var(--ink-strong); }
+  .missed-foot .money-line { color: var(--money); font-weight: 700; }
+
   /* How it works */
   .flow { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
            padding: 24px 20px; margin: 18px 0 12px;
@@ -425,7 +460,38 @@
   </div>
 
   <div class="sec">
-    <div class="kick">§ II · How It Plugs In</div>
+    <div class="kick">§ II · The Cost of a Missed Signal</div>
+    <h2>What gets overlooked when a human is reading the data alone.</h2>
+    <div class="lede">Data lives in silos, alerts fire out of context, and a small miss compounds fast. These are real patterns from one sample engagement — <strong>each was already costing the operator money for days or weeks</strong> before WellRX surfaced it. Dollar figures are grounded in observed MCF deltas at $3.50/MCF, not projections.</div>
+  </div>
+  <div class="missed-grid">
+    <div class="missed-card" data-num="1">
+      <h4>Gathering event masked as 10 separate well declines</h4>
+      <p class="miss-body">Ten meters on one CTB cluster showed simultaneous <strong>200–500% static-pressure creep over 5 days</strong>. To a field team reading well-by-well: ten wells each losing a little, probably decline. To WellRX's virtual AI trio: <strong>one midstream bottleneck, one fix</strong>. Chemistry and lift money spent on individual wells was <em>actively wasted</em> while the real upstream problem sat invisible.</p>
+      <div class="miss-cost"><span class="ml">Recoverable · one fix</span><span class="dollar">~$21,000/mo</span></div>
+    </div>
+    <div class="missed-card" data-num="2">
+      <h4>Liquid loading misread as reservoir decline</h4>
+      <p class="miss-body">DP rising while MCF flattens is a textbook load-up — a $2/day soap-stick campaign fixes it. Misread as a dying well: the operator schedules a <strong>$10–40k plunger install</strong>, a velocity-string swap, or begins decom planning. WellRX flags the divergence within 24 hours of onset, before anyone reaches for the AFE pad.</p>
+      <div class="miss-cost"><span class="ml">Capex avoided per well</span><span class="dollar">$10k–$40k</span></div>
+    </div>
+    <div class="missed-card" data-num="3">
+      <h4>Live-but-dark RTU hiding real production</h4>
+      <p class="miss-body">Four wells went quiet mid-window while still producing <strong>50–163 MCF/D</strong>. A busy field team reads "offline = maybe decommissioned" and moves on. WellRX separates dark-but-producing from truly offline on day one. Four $300 truck rolls recover full revenue visibility and ~$40k/mo of gas that was invisible to the dashboard.</p>
+      <div class="miss-cost"><span class="ml">Exposure · $/mo invisible</span><span class="dollar">~$40,000</span></div>
+    </div>
+    <div class="missed-card" data-num="4">
+      <h4>Paraffin diagnosed as plunger problem</h4>
+      <p class="miss-body">Temp floor drops below 52°F with intermittent DP pulses. To a human scanning the dashboard: "plunger's not cycling right — call the AL vendor." To a virtual AI chemist reading the thermal signature: <strong>paraffin dropout</strong>. A $400/mo continuous inhibitor fixes it; a $10k plunger swap doesn't. Catching the right cause on day one avoids a wasted workover.</p>
+      <div class="miss-cost"><span class="ml">Per-well capex saved</span><span class="dollar">$10k+</span></div>
+    </div>
+  </div>
+  <div class="missed-foot">
+    <strong>The pattern.</strong> What a human overlooks or misreads costs $500–$40,000+ per incident. WellRX runs these checks every morning on every well <em>without exception</em> — the signal never sits unexamined, the diagnosis never waits on a busy inbox. <span class="money-line">One avoided misdiagnosis per quarter typically pays the annual WellRX engagement several times over.</span>
+  </div>
+
+  <div class="sec">
+    <div class="kick">§ III · How It Plugs In</div>
     <h2>Five steps from your data to your inbox.</h2>
   </div>
   <div class="flow flow-single">
@@ -441,7 +507,7 @@
   </div>
 
   <div class="sec">
-    <div class="kick">§ III · Sample Deliverables</div>
+    <div class="kick">§ IV · Sample Deliverables</div>
     <h2>What your team actually gets.</h2>
     <div class="lede">The samples below are rendered against a live SCADA feed (operator name &amp; well identifiers scrubbed for confidentiality). Each is a real artifact a real recipient received. <strong>These are not an exhaustive list</strong> — WellRX can tailor a report for any personnel position inside <em>or</em> outside your company: CFO, compliance officer, midstream coordinator, trucking foreman, chemical vendor, engineering consultant, lender, board. If they have a job, we can write their Rx. Click any sample to open.</div>
   </div>
@@ -485,7 +551,7 @@
   </div>
 
   <div class="sec">
-    <div class="kick">§ IV · Integration &amp; Delivery</div>
+    <div class="kick">§ V · Integration &amp; Delivery</div>
     <h2>Where WellRX runs and how your team receives it.</h2>
   </div>
   <div class="integ">
@@ -512,8 +578,8 @@
   </div>
 
   <div class="sec">
-    <div class="kick">§ V · The Fine Print</div>
-    <h2>Deployment, pricing, and who's behind the Rx.</h2>
+    <div class="kick">§ VI · The Fine Print</div>
+    <h2>Deployment, pricing, advisory scope, and who's behind the Rx.</h2>
   </div>
   <div class="integ">
     <div class="row"><div class="k">Deployment</div>
@@ -530,10 +596,13 @@
       <div class="v">Operator-held credentials · single-tenant deployment · no raw telemetry leaves the boundary you control · email delivery uses a sender you authorize. SOC 2 Type II on the roadmap alongside the web portal.</div>
     </div>
     <div class="row"><div class="k">Who's behind it</div>
-      <div class="v"><strong>Chris Rowan</strong> — Co-owner &amp; Sales. 20+ years across chemical programs, pumper operations, and production diagnostics in East Texas gas. The WellRX engine is a virtual petroleum engineer + production engineer + chemist working in concert against your live data — built to make the case Chris has been making by hand for two decades, in under an hour instead of under a workweek.</div>
+      <div class="v"><strong>Chris Rowan</strong> — Co-owner · Sales · Production Chemical Consultant. 20+ years across chemical programs, pumper operations, and production diagnostics in East Texas gas. <strong>Daniel Gillaspy</strong> — Co-owner, Developer &amp; Drilling Consultant.<br/>The WellRX engine is a virtual AI petroleum engineer + production engineer + chemist working in concert against your live data — built to make the case Chris has been making by hand for two decades, in under an hour instead of under a workweek.</div>
     </div>
     <div class="row"><div class="k">What we don't do</div>
       <div class="v">We don't run your SCADA. We don't replace your pumpers, your chemists, or your engineers. We don't advise on reservoir development, drilling, or P&amp;A. We make the data you already own useful to the people you already employ.</div>
+    </div>
+    <div class="row"><div class="k">Advisory scope</div>
+      <div class="v">Every WellRX diagnosis, suggestion, and prescription is framed as <strong>"Consider: …"</strong> — it is a field-engineering opinion based on the data streams you authorize us to read, <strong>not a directive</strong>. <strong>Your engineering, operations, and safety teams must review every recommendation before execution</strong>, including chemical compatibility, SDS &amp; PPE compliance, regulatory and environmental fit, and operational safety. WellRX produces the Rx; your team writes the script order and owns the call. Neither WellRX, its virtual AI agents, nor its authors are liable for losses, damages, or incidents arising from acting on any recommendation without such review.</div>
     </div>
   </div>
 
@@ -544,7 +613,7 @@
     </div>
     <div class="contacts">
       <div class="contact-card">
-        <div class="cc-label">Co-owner &amp; Sales</div>
+        <div class="cc-label">Co-owner · Sales · Production Chemical Consultant</div>
         <div class="cc-name">Chris Rowan</div>
         <a href="tel:+19039326584">903.932.6584</a>
         <a href="mailto:sales.wellrx@gmail.com">sales.wellrx@gmail.com</a>
