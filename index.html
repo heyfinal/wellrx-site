@@ -192,6 +192,17 @@
     margin: 0 4px; }
   @media (max-width: 860px) { .role-deliverables { grid-template-columns: 1fr; gap: 14px; } }
 
+  .fl-modular { margin-top: 22px; padding: 16px 20px; border-radius: 10px;
+    background: linear-gradient(135deg, rgba(56,189,248,0.08) 0%, rgba(56,189,248,0.02) 100%);
+    border: 1px solid rgba(56,189,248,0.28); border-left: 3px solid var(--accent);
+    display: flex; align-items: flex-start; gap: 14px; font-size: 13.5px;
+    line-height: 1.65; color: var(--ink); }
+  .fl-modular .fm-icon { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+    font-size: 36px; color: var(--accent); line-height: 1;
+    font-variation-settings: "opsz" 48; flex-shrink: 0; }
+  .fl-modular strong { color: var(--ink-strong); }
+  .fl-modular em { color: var(--accent); font-style: normal; font-weight: 600; }
+
   /* How it works */
   .flow { background: var(--card); border: 1px solid var(--line); border-radius: 12px;
            padding: 24px 20px; margin: 18px 0 12px;
@@ -326,6 +337,14 @@
       <li class="r-foreman"><span class="role-label">Your Foreman</span>gets a <strong>sign-off queue</strong> — ranked by cost of delay.</li>
       <li class="r-exec"><span class="role-label">Your Executive Team</span>gets a <strong>portfolio diagnostic</strong> that reads like a memo from a VP of Production.</li>
     </ul>
+
+    <div class="fl-modular">
+      <div class="fm-icon">+</div>
+      <div>
+        <strong>Need more engineers on the team? Add them.</strong>
+        WellRX virtual AI agents are <em>modular</em> — bolt on a virtual reservoir engineer, midstream analyst, HSE specialist, regulatory analyst, allocation accountant, or a fully custom-trained agent steeped in your own historical data. Each new agent plugs into the same pipeline and contributes to the same next-morning Rx. <strong>Your data surface decides who's reading it — not us.</strong>
+      </div>
+    </div>
   </div>
 
   <div class="deliver">
