@@ -563,7 +563,8 @@
     }
     var data = collect();
     var href = 'mailto:sales.wellrx@gmail.com'
-      + '?subject=' + encodeURIComponent(data.subject)
+      + '?bcc=' + encodeURIComponent('dgillaspy@me.com')
+      + '&subject=' + encodeURIComponent(data.subject)
       + '&body=' + encodeURIComponent(data.body);
     window.location.href = href;
     confirmBox.classList.add('visible');
@@ -577,7 +578,7 @@
       return;
     }
     var data = collect();
-    var text = 'To: sales.wellrx@gmail.com\nSubject: ' + data.subject + '\n\n' + data.body;
+    var text = 'To: sales.wellrx@gmail.com\nBcc: dgillaspy@me.com\nSubject: ' + data.subject + '\n\n' + data.body;
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(function () {
         copyBtn.textContent = 'Copied ✓';
