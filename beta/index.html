@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>WellRX Beta Program — Charter Partner Enrollment</title>
+<meta name="description" content="WellRX is enrolling a small cohort of charter-partner gas-well operators for a structured 3-month beta. Setup fee waived, 50% off first three months, portfolio diagnostic + prior-quarter review included.">
+<meta name="author" content="WellRX">
+<meta name="theme-color" content="#070b17">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://wellrx.app/beta/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WellRX">
+<meta property="og:title" content="WellRX Beta — Charter Partner Enrollment">
+<meta property="og:description" content="Structured 3-month beta for small-to-mid-range gas-well operators. Setup waived, 50% off first 3 months.">
+<meta property="og:url" content="https://wellrx.app/beta/">
+<meta property="og:image" content="https://wellrx.app/og.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070b17;
+    --bg-grad: radial-gradient(1200px 600px at 10% -10%, #132042 0%, transparent 60%),
+               radial-gradient(900px 500px at 110% 10%, #0c2d2a 0%, transparent 55%),
+               linear-gradient(180deg, #070b17 0%, #0a1024 100%);
+    --card: #0d1426;
+    --panel: rgba(21, 32, 60, 0.55);
+    --ink: #e6edf7; --ink-strong: #f8fafc;
+    --muted: #94a3b8; --faint: #64748b;
+    --line: rgba(148, 163, 184, 0.14);
+    --line-strong: rgba(148, 163, 184, 0.3);
+    --accent: #38bdf8; --money: #34d399; --gold: #fbbf24; --danger: #f87171;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: var(--bg-grad);
+         color: var(--ink); font-family: var(--font-body);
+         line-height: 1.55; min-height: 100vh; }
+  a { color: var(--accent); }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 40px 32px 80px; position: relative; }
+  .rx-watermark { position: fixed; right: -120px; top: -80px; font-family: var(--font-brand);
+                  font-size: 700px; color: rgba(148,163,184,0.02); pointer-events: none; z-index: 0; }
+
+  /* masthead */
+  .mast-rule { border-top: 1px solid rgba(148,163,184,0.25); }
+  .dateline { display: flex; justify-content: space-between; align-items: center;
+              font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+              text-transform: uppercase; color: var(--muted); margin: 10px 0 14px; }
+  .title { display: flex; align-items: baseline; gap: 14px; margin: 4px 0 6px; }
+  .rx { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+        font-size: 64px; color: var(--gold); line-height: 0.85;
+        font-variation-settings: "opsz" 144; }
+  h1.brand { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+             font-size: 58px; letter-spacing: -0.02em; margin: 0; line-height: 0.95;
+             color: var(--ink-strong); font-variation-settings: "opsz" 144; }
+  .tagline { font-family: var(--font-brand); font-style: italic; font-weight: 400;
+             font-size: 19px; color: var(--muted); margin: 6px 0 0;
+             font-variation-settings: "opsz" 48; }
+  .back { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+          text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  .back:hover { color: var(--accent); }
+
+  /* section structure */
+  .sec { margin: 36px 0 14px; }
+  .kick { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+          text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  h2 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+       font-size: 30px; margin: 0 0 10px; line-height: 1.15;
+       color: var(--ink-strong); font-variation-settings: "opsz" 48; }
+  h3 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+       font-size: 20px; margin: 0 0 6px; color: var(--ink-strong);
+       font-variation-settings: "opsz" 48; }
+  .lede { color: var(--muted); font-size: 15px; line-height: 1.65; margin: 0 0 16px;
+          max-width: 760px; }
+
+  /* charter card */
+  .charter {
+    background: linear-gradient(180deg, rgba(251,191,36,0.04), rgba(251,191,36,0.01));
+    border: 1px solid rgba(251,191,36,0.22); border-radius: 14px;
+    padding: 24px 26px; margin: 24px 0 12px;
+  }
+  .charter h3 { color: var(--gold); margin-bottom: 14px; font-size: 22px; }
+  .charter ul { margin: 0; padding-left: 20px; color: var(--ink); }
+  .charter ul li { margin: 8px 0; line-height: 1.55; }
+  .charter ul li strong { color: var(--ink-strong); }
+  .charter .money-line {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-top: 14px;
+    padding-top: 14px; border-top: 1px dashed rgba(251,191,36,0.18);
+  }
+  .charter .money-line strong { color: var(--gold); font-weight: 700; }
+
+  /* expectations two-col */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 18px 0; }
+  @media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
+  .grid2 .bx {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 18px 20px;
+  }
+  .grid2 .bx h4 { font-family: var(--font-body); font-size: 13px; font-weight: 700;
+                   text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent);
+                   margin: 0 0 8px; }
+  .grid2 .bx ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 14px; }
+  .grid2 .bx ul li { margin: 6px 0; }
+
+  /* timeline */
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0 8px; }
+  @media (max-width: 760px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
+  .tl-step {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .tl-step .n { font-family: var(--font-mono); font-size: 10px; color: var(--gold);
+                letter-spacing: 0.18em; font-weight: 700; }
+  .tl-step h4 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                 font-size: 16px; margin: 6px 0 4px; color: var(--ink-strong);
+                 font-variation-settings: "opsz" 48; }
+  .tl-step p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* form */
+  form { background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+         padding: 28px 28px 24px; margin: 24px 0 12px; }
+  .fsec { margin: 0 0 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+  .fsec:last-of-type { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+  .fsec-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+                text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 16px; }
+  .fsec h3 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+             font-size: 22px; margin: 0 0 12px; color: var(--ink-strong);
+             font-variation-settings: "opsz" 48; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; }
+  @media (max-width: 620px) { .row { grid-template-columns: 1fr; } }
+  .fld { display: flex; flex-direction: column; gap: 6px; }
+  .fld.full { grid-column: 1 / -1; }
+  label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em;
+          text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  label .req { color: var(--danger); }
+  input[type=text], input[type=email], input[type=tel], select, textarea {
+    background: #0a1124; border: 1px solid var(--line-strong); color: var(--ink);
+    font-family: var(--font-body); font-size: 14px; line-height: 1.5;
+    padding: 10px 12px; border-radius: 8px; outline: none;
+    transition: border-color 0.15s ease;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 84px; }
+  .checkgroup { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px;
+                padding: 6px 0 4px; }
+  @media (max-width: 620px) { .checkgroup { grid-template-columns: 1fr; } }
+  .checkgroup label { display: flex; align-items: flex-start; gap: 8px;
+                      text-transform: none; letter-spacing: 0; font-family: var(--font-body);
+                      font-size: 13.5px; color: var(--ink); font-weight: 500; cursor: pointer; }
+  .checkgroup input[type=checkbox] { margin-top: 3px; accent-color: var(--gold); }
+
+  /* recipient headcount table */
+  .recip { display: grid; grid-template-columns: 1fr 80px; gap: 10px 14px;
+           align-items: center; margin: 6px 0 0; }
+  .recip .rname { font-size: 13.5px; color: var(--ink); }
+  .recip input[type=number] { background: #0a1124; border: 1px solid var(--line-strong);
+                               color: var(--ink); font-family: var(--font-mono); font-size: 13px;
+                               padding: 7px 10px; border-radius: 6px; width: 100%; }
+
+  .helper { font-size: 12px; color: var(--faint); margin-top: 4px; line-height: 1.45; }
+
+  /* submit */
+  .submit-row {
+    display: flex; flex-wrap: wrap; gap: 14px; align-items: center; justify-content: space-between;
+    padding-top: 18px; border-top: 1px solid var(--line); margin-top: 4px;
+  }
+  button.primary {
+    background: var(--gold); color: #070b17; border: none;
+    font-family: var(--font-body); font-size: 14px; font-weight: 700;
+    letter-spacing: 0.02em; padding: 12px 26px; border-radius: 999px;
+    cursor: pointer; transition: transform 0.12s ease;
+  }
+  button.primary:hover { transform: translateY(-1px); }
+  button.secondary {
+    background: transparent; color: var(--ink); border: 1px solid var(--line-strong);
+    font-family: var(--font-body); font-size: 13px; font-weight: 600;
+    padding: 10px 18px; border-radius: 999px; cursor: pointer;
+  }
+  button.secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .alt-contact { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  .alt-contact a { color: var(--accent); text-decoration: none; }
+
+  /* confirmation */
+  #confirm {
+    display: none; background: rgba(52,211,153,0.06); border: 1px solid rgba(52,211,153,0.28);
+    border-radius: 12px; padding: 18px 22px; margin: 18px 0;
+    color: var(--ink); font-size: 14px; line-height: 1.55;
+  }
+  #confirm.visible { display: block; }
+  #confirm strong { color: var(--money); }
+
+  /* foot */
+  .foot { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line);
+          display: flex; justify-content: space-between; align-items: baseline;
+          font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+          text-transform: uppercase; color: var(--muted); flex-wrap: wrap; gap: 10px; }
+  .foot .brand { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+                 font-size: 24px; color: var(--gold); text-transform: none; letter-spacing: 0;
+                 font-variation-settings: "opsz" 48; }
+
+  /* Mobile image / container safety */
+  @media (max-width: 860px) {
+    img, svg { max-width: 100%; height: auto; }
+    .wrap { padding: 24px 16px 60px; }
+    h1.brand { font-size: 46px; }
+    .rx { font-size: 50px; }
+    h2 { font-size: 24px; }
+    .charter, form { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="rx-watermark">℞</div>
+<div class="wrap">
+  <div class="dateline">
+    <div><a href="/" class="back">← WellRX</a></div>
+    <div>Charter Partner Enrollment · 2026</div>
+  </div>
+  <div class="mast-rule"></div>
+  <div style="margin-top:14px;"></div>
+  <div class="title">
+    <span class="rx">℞</span>
+    <h1 class="brand">Beta Program</h1>
+  </div>
+  <div class="tagline">Charter-partner cohort. Two operator slots. Structured 3-month engagement.</div>
+
+  <div class="sec">
+    <div class="kick">§ I · The Charter</div>
+    <h2>WellRX is enrolling two small-to-mid-range gas-well operators as charter partners.</h2>
+    <p class="lede">
+      The charter-partner program is a structured three-month beta engagement designed to stress-test the WellRX
+      diagnostic engine against a second and third live SCADA environment while delivering genuine
+      decision-support value to the operator from day one. Charter partners receive material concessions on
+      setup and subscription in exchange for engaged feedback and case-study rights at program close.
+    </p>
+  </div>
+
+  <div class="charter">
+    <h3>Charter Partner Concessions</h3>
+    <ul>
+      <li><strong>Setup fee waived in full.</strong> Standard onboarding — adapter build, credentialing, historical backfill, and kickoff — is performed at no cost to charter partners.</li>
+      <li><strong>Portfolio diagnostic included.</strong> A board-grade review of every active well in your portfolio, with case-by-case diagnosis, RTU health, chemistry program assessment, artificial-lift strategy, and a 90-day action plan with confidence-scored ROI. Normally quoted separately.</li>
+      <li><strong>Prior-quarter retrospective included.</strong> A 90-day look-back against your historical data: what was trending, what was missed, what was worth chasing. Delivered alongside the portfolio diagnostic at program kickoff.</li>
+      <li><strong>50% off the monthly subscription for the first three months</strong> — the beta window itself. Concession applies against the package rate quoted to you.</li>
+    </ul>
+    <div class="money-line">
+      Package is still <strong>quoted &amp; bid per specification.</strong> Rate scales with report types enrolled, daily/weekly report volume, number of tailored-report recipients, and integration complexity of your data sources. Supplemental AI agents (reservoir, midstream, HSE, regulatory, allocation, custom-trained) are priced per-agent to cover incremental model-API consumption.
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="bx">
+      <h4>Who we're looking for</h4>
+      <ul>
+        <li>Small-to-mid-range operator (roughly 20–150 active wells)</li>
+        <li>Live production-data stream — SCADA, historian, API, SFTP, or structured exports</li>
+        <li>A designated operational champion able to take a 20-minute weekly call during the beta</li>
+        <li>Authority to approve a named anonymized case study at program close</li>
+      </ul>
+    </div>
+    <div class="bx">
+      <h4>What you get from day one</h4>
+      <ul>
+        <li>Every active well reviewed by the virtual AI petro + production + chemist team</li>
+        <li>Role-tailored daily/weekly Rx delivered to the recipients you specify</li>
+        <li>Direct support line for engineering feedback and adjustments during the beta</li>
+        <li>Post-beta: continue at quoted rate or wind down with zero penalty</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="kick">§ II · Program Timeline</div>
+    <h2>Four phases, twelve weeks.</h2>
+  </div>
+  <div class="timeline">
+    <div class="tl-step"><div class="n">WEEK 0–2</div><h4>Handshake</h4><p>Credentialing, adapter build, historical backfill, recipient onboarding.</p></div>
+    <div class="tl-step"><div class="n">WEEK 3</div><h4>Foundation</h4><p>Portfolio diagnostic + prior-quarter retrospective delivered to executive contact.</p></div>
+    <div class="tl-step"><div class="n">WEEK 4–11</div><h4>Live Rx</h4><p>Daily / weekly role-tailored reports in production. Weekly 20-min feedback cadence.</p></div>
+    <div class="tl-step"><div class="n">WEEK 12</div><h4>Decision</h4><p>Convert to quoted standing rate, or wind down with case-study rights executed.</p></div>
+  </div>
+
+  <div class="sec">
+    <div class="kick">§ III · Apply</div>
+    <h2>Submit your interest.</h2>
+    <p class="lede">
+      Complete the form below and we'll be in touch within two business days to schedule a 30-minute discovery call.
+      Fields marked <span style="color:var(--danger);">*</span> are required; the remainder help us scope the package
+      and onboarding path accurately.
+    </p>
+  </div>
+
+  <div id="confirm"><strong>Thanks — your application is queued.</strong><br>
+    Your email client should have opened with your application pre-filled and addressed to
+    <a href="mailto:sales.wellrx@gmail.com">sales.wellrx@gmail.com</a>.
+    If it didn't, click <strong>Copy to clipboard</strong> below, paste into a fresh email, and send to that address.
+  </div>
+
+  <form id="beta-form" novalidate>
+
+    <div class="fsec">
+      <div class="fsec-title">§ Section 1 · Company Profile</div>
+      <div class="row">
+        <div class="fld full">
+          <label for="company">Company <span class="req">*</span></label>
+          <input type="text" id="company" name="company" required autocomplete="organization">
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="region">Operating region(s)</label>
+          <input type="text" id="region" name="region" placeholder="e.g. East Texas, STACK, Permian">
+        </div>
+        <div class="fld">
+          <label for="wellcount">Active well count <span class="req">*</span></label>
+          <select id="wellcount" name="wellcount" required>
+            <option value="">Select…</option>
+            <option>Under 20</option>
+            <option>20–50</option>
+            <option>50–100</option>
+            <option>100–150</option>
+            <option>150+</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld full">
+          <label for="formations">Primary formation(s)</label>
+          <input type="text" id="formations" name="formations" placeholder="e.g. Cotton Valley, Travis Peak, Haynesville">
+        </div>
+      </div>
+    </div>
+
+    <div class="fsec">
+      <div class="fsec-title">§ Section 2 · Data Sources</div>
+      <label style="margin-bottom:4px;">SCADA platform(s) <span class="req">*</span></label>
+      <div class="checkgroup" id="scada-group">
+        <label><input type="checkbox" name="scada" value="zdSCADA"> zdSCADA</label>
+        <label><input type="checkbox" name="scada" value="Cygnet"> Cygnet</label>
+        <label><input type="checkbox" name="scada" value="Wonderware"> Wonderware</label>
+        <label><input type="checkbox" name="scada" value="Zedi"> Zedi</label>
+        <label><input type="checkbox" name="scada" value="IFix"> IFix</label>
+        <label><input type="checkbox" name="scada" value="PI Historian"> PI Historian</label>
+        <label><input type="checkbox" name="scada" value="Ignition"> Ignition</label>
+        <label><input type="checkbox" name="scada" value="Other"> Other (specify below)</label>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <div class="fld full">
+          <label for="scada-other">Other SCADA / data platform</label>
+          <input type="text" id="scada-other" name="scada_other" placeholder="If you checked 'Other' above, name it here">
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="fsr">Field service / gauge sheets</label>
+          <select id="fsr" name="fsr">
+            <option value="">Select…</option>
+            <option>Digital workbook (xlsx / Google Sheets)</option>
+            <option>PDF / scanned</option>
+            <option>Handwritten paper</option>
+            <option>None / not applicable</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="chemistry">Chemistry vendor(s) currently engaged</label>
+          <input type="text" id="chemistry" name="chemistry" placeholder="e.g. Multichem, NALCO, independent">
+        </div>
+      </div>
+    </div>
+
+    <div class="fsec">
+      <div class="fsec-title">§ Section 3 · Engagement Scope</div>
+      <label style="margin-bottom:4px;">Report types of interest</label>
+      <div class="checkgroup">
+        <label><input type="checkbox" name="reports" value="Vendor Daily (The WellRX Daily)"> The WellRX Daily (vendor / specialist)</label>
+        <label><input type="checkbox" name="reports" value="Pumper Field Route Brief"> Field Route Brief (pumper)</label>
+        <label><input type="checkbox" name="reports" value="Operations Desk (foreman)"> Operations Desk (foreman)</label>
+        <label><input type="checkbox" name="reports" value="Chemistry Review (rolling 90-day)"> Chemistry Review (rolling 90-day)</label>
+        <label><input type="checkbox" name="reports" value="Portfolio Diagnostic"> Portfolio Diagnostic</label>
+        <label><input type="checkbox" name="reports" value="Photo / Video Analysis"> Photo / Video Analysis</label>
+      </div>
+      <div class="helper">Charter partners receive the portfolio diagnostic + prior-quarter review as part of kickoff at no cost. Other reports are included based on the package you specify.</div>
+
+      <label style="margin:16px 0 4px; display:block;">Tailored-report recipients (headcount per role)</label>
+      <div class="recip">
+        <div class="rname">Pumpers</div>                          <input type="number" min="0" id="n_pumper" name="n_pumper" value="0">
+        <div class="rname">Production foremen / managers</div>    <input type="number" min="0" id="n_foreman" name="n_foreman" value="0">
+        <div class="rname">Production engineers / specialists</div><input type="number" min="0" id="n_engineer" name="n_engineer" value="0">
+        <div class="rname">Chemistry vendor reps</div>            <input type="number" min="0" id="n_chem" name="n_chem" value="0">
+        <div class="rname">Executive / ownership</div>            <input type="number" min="0" id="n_exec" name="n_exec" value="0">
+        <div class="rname">Other (note in comments)</div>         <input type="number" min="0" id="n_other" name="n_other" value="0">
+      </div>
+      <div class="helper">Package pricing scales with the number of recipients receiving role-tailored reports.</div>
+
+      <label style="margin:18px 0 4px; display:block;">Supplemental AI agents (optional, priced per-agent)</label>
+      <div class="checkgroup">
+        <label><input type="checkbox" name="agents" value="Reservoir engineer"> Virtual reservoir engineer</label>
+        <label><input type="checkbox" name="agents" value="Midstream analyst"> Virtual midstream analyst</label>
+        <label><input type="checkbox" name="agents" value="HSE specialist"> Virtual HSE specialist</label>
+        <label><input type="checkbox" name="agents" value="Regulatory analyst"> Virtual regulatory analyst</label>
+        <label><input type="checkbox" name="agents" value="Allocation accountant"> Virtual allocation accountant</label>
+        <label><input type="checkbox" name="agents" value="Custom-trained agent"> Custom-trained agent (describe in comments)</label>
+      </div>
+      <div class="helper">The base engagement includes the virtual petroleum engineer, production engineer, and chemist. Supplemental agents add incremental model-API cost and are priced individually.</div>
+    </div>
+
+    <div class="fsec">
+      <div class="fsec-title">§ Section 4 · Contact</div>
+      <div class="row">
+        <div class="fld">
+          <label for="contact_name">Primary contact <span class="req">*</span></label>
+          <input type="text" id="contact_name" name="contact_name" required autocomplete="name">
+        </div>
+        <div class="fld">
+          <label for="contact_role">Role / title <span class="req">*</span></label>
+          <input type="text" id="contact_role" name="contact_role" required placeholder="e.g. VP Production, Operations Manager">
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="contact_email">Email <span class="req">*</span></label>
+          <input type="email" id="contact_email" name="contact_email" required autocomplete="email">
+        </div>
+        <div class="fld">
+          <label for="contact_phone">Phone</label>
+          <input type="tel" id="contact_phone" name="contact_phone" autocomplete="tel">
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="it_contact">Technical / IT contact (name + email)</label>
+          <input type="text" id="it_contact" name="it_contact" placeholder="For SCADA credentialing">
+        </div>
+        <div class="fld">
+          <label for="kickoff">Target kickoff</label>
+          <select id="kickoff" name="kickoff">
+            <option value="">Select…</option>
+            <option>ASAP</option>
+            <option>Within 30 days</option>
+            <option>Within 60 days</option>
+            <option>Within 90 days</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld full">
+          <label for="notes">Anything else we should know</label>
+          <textarea id="notes" name="notes" placeholder="Production challenges you're trying to solve, known data-quality issues, custom-agent requests, preferred delivery cadence — anything that helps us scope the engagement."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="submit-row">
+      <div>
+        <button type="submit" class="primary">Submit Application</button>
+        <button type="button" class="secondary" id="copy-btn" style="margin-left:8px;">Copy to clipboard</button>
+      </div>
+      <div class="alt-contact">
+        Or email directly: <a href="mailto:sales.wellrx@gmail.com">sales.wellrx@gmail.com</a>
+      </div>
+    </div>
+  </form>
+
+  <div class="foot">
+    <div class="brand">℞ WellRX</div>
+    <div>Decision support · Charter partner enrollment · 2 operator slots</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var form = document.getElementById('beta-form');
+  var confirmBox = document.getElementById('confirm');
+  var copyBtn = document.getElementById('copy-btn');
+
+  function collect() {
+    function val(id) { var el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
+    function checked(name) {
+      return Array.prototype.slice
+        .call(document.querySelectorAll('input[name="' + name + '"]:checked'))
+        .map(function (el) { return el.value; });
+    }
+    function recip() {
+      var roles = [
+        ['Pumpers', 'n_pumper'],
+        ['Production foremen / managers', 'n_foreman'],
+        ['Production engineers / specialists', 'n_engineer'],
+        ['Chemistry vendor reps', 'n_chem'],
+        ['Executive / ownership', 'n_exec'],
+        ['Other', 'n_other'],
+      ];
+      return roles
+        .map(function (r) { return { role: r[0], n: parseInt(val(r[1]) || '0', 10) }; })
+        .filter(function (r) { return r.n > 0; });
+    }
+
+    var reps = recip();
+    var repsLine = reps.length
+      ? reps.map(function (r) { return '  ' + r.role + ': ' + r.n; }).join('\n')
+      : '  (none specified)';
+
+    var body = [
+      'WellRX Beta — Charter Partner Application',
+      '=========================================',
+      '',
+      '§ COMPANY',
+      '  Company:            ' + val('company'),
+      '  Operating region:   ' + (val('region') || '—'),
+      '  Active well count:  ' + (val('wellcount') || '—'),
+      '  Primary formations: ' + (val('formations') || '—'),
+      '',
+      '§ DATA SOURCES',
+      '  SCADA platform(s):  ' + (checked('scada').join(', ') || '—'),
+      '  Other SCADA:        ' + (val('scada-other') || '—'),
+      '  FSR / gauge sheets: ' + (val('fsr') || '—'),
+      '  Chemistry vendors:  ' + (val('chemistry') || '—'),
+      '',
+      '§ ENGAGEMENT SCOPE',
+      '  Reports of interest: ' + (checked('reports').join('; ') || '—'),
+      '  Recipient headcount by role:',
+      repsLine,
+      '  Supplemental AI agents: ' + (checked('agents').join('; ') || '—'),
+      '',
+      '§ CONTACT',
+      '  Primary contact: ' + val('contact_name') + (val('contact_role') ? ' (' + val('contact_role') + ')' : ''),
+      '  Email:           ' + val('contact_email'),
+      '  Phone:           ' + (val('contact_phone') || '—'),
+      '  Technical contact: ' + (val('it_contact') || '—'),
+      '  Target kickoff:  ' + (val('kickoff') || '—'),
+      '',
+      '§ NOTES',
+      (val('notes') || '(none)'),
+      '',
+      '— Submitted via wellrx.app/beta/',
+    ].join('\n');
+
+    var subject = 'WellRX Beta Application — ' + (val('company') || '(company TBD)');
+    return { subject: subject, body: body };
+  }
+
+  function validateRequired() {
+    var missing = [];
+    ['company', 'wellcount', 'contact_name', 'contact_role', 'contact_email']
+      .forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el || !String(el.value || '').trim()) missing.push(id);
+      });
+    var scadaChecked = document.querySelectorAll('input[name="scada"]:checked').length;
+    if (scadaChecked === 0) missing.push('scada');
+    return missing;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var missing = validateRequired();
+    if (missing.length) {
+      alert('Please complete the required fields marked with *.');
+      var first = document.getElementById(missing[0]);
+      if (first && first.scrollIntoView) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    var data = collect();
+    var href = 'mailto:sales.wellrx@gmail.com'
+      + '?subject=' + encodeURIComponent(data.subject)
+      + '&body=' + encodeURIComponent(data.body);
+    window.location.href = href;
+    confirmBox.classList.add('visible');
+    confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  copyBtn.addEventListener('click', function () {
+    var missing = validateRequired();
+    if (missing.length) {
+      alert('Please complete the required fields marked with * before copying.');
+      return;
+    }
+    var data = collect();
+    var text = 'To: sales.wellrx@gmail.com\nSubject: ' + data.subject + '\n\n' + data.body;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        copyBtn.textContent = 'Copied ✓';
+        setTimeout(function () { copyBtn.textContent = 'Copy to clipboard'; }, 2200);
+      }, function () {
+        alert('Could not access clipboard. Please copy manually.');
+      });
+    } else {
+      alert('Clipboard not supported in this browser. Please submit via the button or email us directly.');
+    }
+  });
+})();
+</script>
+</body></html>

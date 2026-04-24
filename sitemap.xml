@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://wellrx.app/beta/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://wellrx.app/samples/01_vendor_daily.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

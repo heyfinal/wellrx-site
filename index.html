@@ -339,9 +339,76 @@
   img, svg { max-width: 100%; height: auto; }
   .wrap { padding-left: 16px; padding-right: 16px; }
 }
+
+/* ── Beta-enrollment banner (floating, light-bg, dismissible) ───────── */
+.wrx-banner {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: #fef3c7;
+  color: #1f1608;
+  font-family: var(--font-body);
+  font-size: 13.5px; font-weight: 500; line-height: 1.45;
+  display: flex; align-items: center; gap: 14px;
+  padding: 10px 52px 10px 18px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+body.wrx-banner-visible { padding-top: 48px; }
+.wrx-banner-rx {
+  font-family: var(--font-brand); font-style: italic; font-weight: 900;
+  font-size: 22px; color: #b45309;
+  font-variation-settings: "opsz" 48; flex-shrink: 0;
+}
+.wrx-banner-copy { flex: 1; min-width: 0; }
+.wrx-banner-copy strong { font-weight: 700; color: #78350f; }
+.wrx-banner-cta {
+  background: #070b17; color: #fbbf24; text-decoration: none;
+  padding: 8px 18px; border-radius: 999px;
+  font-weight: 700; font-size: 12.5px; letter-spacing: 0.02em;
+  white-space: nowrap; flex-shrink: 0;
+  transition: transform 0.12s ease;
+}
+.wrx-banner-cta:hover { transform: translateY(-1px); }
+.wrx-banner-close {
+  position: absolute; top: 6px; right: 10px;
+  background: transparent; border: none; color: #78350f;
+  font-size: 24px; font-weight: 300; line-height: 1;
+  cursor: pointer; padding: 2px 10px; border-radius: 6px;
+}
+.wrx-banner-close:hover { background: rgba(0,0,0,0.08); }
+@media (max-width: 720px) {
+  .wrx-banner { font-size: 12px; padding: 9px 44px 9px 12px; gap: 10px; flex-wrap: wrap; }
+  .wrx-banner-copy strong { display: block; margin-bottom: 2px; }
+  .wrx-banner-cta { padding: 7px 14px; font-size: 11.5px; }
+  body.wrx-banner-visible { padding-top: 82px; }
+}
 </style>
 </head>
 <body>
+<div id="wrx-banner" class="wrx-banner" role="region" aria-label="Beta program announcement">
+  <span class="wrx-banner-rx" aria-hidden="true">℞</span>
+  <span class="wrx-banner-copy">
+    <strong>WellRX Beta — now enrolling 2 charter-partner operators.</strong>
+    Setup fee waived · 50% off first 3 months · portfolio diagnostic + prior-quarter review included.
+  </span>
+  <a class="wrx-banner-cta" href="/beta/">Apply to Beta →</a>
+  <button type="button" class="wrx-banner-close" aria-label="Dismiss banner">×</button>
+</div>
+<script>
+(function () {
+  var banner = document.getElementById('wrx-banner');
+  if (!banner) return;
+  var KEY = 'wrx_beta_banner_dismissed_v1';
+  var dismissed = false;
+  try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (dismissed) { banner.style.display = 'none'; return; }
+  document.body.classList.add('wrx-banner-visible');
+  banner.querySelector('.wrx-banner-close').addEventListener('click', function () {
+    banner.style.display = 'none';
+    document.body.classList.remove('wrx-banner-visible');
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+  });
+})();
+</script>
 <div class="rx-watermark">℞</div>
 <div class="wrap">
   <div class="mast-rule"></div>
