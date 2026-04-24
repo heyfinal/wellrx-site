@@ -276,12 +276,13 @@
 
   <div class="sec">
     <div class="kick">§ II · Program Timeline</div>
-    <h2>Four phases, twelve weeks.</h2>
+    <h2>Four phases. First Rx in your inbox inside a week.</h2>
+    <p class="lede"><strong>The 3-month beta term starts at handshake</strong> — the clock doesn't tick against you while contracts or credentialing are in motion. Once your data stream is live, reports start landing within days.</p>
   </div>
   <div class="timeline">
-    <div class="tl-step"><div class="n">1–3 DAYS</div><h4>Handshake</h4><p>Credentialing, adapter build, historical backfill, recipient onboarding.</p></div>
+    <div class="tl-step"><div class="n">1–3 DAYS</div><h4>Handshake</h4><p>Credentialing, adapter build, historical backfill, recipient onboarding. <em>Beta term begins.</em></p></div>
     <div class="tl-step"><div class="n">A FEW HOURS</div><h4>Foundation</h4><p>Portfolio diagnostic + prior-quarter retrospective delivered to executive contact.</p></div>
-    <div class="tl-step"><div class="n">WEEKS 1–12</div><h4>Live Rx</h4><p>Daily / weekly role-tailored reports in production. Working-call cadence with your technical champion for feedback &amp; tuning.</p></div>
+    <div class="tl-step"><div class="n">DAY 4 → WEEK 12</div><h4>Live Rx</h4><p>Daily / weekly role-tailored reports in production. Working-call cadence with your technical champion for feedback &amp; tuning.</p></div>
     <div class="tl-step"><div class="n">WEEK 12</div><h4>Decision</h4><p>Convert to quoted standing rate, or wind down with case-study rights executed.</p></div>
   </div>
 
@@ -356,7 +357,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="fld">
+        <div class="fld full">
           <label for="fsr">Field service / gauge sheets</label>
           <select id="fsr" name="fsr">
             <option value="">Select…</option>
@@ -365,10 +366,6 @@
             <option>Handwritten paper</option>
             <option>None / not applicable</option>
           </select>
-        </div>
-        <div class="fld">
-          <label for="chemistry">Chemistry vendor(s) currently engaged</label>
-          <input type="text" id="chemistry" name="chemistry" placeholder="e.g. Multichem, NALCO, independent">
         </div>
       </div>
     </div>
@@ -519,7 +516,6 @@
       '  SCADA platform(s):  ' + (checked('scada').join(', ') || '—'),
       '  Other SCADA:        ' + (val('scada-other') || '—'),
       '  FSR / gauge sheets: ' + (val('fsr') || '—'),
-      '  Chemistry vendors:  ' + (val('chemistry') || '—'),
       '',
       '§ ENGAGEMENT SCOPE',
       '  Reports of interest: ' + (checked('reports').join('; ') || '—'),
