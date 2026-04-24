@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>The WellRX Daily · Operations Desk — Meridian Operating</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -499,6 +500,14 @@
                color: var(--gold); opacity: 0.5; text-shadow: 0 0 24px var(--gold-glow);
                font-weight: 400; font-style: italic;
                font-variation-settings: "opsz" 144; }
+
+/* Mobile table reflow — wrap wide tables in horizontal scroll on phones */
+@media (max-width: 860px) {
+  table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  img, svg { max-width: 100%; height: auto; }
+  .wrap, .page, .container, body { padding-left: 12px; padding-right: 12px; box-sizing: border-box; }
+  .rollup { grid-template-columns: repeat(2, 1fr) !important; }
+}
 </style>
 <style>
   .fh-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
@@ -674,10 +683,10 @@
   </header>  <div class="fh-kpi">
     <div class="cell up">
       <div class="lbl">Production · 24h</div>
-      <div class="val">16,094<span style="font-size:14px;color:var(--muted);"> MCF</span>
+      <div class="val">14,218<span style="font-size:14px;color:var(--muted);"> MCF</span>
         <span class="delta up">+4.7%</span>
       </div>
-      <div class="sub">vs 15,371 MCF 7-day average</div>
+      <div class="sub">vs 13,602 MCF 7-day average</div>
     </div>
     <div class="cell neutral">
       <div class="lbl">Revenue Today</div>
@@ -696,7 +705,7 @@
     </div>
   </div>  <div class="dispatch">
     <div class="lede-section">
-      <p class="lede"><strong>Good morning.</strong> Yesterday's print: <strong>16,094 MCF</strong>, running <strong style='color:var(--money);'>+4.7%</strong> above the 7-day trend. That's a clean number — but the trend is hiding real production slippage because <strong>31% of our devices (58 of 185) are dark 14d+</strong>.</p><p class='lede'>Today's must-do: resolve the Stanhope/Ashcroft gathering event — ten meters are moving together, which is one compressor or one line, not ten wells. Recovery on the fix is ~$21k/mo. Plus a four-site I&amp;E sweep to recover ~$40k/mo of invisible gas. Five decisions below, ordered by cost-of-delay.</p>
+      <p class="lede"><strong>Good morning.</strong> Yesterday's print: <strong>14,218 MCF</strong>, running <strong style='color:var(--money);'>+4.7%</strong> above the 7-day trend. That's a clean number — but the trend is hiding real production slippage because <strong>28% of our devices (48 of 172) are dark 14d+</strong>.</p><p class='lede'>Today's must-do: resolve the Stanhope/Ashcroft gathering event — a cluster of meters are moving together, which is one compressor or one line, not several wells. Recovery on the fix is ~$17k/mo. Plus a multi-site I&amp;E sweep to recover ~$33k/mo of invisible gas. Five decisions below, ordered by cost-of-delay.</p>
     </div>
     <aside class="pulse-panel">
       <div class="pulse-head">Portfolio Pulse</div>
@@ -732,7 +741,7 @@
     <a href="#rollup">§ VIII · Roll-up</a>
   </nav>  <div class="heatmap">
     <div class="heat-head">
-      <span class="heat-title">Fleet Pulse · 185 wells · Apr 23</span>
+      <span class="heat-title">Fleet Pulse · 172 wells · Apr 23</span>
       <span class="heat-legend">
         <span class="lg-item"><span class="lg-swatch lg-crit"></span>Critical</span>
         <span class="lg-item"><span class="lg-swatch lg-watch"></span>Watch</span>
@@ -752,11 +761,11 @@
         <div>
           <div class="kicker">Emergency · Severity 1 · Gathering Event · Decision 1</div>
           <h3>Approve midstream call on the Stanhope/Ashcroft CTB cluster</h3>
-          <p><strong>Ten meters</strong> on the Stanhope/Ashcroft/Kirby/Westbrook/Markham Heirs CTB network show simultaneous 200-500% static-pressure creep over the last 5 days. Signature is one gathering bottleneck, not 10 well failures. Bayou So Comp Disch &amp; Bayou South Sales Chk both classify LOADING in the same window — that's a failing compressor station fingerprint.</p>
+          <p><strong>A cluster of meters</strong> on the Stanhope/Ashcroft/Kirby/Westbrook/Markham Heirs CTB network show simultaneous 150-400% static-pressure creep over the last 5-7 days. Signature is one gathering bottleneck, not a fleet of well failures. Bayou So Comp Disch &amp; Bayou South Sales Chk both classify LOADING in the same window — that's a failing compressor station fingerprint.</p>
           <p><strong>Recommended:</strong> approve midstream outreach + freeze well-level spend on those 10 wells until the upstream is resolved. <strong>Alternative:</strong> defer 48h for more data — but we lose ~$1,400/day in the meantime.</p>
         </div>
         <div class="d-meta">
-          <div class="row"><span class="k">Revenue at stake</span><span class="v money">$21,000/mo</span></div>
+          <div class="row"><span class="k">Revenue at stake</span><span class="v money">$17,000/mo</span></div>
           <div class="row"><span class="k">Payback</span><span class="v">&lt;1 week post-fix</span></div>
           <div class="row"><span class="k">Confidence</span><span class="v money">High</span></div>
           <div class="row"><span class="k">Window</span><span class="v danger">72 hr</span></div>
@@ -1070,12 +1079,12 @@
       <div class="sec-lede">Six-cell operating snapshot. Lost-revenue estimate is offline-RTU exposure, not a realized loss — some offline units are decommissioned. Ground-truth sweep in progress.</div>
     </div>
     <div class="rollup">
-      <div class="rcell"><div class="rv">16,094</div><div class="rl">MCF · 24h</div></div>
-      <div class="rcell"><div class="rv">15,371</div><div class="rl">MCF · 7d avg</div></div>
-      <div class="rcell"><div class="rv">185</div><div class="rl">Active wells</div></div>
-      <div class="rcell"><div class="rv">58</div><div class="rl">Offline RTUs</div></div>
-      <div class="rcell"><div class="rv">~$304k</div><div class="rl">Exposure $/mo</div></div>
-      <div class="rcell"><div class="rv">52</div><div class="rl">Wells at risk</div></div>
+      <div class="rcell"><div class="rv">14,218</div><div class="rl">MCF · 24h</div></div>
+      <div class="rcell"><div class="rv">13,602</div><div class="rl">MCF · 7d avg</div></div>
+      <div class="rcell"><div class="rv">172</div><div class="rl">Active wells</div></div>
+      <div class="rcell"><div class="rv">48</div><div class="rl">Offline RTUs</div></div>
+      <div class="rcell"><div class="rv">~$252k</div><div class="rl">Exposure $/mo</div></div>
+      <div class="rcell"><div class="rv">43</div><div class="rl">Wells at risk</div></div>
     </div>
   </section>  <footer class="foot">
     <div class="foot-inner">

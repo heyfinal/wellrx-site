@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>WellRX — Decision Support for Gas-Well Operators</title>
 <meta name="description" content="WellRX listens to your live and historical data streams — SCADA, FSR, gauge sheets, photos from the field — diagnoses, and writes a field-ready Rx for every role. Decision support for gas-well operators.">
 <meta name="author" content="WellRX">
@@ -332,6 +333,12 @@
     h1.brand { font-size: 60px; }
     .rx { font-size: 68px; }
   }
+
+/* Mobile image / container safety */
+@media (max-width: 860px) {
+  img, svg { max-width: 100%; height: auto; }
+  .wrap { padding-left: 16px; padding-right: 16px; }
+}
 </style>
 </head>
 <body>
@@ -349,9 +356,9 @@
   <div class="tagline">Decision support for gas-well operators. Live data in — field-ready Rx out.</div>
 
   <div class="hero">
-    <div class="cell"><div class="lbl">Wells in sample engagement</div><div class="val">144</div><div class="sub">Every active device reviewed — one mid-size East-Texas gas operator</div></div>
-    <div class="cell"><div class="lbl">Priority cases surfaced</div><div class="val money">46</div><div class="sub">Ranked by cost-of-delay, not severity alone</div></div>
-    <div class="cell"><div class="lbl">Modeled 90-day recovery</div><div class="val gold">$77k/mo</div><div class="sub">MCF Δ × $3.50 · 75% execution · confidence-weighted</div></div>
+    <div class="cell"><div class="lbl">Wells in sample engagement</div><div class="val">127</div><div class="sub">Every active device reviewed — one mid-size gas operator</div></div>
+    <div class="cell"><div class="lbl">Priority cases surfaced</div><div class="val money">38</div><div class="sub">Ranked by cost-of-delay, not severity alone</div></div>
+    <div class="cell"><div class="lbl">Modeled 90-day recovery</div><div class="val gold">$63k/mo</div><div class="sub">MCF Δ × $3.50 · 75% execution · confidence-weighted</div></div>
     <div class="cell"><div class="lbl">Delivery window</div><div class="val">06:30 CT</div><div class="sub">Inbox, every morning, covered wells only</div></div>
   </div>
 
@@ -424,7 +431,7 @@
       <div class="ico">§</div>
       <div class="cad">On-demand · Quarterly</div>
       <h3>Portfolio Diagnostic</h3>
-      <p>Board-grade audit of your entire fleet. Case-by-case diagnosis, RTU health, chemistry program, artificial-lift strategy, 90-day action plan with confidence-scored ROI. Sample sized: 46 cases, ~$77k/mo upside surfaced.</p>
+      <p>Board-grade audit of your entire fleet. Case-by-case diagnosis, RTU health, chemistry program, artificial-lift strategy, 90-day action plan with confidence-scored ROI. Sample sized: 38 cases, ~$63k/mo upside surfaced.</p>
       <ul>
         <li>Every declining / loading / low-FT well surfaced &amp; diagnosed</li>
         <li>Gathering &amp; compression events detected automatically</li>
@@ -470,9 +477,9 @@
   </div>
   <div class="missed-grid">
     <div class="missed-card" data-num="1">
-      <h4>Gathering event masked as 10 separate well declines</h4>
-      <p class="miss-body">Ten meters on one CTB cluster showed simultaneous <strong>200–500% static-pressure creep over 5 days</strong>. To a field team reading well-by-well: ten wells each losing a little, probably decline. To WellRX's virtual AI trio: <strong>one midstream bottleneck, one fix</strong>. Chemistry and lift money spent on individual wells was <em>actively wasted</em> while the real upstream problem sat invisible.</p>
-      <div class="miss-cost"><span class="ml">Recoverable · one fix</span><span class="dollar">~$21,000/mo</span></div>
+      <h4>Gathering event masked as separate well declines</h4>
+      <p class="miss-body">A cluster of meters on one CTB network showed simultaneous <strong>150–400% static-pressure creep over 5–7 days</strong>. To a field team reading well-by-well: several wells each losing a little, probably decline. To WellRX's virtual AI trio: <strong>one midstream bottleneck, one fix</strong>. Chemistry and lift money spent on individual wells was <em>actively wasted</em> while the real upstream problem sat invisible.</p>
+      <div class="miss-cost"><span class="ml">Recoverable · one fix</span><span class="dollar">~$17,000/mo</span></div>
     </div>
     <div class="missed-card" data-num="2">
       <h4>Liquid loading misread as reservoir decline</h4>
@@ -481,8 +488,8 @@
     </div>
     <div class="missed-card" data-num="3">
       <h4>Live-but-dark RTU hiding real production</h4>
-      <p class="miss-body">Four wells went quiet mid-window while still producing <strong>50–163 MCF/D</strong>. A busy field team reads "offline = maybe decommissioned" and moves on. WellRX separates dark-but-producing from truly offline on day one. Four $300 truck rolls recover full revenue visibility and ~$40k/mo of gas that was invisible to the dashboard.</p>
-      <div class="miss-cost"><span class="ml">Exposure · $/mo invisible</span><span class="dollar">~$40,000</span></div>
+      <p class="miss-body">Several wells went quiet mid-window while still producing <strong>40–130 MCF/D</strong>. A busy field team reads "offline = maybe decommissioned" and moves on. WellRX separates dark-but-producing from truly offline on day one. A handful of $300 truck rolls recover full revenue visibility and ~$33k/mo of gas that was invisible to the dashboard.</p>
+      <div class="miss-cost"><span class="ml">Exposure · $/mo invisible</span><span class="dollar">~$33,000</span></div>
     </div>
     <div class="missed-card" data-num="4">
       <h4>Paraffin diagnosed as plunger problem</h4>
@@ -543,7 +550,7 @@
     <a class="sample" href="samples/04_portfolio_diagnostic.html">
       <div class="kick">On-demand · Board Grade</div>
       <h3>Portfolio Diagnostic — Sample Engagement</h3>
-      <p>185-well portfolio audit. Gathering event surfaced, RTU crisis mapped, 46 priority cases with ROI-scored fixes, top-10 action stack, ~$77k/mo upside quantified.</p>
+      <p>172-well portfolio audit. Gathering event surfaced, RTU crisis mapped, 38 priority cases with ROI-scored fixes, top-10 action stack, ~$63k/mo upside quantified.</p>
       <div class="btn">Open sample →</div>
     </a>
     <a class="sample" href="samples/06_photo_diagnosis.html">

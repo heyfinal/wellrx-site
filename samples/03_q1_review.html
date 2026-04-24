@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>The WellRX Daily · Q1 2026 Chemistry Review — Meridian Operating</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -499,6 +500,14 @@
                color: var(--gold); opacity: 0.5; text-shadow: 0 0 24px var(--gold-glow);
                font-weight: 400; font-style: italic;
                font-variation-settings: "opsz" 144; }
+
+/* Mobile table reflow — wrap wide tables in horizontal scroll on phones */
+@media (max-width: 860px) {
+  table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  img, svg { max-width: 100%; height: auto; }
+  .wrap, .page, .container, body { padding-left: 12px; padding-right: 12px; box-sizing: border-box; }
+  .rollup { grid-template-columns: repeat(2, 1fr) !important; }
+}
 </style>
 <style>
   /* Severity-pill sizing for the table */
