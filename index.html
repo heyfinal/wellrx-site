@@ -598,7 +598,7 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
 (function () {
   var banner = document.getElementById('wrx-banner');
   if (!banner) return;
-  var KEY = 'wrx_beta_banner_dismissed_v1';
+  var KEY = 'wrx_beta_banner_dismissed_v2';
   var dismissed = false;
   try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
   if (dismissed) { banner.style.display = 'none'; return; }
