@@ -623,34 +623,84 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   color: #fbbf24;
 }
 
-/* ── Hard mobile-overflow guard ─────────────────────────────────── */
-@media (max-width: 720px) {
-  .hero, .hero-strip, .rollup, .grid2, .deliver, .samples,
-  .timeline, .qheadline, .price-grid, .contacts,
-  .role-deliverables, .missed-grid, .flow, .flow-single,
-  .integ .row, .customize {
+/* ── Hard mobile-overflow guard v2 ─────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Every grid-class in the brochure + sample inventory collapses to one column.
+     Listed individually so high-specificity rules in each file are beaten.       */
+  .hero, .hero-strip, .hero-strip.cols-4,
+  .brief-hero, .fh-kpi, .rollup,
+  .dispatch, .decision, .decision-stack, .al-grid, .rtu-grid,
+  .card-kpis, .kpi-pair, .diag-grid, .mover-grid, .route-grid,
+  .well-cards, .photo-grid,
+  .grid2, .deliver, .samples, .timeline, .qheadline, .price-grid,
+  .contacts, .role-deliverables, .missed-grid, .flow, .flow-single,
+  .integ .row, .customize,
+  [class*="-grid"], [class*="grid-"][class] {
+    display: grid !important;
     grid-template-columns: 1fr !important;
     gap: 10px !important;
   }
-  .cell, .hero-cell, .qbox, .rcell, .price-card, .bx,
-  .tl-step, .missed-card, .contact-card, .charter,
-  .tile, .sample, .grid2 .bx, .integ .row > * {
+  /* heat-tiles is meant to stay tile-y; just don't let it overflow. */
+  .heat-tiles {
+    grid-template-columns: repeat(auto-fill, minmax(14px, 1fr)) !important;
+  }
+  /* Children of every grid/flex container must be allowed to shrink. */
+  .hero > *, .hero-strip > *, .brief-hero > *, .fh-kpi > *,
+  .rollup > *, .dispatch > *, .decision > *, .decision-stack > *,
+  .al-grid > *, .rtu-grid > *, .card-kpis > *, .kpi-pair > *,
+  .diag-grid > *, .mover-grid > *, .route-grid > *,
+  .well-cards > *, .photo-grid > *,
+  .grid2 > *, .deliver > *, .samples > *, .timeline > *,
+  .qheadline > *, .price-grid > *, .contacts > *,
+  .role-deliverables > *, .missed-grid > *, .flow > *,
+  .integ .row > *, .customize > * {
+    min-width: 0 !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
-    overflow-wrap: anywhere;
   }
-  .val, .val.gold, .val.money, .val.danger,
-  .qbox-val, .qfeature-val, .cc-name, .rv,
-  .cell .val, .hero-cell .val, .rcell .rv {
-    font-size: clamp(26px, 8vw, 44px) !important;
+  /* Force long content to wrap — kills the one-word-per-line dispatch lede. */
+  h1, h2, h3, h4, p, li, td, th,
+  .lede, .val, .qbox-val, .qfeature-val, .cc-name, .rv,
+  .stat-val, .ev-num, .v.money, .pulse-row .pl-val,
+  .fh-kpi .v, .brief-hero .v, .card .ev-num {
+    overflow-wrap: anywhere !important;
     word-break: break-word !important;
+  }
+  /* Big display-font stat values fit any phone width. */
+  .val, .val.gold, .val.money, .val.danger,
+  .qbox-val, .qfeature-val,
+  .rv, .ev-num,
+  .cell .val, .hero-cell .val, .rcell .rv,
+  .brief-hero .v, .fh-kpi .v {
+    font-size: clamp(22px, 7.5vw, 44px) !important;
     line-height: 1.05 !important;
   }
-  .dateline, .actions, .submit-row, .qheadline {
-    flex-wrap: wrap !important;
+  /* Drop caps in dispatch ledes overshoot mobile — cap them. */
+  .dispatch .lede .drop, .lede .drop,
+  .dispatch .lede { font-size: clamp(15px, 4.4vw, 22px) !important; }
+  .dispatch .lede .drop { font-size: clamp(34px, 11vw, 56px) !important; }
+  /* Hide rotated section ribbons on mobile — they steal horizontal space. */
+  .dispatch .lede-section { padding-left: 0 !important; }
+  .dispatch .lede-section::before,
+  .section-ribbon, .ribbon-rotated { display: none !important; }
+  .dispatch .pulse-panel { border-left: none !important; padding-left: 0 !important;
+                            border-top: 1px dashed var(--line); padding-top: 14px !important; }
+  /* kpi-pair (label/value rows) stacks per cell on phone. */
+  .kpi-pair { grid-template-columns: 1fr !important; row-gap: 6px !important; }
+  /* Tables: block-flow with horizontal scroll, never overflow body. */
+  table { display: block !important; overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch !important;
+          max-width: 100% !important; }
+  /* Flex bars wrap on phone. */
+  .dateline, .actions, .submit-row, .qheadline,
+  .pulse-row, .pulse-head, .badge-row { flex-wrap: wrap !important; }
+  /* Container padding tight on phones. */
+  .wrap, .page, .container, main {
+    padding-left: 12px !important; padding-right: 12px !important;
+    max-width: 100% !important; box-sizing: border-box !important;
   }
-  .wrap, .page, .container { padding-left: 12px !important; padding-right: 12px !important; }
-  body { overflow-x: hidden !important; }
+  /* Final overflow trap. */
+  html, body { overflow-x: hidden !important; max-width: 100% !important; }
 }
 </style>
 </head>
