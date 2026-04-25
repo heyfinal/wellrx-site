@@ -691,7 +691,7 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   <div class="sec">
     <div class="kick">§ II · The Cost of a Missed Signal</div>
     <h2>What gets overlooked when a human is reading the data alone.</h2>
-    <div class="lede">Data lives in silos, alerts fire out of context, and a small miss compounds fast. These are real patterns from one sample engagement — <strong>each was already costing the operator money for days or weeks</strong> before WellRX surfaced it. Dollar figures are grounded in observed MCF deltas at $3.50/MCF, not projections.</div>
+    <div class="lede">Data lives in silos, alerts fire out of context, and a small miss compounds fast. These are real patterns from one sample engagement — <strong>each was already costing the operator money for days or weeks</strong> before WellRX surfaced it. Dollar figures are grounded in observed MCF deltas at current gas prices ($4.20/MCF), not projections.</div>
   </div>
   <div class="missed-grid">
     <div class="missed-card" data-num="1">
@@ -799,7 +799,7 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
       <span class="pill roadmap">Roadmap</span> <strong>Web portal</strong> (operator dashboard, case-file archive, team permissioning)</div>
     </div>
     <div class="row"><div class="k">Recipient profiles</div>
-      <div class="v">Every recipient has a role (vendor, pumper, engineer, executive), a well scope, a delivery channel, and a custom report template. <strong>One SCADA feed, N tailored outputs — each with its own diagnosis and Rx per role.</strong></div>
+      <div class="v">Every recipient has a role (vendor, pumper, engineer, executive), a well scope, a delivery channel, and a custom report template. <strong>One SCADA feed, multiple tailored outputs — each with its own diagnosis and Rx per role.</strong> Three tailored-report users are included in the base subscription; additional users at a small flat per-user / month fee.</div>
     </div>
     <div class="row"><div class="k">Data security</div>
       <div class="v">Single-tenant credentials held in the operator's keychain; auth worker runs on-prem or in your cloud. No raw telemetry leaves the boundary you control.</div>
@@ -812,18 +812,22 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   </div>
   <div class="integ">
     <div class="row"><div class="k">Deployment</div>
-      <div class="v"><strong>~2 weeks from data handshake to first Rx in inbox.</strong> Our launch engagement went live in under 10 days — auth worker stood up, first daily pull, first prescription email on the production specialist's phone. We don't touch your SCADA config; we read what you already have.</div>
+      <div class="v"><strong>1–3 days from data handshake to first Rx in inbox.</strong> Auth worker stood up, adapter configured, well-name reconciliation against your SCADA device IDs, recipients onboarded, and the first portfolio diagnostic + prior-quarter retrospective delivered to your executive contact within hours of going live. We don't touch your SCADA config; we read what you already have.</div>
     </div>
     <div class="row"><div class="k">Who can buy</div>
       <div class="v">
-        <p style="margin:0 0 14px;"><strong>Operator-wide.</strong> The company buys the feed once, and every role gets their own Rx — pumpers, production specialists, foremen, engineering, executive. One integration, N tailored outputs, team pricing.</p>
-        <p style="margin:0;"><strong>Individual role-based.</strong> A single production engineer, chemistry vendor rep, foreman, or contractor pumper can also subscribe for <em>just their own</em> daily Rx against the operator's feed (with operator consent). A leg up on your peers without waiting on the company to roll it out.</p>
+        <p style="margin:0;"><strong>Operator-wide engagement.</strong> WellRX is sold to the operator. The company onboards once, every covered well gets reviewed by the virtual AI petroleum, production &amp; chemical engineering team every morning, and tailored Rx is delivered to the recipients you specify — pumpers, foremen, production engineers, vendor reps, executive. One integration, multiple tailored outputs, one bill.</p>
       </div>
     </div>
     <div class="row"><div class="k">Pricing model</div>
       <div class="v">
-        <p style="margin:0 0 12px;"><strong>Quote &amp; bid only — you build the package.</strong> There's no shelf price. Every engagement is scoped and bid against the specific package <em>you</em> design: which reports you want, which virtual AI agents are on the team, company size, active well count, integration complexity, delivery cadence. Pick from the menu, skip what you don't need, add custom-trained agents if you want them — and we price that exact combination.</p>
-        <p style="margin:0;"><strong>Every quote is ROI-grounded against your own data.</strong> Before anyone signs anything, we'll produce a sample diagnostic from your feed and run the math on what WellRX surfaces so you see the payback before the paperwork. Ask Chris for a quote.</p>
+        <p style="margin:0 0 12px;"><strong>Quote &amp; bid against three dimensions.</strong></p>
+        <p style="margin:0 0 8px;">①&nbsp;<strong>Per-well subscription</strong> on the wells we can pull live data on — offline / unreachable wells are not billed. Tiered curve from $40–$75 per live well per month based on portfolio size.</p>
+        <p style="margin:0 0 8px;">②&nbsp;<strong>Tailored-report users</strong> — 3 recipients included in the base subscription. Additional users at a small flat per-user / month fee.</p>
+        <p style="margin:0 0 12px;">③&nbsp;<strong>Supplemental AI agents</strong> — the base petroleum, production &amp; chemical engineering trio is included. Specialist agents (reservoir, midstream, HSE, regulatory, allocation, custom-trained) are priced per-agent to cover incremental model-API consumption.</p>
+        <p style="margin:0 0 12px;"><strong>Setup</strong> is one-time and tiered by total portfolio size, bundled with a portfolio diagnostic and prior-quarter retrospective delivered at kickoff so you see the math before any monthly subscription begins. <strong>Month-to-month, no long-term contract</strong> — 30-day notice to cancel.</p>
+        <p style="margin:0 0 12px;"><strong>Charter partner concessions</strong> — first cohort operators get setup waived in full plus 50% off the first three months. <a href="/beta/" style="color: var(--gold); text-decoration: underline;">apply at /beta</a>.</p>
+        <p style="margin:0;"><strong>Every quote is ROI-grounded against your own data.</strong> Ask Chris for a quote.</p>
       </div>
     </div>
     <div class="row"><div class="k">Security posture</div>
