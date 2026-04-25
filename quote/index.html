@@ -340,13 +340,13 @@
       <h4>Add-ons & one-offs</h4>
       <table>
         <tbody>
-          <tr><td>Standalone portfolio diagnostic (post-engagement)</td>    <td class="price">$4,500</td></tr>
-          <tr><td>Standalone prior-quarter retrospective</td>                <td class="price">$3,500</td></tr>
-          <tr><td>Historical analysis on offline / no-data wells</td>        <td class="price">$200–400/well</td></tr>
+          <tr><td>Standalone portfolio diagnostic (post-engagement)</td>    <td class="price">$1,000–3,000</td></tr>
+          <tr><td>Standalone prior-quarter retrospective</td>                <td class="price">$500–1,500</td></tr>
+          <tr><td>Historical analysis on offline / no-data wells</td>        <td class="price">$50–200/well</td></tr>
           <tr><td>On-site engagement (post-contract)</td>                    <td class="price">T&amp;E + day rate</td></tr>
         </tbody>
       </table>
-      <p class="price-note">Historical analysis on offline wells uses operator-provided exports, gauge sheets, FSR records, or field interviews. Per-well rate scales with data depth and time-window covered.</p>
+      <p class="price-note">All three are bid-ranges — choose a price within the band based on company size, data sources available, and projected AI token usage. Historical analysis on offline wells uses operator-provided exports, gauge sheets, FSR records, or field interviews; the $50–200 range covers light-touch single-source review through deep multi-source reconciliation.</p>
     </div>
   </div>
 
@@ -430,10 +430,23 @@
         <div class="fld">
           <label for="hist_rate">Historical rate per well</label>
           <select id="hist_rate">
-            <option value="200">$200 / well — light (export only)</option>
-            <option value="300" selected>$300 / well — standard</option>
-            <option value="400">$400 / well — deep (multi-source reconciliation)</option>
+            <option value="50">$50 / well — light (single-source export)</option>
+            <option value="100" selected>$100 / well — standard</option>
+            <option value="150">$150 / well — moderate (multi-source)</option>
+            <option value="200">$200 / well — deep (full reconciliation, heavy token usage)</option>
           </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="standalone_diag">Standalone portfolio diagnostic ($1,000–3,000)</label>
+          <input type="number" id="standalone_diag" min="0" max="3000" step="50" value="0">
+          <div class="helper">Post-engagement or non-subscriber one-off. Set 0 to skip. Bid within range based on company size + projected AI token usage.</div>
+        </div>
+        <div class="fld">
+          <label for="standalone_q1">Standalone prior-quarter retrospective ($500–1,500)</label>
+          <input type="number" id="standalone_q1" min="0" max="1500" step="50" value="0">
+          <div class="helper">Same as above for the 90-day look-back deliverable. Set 0 to skip.</div>
         </div>
       </div>
       <div class="row">
@@ -583,7 +596,9 @@
     const scada      = $('scada_platform').value;
     const users      = Math.max(0, parseInt($('num_users').value || '0', 10));
     const histWells  = Math.max(0, parseInt($('hist_wells').value || '0', 10));
-    const histRate   = parseInt($('hist_rate').value || '300', 10);
+    const histRate   = parseInt($('hist_rate').value || '100', 10);
+    const standaloneDiag = Math.max(0, Math.min(3000, parseInt($('standalone_diag').value || '0', 10)));
+    const standaloneQ1   = Math.max(0, Math.min(1500, parseInt($('standalone_q1').value   || '0', 10)));
     const beta       = $('opt_beta').checked;
     const customDisc = Math.max(0, Math.min(100, parseFloat($('custom_disc').value || '0')));
 
@@ -662,6 +677,22 @@
         val: fmt(histLine),
       });
       addonTotal += histLine;
+    }
+    if (standaloneDiag > 0) {
+      addonLines.push({
+        desc: 'Standalone portfolio diagnostic',
+        sub: 'One-off, post-engagement or non-subscriber. Bid within $1,000–3,000 band.',
+        val: fmt(standaloneDiag),
+      });
+      addonTotal += standaloneDiag;
+    }
+    if (standaloneQ1 > 0) {
+      addonLines.push({
+        desc: 'Standalone prior-quarter retrospective',
+        sub: 'One-off 90-day look-back. Bid within $500–1,500 band.',
+        val: fmt(standaloneQ1),
+      });
+      addonTotal += standaloneQ1;
     }
     if (customDisc > 0 && monthlyTotal > 0) {
       const discAmt = -Math.round(monthlyTotal * customDisc / 100);
@@ -807,7 +838,8 @@
   // ── URL share: encode form state ──
   function snapshot() {
     const fields = ['op_name','op_contact','quote_id','total_wells','live_wells',
-                    'scada_platform','num_users','hist_wells','hist_rate','custom_disc','notes'];
+                    'scada_platform','num_users','hist_wells','hist_rate',
+                    'standalone_diag','standalone_q1','custom_disc','notes'];
     const params = new URLSearchParams();
     for (const f of fields) params.set(f, $(f).value);
     if ($('opt_beta').checked) params.set('beta', '1');
