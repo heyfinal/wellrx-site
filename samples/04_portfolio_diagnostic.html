@@ -666,6 +666,18 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   letter-spacing: 0.14em; text-transform: uppercase;
 }
 .wrx-mobile-gate-cta:hover { transform: translateY(-1px); }
+.wrx-mobile-gate-cta.ghost {
+  background: transparent !important; color: var(--ink-strong) !important;
+  border: 1px solid var(--line-strong);
+  margin-left: 8px;
+}
+.wrx-mobile-gate-pdfnote {
+  font-size: 13px; color: var(--muted); margin: 14px 0 4px;
+  font-family: var(--font-body);
+}
+.wrx-mobile-gate-actions { margin-top: 6px; display: flex; flex-wrap: wrap;
+  gap: 8px; justify-content: center; }
+
 @media (max-width: 860px) {
   html, body { overflow: hidden !important; }
   .wrx-mobile-gate { display: flex !important; }
@@ -895,9 +907,13 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   <div class="wrx-mobile-gate-card">
     <span class="wrx-mobile-gate-rx" aria-hidden="true">℞</span>
     <h1>Best viewed on desktop</h1>
-    <p>Portfolio diagnostics include wide data tables, fleet heatmaps, and per-well charts that don't render usefully at phone size.</p>
-    <p class="note">Please open this report on a PC or laptop browser.</p>
-    <a class="wrx-mobile-gate-cta" href="/">← Back to wellrx.app</a>
+    <p>Portfolio diagnostics include wide data tables, severity grids, fleet heatmaps, and per-well charts that don't render usefully at phone size.</p>
+    <p class="note">Open on a PC or laptop browser for the live HTML view.</p>
+    <p class="wrx-mobile-gate-pdfnote">Or download the PDF — your phone's native viewer handles the layout cleanly (pinch-zoom, smooth scroll, all content):</p>
+    <div class="wrx-mobile-gate-actions">
+      <a class="wrx-mobile-gate-cta" href="04_portfolio_diagnostic.pdf" download>↓ Download PDF</a>
+      <a class="wrx-mobile-gate-cta ghost" href="/">← Back to wellrx.app</a>
+    </div>
   </div>
 </div>
 
