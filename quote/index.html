@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<script>
+(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s){s='dark';}document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<title>WellRX Quote Calculator · Internal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070b17;
+    --bg-grad: radial-gradient(1200px 600px at 10% -10%, #132042 0%, transparent 60%),
+               radial-gradient(900px 500px at 110% 10%, #0c2d2a 0%, transparent 55%),
+               linear-gradient(180deg, #070b17 0%, #0a1024 100%);
+    --card: #0d1426; --panel: rgba(21, 32, 60, 0.55);
+    --ink: #e6edf7; --ink-strong: #f8fafc; --muted: #94a3b8; --faint: #64748b;
+    --line: rgba(148, 163, 184, 0.14); --line-strong: rgba(148, 163, 184, 0.3);
+    --accent: #38bdf8; --money: #34d399; --gold: #fbbf24; --danger: #f87171;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+    color-scheme: dark;
+  }
+  [data-theme="light"] {
+    color-scheme: light;
+    --bg: #faf6eb;
+    --bg-grad: radial-gradient(1200px 600px at 10% -10%, #f5e8c8 0%, transparent 55%),
+               radial-gradient(900px 500px at 110% 10%, #eef3e3 0%, transparent 50%),
+               linear-gradient(180deg, #faf6eb 0%, #f3ecd6 100%);
+    --card: #fefcf5; --panel: rgba(120, 113, 108, 0.06);
+    --ink: #1c1917; --ink-strong: #0c0a09; --muted: #6b5f54; --faint: #a8a29e;
+    --line: rgba(120, 113, 108, 0.16); --line-strong: rgba(120, 113, 108, 0.30);
+    --accent: #0369a1; --money: #047857; --gold: #b45309; --danger: #b91c1c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); background-image: var(--bg-grad);
+         color: var(--ink); font-family: var(--font-body); line-height: 1.55;
+         min-height: 100vh; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 36px 28px 80px; position: relative; }
+
+  /* theme toggle */
+  .wrx-theme-toggle {
+    position: fixed; top: 14px; right: 14px; z-index: 500;
+    padding: 8px 16px; border-radius: 999px;
+    background: var(--card); color: var(--ink-strong);
+    border: 1px solid var(--line-strong);
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700; line-height: 1;
+    letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+    transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .wrx-theme-toggle:hover { transform: translateY(-1px); border-color: var(--gold); color: var(--gold); }
+  .wrx-theme-toggle .wrx-theme-glyph { font-size: 13px; color: var(--gold); line-height: 1; }
+  [data-theme="dark"] .wrx-theme-light-label, :root:not([data-theme="light"]) .wrx-theme-light-label { display: none; }
+  [data-theme="light"] .wrx-theme-dark-label { display: none; }
+  [data-theme="dark"] .wrx-theme-sun-glyph, :root:not([data-theme="light"]) .wrx-theme-sun-glyph { display: none; }
+  [data-theme="light"] .wrx-theme-moon-glyph { display: none; }
+  @media print { .wrx-theme-toggle { display: none !important; } }
+
+  /* masthead */
+  .mast-rule { border-top: 1px solid rgba(148,163,184,0.25); margin-top: 6px; }
+  .dateline { display: flex; justify-content: space-between; align-items: center;
+              font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+              text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  .title { display: flex; align-items: baseline; gap: 14px; margin: 14px 0 6px; }
+  .rx { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+        font-size: 56px; color: var(--gold); line-height: 0.85;
+        font-variation-settings: "opsz" 144; }
+  h1.brand { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+             font-size: 46px; letter-spacing: -0.02em; margin: 0; line-height: 0.95;
+             color: var(--ink-strong); font-variation-settings: "opsz" 144; }
+  .subtitle { font-family: var(--font-brand); font-style: italic; font-weight: 400;
+              font-size: 17px; color: var(--muted); margin: 6px 0 0;
+              font-variation-settings: "opsz" 48; }
+  .privnote { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+              text-transform: uppercase; color: var(--danger); font-weight: 700;
+              margin: 14px 0 4px; }
+
+  /* sections */
+  .sec { margin: 36px 0 14px; }
+  .kick { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+          text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 6px; }
+  h2 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+       font-size: 28px; margin: 0 0 10px; line-height: 1.15;
+       color: var(--ink-strong); font-variation-settings: "opsz" 48; }
+  h3 { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+       font-size: 18px; margin: 14px 0 8px; color: var(--ink-strong);
+       font-variation-settings: "opsz" 48; }
+  h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+       text-transform: uppercase; color: var(--accent); font-weight: 700;
+       margin: 0 0 8px; }
+
+  /* reference card */
+  .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  @media (max-width: 760px) { .price-grid { grid-template-columns: 1fr; } }
+  .price-card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 18px 22px;
+  }
+  .price-card table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .price-card th, .price-card td { text-align: left; padding: 6px 4px;
+                                    border-bottom: 1px solid var(--line); color: var(--ink); }
+  .price-card th { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+                    text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .price-card td.price { font-family: var(--font-mono); color: var(--gold); font-weight: 700;
+                          text-align: right; white-space: nowrap; }
+  .price-note { font-size: 12px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
+
+  /* form */
+  form#quote-form {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 24px 26px; margin: 18px 0;
+  }
+  fieldset { border: 0; padding: 0; margin: 0 0 22px; }
+  fieldset:last-child { margin-bottom: 0; }
+  legend { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em;
+           text-transform: uppercase; color: var(--gold); font-weight: 700; margin-bottom: 14px; padding: 0; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 12px; }
+  @media (max-width: 620px) { .row { grid-template-columns: 1fr; } }
+  .fld { display: flex; flex-direction: column; gap: 6px; }
+  .fld.full { grid-column: 1 / -1; }
+  label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em;
+          text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  input[type=text], input[type=number], input[type=date], select, textarea {
+    background: rgba(7, 11, 23, 0.4); border: 1px solid var(--line-strong); color: var(--ink);
+    font-family: var(--font-body); font-size: 14px; line-height: 1.5;
+    padding: 10px 12px; border-radius: 8px; outline: none;
+    transition: border-color 0.15s ease;
+  }
+  [data-theme="light"] input, [data-theme="light"] select, [data-theme="light"] textarea {
+    background: #fdfcf7 !important; color: var(--ink) !important;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 70px; }
+  .checkgroup { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px;
+                padding: 6px 0 4px; }
+  @media (max-width: 620px) { .checkgroup { grid-template-columns: 1fr; } }
+  .checkgroup label { display: flex; align-items: flex-start; gap: 8px;
+                      text-transform: none; letter-spacing: 0; font-family: var(--font-body);
+                      font-size: 13.5px; color: var(--ink); font-weight: 500; cursor: pointer; }
+  .checkgroup input[type=checkbox] { margin-top: 3px; accent-color: var(--gold); }
+  .helper { font-size: 12px; color: var(--faint); margin-top: 4px; line-height: 1.45; }
+
+  /* output / quote summary */
+  #quote-output {
+    background: linear-gradient(180deg, rgba(251,191,36,0.04), rgba(251,191,36,0.01));
+    border: 1px solid rgba(251,191,36,0.28); border-radius: 14px;
+    padding: 26px 28px; margin: 20px 0;
+  }
+  [data-theme="light"] #quote-output {
+    background: linear-gradient(180deg, rgba(180,83,9,0.05), rgba(180,83,9,0.02)) !important;
+    border-color: rgba(180,83,9,0.32) !important;
+  }
+  #quote-output h2 { color: var(--gold); margin-bottom: 4px; }
+  .quote-meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted);
+                margin: 0 0 18px; letter-spacing: 0.08em; }
+
+  .qsection { margin: 18px 0 0; }
+  .qsection-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+                     text-transform: uppercase; color: var(--accent); font-weight: 700;
+                     margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  .qline { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 6px 0;
+           font-size: 14px; align-items: baseline; }
+  .qline .qdesc { color: var(--ink); }
+  .qline .qdesc .qsmall { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; line-height: 1.45; }
+  .qline .qval { font-family: var(--font-mono); color: var(--ink-strong); font-weight: 600;
+                 white-space: nowrap; text-align: right; }
+  .qline .qval.muted { color: var(--muted); font-weight: 400; }
+  .qsubtotal { display: grid; grid-template-columns: 1fr auto; gap: 16px;
+               padding: 8px 0 4px; margin-top: 6px; border-top: 1px dashed var(--line-strong);
+               font-family: var(--font-mono); font-size: 13px; }
+  .qsubtotal .qst-lbl { color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+  .qsubtotal .qst-val { color: var(--gold); font-weight: 700; text-align: right; }
+
+  .qheadline { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;
+               margin: 24px 0 8px; }
+  @media (max-width: 720px) { .qheadline { grid-template-columns: 1fr; } }
+  .qheadline .qbox { background: var(--card); border: 1px solid var(--line);
+                      border-radius: 10px; padding: 14px 16px; }
+  [data-theme="light"] .qheadline .qbox { box-shadow: 0 1px 2px rgba(40,30,20,0.04), 0 4px 12px rgba(40,30,20,0.05); }
+  .qheadline .qbox .qbox-lbl { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.16em;
+                                text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .qheadline .qbox .qbox-val { font-family: var(--font-brand); font-style: italic; font-weight: 700;
+                                font-size: 30px; color: var(--gold); margin: 4px 0 0;
+                                font-variation-settings: "opsz" 48; line-height: 1; }
+  .qheadline .qbox .qbox-sub { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0 0;
+             padding-top: 18px; border-top: 1px solid var(--line); }
+  button.btn {
+    background: var(--gold); color: #070b17; border: none;
+    font-family: var(--font-body); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.04em; padding: 10px 18px; border-radius: 999px;
+    cursor: pointer; transition: transform 0.12s ease;
+  }
+  button.btn:hover { transform: translateY(-1px); }
+  button.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); }
+  button.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .copied { color: var(--money); font-family: var(--font-mono); font-size: 11px;
+            letter-spacing: 0.12em; text-transform: uppercase; align-self: center; opacity: 0; transition: opacity 0.2s; }
+  .copied.show { opacity: 1; }
+
+  /* foot */
+  .foot { margin-top: 50px; padding-top: 22px; border-top: 1px solid var(--line);
+          display: flex; justify-content: space-between; align-items: baseline;
+          font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+          text-transform: uppercase; color: var(--muted); flex-wrap: wrap; gap: 10px; }
+  .foot .brand-mark { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+                       font-size: 22px; color: var(--gold); text-transform: none; letter-spacing: 0;
+                       font-variation-settings: "opsz" 48; }
+
+  /* print */
+  @media print {
+    body { background: #fff !important; background-image: none !important; color: #111 !important; }
+    .wrap { max-width: 100%; padding: 18px 24px; }
+    .price-card, form#quote-form, .actions, .privnote, .helper { display: none !important; }
+    #quote-output { background: #fff !important; border: 1px solid #888 !important; padding: 20px !important; }
+    .qheadline .qbox { background: #fff !important; border: 1px solid #888 !important; }
+    .qheadline .qbox .qbox-val, .qsubtotal .qst-val, h2, .kick { color: #b45309 !important; }
+    .qline .qval, .qline .qdesc { color: #111 !important; }
+    .qsmall { color: #555 !important; }
+  }
+
+  @media (max-width: 720px) {
+    h1.brand { font-size: 36px; }
+    .rx { font-size: 44px; }
+    .wrap { padding: 24px 16px 60px; }
+    form#quote-form, .price-card, #quote-output { padding: 18px 16px; }
+  }
+</style>
+</head>
+<body>
+<button type="button" class="wrx-theme-toggle" aria-label="Switch theme" title="Switch theme">
+  <span class="wrx-theme-sun-glyph wrx-theme-glyph" aria-hidden="true">☀</span><span class="wrx-theme-moon-glyph wrx-theme-glyph" aria-hidden="true">☾</span>
+  <span class="wrx-theme-light-label">Light Mode</span><span class="wrx-theme-dark-label">Dark Mode</span>
+</button>
+<script>(function(){var b=document.querySelector('.wrx-theme-toggle');if(!b)return;b.addEventListener('click',function(){var cur=document.documentElement.getAttribute('data-theme')||'dark';var nxt=cur==='light'?'dark':'light';document.documentElement.setAttribute('data-theme',nxt);try{localStorage.setItem('wrx_theme_v1',nxt);}catch(e){}});})();</script>
+
+<div class="wrap">
+  <div class="dateline">
+    <div>WellRX Internal · Quote Calculator</div>
+    <div id="today-stamp"></div>
+  </div>
+  <div class="mast-rule"></div>
+  <div class="title">
+    <span class="rx">℞</span>
+    <h1 class="brand">Quote Calculator</h1>
+  </div>
+  <div class="subtitle">Internal pricing tool. Bid generation for charter and post-charter operators.</div>
+  <div class="privnote">⚠ Confidential · Do not share this URL publicly · No public link from wellrx.app</div>
+
+  <div class="sec">
+    <div class="kick">§ I · Pricing Reference (intro pricing — first cohort)</div>
+    <h2>What we charge.</h2>
+  </div>
+
+  <div class="price-grid">
+    <div class="price-card">
+      <h4>Setup (one-time, bundled)</h4>
+      <table>
+        <thead><tr><th>Total active wells in scope</th><th style="text-align:right">Setup</th></tr></thead>
+        <tbody>
+          <tr><td>1–100 wells</td>             <td class="price">$5,500</td></tr>
+          <tr><td>101–150 wells</td>           <td class="price">$7,000</td></tr>
+          <tr><td>151–200 wells</td>           <td class="price">$8,500</td></tr>
+          <tr><td>201–300 wells</td>           <td class="price">$10,000</td></tr>
+          <tr><td>301+ wells</td>              <td class="price">Quote</td></tr>
+        </tbody>
+      </table>
+      <p class="price-note">Includes auth worker / tunnel / API access, adapter configuration, well-name reconciliation, recipient and role configuration, email infrastructure, 5–7 day pipeline shakedown, <strong>portfolio diagnostic at kickoff</strong>, and <strong>prior-quarter retrospective at kickoff</strong>. Adders: new SCADA platform outside our supported list (+$2,500); 6+ recipient roles (+$300/role over 5).</p>
+    </div>
+
+    <div class="price-card">
+      <h4>Monthly subscription (per well, live data only)</h4>
+      <table>
+        <thead><tr><th>Wells with live telemetry</th><th style="text-align:right">$ / well / mo</th></tr></thead>
+        <tbody>
+          <tr><td>1–50 wells</td>              <td class="price">$50</td></tr>
+          <tr><td>51–100 wells</td>            <td class="price">$42</td></tr>
+          <tr><td>101–150 wells</td>           <td class="price">$35</td></tr>
+          <tr><td>151–250 wells</td>           <td class="price">$28</td></tr>
+          <tr><td>251+ wells</td>              <td class="price">Quote</td></tr>
+        </tbody>
+      </table>
+      <p class="price-note"><strong>Offline / unreachable wells are not billed.</strong> Only wells we can pull live data on count toward monthly. Includes 3 base AI agents (petroleum + production + chemist) and unlimited tailored-report recipients.</p>
+    </div>
+
+    <div class="price-card">
+      <h4>Supplemental AI agents (flat per agent / mo)</h4>
+      <table>
+        <tbody>
+          <tr><td>Reservoir engineer</td>      <td class="price">$750</td></tr>
+          <tr><td>Midstream analyst</td>       <td class="price">$750</td></tr>
+          <tr><td>HSE specialist</td>          <td class="price">$600</td></tr>
+          <tr><td>Regulatory analyst</td>      <td class="price">$600</td></tr>
+          <tr><td>Allocation accountant</td>   <td class="price">$750</td></tr>
+          <tr><td>Custom-trained agent</td>    <td class="price">$1,500+</td></tr>
+        </tbody>
+      </table>
+      <p class="price-note">Each supplemental agent adds dedicated review on every covered well plus its line in every relevant report. Custom-trained agents priced individually based on training corpus volume and depth.</p>
+    </div>
+
+    <div class="price-card">
+      <h4>Add-ons & one-offs</h4>
+      <table>
+        <tbody>
+          <tr><td>Standalone portfolio diagnostic (post-engagement)</td>    <td class="price">$4,500</td></tr>
+          <tr><td>Standalone prior-quarter retrospective</td>                <td class="price">$3,500</td></tr>
+          <tr><td>Historical analysis on offline / no-data wells</td>        <td class="price">$200–400/well</td></tr>
+          <tr><td>On-site engagement (post-contract)</td>                    <td class="price">T&amp;E + day rate</td></tr>
+        </tbody>
+      </table>
+      <p class="price-note">Historical analysis on offline wells uses operator-provided exports, gauge sheets, FSR records, or field interviews. Per-well rate scales with data depth and time-window covered.</p>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="kick">§ II · Build a Quote</div>
+    <h2>Operator inputs · live calculation.</h2>
+  </div>
+
+  <form id="quote-form" autocomplete="off">
+
+    <fieldset>
+      <legend>Operator</legend>
+      <div class="row">
+        <div class="fld full">
+          <label for="op_name">Operator name</label>
+          <input type="text" id="op_name" placeholder="e.g. Acme Operating, LLC">
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="op_contact">Primary contact</label>
+          <input type="text" id="op_contact" placeholder="Name + role">
+        </div>
+        <div class="fld">
+          <label for="quote_id">Quote #</label>
+          <input type="text" id="quote_id" placeholder="auto-generated">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Scope &amp; Data</legend>
+      <div class="row">
+        <div class="fld">
+          <label for="total_wells">Total active wells in scope</label>
+          <input type="number" id="total_wells" min="0" step="1" value="100">
+          <div class="helper">Drives setup tier. Includes offline / unreachable wells we'd diagnose during onboarding.</div>
+        </div>
+        <div class="fld">
+          <label for="live_wells">Wells with live telemetry (billed)</label>
+          <input type="number" id="live_wells" min="0" step="1" value="85">
+          <div class="helper">Only billed against monthly subscription. Wells with no live data are excluded.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label for="scada_platform">SCADA platform</label>
+          <select id="scada_platform">
+            <option value="supported">zdSCADA / Cygnet / Wonderware / Zedi / IFix / PI / Ignition</option>
+            <option value="other">Other (new adapter required +$2,500)</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="num_roles">Recipient roles count</label>
+          <input type="number" id="num_roles" min="1" step="1" value="3">
+          <div class="helper">Pumpers, foremen, engineers, vendor reps, exec, etc. 6+ adds $300/role over 5.</div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Supplemental AI Agents (optional, flat per-agent/mo)</legend>
+      <div class="checkgroup">
+        <label><input type="checkbox" data-agent name="agent_reservoir" data-cost="750"> Reservoir engineer · $750/mo</label>
+        <label><input type="checkbox" data-agent name="agent_midstream" data-cost="750"> Midstream analyst · $750/mo</label>
+        <label><input type="checkbox" data-agent name="agent_hse" data-cost="600"> HSE specialist · $600/mo</label>
+        <label><input type="checkbox" data-agent name="agent_regulatory" data-cost="600"> Regulatory analyst · $600/mo</label>
+        <label><input type="checkbox" data-agent name="agent_allocation" data-cost="750"> Allocation accountant · $750/mo</label>
+        <label><input type="checkbox" data-agent name="agent_custom" data-cost="1500"> Custom-trained agent · $1,500/mo (or quote)</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Add-ons</legend>
+      <div class="row">
+        <div class="fld">
+          <label for="hist_wells">Historical analysis — offline well count</label>
+          <input type="number" id="hist_wells" min="0" step="1" value="0">
+          <div class="helper">One-off retrospective from FSR / gauge sheets / exports for wells without live telemetry.</div>
+        </div>
+        <div class="fld">
+          <label for="hist_rate">Historical rate per well</label>
+          <select id="hist_rate">
+            <option value="200">$200 / well — light (export only)</option>
+            <option value="300" selected>$300 / well — standard</option>
+            <option value="400">$400 / well — deep (multi-source reconciliation)</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld">
+          <label><input type="checkbox" id="opt_beta"> Charter-partner beta concessions</label>
+          <div class="helper">Setup waived in full · 50% off first 3 months. Quote shows both regular run-rate and beta-adjusted figures.</div>
+        </div>
+        <div class="fld">
+          <label for="custom_disc">Custom discount (one-off, %)</label>
+          <input type="number" id="custom_disc" min="0" max="100" step="1" value="0">
+          <div class="helper">Applies to first-month bill only.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="fld full">
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" placeholder="Special terms, scope notes, payment cadence, named champion at the operator…"></textarea>
+        </div>
+      </div>
+    </fieldset>
+
+  </form>
+
+  <div id="quote-output" aria-live="polite">
+    <h2>Quote Summary</h2>
+    <div class="quote-meta" id="quote-meta">—</div>
+
+    <div class="qsection">
+      <div class="qsection-title">Setup (one-time, bundled)</div>
+      <div id="setup-lines"></div>
+      <div class="qsubtotal"><div class="qst-lbl">Setup subtotal</div><div class="qst-val" id="setup-total">$0</div></div>
+    </div>
+
+    <div class="qsection">
+      <div class="qsection-title">Monthly subscription</div>
+      <div id="monthly-lines"></div>
+      <div class="qsubtotal"><div class="qst-lbl">Monthly subtotal</div><div class="qst-val" id="monthly-total">$0</div></div>
+    </div>
+
+    <div class="qsection">
+      <div class="qsection-title">One-off add-ons</div>
+      <div id="addon-lines"></div>
+      <div class="qsubtotal"><div class="qst-lbl">Add-on subtotal</div><div class="qst-val" id="addon-total">$0</div></div>
+    </div>
+
+    <div class="qheadline">
+      <div class="qbox">
+        <div class="qbox-lbl">Year-1 Total</div>
+        <div class="qbox-val" id="hl-year1">$0</div>
+        <div class="qbox-sub">Setup + 12 months recurring + add-ons</div>
+      </div>
+      <div class="qbox">
+        <div class="qbox-lbl">Annual Run-Rate</div>
+        <div class="qbox-val" id="hl-runrate">$0</div>
+        <div class="qbox-sub">Recurring only · year 2 onward</div>
+      </div>
+      <div class="qbox">
+        <div class="qbox-lbl">Effective $ / Well / Mo</div>
+        <div class="qbox-val" id="hl-pwpm">$0</div>
+        <div class="qbox-sub">Monthly ÷ live wells</div>
+      </div>
+    </div>
+
+    <div class="qsection" id="beta-block" style="display:none">
+      <div class="qsection-title">Charter Partner Concessions Applied</div>
+      <div id="beta-lines"></div>
+      <div class="qsubtotal"><div class="qst-lbl">Beta-adjusted year-1</div><div class="qst-val" id="beta-year1">$0</div></div>
+    </div>
+
+    <div class="qsection" id="notes-block" style="display:none">
+      <div class="qsection-title">Notes</div>
+      <div id="notes-output" style="font-size:14px; color: var(--ink); white-space: pre-wrap;"></div>
+    </div>
+
+    <div class="qsection" style="font-size:11px; color: var(--muted); line-height: 1.5; margin-top: 22px;">
+      <div class="qsection-title">Terms</div>
+      Month-to-month, no long-term contract · 30-day notice to cancel · setup non-refundable once portfolio diagnostic is delivered · WellRX is a remote, digital-only service · in-person sales meetings included; on-site physical engagement billed at T&amp;E · all WellRX recommendations are field-engineering opinions and require operator review before execution.
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn" id="print-btn">Print Quote</button>
+      <button type="button" class="btn ghost" id="copy-btn">Copy Quote Text</button>
+      <button type="button" class="btn ghost" id="share-btn">Copy Shareable URL</button>
+      <span class="copied" id="copied-flash">Copied ✓</span>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="brand-mark">℞ WellRX</div>
+    <div>Internal · Chris Rowan · Pricing v1 · Intro Cohort</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  // ── Pricing constants (single source of truth — edit here to retune) ──
+  const SETUP_TIERS = [
+    { max: 100, price: 5500 },
+    { max: 150, price: 7000 },
+    { max: 200, price: 8500 },
+    { max: 300, price: 10000 },
+    { max: Infinity, price: null },   // null → "Quote"
+  ];
+  const PWPM_TIERS = [
+    { max: 50,  rate: 50 },
+    { max: 100, rate: 42 },
+    { max: 150, rate: 35 },
+    { max: 250, rate: 28 },
+    { max: Infinity, rate: null },    // null → "Quote"
+  ];
+  const NEW_PLATFORM_FEE = 2500;
+  const ROLE_OVERAGE_THRESHOLD = 5;
+  const ROLE_OVERAGE_FEE = 300;       // per role over the threshold
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => '$' + Math.round(n).toLocaleString('en-US');
+  const fmtSigned = (n) => (n < 0 ? '−' : '') + fmt(Math.abs(n));
+
+  function tierLookup(value, tiers, key) {
+    for (const t of tiers) if (value <= t.max) return t[key];
+    return null;
+  }
+
+  function compute() {
+    const totalWells = Math.max(0, parseInt($('total_wells').value || '0', 10));
+    const liveWells  = Math.max(0, parseInt($('live_wells').value  || '0', 10));
+    const scada      = $('scada_platform').value;
+    const roles      = Math.max(1, parseInt($('num_roles').value || '1', 10));
+    const histWells  = Math.max(0, parseInt($('hist_wells').value || '0', 10));
+    const histRate   = parseInt($('hist_rate').value || '300', 10);
+    const beta       = $('opt_beta').checked;
+    const customDisc = Math.max(0, Math.min(100, parseFloat($('custom_disc').value || '0')));
+
+    const agents = Array.from(document.querySelectorAll('input[data-agent]:checked'))
+      .map(el => ({
+        label: el.parentElement.textContent.trim().split(' · ')[0],
+        cost: parseInt(el.dataset.cost, 10),
+      }));
+
+    // ── Setup ──
+    const setupBase = tierLookup(totalWells, SETUP_TIERS, 'price');
+    const setupLines = [];
+    let setupTotal = 0;
+    if (setupBase === null) {
+      setupLines.push({ desc: `Base setup (${totalWells} wells — over 300, custom quote)`, val: 'Quote' });
+    } else {
+      const tierLbl = totalWells <= 100 ? '1–100' :
+                      totalWells <= 150 ? '101–150' :
+                      totalWells <= 200 ? '151–200' : '201–300';
+      setupLines.push({
+        desc: `Base setup — ${tierLbl} wells`,
+        sub: 'Auth worker, adapter, well-name reconciliation, recipient config, infra, pipeline shakedown, portfolio diagnostic + Q-1 retrospective at kickoff',
+        val: fmt(setupBase),
+      });
+      setupTotal += setupBase;
+    }
+    if (scada === 'other') {
+      setupLines.push({ desc: 'New SCADA platform — adapter dev', val: fmt(NEW_PLATFORM_FEE) });
+      setupTotal += NEW_PLATFORM_FEE;
+    }
+    if (roles > ROLE_OVERAGE_THRESHOLD) {
+      const overage = roles - ROLE_OVERAGE_THRESHOLD;
+      const roleFee = overage * ROLE_OVERAGE_FEE;
+      setupLines.push({ desc: `Recipient roles overage — ${overage} role(s) over ${ROLE_OVERAGE_THRESHOLD}`, val: fmt(roleFee) });
+      setupTotal += roleFee;
+    }
+
+    // ── Monthly ──
+    const pwpm = tierLookup(liveWells, PWPM_TIERS, 'rate');
+    const monthlyLines = [];
+    let monthlyTotal = 0;
+    if (pwpm === null) {
+      monthlyLines.push({ desc: `Per-well subscription (${liveWells} live wells — over 250, custom quote)`, val: 'Quote' });
+    } else if (liveWells > 0) {
+      const tierLbl = liveWells <= 50 ? '1–50' :
+                      liveWells <= 100 ? '51–100' :
+                      liveWells <= 150 ? '101–150' : '151–250';
+      const wellLine = liveWells * pwpm;
+      monthlyLines.push({
+        desc: `Per-well subscription — ${liveWells} live wells × $${pwpm}/well`,
+        sub: `Tier ${tierLbl} wells · includes 3 base AI agents (petroleum + production + chemist) + unlimited tailored recipients`,
+        val: fmt(wellLine),
+      });
+      monthlyTotal += wellLine;
+    } else {
+      monthlyLines.push({ desc: 'No live wells billed — set live-wells count to compute', val: '$0' });
+    }
+    for (const a of agents) {
+      monthlyLines.push({ desc: 'Supplemental AI agent — ' + a.label, val: fmt(a.cost) });
+      monthlyTotal += a.cost;
+    }
+
+    // ── Add-ons ──
+    const addonLines = [];
+    let addonTotal = 0;
+    if (histWells > 0) {
+      const histLine = histWells * histRate;
+      addonLines.push({
+        desc: `Historical analysis — ${histWells} offline well(s) × $${histRate}`,
+        sub: 'One-off retrospective from FSR / gauge sheets / exports / interviews',
+        val: fmt(histLine),
+      });
+      addonTotal += histLine;
+    }
+    if (customDisc > 0 && monthlyTotal > 0) {
+      const discAmt = -Math.round(monthlyTotal * customDisc / 100);
+      addonLines.push({
+        desc: `Custom discount — ${customDisc}% on first month`,
+        val: fmtSigned(discAmt),
+      });
+      addonTotal += discAmt;
+    }
+
+    // ── Headline ──
+    const year1Regular = setupTotal + (monthlyTotal * 12) + addonTotal;
+    const annualRunRate = monthlyTotal * 12;
+    const effPwpm = liveWells > 0 ? Math.round(monthlyTotal / liveWells) : 0;
+
+    // Beta concessions: setup waived + 50% off first 3 months
+    let betaLines = [];
+    let betaYear1 = year1Regular;
+    if (beta && setupBase !== null && pwpm !== null) {
+      const setupWaiver = -setupTotal;
+      const month3Discount = -Math.round(monthlyTotal * 3 * 0.5);
+      betaLines.push({ desc: 'Setup waived in full', val: fmtSigned(setupWaiver) });
+      betaLines.push({ desc: '50% off first 3 months', val: fmtSigned(month3Discount) });
+      betaYear1 = year1Regular + setupWaiver + month3Discount;
+    }
+
+    return {
+      setupLines, setupTotal, monthlyLines, monthlyTotal,
+      addonLines, addonTotal,
+      year1Regular, annualRunRate, effPwpm,
+      beta, betaLines, betaYear1,
+      pwpm, setupBase,
+    };
+  }
+
+  function lineHTML(lines) {
+    if (lines.length === 0) return '<div class="qline"><div class="qdesc qsmall">— none —</div><div class="qval muted">—</div></div>';
+    return lines.map(l => `
+      <div class="qline">
+        <div class="qdesc">${l.desc}${l.sub ? `<span class="qsmall">${l.sub}</span>` : ''}</div>
+        <div class="qval">${l.val}</div>
+      </div>`).join('');
+  }
+
+  function render() {
+    const r = compute();
+    $('setup-lines').innerHTML = lineHTML(r.setupLines);
+    $('monthly-lines').innerHTML = lineHTML(r.monthlyLines);
+    $('addon-lines').innerHTML = lineHTML(r.addonLines);
+    $('setup-total').textContent = r.setupBase === null ? 'Quote' : fmt(r.setupTotal);
+    $('monthly-total').textContent = r.pwpm === null ? 'Quote' : fmt(r.monthlyTotal) + ' / mo';
+    $('addon-total').textContent = fmt(r.addonTotal);
+
+    $('hl-year1').textContent = (r.setupBase === null || r.pwpm === null) ? 'Quote' : fmt(r.year1Regular);
+    $('hl-runrate').textContent = r.pwpm === null ? 'Quote' : fmt(r.annualRunRate);
+    $('hl-pwpm').textContent = r.effPwpm > 0 ? fmt(r.effPwpm) : '$0';
+
+    const betaBlock = $('beta-block');
+    if (r.beta) {
+      $('beta-lines').innerHTML = lineHTML(r.betaLines);
+      $('beta-year1').textContent = (r.setupBase === null || r.pwpm === null) ? 'Quote' : fmt(r.betaYear1);
+      betaBlock.style.display = '';
+    } else {
+      betaBlock.style.display = 'none';
+    }
+
+    const notesText = $('notes').value.trim();
+    if (notesText) {
+      $('notes-output').textContent = notesText;
+      $('notes-block').style.display = '';
+    } else {
+      $('notes-block').style.display = 'none';
+    }
+
+    const op = $('op_name').value.trim() || '(unnamed operator)';
+    const contact = $('op_contact').value.trim();
+    const qid = $('quote_id').value.trim() || autoQuoteId();
+    const today = new Date().toISOString().slice(0, 10);
+    $('quote-meta').textContent =
+      `${op}` + (contact ? ` · ${contact}` : '') + ` · Quote ${qid} · ${today}`;
+  }
+
+  let _quoteIdCache = null;
+  function autoQuoteId() {
+    if (_quoteIdCache) return _quoteIdCache;
+    const d = new Date();
+    const stamp = d.getFullYear().toString().slice(2)
+                + String(d.getMonth() + 1).padStart(2, '0')
+                + String(d.getDate()).padStart(2, '0');
+    const rand = Math.random().toString(36).slice(2, 6).toUpperCase();
+    _quoteIdCache = `WRX-${stamp}-${rand}`;
+    return _quoteIdCache;
+  }
+
+  // ── Quote → plain-text formatter (for copy) ──
+  function quoteText() {
+    const r = compute();
+    const op = $('op_name').value.trim() || '(unnamed operator)';
+    const contact = $('op_contact').value.trim();
+    const qid = $('quote_id').value.trim() || autoQuoteId();
+    const today = new Date().toISOString().slice(0, 10);
+    const notes = $('notes').value.trim();
+
+    const sec = (title, lines, total) => {
+      const body = lines.length === 0 ? '  (none)' :
+        lines.map(l => `  ${l.desc.padEnd(60).slice(0, 60)} ${l.val.toString().padStart(12)}`).join('\n');
+      return `\n§ ${title}\n${body}\n  ${'─'.repeat(60)} ${total.padStart(12)}`;
+    };
+
+    return [
+      'WELLRX QUOTE',
+      '============',
+      `Operator:    ${op}`,
+      contact ? `Contact:     ${contact}` : null,
+      `Quote #:     ${qid}`,
+      `Date:        ${today}`,
+      sec('Setup (one-time)',          r.setupLines,   r.setupBase === null ? 'Quote' : fmt(r.setupTotal)),
+      sec('Monthly subscription',      r.monthlyLines, r.pwpm === null ? 'Quote' : fmt(r.monthlyTotal) + '/mo'),
+      sec('One-off add-ons',           r.addonLines,   fmt(r.addonTotal)),
+      r.beta ? sec('Charter partner concessions', r.betaLines, fmt(r.betaYear1) + ' (year-1 adj)') : null,
+      '',
+      `Year-1 total:        ${(r.setupBase === null || r.pwpm === null) ? 'Quote' : fmt(r.year1Regular)}`,
+      `Annual run-rate:     ${r.pwpm === null ? 'Quote' : fmt(r.annualRunRate)}`,
+      `Effective $/well/mo: ${r.effPwpm > 0 ? fmt(r.effPwpm) : '—'}`,
+      notes ? `\nNotes:\n${notes.split('\n').map(l => '  ' + l).join('\n')}` : null,
+      '',
+      'Terms: Month-to-month, no long-term contract. 30-day notice to cancel.',
+      'Setup non-refundable once portfolio diagnostic is delivered.',
+      'WellRX is remote, digital-only — on-site engagement billed at T&E.',
+      '',
+      '— Generated via wellrx.app/quote/',
+    ].filter(Boolean).join('\n');
+  }
+
+  // ── URL share: encode form state ──
+  function snapshot() {
+    const fields = ['op_name','op_contact','quote_id','total_wells','live_wells',
+                    'scada_platform','num_roles','hist_wells','hist_rate','custom_disc','notes'];
+    const params = new URLSearchParams();
+    for (const f of fields) params.set(f, $(f).value);
+    if ($('opt_beta').checked) params.set('beta', '1');
+    document.querySelectorAll('input[data-agent]:checked').forEach(el => {
+      params.append('agent', el.name);
+    });
+    return params.toString();
+  }
+
+  function loadFromHash() {
+    if (!location.hash || location.hash.length < 2) return;
+    const params = new URLSearchParams(location.hash.slice(1));
+    for (const [k, v] of params.entries()) {
+      if (k === 'beta') { $('opt_beta').checked = (v === '1'); continue; }
+      if (k === 'agent') {
+        const cb = document.querySelector(`input[name="${v}"]`);
+        if (cb) cb.checked = true;
+        continue;
+      }
+      const el = $(k);
+      if (el) el.value = v;
+    }
+  }
+
+  function flash() {
+    const f = $('copied-flash');
+    f.classList.add('show');
+    setTimeout(() => f.classList.remove('show'), 1600);
+  }
+
+  // ── Wire up ──
+  document.querySelectorAll('#quote-form input, #quote-form select, #quote-form textarea')
+    .forEach(el => {
+      el.addEventListener('input', render);
+      el.addEventListener('change', render);
+    });
+
+  $('print-btn').addEventListener('click', () => window.print());
+
+  $('copy-btn').addEventListener('click', () => {
+    const text = quoteText();
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(flash);
+    } else {
+      prompt('Copy quote text:', text);
+    }
+  });
+
+  $('share-btn').addEventListener('click', () => {
+    const url = location.origin + location.pathname + '#' + snapshot();
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(url).then(flash);
+    } else {
+      prompt('Shareable URL:', url);
+    }
+  });
+
+  // ── Init ──
+  $('today-stamp').textContent = new Date().toISOString().slice(0, 10);
+  loadFromHash();
+  render();
+})();
+</script>
+</body></html>
