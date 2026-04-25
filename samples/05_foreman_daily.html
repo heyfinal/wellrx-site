@@ -622,6 +622,36 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   border-color: #fbbf24;
   color: #fbbf24;
 }
+
+/* ── Hard mobile-overflow guard ─────────────────────────────────── */
+@media (max-width: 720px) {
+  .hero, .hero-strip, .rollup, .grid2, .deliver, .samples,
+  .timeline, .qheadline, .price-grid, .contacts,
+  .role-deliverables, .missed-grid, .flow, .flow-single,
+  .integ .row, .customize {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .cell, .hero-cell, .qbox, .rcell, .price-card, .bx,
+  .tl-step, .missed-card, .contact-card, .charter,
+  .tile, .sample, .grid2 .bx, .integ .row > * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: anywhere;
+  }
+  .val, .val.gold, .val.money, .val.danger,
+  .qbox-val, .qfeature-val, .cc-name, .rv,
+  .cell .val, .hero-cell .val, .rcell .rv {
+    font-size: clamp(26px, 8vw, 44px) !important;
+    word-break: break-word !important;
+    line-height: 1.05 !important;
+  }
+  .dateline, .actions, .submit-row, .qheadline {
+    flex-wrap: wrap !important;
+  }
+  .wrap, .page, .container { padding-left: 12px !important; padding-right: 12px !important; }
+  body { overflow-x: hidden !important; }
+}
 </style>
 <style>
   .fh-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
