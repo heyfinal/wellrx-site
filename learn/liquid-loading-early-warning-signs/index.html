@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="description" content="Seven SCADA signals that fire 5-14 days before MCF rate confirms a gas well is liquid-loaded. With Turner / Coleman / Lea critical-velocity context, a 24-hour decision tree, and the cost of misdiagnosis ($10k-$40k per workover).">
+<meta name="keywords" content="liquid loading early warning signs, gas well liquid loading, critical velocity gas well, turner critical velocity, coleman critical velocity, lea critical velocity, plunger lift loading, soap stick gas well, differential pressure liquid loading, scada gas well diagnostics">
+<meta name="author" content="WellRX">
+<link rel="canonical" href="https://wellrx.app/learn/liquid-loading-early-warning-signs/">
+<title>7 Early-Warning Signs of Gas Well Liquid Loading (Before MCF Drops) | WellRX</title>
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WellRX">
+<meta property="og:title" content="7 Early-Warning Signs of Gas Well Liquid Loading (Before MCF Drops)">
+<meta property="og:description" content="By the time MCF rate confirms a gas well is loaded, the well has typically lost 30-50% of potential for 5-14 days. Here are the SCADA signals that fire earlier — and what to act on first.">
+<meta property="og:url" content="https://wellrx.app/learn/liquid-loading-early-warning-signs/">
+<meta property="og:image" content="https://wellrx.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="7 Early-Warning Signs of Gas Well Liquid Loading (Before MCF Drops) | WellRX">
+<meta name="twitter:description" content="The SCADA signals that fire 5-14 days before MCF rate confirms a gas well is liquid-loaded — with critical-velocity context and a 24-hour decision tree.">
+<meta name="twitter:image" content="https://wellrx.app/og.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://wellrx.app/learn/liquid-loading-early-warning-signs/#article",
+      "headline": "7 Early-Warning Signs of Gas Well Liquid Loading (Before MCF Drops)",
+      "description": "Seven SCADA signals that fire 5-14 days before MCF rate confirms a gas well is loaded, with critical-velocity context, a 24-hour decision tree, and the cost of misdiagnosis.",
+      "url": "https://wellrx.app/learn/liquid-loading-early-warning-signs/",
+      "inLanguage": "en-US",
+      "author": { "@type": "Organization", "@id": "https://wellrx.app/#org", "name": "WellRX" },
+      "publisher": { "@type": "Organization", "@id": "https://wellrx.app/#org", "name": "WellRX", "logo": { "@type": "ImageObject", "url": "https://wellrx.app/og.png" } },
+      "datePublished": "2026-05-09",
+      "dateModified": "2026-05-09",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://wellrx.app/learn/liquid-loading-early-warning-signs/" },
+      "image": "https://wellrx.app/og.png",
+      "about": [
+        { "@type": "Thing", "name": "Liquid loading in gas wells" },
+        { "@type": "Thing", "name": "Critical velocity (Turner, Coleman, Lea)" },
+        { "@type": "Thing", "name": "SCADA gas well early warning" }
+      ],
+      "isPartOf": { "@type": "WebSite", "@id": "https://wellrx.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wellrx.app/learn/liquid-loading-early-warning-signs/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "WellRX", "item": "https://wellrx.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://wellrx.app/learn/" },
+        { "@type": "ListItem", "position": 3, "name": "Liquid Loading Early-Warning Signs", "item": "https://wellrx.app/learn/liquid-loading-early-warning-signs/" }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #070b17;
+    --card: #0d1426;
+    --panel: rgba(21,32,60,0.55);
+    --ink: #e6edf7;
+    --ink-strong: #f8fafc;
+    --muted: #94a3b8;
+    --line: rgba(255,255,255,0.07);
+    --accent: #38bdf8;
+    --gold: #fbbf24;
+    --money: #34d399;
+    --danger: #f87171;
+    --font-body: 'Inter', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  [data-theme="light"] {
+    --bg: #f8fafc; --card: #ffffff; --panel: rgba(240,244,252,0.8);
+    --ink: #1e293b; --ink-strong: #0f172a; --muted: #64748b;
+    --line: rgba(0,0,0,0.1); --accent: #0284c7; --gold: #d97706;
+    --money: #059669; --danger: #dc2626;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  body { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; line-height: 1.7; font-size: 16px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
+  .nav a { color: var(--gold); text-decoration: none; font-family: var(--font-mono); font-size: 12px; }
+  .nav a:hover { text-decoration: underline; }
+  .nav-logo { font-family: var(--font-brand); font-style: italic; font-weight: 900; font-size: 22px; color: var(--ink-strong); }
+
+  .crumbs { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--gold); }
+
+  .kicker { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-family: var(--font-brand); font-size: clamp(28px,5vw,42px); font-weight: 700; color: var(--ink-strong); line-height: 1.2; margin-bottom: 20px; }
+  .lede { font-size: 17px; color: var(--ink); margin-bottom: 36px; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 16px; }
+  .lede strong { color: var(--ink-strong); }
+
+  .toc { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 20px 24px; margin: 0 0 48px; font-size: 14px; }
+  .toc .toc-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 10px; }
+  .toc ol { margin: 0; padding-left: 22px; color: var(--ink); }
+  .toc ol li { margin-bottom: 6px; }
+  .toc ol li a { color: var(--ink); text-decoration: none; border-bottom: 1px dotted var(--line); }
+  .toc ol li a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  h2 { font-family: var(--font-brand); font-size: 26px; font-weight: 700; color: var(--ink-strong); margin: 56px 0 14px; line-height: 1.3; }
+  h3 { font-size: 14px; font-weight: 700; color: var(--ink-strong); text-transform: uppercase; letter-spacing: 0.08em; margin: 28px 0 10px; }
+  p { margin-bottom: 16px; color: var(--ink); }
+  strong { color: var(--ink-strong); }
+
+  .formula { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 18px 0; font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); line-height: 1.7; overflow-x: auto; }
+  .formula .fl-name { color: var(--accent); font-weight: 700; }
+  .formula .fl-note { color: var(--muted); font-size: 12px; display: block; margin-top: 8px; }
+
+  .sign-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 28px 32px; margin: 28px 0; position: relative; }
+  .sign-card .num { font-family: var(--font-mono); font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 8px; }
+  .sign-card h2 { margin: 0 0 12px; font-size: 22px; line-height: 1.25; }
+  .sign-card .signal { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; margin: 18px 0 14px; }
+  .sign-card .signal .label { font-family: var(--font-mono); font-size: 9.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 6px; font-weight: 700; }
+  .sign-card .signal p { margin: 0; font-size: 13px; line-height: 1.65; }
+  .sign-card .lead-time { display: inline-block; padding: 3px 12px; border-radius: 999px; background: rgba(52,211,153,0.10); border: 1px solid rgba(52,211,153,0.28); color: var(--money); font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700; }
+
+  .tree { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 24px 28px; margin: 18px 0 28px; }
+  .tree-row { display: grid; grid-template-columns: 200px 1fr; gap: 18px; padding: 12px 0; border-bottom: 1px dotted var(--line); }
+  .tree-row:last-child { border-bottom: none; }
+  .tree-row .when { font-family: var(--font-mono); font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em; padding-top: 2px; font-weight: 700; }
+  .tree-row .what { font-size: 14px; color: var(--ink); line-height: 1.6; }
+  .tree-row .what strong { color: var(--ink-strong); }
+  @media (max-width: 600px) { .tree-row { grid-template-columns: 1fr; gap: 4px; } }
+
+  .cta-block { background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(251,191,36,0.08)); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 36px 32px; margin: 56px 0 32px; text-align: center; }
+  .cta-block h2 { margin: 0 0 12px; font-size: 22px; }
+  .cta-block p { color: var(--muted); margin-bottom: 24px; }
+  .cta-btn { display: inline-block; background: var(--gold); color: #070b17; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-family: var(--font-mono); }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-secondary { display: inline-block; margin-left: 16px; color: var(--accent); font-size: 13px; text-decoration: underline; }
+
+  .related { margin: 48px 0 0; padding: 22px 26px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  .related .rl-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 12px; }
+  .related ul { list-style: none; padding: 0; margin: 0; }
+  .related ul li { padding: 8px 0; border-bottom: 1px dotted var(--line); font-size: 14px; }
+  .related ul li:last-child { border-bottom: none; }
+  .related ul li a { color: var(--ink); text-decoration: none; }
+  .related ul li a:hover { color: var(--accent); }
+  .related ul li .rl-kind { font-family: var(--font-mono); font-size: 9.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; margin-right: 10px; font-weight: 700; }
+
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .sign-card { padding: 22px 20px; }
+    .cta-block { padding: 24px 20px; }
+    .cta-secondary { display: block; margin: 12px 0 0; }
+  }
+</style>
+</head>
+<body>
+<script>(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s)s='dark';document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">℞ WellRX</a>
+  <div style="display:flex;gap:24px;">
+    <a href="/">Home</a>
+    <a href="/learn/">Learn</a>
+    <a href="/quote/">Get a Quote</a>
+    <a href="/beta/">Beta</a>
+  </div>
+</nav>
+
+<div class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/learn/">Learn</a> &rsaquo; Liquid Loading Early-Warning Signs</div>
+
+<div class="kicker">Field Engineer's Guide · Liquid Loading</div>
+<h1>7 Early-Warning Signs Your Gas Well Is Loading Up — Before MCF Drops</h1>
+<p class="lede">By the time MCF rate confirms a gas well is liquid-loaded, the well has typically been at <strong>30–50% of potential</strong> for 5–14 days. The early signals are already in the SCADA tags — pressure, temperature, plunger arrival, choke position. They just don't fire as alarms because each one alone looks unremarkable. Read together against the well's own history, they form a load-up signature 1–2 weeks before flow rate confirms it.</p>
+
+<div class="toc">
+  <div class="toc-label">In this guide</div>
+  <ol>
+    <li><a href="#critical-velocity">Critical velocity in 90 seconds (Turner / Coleman / Lea)</a></li>
+    <li><a href="#sign-1">Sign 1 — Differential pressure climbs while MCF holds</a></li>
+    <li><a href="#sign-2">Sign 2 — Casing-tubing pressure differential widens</a></li>
+    <li><a href="#sign-3">Sign 3 — Slug pattern enters the flow trace</a></li>
+    <li><a href="#sign-4">Sign 4 — Choke creep without dispatcher action</a></li>
+    <li><a href="#sign-5">Sign 5 — Plunger arrival velocity drops below baseline</a></li>
+    <li><a href="#sign-6">Sign 6 — Wellhead temperature climbs above seasonal baseline</a></li>
+    <li><a href="#sign-7">Sign 7 — Soap stick consumption rises without recovery</a></li>
+    <li><a href="#decision-tree">A 24-hour decision tree</a></li>
+    <li><a href="#automation">Why these signals get missed (and how automation closes the gap)</a></li>
+  </ol>
+</div>
+
+<h2 id="critical-velocity">Critical velocity in 90 seconds</h2>
+<p>Liquid loading is what happens when a gas well's flowing velocity at depth drops below the minimum required to lift the heaviest droplet of formation water or condensate to surface. Below that threshold, droplets stop moving up, accumulate in the tubing, and the resulting hydrostatic head chokes off inflow from the formation.</p>
+<p>Three formulas dominate the field:</p>
+
+<div class="formula">
+  <span class="fl-name">Turner (1969):</span> v<sub>c</sub> = 1.92 · [σ (ρ<sub>L</sub> &minus; ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
+  <span class="fl-note">Most conservative. Adds a 20% upward adjustment to a sphere/drag derivation. Tends to over-predict critical velocity for low-pressure wells, which means it raises the alarm too early in mature gas. Still the field default.</span>
+</div>
+<div class="formula">
+  <span class="fl-name">Coleman (1991):</span> v<sub>c</sub> = 1.59 · [σ (ρ<sub>L</sub> &minus; ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
+  <span class="fl-note">Removes Turner's 20% padding. Better fit for low-pressure / mature wells (&lt; 500 psi flowing tubing pressure). Use this one when Turner is firing for wells you know are still flowing dry.</span>
+</div>
+<div class="formula">
+  <span class="fl-name">Lea / Nickens (modern):</span> v<sub>c</sub> = K · [σ (ρ<sub>L</sub> &minus; ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
+  <span class="fl-note">Same form, but K is fluid-dependent (typically 1.4–1.7) and often deviation-corrected. The modern engineering reference for non-vertical / horizontal lateral wells. Required reading once your well plot crosses 30° of inclination.</span>
+</div>
+<p>Where σ is interfacial tension (lb<sub>f</sub>/ft, typically 0.005 for condensate or 0.06 for water), ρ<sub>L</sub> is liquid density (lb/ft³), ρ<sub>g</sub> is gas density at depth (lb/ft³). The output is critical velocity in ft/s; multiply by tubing cross-section to get critical rate in mcfd.</p>
+<p>This guide stays in plain English, but the formulas matter because <strong>the early warning signs below are what the SCADA tags do <em>before</em> velocity drops below v<sub>c</sub></strong>. By the time MCF confirms loading, you're already past it.</p>
+
+<div class="sign-card" id="sign-1">
+  <div class="num">Sign 01 · <span class="lead-time">7–14 days lead</span></div>
+  <h2>Differential Pressure Climbs While MCF Holds</h2>
+  <p>The textbook sign and the most reliable. As liquid begins accumulating at the bottom of the tubing, the static head it creates raises the differential across whatever flow element is being measured (orifice, V-cone, ultrasonic, Coriolis). If the well's MCF rate has not changed yet, but DP has crept up <strong>15% or more over 3–5 days</strong>, the well is filling.</p>
+  <div class="signal">
+    <div class="label">SCADA pattern</div>
+    <p>DP trending up &gt;15% over 3–5 days while MCF flat or falling &lt;5%. DP-to-MCF ratio diverging from the well's own 90-day baseline. Confirm with FTP — if FTP is flat or falling while DP rises, hydrostatic head is the source.</p>
+  </div>
+  <p><strong>Confounders:</strong> orifice plate fouling (which also raises DP without flow change), gathering-line backpressure rising upstream, instrument drift after a recent calibration. Eliminate these before you commit to a soap or plunger dispatch — see the decision tree at the bottom of this guide.</p>
+</div>
+
+<div class="sign-card" id="sign-2">
+  <div class="num">Sign 02 · <span class="lead-time">5–10 days lead</span></div>
+  <h2>Casing-Tubing Pressure Differential Widens</h2>
+  <p>On a flowing well, casing pressure (CP) and flowing tubing pressure (FTP) maintain a roughly stable relationship driven by the gas column and the producing interval's deliverability. As liquid loads up the tubing, the increased hydrostatic head compresses the gas column, and CP begins to rise relative to FTP. The well is essentially building head pressure against itself.</p>
+  <div class="signal">
+    <div class="label">SCADA pattern</div>
+    <p>(CP &minus; FTP) widening &gt;20% over 7–10 days. CP rising while FTP falls. Slope of CP-FTP delta inflecting upward. Pattern repeats across multiple wells on the same gathering segment if it's gathering-driven instead — diagnose by group, not by well alone.</p>
+  </div>
+  <p><strong>Why this fires before MCF moves:</strong> the formation can sustain a higher backpressure for several days by drawing down reservoir pressure faster, which masks the rate impact in the short term. The pressure shift shows up first.</p>
+</div>
+
+<div class="sign-card" id="sign-3">
+  <div class="num">Sign 03 · <span class="lead-time">3–7 days lead</span></div>
+  <h2>Slug Pattern Enters the Flow Trace</h2>
+  <p>Before a well goes fully loaded, it usually goes intermittent. A liquid column that's accumulated enough to partially block flow gets blown out periodically by gas pressure, then re-accumulates. The flow trace, viewed at high resolution (1-minute or 5-minute scans), shows the signature: short-period oscillations with peak/valley amplitude an order of magnitude higher than the well's normal noise floor.</p>
+  <div class="signal">
+    <div class="label">SCADA pattern</div>
+    <p>Standard deviation of MCF rate inflecting upward (&gt;2x baseline) on rolling 24-hour window. Peak-to-valley amplitude on short-period (5–30 min) oscillations exceeding well's normal flow variability. Daily total may still look normal — the noise rises before the mean falls.</p>
+  </div>
+  <p><strong>Why most dashboards miss it:</strong> they roll up to hourly or daily averages and the slug signature is a sub-hour phenomenon. You need the high-resolution trace, or a derived "flow stability" tag, to see it. Add this calc once and it'll fire on every well that starts slugging from now on.</p>
+</div>
+
+<div class="sign-card" id="sign-4">
+  <div class="num">Sign 04 · <span class="lead-time">3–10 days lead</span></div>
+  <h2>Choke Creep Without Dispatcher Action</h2>
+  <p>If the well is on automated choke control to maintain a target rate or pressure, the controller compensates for early loading by progressively opening the choke. To the dashboard, MCF looks stable. To the choke position log, the well is using up its margin to hold the rate. Once choke position hits the upper rail, MCF will fall — and the alarm will finally fire, days after the underlying problem started.</p>
+  <div class="signal">
+    <div class="label">SCADA pattern</div>
+    <p>Choke position increasing &gt;5% over 7 days without operator command. Choke at &gt;85% open and still trending. Rate setpoint unchanged. If the well is on manual choke, equivalent signal is operator notes / dispatcher comments documenting "opened up to hold rate."</p>
+  </div>
+  <p><strong>The trap:</strong> rate-targeted controllers turn early loading into a rate-holding silent state. You can run a well from 100% deliverability down to choke-rail-out without seeing a rate alarm. This is the signal that catches it weeks earlier.</p>
+</div>
+
+<div class="sign-card" id="sign-5">
+  <div class="num">Sign 05 · <span class="lead-time">2–7 days lead</span></div>
+  <h2>Plunger Arrival Velocity Drops Below Baseline (Plunger-Lift Wells)</h2>
+  <p>On a plunger-lift well, arrival velocity is the cleanest single indicator that the plunger is fighting added column weight. Before the plunger fails to surface entirely, it surfaces slow. Operators tracking arrival times week-over-week catch this; operators reviewing the well today against today catch it only after a no-arrival cycle has already happened.</p>
+  <div class="signal">
+    <div class="label">SCADA pattern</div>
+    <p>Arrival velocity trending below the well's own 30-day baseline by &gt;15%. Cycle frequency lengthening (more time between arrivals). Afterflow duration shortening. No-arrival cycles starting to appear, even at &lt;5% rate.</p>
+  </div>
+  <p><strong>Common misdiagnosis:</strong> assuming the plunger itself is worn or stuck and dispatching a workover. Roughly half the time, the plunger is fine — it's the fluid load that has changed. A soap or foam program at $2–$5/day is the right intervention; the workover is a $10k+ misallocation.</p>
+</div>
+
+<div class="sign-card" id="sign-6">
+  <div class="num">Sign 06 · <span class="lead-time">3–10 days lead</span></div>
+  <h2>Wellhead Temperature Climbs Above Seasonal Baseline</h2>
+  <p>Counterintuitive but reliable. As liquid accumulates at the bottom of the tubing, gas-only flow above the liquid column moves faster through a smaller effective cross-section, generates less Joule-Thomson cooling, and the wellhead reads warmer than it should for the weather. A well that is normally 50°F at the wellhead in January reading 65°F is telling you something has changed.</p>
+  <div class="signal">
+    <div class="label">SCADA pattern</div>
+    <p>Wellhead temperature elevated &gt;5°F above same-week seasonal baseline (year-over-year compare) without ambient temperature explanation. Tubing-shoe to wellhead temperature delta narrowing. Pattern correlates with sign 1 (DP rising).</p>
+  </div>
+  <p><strong>Confounder check:</strong> a recent change in choke position, gathering-line pressure, or ambient temperature can mimic this. Take the seasonal baseline from the same calendar week last year, not from the last 30 days, to factor weather out.</p>
+</div>
+
+<div class="sign-card" id="sign-7">
+  <div class="num">Sign 07 · <span class="lead-time">5–14 days lead</span></div>
+  <h2>Soap Stick Consumption Rises Without Recovery</h2>
+  <p>If the well is on a soap or foamer program, consumption rate against rate response is one of the earliest economic signals. A foamer program working at design rate produces a measurable post-treatment MCF bump for 24–72 hours. When a load-up trend is starting, the bump shrinks (less gas in less time), the half-life of the response shortens, and the pumper finds themselves dropping more sticks per week to hold the same rate. The program's economics quietly invert from positive to negative.</p>
+  <div class="signal">
+    <div class="label">SCADA / program pattern</div>
+    <p>Sticks-per-week count rising &gt;20% with flat or falling 30-day MCF. Average post-treatment MCF lift dropping below historical baseline. Half-life of MCF bump compressing (positive response disappearing inside 24 hours). Pumper notes mentioning "doubling up" without engineering signoff.</p>
+  </div>
+  <p><strong>Why this matters more than people give it credit for:</strong> a working soap program that's quietly stopped working is the most expensive kind of "treated." Cost is going up, production is being lost, and nobody has flagged it because the chemical truck is still arriving on schedule. Read in concert with the FSR notes and the production trend, the divergence is unmistakable.</p>
+</div>
+
+<h2 id="decision-tree">A 24-hour decision tree</h2>
+<p>One sign firing in isolation can be noise. Two or more firing on the same well within a 7-day window is a load-up signature. When that happens, here's the order to work in. Don't dispatch a chemical truck or a plunger crew before you've ruled out the cheaper confounders.</p>
+
+<div class="tree">
+  <div class="tree-row">
+    <div class="when">Hour 0–2</div>
+    <div class="what"><strong>Confirm against gathering.</strong> Pull pressures from the upstream sales meter and any neighboring wells on the same CTB. If multiple wells on the same segment show simultaneous DP rise / CP rise, the cause is gathering-line backpressure, not well-side loading. Fix the line, not the well.</div>
+  </div>
+  <div class="tree-row">
+    <div class="when">Hour 2–4</div>
+    <div class="what"><strong>Eliminate instrument drift.</strong> Pull the calibration log for the DP transmitter and orifice plate. If the well was just calibrated or had a plate change in the last 7 days, the new baseline is the reading — not the trend. Suspend the alarm for 30 days while a new baseline establishes.</div>
+  </div>
+  <div class="tree-row">
+    <div class="when">Hour 4–8</div>
+    <div class="what"><strong>Check the FSR / chemical log.</strong> Has there been a recent program change — different foamer SKU, new biocide, scale squeeze, frequency change? Production response post-FSR is one of the most common false-positive triggers for these signals. If a program change correlates with the inflection date, treat it as a chemistry diagnosis, not a load-up.</div>
+  </div>
+  <div class="tree-row">
+    <div class="when">Hour 8–24</div>
+    <div class="what"><strong>Treat for loading at the lowest-cost intervention first.</strong> Soap stick / foamer at $2–$5/day before plunger redesign at $10k+. Velocity string before tubing pull. Run the cheapest viable response for 5 working days, then re-read the same seven signs. If they're trending back to baseline, you diagnosed correctly. If they're not, escalate.</div>
+  </div>
+  <div class="tree-row">
+    <div class="when">Day 5–7</div>
+    <div class="what"><strong>Escalate only with data.</strong> If the cheap intervention didn't pull the signals back, you have evidence to justify the workover or velocity-string scope. Don't escalate on a single morning's reading; escalate on a 5-day trend that didn't respond to the cheap fix.</div>
+  </div>
+</div>
+
+<h2 id="automation">Why these signals get missed — and how automation closes the gap</h2>
+<p>None of the seven signs above is hard to read. Every experienced production engineer can spot any one of them on a single well in 60 seconds with the right plot in front of them.</p>
+<p>The gap is not knowledge. The gap is <strong>systematic daily coverage across the whole portfolio</strong>. A 150-well operator with a 4-person engineering team gets less than 90 seconds per well per day if everyone in the room reviews every well every morning. Nobody has 90 minutes a day to scroll dashboards looking for the well where Sign 4 (choke creep) is silently combining with Sign 6 (wellhead temperature creep). So the well sits, the signals compound, MCF eventually drops, the alarm fires, and the team finds themselves diagnosing a problem that started 12 days earlier.</p>
+<p>This is the gap an automated daily diagnostic layer fills. It doesn't replace the engineer's judgment or the pumper's eyes — it eliminates the morning scroll. Every well, every morning, against its own historical baseline and against the gathering segment it shares, with the seven signs (and another forty patterns like them) checked automatically. Anything firing makes it onto a ranked queue with the data and reasoning attached. The engineer arrives at 7 AM and starts the day on the three wells that need them, not on the dashboard scroll.</p>
+
+<div class="cta-block">
+  <h2>See This Signature on Your Own Wells</h2>
+  <p>Charter-partner operators (20–200 active gas wells) get every active well diagnosed against the seven-sign pattern (and dozens more) every morning, before 6:30 AM CT. Setup waived, 50% off three months, penalty-free wind-down at week 12.</p>
+  <a class="cta-btn" href="/beta/">Apply to Charter Beta &rarr;</a>
+  <a class="cta-secondary" href="/quote/">Or build a quote</a>
+</div>
+
+<div class="related">
+  <div class="rl-label">Related reading</div>
+  <ul>
+    <li><span class="rl-kind">Guide</span><a href="/learn/">The five problems that quietly drain gas-well revenue</a></li>
+    <li><span class="rl-kind">Sample</span><a href="/samples/01_vendor_daily.html">Daily Vendor / Operator Edition (sample report)</a></li>
+    <li><span class="rl-kind">Sample</span><a href="/samples/02_pumper_daily.html">Daily Pumper Field Brief (sample report)</a></li>
+    <li><span class="rl-kind">Sample</span><a href="/samples/04_portfolio_diagnostic.html">Portfolio Diagnostic — board-grade quarterly review</a></li>
+  </ul>
+</div>
+
+<footer>
+  <span>&copy; 2026 WellRX &middot; <a href="/">wellrx.app</a></span>
+  <span><a href="mailto:wellrx@wellrx.app">wellrx@wellrx.app</a> &middot; <a href="tel:+19039326584">903.932.6584</a></span>
+</footer>
+</body>
+</html>
