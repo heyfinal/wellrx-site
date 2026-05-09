@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="description" content="Free critical velocity calculator for gas wells — Turner, Coleman, and Lea formulas side-by-side. Input tubing ID, flowing pressure, temperature, gas SG, and liquid type. Get v_critical (ft/s) and critical rate (Mcfd) for all three correlations instantly.">
+<meta name="keywords" content="critical velocity calculator, turner critical velocity, coleman critical velocity, lea critical velocity, gas well critical rate, liquid loading calculator, critical flow gas well">
+<meta name="author" content="WellRX">
+<link rel="canonical" href="https://wellrx.app/tools/critical-velocity/">
+<title>Free Critical Velocity Calculator — Turner / Coleman / Lea (Gas Wells) | WellRX</title>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WellRX">
+<meta property="og:title" content="Free Critical Velocity Calculator — Turner / Coleman / Lea (Gas Wells)">
+<meta property="og:description" content="Free interactive calculator. Enter tubing ID, flowing pressure, temperature, gas SG, and liquid type — get critical velocity and critical rate from Turner, Coleman, and Lea formulas instantly.">
+<meta property="og:url" content="https://wellrx.app/tools/critical-velocity/">
+<meta property="og:image" content="https://wellrx.app/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free Critical Velocity Calculator — Turner / Coleman / Lea | WellRX">
+<meta name="twitter:description" content="Three correlations side-by-side. Free, no signup, no email gate.">
+<meta name="twitter:image" content="https://wellrx.app/og.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Critical Velocity Calculator (Turner / Coleman / Lea)",
+      "url": "https://wellrx.app/tools/critical-velocity/",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "Any (browser)",
+      "description": "Free interactive critical-velocity calculator for natural gas wells. Computes Turner, Coleman, and Lea critical velocity (ft/s) and critical rate (Mcfd) from tubing ID, flowing pressure, temperature, gas specific gravity, and liquid type.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "@id": "https://wellrx.app/#org", "name": "WellRX" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "WellRX", "item": "https://wellrx.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://wellrx.app/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Critical Velocity Calculator", "item": "https://wellrx.app/tools/critical-velocity/" }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #070b17;
+    --card: #0d1426;
+    --panel: rgba(21,32,60,0.55);
+    --ink: #e6edf7;
+    --ink-strong: #f8fafc;
+    --muted: #94a3b8;
+    --line: rgba(255,255,255,0.07);
+    --line-strong: rgba(255,255,255,0.14);
+    --accent: #38bdf8;
+    --gold: #fbbf24;
+    --money: #34d399;
+    --danger: #f87171;
+    --font-body: 'Inter', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  [data-theme="light"] {
+    --bg: #f8fafc; --card: #ffffff; --panel: rgba(240,244,252,0.8);
+    --ink: #1e293b; --ink-strong: #0f172a; --muted: #64748b;
+    --line: rgba(0,0,0,0.1); --line-strong: rgba(0,0,0,0.18);
+    --accent: #0284c7; --gold: #d97706; --money: #059669; --danger: #dc2626;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  body { max-width: 920px; margin: 0 auto; padding: 40px 24px 80px; line-height: 1.6; font-size: 16px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; }
+  .nav a { color: var(--gold); text-decoration: none; font-family: var(--font-mono); font-size: 12px; }
+  .nav a:hover { text-decoration: underline; }
+  .nav-logo { font-family: var(--font-brand); font-style: italic; font-weight: 900; font-size: 22px; color: var(--ink-strong); }
+
+  .crumbs { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--gold); }
+
+  .kicker { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 10px; }
+  h1 { font-family: var(--font-brand); font-size: clamp(28px,5vw,40px); font-weight: 700; color: var(--ink-strong); line-height: 1.2; margin-bottom: 12px; }
+  .lede { font-size: 15.5px; color: var(--muted); margin-bottom: 32px; line-height: 1.7; max-width: 760px; }
+
+  .calc { display: grid; grid-template-columns: 320px 1fr; gap: 24px; margin: 24px 0; }
+  @media (max-width: 760px) { .calc { grid-template-columns: 1fr; } }
+
+  .inputs { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 22px 24px; }
+  .inputs h3 { font-family: var(--font-mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 16px; font-weight: 700; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .field input, .field select { width: 100%; padding: 9px 12px; background: var(--card); color: var(--ink-strong); border: 1px solid var(--line-strong); border-radius: 8px; font-family: var(--font-mono); font-size: 14px; }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+  .field .unit { display: inline-block; margin-left: 6px; color: var(--muted); font-size: 11px; font-family: var(--font-mono); }
+  .reset { margin-top: 8px; padding: 8px 14px; background: transparent; color: var(--muted); border: 1px solid var(--line-strong); border-radius: 6px; font-family: var(--font-mono); font-size: 11px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em; }
+  .reset:hover { color: var(--ink-strong); border-color: var(--accent); }
+
+  .results { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 22px 26px; }
+  .results h3 { font-family: var(--font-mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 16px; font-weight: 700; }
+  .row { display: grid; grid-template-columns: 100px 1fr 1fr; gap: 12px; padding: 14px 0; border-bottom: 1px dotted var(--line); align-items: center; }
+  .row:last-child { border-bottom: none; }
+  .row .label { font-family: var(--font-brand); font-style: italic; font-weight: 700; font-size: 18px; color: var(--ink-strong); }
+  .row .label .sub { display: block; font-family: var(--font-mono); font-style: normal; font-weight: 600; font-size: 9.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.16em; margin-top: 2px; }
+  .val-block { text-align: right; }
+  .val-block .v { font-family: var(--font-mono); font-weight: 700; font-size: 22px; color: var(--ink-strong); line-height: 1; }
+  .val-block .vu { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-top: 4px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .val-block.turner .v { color: var(--gold); }
+  .val-block.coleman .v { color: var(--accent); }
+  .val-block.lea .v { color: var(--money); }
+
+  .summary { margin-top: 18px; padding: 14px 18px; background: var(--panel); border: 1px solid var(--line-strong); border-left: 3px solid var(--gold); border-radius: 8px; }
+  .summary .sl { font-family: var(--font-mono); font-size: 9.5px; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em; margin-bottom: 6px; }
+  .summary p { font-size: 13px; line-height: 1.65; color: var(--ink); margin: 0; }
+  .summary p strong { color: var(--ink-strong); }
+
+  .caveats { margin: 36px 0 0; padding: 18px 22px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  .caveats h3 { font-family: var(--font-brand); font-style: italic; font-weight: 700; font-size: 18px; color: var(--ink-strong); margin: 0 0 10px; }
+  .caveats p { font-size: 13.5px; color: var(--ink); margin: 0 0 10px; line-height: 1.65; }
+  .caveats p:last-child { margin-bottom: 0; }
+  .caveats strong { color: var(--ink-strong); }
+  .caveats a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+  .caveats a:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+  .formulas { margin: 24px 0 8px; padding: 20px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; font-family: var(--font-mono); font-size: 13px; line-height: 1.8; color: var(--ink); }
+  .formulas .name { color: var(--accent); font-weight: 700; }
+  .formulas .name.coleman { color: var(--accent); }
+  .formulas .name.turner { color: var(--gold); }
+  .formulas .name.lea { color: var(--money); }
+  .formulas .note { display: block; color: var(--muted); font-size: 11.5px; margin-left: 12px; margin-top: 2px; }
+
+  .cta-block { background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(251,191,36,0.08)); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 32px 30px; margin: 48px 0 24px; text-align: center; }
+  .cta-block h2 { margin: 0 0 12px; font-family: var(--font-brand); font-style: italic; font-weight: 700; font-size: 22px; color: var(--ink-strong); }
+  .cta-block p { color: var(--muted); margin-bottom: 22px; font-size: 14px; line-height: 1.65; }
+  .cta-btn { display: inline-block; background: var(--gold); color: #070b17; font-weight: 700; font-size: 14px; padding: 12px 26px; border-radius: 8px; text-decoration: none; font-family: var(--font-mono); }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-secondary { display: inline-block; margin-left: 14px; color: var(--accent); font-size: 13px; text-decoration: underline; }
+
+  footer { margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<script>(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s)s='dark';document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">℞ WellRX</a>
+  <div style="display:flex;gap:24px;">
+    <a href="/">Home</a>
+    <a href="/learn/">Learn</a>
+    <a href="/quote/">Get a Quote</a>
+    <a href="/beta/">Beta</a>
+  </div>
+</nav>
+
+<div class="crumbs"><a href="/">Home</a> &rsaquo; Tools &rsaquo; Critical Velocity Calculator</div>
+
+<div class="kicker">Free Engineering Tool · No Signup, No Email Gate</div>
+<h1>Critical Velocity Calculator — Turner / Coleman / Lea</h1>
+<p class="lede">Enter your tubing ID, flowing wellhead conditions, gas specific gravity, and liquid type. The calculator returns critical velocity (ft/s) and critical rate (Mcfd) from all three correlations side-by-side. Use it to gauge whether a gas well is at risk of liquid loading at its current operating point — and to compare what each correlation tells you for the same conditions.</p>
+
+<div class="calc">
+  <div class="inputs">
+    <h3>Inputs</h3>
+
+    <div class="field">
+      <label for="tbg">Tubing ID</label>
+      <select id="tbg">
+        <option value="1.610">1.660" OD tubing — 1.380" ID</option>
+        <option value="1.995">2-3/8" OD tubing — 1.995" ID</option>
+        <option value="2.441" selected>2-7/8" OD tubing — 2.441" ID</option>
+        <option value="2.992">3-1/2" OD tubing — 2.992" ID</option>
+        <option value="3.476">4" OD tubing — 3.476" ID</option>
+        <option value="custom">Custom (in)…</option>
+      </select>
+      <input id="tbg_custom" type="number" step="0.001" min="0.5" max="6" placeholder="Custom ID in inches" style="margin-top:6px;display:none;">
+    </div>
+
+    <div class="field">
+      <label for="ftp">Flowing tubing pressure (FTP)<span class="unit">psia</span></label>
+      <input id="ftp" type="number" step="1" min="14" max="10000" value="100">
+    </div>
+
+    <div class="field">
+      <label for="ftemp">Flowing temperature<span class="unit">°F</span></label>
+      <input id="ftemp" type="number" step="1" min="-20" max="400" value="100">
+    </div>
+
+    <div class="field">
+      <label for="sg">Gas specific gravity (γ<sub>g</sub>)</label>
+      <input id="sg" type="number" step="0.001" min="0.55" max="1.5" value="0.65">
+    </div>
+
+    <div class="field">
+      <label for="fluid">Liquid type</label>
+      <select id="fluid">
+        <option value="water" selected>Water (σ=60 dyn/cm, ρ=67 lb/ft³)</option>
+        <option value="condensate">Condensate (σ=20 dyn/cm, ρ=45 lb/ft³)</option>
+        <option value="mixed">Mixed water + condensate</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="zfac">Z factor (gas compressibility)</label>
+      <input id="zfac" type="number" step="0.01" min="0.5" max="1.2" value="0.90">
+    </div>
+
+    <button class="reset" id="reset">Reset to defaults</button>
+  </div>
+
+  <div class="results">
+    <h3>Results</h3>
+
+    <div class="row">
+      <div class="label">Turner<span class="sub">1969 · most conservative</span></div>
+      <div class="val-block turner"><div class="v" id="turner_v">—</div><div class="vu">ft/s</div></div>
+      <div class="val-block turner"><div class="v" id="turner_q">—</div><div class="vu">Mcfd</div></div>
+    </div>
+    <div class="row">
+      <div class="label">Coleman<span class="sub">1991 · low-pressure wells</span></div>
+      <div class="val-block coleman"><div class="v" id="coleman_v">—</div><div class="vu">ft/s</div></div>
+      <div class="val-block coleman"><div class="v" id="coleman_q">—</div><div class="vu">Mcfd</div></div>
+    </div>
+    <div class="row">
+      <div class="label">Lea<span class="sub">modern · k=1.4</span></div>
+      <div class="val-block lea"><div class="v" id="lea_v">—</div><div class="vu">ft/s</div></div>
+      <div class="val-block lea"><div class="v" id="lea_q">—</div><div class="vu">Mcfd</div></div>
+    </div>
+
+    <div class="summary">
+      <div class="sl">Recommended correlation for your inputs</div>
+      <p id="rec">—</p>
+    </div>
+
+    <div class="summary" style="border-left-color:var(--accent);">
+      <div class="sl" style="color:var(--accent);">Computed gas density at depth</div>
+      <p id="rho_g">—</p>
+    </div>
+  </div>
+</div>
+
+<div class="formulas">
+  <span class="name turner">v_T (Turner)</span> = 1.92 × [σ × (ρ<sub>L</sub> − ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
+  <span class="note">σ in lbf/ft, ρ in lb/ft³, output in ft/s. Padded 20% over the basic spherical-droplet drag derivation.</span>
+  <br>
+  <span class="name coleman">v_C (Coleman)</span> = 1.59 × [σ × (ρ<sub>L</sub> − ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
+  <span class="note">Removes Turner's 20% padding. Better fit for low-pressure (FTP &lt; 500 psi) mature wells.</span>
+  <br>
+  <span class="name lea">v_L (Lea)</span> = 1.40 × [σ × (ρ<sub>L</sub> − ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
+  <span class="note">Modern reference, k chosen at 1.4 for typical fluid load. Used for vertical and near-vertical gas wells.</span>
+  <br><br>
+  <span class="note">Critical rate (Mcfd) = 3.06 × p × v<sub>c</sub> × A / (T × Z), with A = tubing cross-section in ft², p in psia, T in °R, v<sub>c</sub> in ft/s.</span>
+</div>
+
+<div class="caveats">
+  <h3>How to use these numbers</h3>
+  <p><strong>Turner is the field default — and tends to over-predict on low-pressure mature wells.</strong> If your well is a mature shale gas or unconventional with FTP under ~500 psi and you trust it's still flowing dry, run Coleman alongside Turner and use the lower number as the alarm threshold.</p>
+  <p><strong>Lea is the modern reference for vertical wells</strong> when σ and ρ<sub>L</sub> are known with confidence. For deviated / horizontal completions past ~30° inclination, none of the three correlations applies cleanly — use them as a planning estimate, then validate against the well's own loading history.</p>
+  <p><strong>This calculator is a planning estimate, not a directive.</strong> Fluid properties default to typical values; your actual σ, ρ<sub>L</sub>, and Z at depth differ. For production-decision use, compare against your well's documented loading rate and PVT.</p>
+  <p>Background reading: <a href="/learn/liquid-loading-early-warning-signs/">7 Early-Warning Signs of Liquid Loading</a> (with formula derivations and a 24-hour decision tree).</p>
+</div>
+
+<div class="cta-block">
+  <h2>Want this calc run automatically every morning, on every well?</h2>
+  <p>WellRX charter partners get critical-velocity, no-arrival rate, DP-MCF divergence, and 40+ other diagnostics computed daily for every active well — with deviations surfaced in a ranked queue before 6:30 AM CT. 20–200 well operators. Setup waived, 50% off three months.</p>
+  <a class="cta-btn" href="/beta/">Apply to Charter Beta &rarr;</a>
+  <a class="cta-secondary" href="/quote/">Build a quote</a>
+</div>
+
+<footer>
+  <span>&copy; 2026 WellRX &middot; <a href="/">wellrx.app</a></span>
+  <span><a href="mailto:wellrx@wellrx.app">wellrx@wellrx.app</a> &middot; <a href="tel:+19039326584">903.932.6584</a></span>
+</footer>
+
+<script>
+(function(){
+  // Element refs
+  var $ = function(id){ return document.getElementById(id); };
+  var tbg = $('tbg'), tbgCustom = $('tbg_custom');
+  var ftp = $('ftp'), ftemp = $('ftemp'), sg = $('sg'), fluid = $('fluid'), zfac = $('zfac');
+  var rec = $('rec'), rhoG = $('rho_g');
+
+  // Default values (for reset)
+  var defaults = { tbg: '2.441', ftp: '100', ftemp: '100', sg: '0.65', fluid: 'water', zfac: '0.90' };
+
+  function resetDefaults(){
+    tbg.value = defaults.tbg; tbgCustom.style.display = 'none'; tbgCustom.value = '';
+    ftp.value = defaults.ftp; ftemp.value = defaults.ftemp; sg.value = defaults.sg;
+    fluid.value = defaults.fluid; zfac.value = defaults.zfac;
+    compute();
+  }
+  $('reset').addEventListener('click', resetDefaults);
+
+  tbg.addEventListener('change', function(){
+    tbgCustom.style.display = (tbg.value === 'custom') ? 'block' : 'none';
+    compute();
+  });
+
+  function fluidProps(kind){
+    // σ in lbf/ft (field-form Turner units; conversion: 1 dyne/cm × 6.85e-5 = lbf/ft)
+    // Field defaults — Lea & Nickens "Gas Well Deliquification"
+    if(kind === 'water') return { sigma: 0.0682 * 60/72, rhoL: 67 };       // approx 60 dyn/cm
+    if(kind === 'condensate') return { sigma: 0.0682 * 20/72, rhoL: 45 };  // approx 20 dyn/cm
+    // mixed: average weighted
+    return { sigma: 0.0682 * 40/72, rhoL: 56 };
+  }
+
+  function gasDensity(P_psia, T_F, gamma_g, Z){
+    // ρ_g (lb/ft³) = (P × 28.96 × γ_g) / (Z × 10.732 × T_R)
+    var T_R = T_F + 459.67;
+    return (P_psia * 28.96 * gamma_g) / (Z * 10.732 * T_R);
+  }
+
+  function vCrit(coef, sigma, rhoL, rhoG){
+    // Lea-form: v = coef × [σ × (ρ_L - ρ_g)]^0.25 / ρ_g^0.5  (ft/s)
+    return coef * Math.pow(sigma * (rhoL - rhoG), 0.25) / Math.pow(rhoG, 0.5);
+  }
+
+  function critRate(v_fps, P_psia, T_F, A_ft2, Z){
+    // q (Mcfd) ≈ 3.06 × P × v × A / (T × Z)  (T in °R)
+    var T_R = T_F + 459.67;
+    return 3.06 * P_psia * v_fps * A_ft2 / (T_R * Z);
+  }
+
+  function fmt(x, dp){
+    if(!isFinite(x) || isNaN(x)) return '—';
+    if(Math.abs(x) >= 1000) return x.toFixed(0);
+    return x.toFixed(dp == null ? 1 : dp);
+  }
+
+  function compute(){
+    // Parse inputs
+    var ID_in = (tbg.value === 'custom') ? parseFloat(tbgCustom.value) : parseFloat(tbg.value);
+    var P = parseFloat(ftp.value);
+    var T = parseFloat(ftemp.value);
+    var gam = parseFloat(sg.value);
+    var Z = parseFloat(zfac.value);
+    var fk = fluid.value;
+
+    // Validate
+    if(!isFinite(ID_in) || ID_in <= 0 || !isFinite(P) || P <= 0 || !isFinite(T) || !isFinite(gam) || !isFinite(Z) || Z <= 0){
+      ['turner_v','turner_q','coleman_v','coleman_q','lea_v','lea_q'].forEach(function(id){ $(id).textContent = '—'; });
+      rec.textContent = 'Enter all inputs above to compute.';
+      rhoG.textContent = '—';
+      return;
+    }
+
+    var fp = fluidProps(fk);
+    var rho_g = gasDensity(P, T, gam, Z);
+
+    var A_in2 = Math.PI * Math.pow(ID_in, 2) / 4;          // tubing cross-section, in²
+    var A_ft2 = A_in2 / 144;                                // ft²
+
+    // Compute critical velocities
+    var vT = vCrit(1.92, fp.sigma, fp.rhoL, rho_g);
+    var vC = vCrit(1.59, fp.sigma, fp.rhoL, rho_g);
+    var vL = vCrit(1.40, fp.sigma, fp.rhoL, rho_g);
+
+    // Critical rates (Mcfd)
+    var qT = critRate(vT, P, T, A_ft2, Z);
+    var qC = critRate(vC, P, T, A_ft2, Z);
+    var qL = critRate(vL, P, T, A_ft2, Z);
+
+    // Render
+    $('turner_v').textContent = fmt(vT, 1);
+    $('turner_q').textContent = fmt(qT, 0);
+    $('coleman_v').textContent = fmt(vC, 1);
+    $('coleman_q').textContent = fmt(qC, 0);
+    $('lea_v').textContent = fmt(vL, 1);
+    $('lea_q').textContent = fmt(qL, 0);
+
+    rhoG.innerHTML = '<strong>ρ<sub>g</sub> = ' + fmt(rho_g, 3) + ' lb/ft³</strong> at ' +
+      fmt(P,0) + ' psia, ' + fmt(T,0) + '°F, γ<sub>g</sub>=' + fmt(gam,2) + ', Z=' + fmt(Z,2) + '. ' +
+      'Tubing cross-section: ' + fmt(A_in2, 3) + ' in² (' + fmt(A_ft2, 4) + ' ft²).';
+
+    // Recommendation
+    var msg;
+    if(P < 500){
+      msg = 'At FTP <strong>' + fmt(P,0) + ' psia</strong> (low-pressure mature regime), Turner often over-predicts. ' +
+            '<strong>Use Coleman</strong> as the operational threshold (' + fmt(qC,0) + ' Mcfd) and treat Turner (' + fmt(qT,0) + ' Mcfd) as the conservative bound.';
+    } else if(P < 2000){
+      msg = 'At FTP <strong>' + fmt(P,0) + ' psia</strong>, Turner and Coleman bracket the operational regime. ' +
+            'Default to <strong>Lea (k=1.4)</strong> at ' + fmt(qL,0) + ' Mcfd if PVT and σ are well-characterized; else Turner at ' + fmt(qT,0) + ' Mcfd.';
+    } else {
+      msg = 'At FTP <strong>' + fmt(P,0) + ' psia</strong> (high-pressure regime), Turner is the field-default. ' +
+            '<strong>Use Turner</strong> at ' + fmt(qT,0) + ' Mcfd as the load-up threshold for this well.';
+    }
+    rec.innerHTML = msg;
+
+    // Persist inputs
+    try {
+      localStorage.setItem('wrx_cv_v1', JSON.stringify({
+        tbg: tbg.value, tbg_custom: tbgCustom.value, ftp: ftp.value, ftemp: ftemp.value,
+        sg: sg.value, fluid: fluid.value, zfac: zfac.value
+      }));
+    } catch(e) {}
+  }
+
+  // Restore prior inputs
+  try {
+    var saved = JSON.parse(localStorage.getItem('wrx_cv_v1') || 'null');
+    if(saved){
+      tbg.value = saved.tbg || defaults.tbg;
+      tbgCustom.value = saved.tbg_custom || '';
+      tbgCustom.style.display = (tbg.value === 'custom') ? 'block' : 'none';
+      ftp.value = saved.ftp || defaults.ftp;
+      ftemp.value = saved.ftemp || defaults.ftemp;
+      sg.value = saved.sg || defaults.sg;
+      fluid.value = saved.fluid || defaults.fluid;
+      zfac.value = saved.zfac || defaults.zfac;
+    }
+  } catch(e) {}
+
+  // Live recalc on any change
+  ['tbg','tbg_custom','ftp','ftemp','sg','fluid','zfac'].forEach(function(id){
+    $(id).addEventListener('input', compute);
+    $(id).addEventListener('change', compute);
+  });
+
+  compute();
+})();
+</script>
+</body>
+</html>
