@@ -261,7 +261,7 @@
   <span class="name lea">v_L (Lea)</span> = 1.40 × [σ × (ρ<sub>L</sub> − ρ<sub>g</sub>)]<sup>0.25</sup> / ρ<sub>g</sub><sup>0.5</sup>
   <span class="note">Modern reference, k chosen at 1.4 for typical fluid load. Used for vertical and near-vertical gas wells.</span>
   <br><br>
-  <span class="note">Critical rate (Mcfd) = 3.06 × p × v<sub>c</sub> × A / (T × Z), with A = tubing cross-section in ft², p in psia, T in °R, v<sub>c</sub> in ft/s.</span>
+  <span class="note">Critical rate (Mcfd) = 3056 × p × v<sub>c</sub> × A / (T × Z), with A = tubing cross-section in ft², p in psia, T in °R, v<sub>c</sub> in ft/s. The constant carries the conversion from actual to standard conditions and from ft³/s to Mcfd.</span>
 </div>
 
 <div class="caveats">
@@ -329,9 +329,11 @@
   }
 
   function critRate(v_fps, P_psia, T_F, A_ft2, Z){
-    // q (Mcfd) ≈ 3.06 × P × v × A / (T × Z)  (T in °R)
+    // q_sc (Mcfd) = 3056 × P × v × A_ft² / (T × Z)  (T in °R)
+    // Derivation: Q_sc / Q_act = (P × 520) / (14.7 × T × Z); × 86.4 to convert ft³/s → Mcfd.
+    // (Note: textbooks sometimes publish 3.06 — that form yields MMscfd, not Mcfd.)
     var T_R = T_F + 459.67;
-    return 3.06 * P_psia * v_fps * A_ft2 / (T_R * Z);
+    return 3056 * P_psia * v_fps * A_ft2 / (T_R * Z);
   }
 
   function fmt(x, dp){
