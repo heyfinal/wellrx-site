@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta name="description" content="A field-engineer's guide to the five most common gas well production problems — liquid loading, paraffin, artificial lift failure, chemical drift, and gathering pressure — and how AI-driven SCADA diagnostics catches them before they compound.">
+<link rel="canonical" href="https://wellrx.app/learn/">
+<title>Gas Well Production Problems & SCADA Diagnostics Guide | WellRX</title>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WellRX">
+<meta property="og:title" content="Gas Well Production Problems & SCADA Diagnostics Guide">
+<meta property="og:description" content="The five most costly gas well problems — liquid loading, paraffin, artificial lift failure, chemical drift, gathering pressure — and how daily AI diagnostics catches each one before it compounds.">
+<meta property="og:url" content="https://wellrx.app/learn/">
+<meta property="og:image" content="https://wellrx.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gas Well Production Problems & SCADA Diagnostics Guide | WellRX">
+<meta name="twitter:description" content="Five common gas well problems, how SCADA data reveals each one, and what AI diagnostics does differently than manual review.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://wellrx.app/learn/#article",
+      "headline": "Gas Well Production Problems & SCADA Diagnostics Guide",
+      "description": "A field-engineer's guide to the five most common gas well production problems and how AI-driven SCADA diagnostics catches them before they compound.",
+      "url": "https://wellrx.app/learn/",
+      "inLanguage": "en-US",
+      "author": { "@id": "https://wellrx.app/#org" },
+      "publisher": { "@id": "https://wellrx.app/#org" },
+      "datePublished": "2026-05-08",
+      "dateModified": "2026-05-08",
+      "about": [
+        { "@type": "Thing", "name": "Liquid loading in gas wells" },
+        { "@type": "Thing", "name": "Paraffin deposition" },
+        { "@type": "Thing", "name": "Artificial lift optimization" },
+        { "@type": "Thing", "name": "SCADA gas well monitoring" },
+        { "@type": "Thing", "name": "Chemical treatment program optimization" }
+      ],
+      "isPartOf": { "@id": "https://wellrx.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wellrx.app/learn/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "WellRX", "item": "https://wellrx.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://wellrx.app/learn/" }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --bg: #070b17;
+    --card: #0d1426;
+    --panel: rgba(21,32,60,0.55);
+    --ink: #e6edf7;
+    --ink-strong: #f8fafc;
+    --muted: #94a3b8;
+    --line: rgba(255,255,255,0.07);
+    --accent: #38bdf8;
+    --gold: #fbbf24;
+    --font-body: 'Inter', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  [data-theme="light"] {
+    --bg: #f8fafc; --card: #ffffff; --panel: rgba(240,244,252,0.8);
+    --ink: #1e293b; --ink-strong: #0f172a; --muted: #64748b;
+    --line: rgba(0,0,0,0.1); --accent: #0284c7; --gold: #d97706;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  body { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; line-height: 1.7; font-size: 16px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
+  .nav a { color: var(--gold); text-decoration: none; font-family: var(--font-mono); font-size: 12px; }
+  .nav a:hover { text-decoration: underline; }
+  .nav-logo { font-family: var(--font-brand); font-style: italic; font-weight: 900; font-size: 22px; color: var(--ink-strong); }
+
+  .kicker { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-family: var(--font-brand); font-size: clamp(28px,5vw,42px); font-weight: 700; color: var(--ink-strong); line-height: 1.2; margin-bottom: 20px; }
+  .lede { font-size: 17px; color: var(--muted); margin-bottom: 48px; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 16px; }
+
+  h2 { font-family: var(--font-brand); font-size: 24px; font-weight: 700; color: var(--ink-strong); margin: 48px 0 12px; }
+  h3 { font-size: 14px; font-weight: 700; color: var(--ink-strong); text-transform: uppercase; letter-spacing: 0.08em; margin: 24px 0 8px; }
+  p { margin-bottom: 16px; color: var(--ink); }
+  strong { color: var(--ink-strong); }
+
+  .problem-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 28px 32px; margin: 32px 0; }
+  .problem-card .num { font-family: var(--font-mono); font-size: 11px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 8px; }
+  .problem-card h2 { margin: 0 0 12px; font-size: 20px; }
+  .problem-card .signal { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; margin: 16px 0; }
+  .problem-card .signal .label { font-family: var(--font-mono); font-size: 9.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 6px; }
+  .cost { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 14px; border-top: 1px dotted var(--line); padding-top: 12px; }
+  .cost strong { color: var(--gold); }
+
+  .cta-block { background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(251,191,36,0.08)); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 36px 32px; margin: 56px 0 32px; text-align: center; }
+  .cta-block h2 { margin: 0 0 12px; font-size: 22px; }
+  .cta-block p { color: var(--muted); margin-bottom: 24px; }
+  .cta-btn { display: inline-block; background: var(--gold); color: #070b17; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-family: var(--font-mono); }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-secondary { display: inline-block; margin-left: 16px; color: var(--accent); font-size: 13px; text-decoration: underline; }
+
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .problem-card { padding: 20px; }
+    .cta-block { padding: 24px 20px; }
+    .cta-secondary { display: block; margin: 12px 0 0; }
+  }
+</style>
+</head>
+<body>
+<script>(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s)s='dark';document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">℞ WellRX</a>
+  <div style="display:flex;gap:24px;">
+    <a href="/">Home</a>
+    <a href="/quote/">Get a Quote</a>
+    <a href="/beta/">Beta Program</a>
+  </div>
+</nav>
+
+<div class="kicker">Field Engineer's Guide · Gas Well Diagnostics</div>
+<h1>The Five Problems That Quietly Drain Gas-Well Revenue — and How SCADA Data Reveals Each One</h1>
+<p class="lede">Most gas well production losses don't announce themselves. They start as noise in the tag data — a pressure trend here, a temperature floor there — and compound for days or weeks before anyone names them. This guide covers the five most costly patterns, what the SCADA signals look like, and why daily automated analysis catches them faster than manual review.</p>
+
+<div class="problem-card">
+  <div class="num">Problem 01</div>
+  <h2>Liquid Loading</h2>
+  <p>When a gas well's velocity drops below the critical rate needed to lift formation water or condensate to surface, fluids accumulate in the tubing and begin choking production. It's one of the most common problems in mature gas fields — and one of the most frequently misdiagnosed.</p>
+  <p>The textbook progression: <strong>differential pressure rises while MCF flattens or falls</strong>. Wellhead pressure holds or climbs slightly. On a busy SCADA dashboard read well-by-well, it looks like gradual decline or a plunger timing issue. Against the full production history and DP-to-MCF ratio, it's a clear load-up signature within 24–48 hours of onset.</p>
+  <div class="signal">
+    <div class="label">SCADA signals that identify it</div>
+    <p style="margin:0;font-size:13px;">Differential pressure rising &gt;15% over 3–5 days while MCF remains flat or falls. DP-to-MCF ratio diverging from well's own baseline. Intermittent slugging patterns in flow rate. Casing/tubing pressure differential widening.</p>
+  </div>
+  <p>The fix — soap stick program, plunger cycle adjustment, velocity string — is cheap if caught early. The cost of misdiagnosis (scheduling a plunger install or velocity string swap on a well that just needs a $2/day soap campaign) ranges from <strong>$10,000 to $40,000 per workover avoided</strong>.</p>
+  <div class="cost"><strong>Cost exposure if missed:</strong> $10k–$40k capex per misdiagnosed workover · ongoing MCF loss until remediated</div>
+</div>
+
+<div class="problem-card">
+  <div class="num">Problem 02</div>
+  <h2>Paraffin and Asphaltene Deposition</h2>
+  <p>Crude paraffin crystallizes when flowing temperature drops below the pour point — typically in the 52–68°F range depending on oil gravity and paraffin content. In gas wells producing associated condensate or crude, the thermal signature is visible in the SCADA data days before a production restriction becomes severe.</p>
+  <p>The trap: the pressure and flow signature of early paraffin deposition looks almost identical to a plunger timing problem or tubing restriction. Without the temperature floor context and knowledge of the well's historical thermal baseline, the wrong diagnosis — and the wrong work order — is easy to write.</p>
+  <div class="signal">
+    <div class="label">SCADA signals that identify it</div>
+    <p style="margin:0;font-size:13px;">Flowing temperature dropping toward or below cloud point (documented in well file or FSR). Intermittent DP pulses consistent with wax slugging. Production restriction developing over 7–14 days without pressure anomaly. Seasonal temp correlation in affected cluster.</p>
+  </div>
+  <p>Early identification routes the intervention correctly: continuous inhibitor injection or scheduled hot-oil treatment at $400–$800/month versus a $10,000+ tubing pull or workover to clear a packed string.</p>
+  <div class="cost"><strong>Cost exposure if missed:</strong> $10k–$30k workover · accelerated tubing wear · deferred production during remediation</div>
+</div>
+
+<div class="problem-card">
+  <div class="num">Problem 03</div>
+  <h2>Artificial Lift Underperformance</h2>
+  <p>Plunger lift, gas lift, and rod pump systems all leave a diagnostic fingerprint in SCADA data — cycle times, arrival signals, casing/tubing pressure ratios, motor current draw. When that fingerprint drifts from baseline, something has changed: a worn bumper spring, an incorrect cycle time, a stuck plunger, compressor discharge pressure creep, a valve leak.</p>
+  <p>The problem with manual review is that artificial lift signatures are noisy by design. An operator scanning 20 wells on a phone screen in a truck isn't tracking the 30-day cycle time trend — they're looking for something obviously broken. Subtle drift that's costing 10–20% of potential production on 5 wells simultaneously doesn't trigger an alert; it just quietly erodes the month's volumes.</p>
+  <div class="signal">
+    <div class="label">SCADA signals that identify it</div>
+    <p style="margin:0;font-size:13px;">Plunger: arrival time lengthening &gt;20% from 30-day baseline. Cycle frequency changes without dispatcher adjustment. Afterflow duration shortening. Gas lift: injection pressure rising without production response. Rod pump: motor current trending up without load justification.</p>
+  </div>
+  <div class="cost"><strong>Cost exposure if missed:</strong> 10–25% production efficiency loss per affected well · progressive mechanical wear · unplanned failure and workover</div>
+</div>
+
+<div class="problem-card">
+  <div class="num">Problem 04</div>
+  <h2>Chemical Program Drift</h2>
+  <p>Chemical treatment — corrosion inhibitor, scale inhibitor, biocide, foamer, paraffin inhibitor — is one of the most frequently adjusted and least systematically reviewed variables in gas production. Program changes cause production responses. Service company visits and FSR notes document what was applied; the SCADA and production historian documents what happened afterward. Without reading both streams together, a chemical program that's working against production rather than with it can run undetected for weeks.</p>
+  <p>Common failure modes: a new foamer SKU that doesn't perform in cold weather, a scale inhibitor squeeze that's past its effective radius, a corrosion inhibitor rate cut that shows up as tubing failure three months later. Each has a SCADA signature when the historical baseline is available for comparison.</p>
+  <div class="signal">
+    <div class="label">SCADA signals that identify it</div>
+    <p style="margin:0;font-size:13px;">Production change correlating with FSR date (positive or negative). Injection volume vs. production ratio diverging from historical. Recurrence of previously solved symptom (liquid loading returning after foamer change). Corrosion-related pressure anomalies in injected well cluster.</p>
+  </div>
+  <div class="cost"><strong>Cost exposure if missed:</strong> Ongoing MCF loss from ineffective treatment · corrosion damage · re-treating costs · tubing/equipment replacement</div>
+</div>
+
+<div class="problem-card">
+  <div class="num">Problem 05</div>
+  <h2>Gathering System and RTU Communication Faults</h2>
+  <p>A well that's "offline" in the SCADA view isn't necessarily not producing. RTU communication failures, power outages at the pad, and gathering pipeline events frequently cause SCADA tags to go dark while the well continues to flow into the line. The result is invisible production — gas that's being produced and sold but not being seen in the dashboard, production allocation, or daily report.</p>
+  <p>Simultaneously, a gathering system pressure event — a compressor trip, a line restriction, a new well backpressure — can appear as a cluster of simultaneous "declines" across multiple wells that share the same CTB or gathering segment. Read well-by-well, it looks like each well has its own problem. Read as a group with the gathering topology in mind, it's one event with one fix.</p>
+  <div class="signal">
+    <div class="label">SCADA signals that identify it</div>
+    <p style="margin:0;font-size:13px;">Multiple wells on shared gathering segment showing simultaneous static pressure rise. Well dark in SCADA but allocation volumes positive. RTU last-contact timestamp extending without corresponding production drop. Cluster of "declines" perfectly correlated by pad or CTB grouping.</p>
+  </div>
+  <div class="cost"><strong>Cost exposure if missed:</strong> $10k–$40k/month in invisible production per dark well cluster · delayed gathering repairs · misallocated workover spend</div>
+</div>
+
+<h2>Why Daily Automated Diagnostics Catches These Faster Than Manual Review</h2>
+<p>Each of the five patterns above requires reading multiple data streams simultaneously — SCADA live tags, production historian trend, chemical FSR notes, and the well's own historical baseline — and comparing them against each other in context. A pumper reviewing 20 wells on a tablet in a truck does not have that context assembled in front of them. A production engineer stretched across 150 wells doesn't have time to run that comparison for every well every morning.</p>
+<p>The gap isn't knowledge — experienced field teams know all five patterns. The gap is <strong>systematic daily coverage</strong>. A pattern that takes two minutes to identify once someone looks at the right data in the right combination can sit undetected for two weeks when no one has assembled that combination for that well on that day.</p>
+<p>WellRX runs that assembly and comparison for every active well in your portfolio every morning, before your team's day begins. The result lands in the pumper's field brief, the engineer's technical write-up, and the chemical vendor's Rx — role-formatted, field-ready, and in the inbox before 6:30 AM CT.</p>
+
+<div class="cta-block">
+  <h2>See What WellRX Surfaces on Your Own Wells</h2>
+  <p>Point us at a SCADA feed, historian export, or CSV — we'll produce a sample portfolio diagnostic from your actual data, no commitment required. Most operators see something they didn't know was costing them money.</p>
+  <a class="cta-btn" href="/quote/">Build Your Quote →</a>
+  <a class="cta-secondary" href="/beta/">Apply to Charter Beta</a>
+</div>
+
+<footer>
+  <span>© 2026 WellRX · <a href="/">wellrx.app</a></span>
+  <span><a href="mailto:wellrx@wellrx.app">wellrx@wellrx.app</a> · <a href="tel:+19039326584">903.932.6584</a></span>
+</footer>
+</body>
+</html>
