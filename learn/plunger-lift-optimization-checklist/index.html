@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta name="description" content="A 21-point working checklist for tuning a plunger lift well — pre-tuning data needed, target arrival velocity, cycle time tuning, afterflow rules, and the diagnostic signatures that say redesign vs. tune. Field-engineer-grade reference.">
+<meta name="keywords" content="plunger lift optimization checklist, plunger lift tuning, arrival velocity plunger, plunger lift cycle time, afterflow plunger lift, plunger lift redesign, gas well plunger optimization">
+<meta name="author" content="WellRX">
+<link rel="canonical" href="https://wellrx.app/learn/plunger-lift-optimization-checklist/">
+<title>Plunger Lift Optimization Checklist — 21 Points That Actually Move Production | WellRX</title>
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="WellRX">
+<meta property="og:title" content="Plunger Lift Optimization Checklist — 21 Points That Actually Move Production">
+<meta property="og:description" content="A field-engineer's 21-point checklist for tuning a plunger lift well: pre-tuning data, target arrival velocity, cycle time, afterflow rules, and when to call it redesign instead of tune.">
+<meta property="og:url" content="https://wellrx.app/learn/plunger-lift-optimization-checklist/">
+<meta property="og:image" content="https://wellrx.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Plunger Lift Optimization Checklist — 21 Points That Actually Move Production | WellRX">
+<meta name="twitter:description" content="The 21-point checklist that separates a plunger that needs tuning from one that needs redesign — with target ranges and SCADA signatures.">
+<meta name="twitter:image" content="https://wellrx.app/og.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://wellrx.app/learn/plunger-lift-optimization-checklist/#article",
+      "headline": "Plunger Lift Optimization Checklist — 21 Points That Actually Move Production",
+      "description": "A 21-point working checklist for tuning a plunger lift well, with target ranges, SCADA signatures, and a tune-vs-redesign decision matrix.",
+      "url": "https://wellrx.app/learn/plunger-lift-optimization-checklist/",
+      "inLanguage": "en-US",
+      "author": { "@type": "Organization", "@id": "https://wellrx.app/#org", "name": "WellRX" },
+      "publisher": { "@type": "Organization", "@id": "https://wellrx.app/#org", "name": "WellRX", "logo": { "@type": "ImageObject", "url": "https://wellrx.app/og.png" } },
+      "datePublished": "2026-05-09",
+      "dateModified": "2026-05-09",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://wellrx.app/learn/plunger-lift-optimization-checklist/" },
+      "image": "https://wellrx.app/og.png",
+      "about": [
+        { "@type": "Thing", "name": "Plunger lift" },
+        { "@type": "Thing", "name": "Artificial lift optimization" },
+        { "@type": "Thing", "name": "Gas well production tuning" }
+      ],
+      "isPartOf": { "@type": "WebSite", "@id": "https://wellrx.app/#website" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wellrx.app/learn/plunger-lift-optimization-checklist/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "WellRX", "item": "https://wellrx.app/" },
+        { "@type": "ListItem", "position": 2, "name": "Learn", "item": "https://wellrx.app/learn/" },
+        { "@type": "ListItem", "position": 3, "name": "Plunger Lift Optimization Checklist", "item": "https://wellrx.app/learn/plunger-lift-optimization-checklist/" }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "Optimize a plunger lift gas well",
+      "description": "Field-engineer's 21-point checklist for tuning a plunger lift well to maximize gas production while extending plunger and tubing life.",
+      "step": [
+        { "@type": "HowToStep", "name": "Gather pre-tuning data", "text": "Pull the well file, mechanical state, 30-day SCADA baseline, current chemistry program, and last workover history before changing any setpoint." },
+        { "@type": "HowToStep", "name": "Establish baseline", "text": "Record arrival velocity, cycle frequency, afterflow duration, fall time, and average MCF over the prior 30 days. These are the numbers your changes will be measured against." },
+        { "@type": "HowToStep", "name": "Tune cycle and afterflow", "text": "Adjust cycle time toward target arrival velocity (700-1000 ft/min for typical wells). Tune afterflow to point of diminishing return on MCF post-arrival." },
+        { "@type": "HowToStep", "name": "Validate against KPIs", "text": "After 7-14 days, compare against baseline. Reject any change that fails to lift MCF, extend plunger life, or reduce no-arrivals." },
+        { "@type": "HowToStep", "name": "Decide tune vs redesign", "text": "If three full tuning cycles don't pull KPIs back into target range, escalate to plunger redesign or velocity-string evaluation." }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #070b17;
+    --card: #0d1426;
+    --panel: rgba(21,32,60,0.55);
+    --ink: #e6edf7;
+    --ink-strong: #f8fafc;
+    --muted: #94a3b8;
+    --line: rgba(255,255,255,0.07);
+    --accent: #38bdf8;
+    --gold: #fbbf24;
+    --money: #34d399;
+    --danger: #f87171;
+    --font-body: 'Inter', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  [data-theme="light"] {
+    --bg: #f8fafc; --card: #ffffff; --panel: rgba(240,244,252,0.8);
+    --ink: #1e293b; --ink-strong: #0f172a; --muted: #64748b;
+    --line: rgba(0,0,0,0.1); --accent: #0284c7; --gold: #d97706;
+    --money: #059669; --danger: #dc2626;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  body { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; line-height: 1.7; font-size: 16px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
+  .nav a { color: var(--gold); text-decoration: none; font-family: var(--font-mono); font-size: 12px; }
+  .nav a:hover { text-decoration: underline; }
+  .nav-logo { font-family: var(--font-brand); font-style: italic; font-weight: 900; font-size: 22px; color: var(--ink-strong); }
+
+  .crumbs { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--gold); }
+
+  .kicker { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-family: var(--font-brand); font-size: clamp(28px,5vw,42px); font-weight: 700; color: var(--ink-strong); line-height: 1.2; margin-bottom: 20px; }
+  .lede { font-size: 17px; color: var(--ink); margin-bottom: 36px; line-height: 1.7; border-left: 3px solid var(--gold); padding-left: 16px; }
+  .lede strong { color: var(--ink-strong); }
+
+  h2 { font-family: var(--font-brand); font-size: 26px; font-weight: 700; color: var(--ink-strong); margin: 56px 0 14px; line-height: 1.3; }
+  h3 { font-size: 14px; font-weight: 700; color: var(--ink-strong); text-transform: uppercase; letter-spacing: 0.08em; margin: 28px 0 10px; }
+  p { margin-bottom: 16px; color: var(--ink); }
+  strong { color: var(--ink-strong); }
+  code { font-family: var(--font-mono); font-size: 13px; background: var(--card); padding: 1px 7px; border-radius: 4px; border: 1px solid var(--line); color: var(--accent); }
+
+  .group { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 24px 28px; margin: 28px 0; }
+  .group .gh { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+  .group .gh h2 { margin: 0; font-size: 22px; }
+  .group .gh .meta { font-family: var(--font-mono); font-size: 10px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; }
+
+  .check { display: grid; grid-template-columns: 32px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px dotted var(--line); }
+  .check:last-child { border-bottom: none; }
+  .check .num { font-family: var(--font-mono); font-size: 11px; color: var(--gold); font-weight: 700; padding-top: 4px; letter-spacing: 0.06em; }
+  .check .body h4 { font-family: var(--font-brand); font-style: italic; font-weight: 700; font-size: 18px; color: var(--ink-strong); margin: 0 0 6px; line-height: 1.3; }
+  .check .body p { margin: 0 0 6px; font-size: 14px; line-height: 1.6; color: var(--ink); }
+  .check .body p:last-child { margin-bottom: 0; }
+  .check .target { display: inline-block; padding: 2px 10px; border-radius: 999px; background: rgba(52,211,153,0.10); border: 1px solid rgba(52,211,153,0.28); color: var(--money); font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; margin-top: 4px; }
+  .check .red { display: inline-block; padding: 2px 10px; border-radius: 999px; background: rgba(248,113,113,0.10); border: 1px solid rgba(248,113,113,0.28); color: var(--danger); font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; margin-top: 4px; }
+
+  .matrix { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px 24px; margin: 18px 0 28px; overflow-x: auto; }
+  .matrix table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .matrix th, .matrix td { padding: 10px 8px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+  .matrix th { font-family: var(--font-mono); font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; }
+  .matrix td { color: var(--ink); line-height: 1.55; }
+  .matrix td.tag { font-family: var(--font-mono); font-size: 11px; font-weight: 700; }
+  .matrix td.tag.tune { color: var(--money); }
+  .matrix td.tag.redesign { color: var(--danger); }
+  .matrix td.tag.escalate { color: var(--gold); }
+
+  .cta-block { background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(251,191,36,0.08)); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 36px 32px; margin: 56px 0 32px; text-align: center; }
+  .cta-block h2 { margin: 0 0 12px; font-size: 22px; }
+  .cta-block p { color: var(--muted); margin-bottom: 24px; }
+  .cta-btn { display: inline-block; background: var(--gold); color: #070b17; font-weight: 700; font-size: 14px; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-family: var(--font-mono); }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-secondary { display: inline-block; margin-left: 16px; color: var(--accent); font-size: 13px; text-decoration: underline; }
+
+  .related { margin: 48px 0 0; padding: 22px 26px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+  .related .rl-label { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--muted); margin-bottom: 12px; }
+  .related ul { list-style: none; padding: 0; margin: 0; }
+  .related ul li { padding: 8px 0; border-bottom: 1px dotted var(--line); font-size: 14px; }
+  .related ul li:last-child { border-bottom: none; }
+  .related ul li a { color: var(--ink); text-decoration: none; }
+  .related ul li a:hover { color: var(--accent); }
+  .related ul li .rl-kind { font-family: var(--font-mono); font-size: 9.5px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.18em; margin-right: 10px; font-weight: 700; }
+
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 600px) {
+    .group { padding: 20px 18px; }
+    .cta-block { padding: 24px 20px; }
+    .cta-secondary { display: block; margin: 12px 0 0; }
+  }
+</style>
+</head>
+<body>
+<script>(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s)s='dark';document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">℞ WellRX</a>
+  <div style="display:flex;gap:24px;">
+    <a href="/">Home</a>
+    <a href="/learn/">Learn</a>
+    <a href="/quote/">Get a Quote</a>
+    <a href="/beta/">Beta</a>
+  </div>
+</nav>
+
+<div class="crumbs"><a href="/">Home</a> &rsaquo; <a href="/learn/">Learn</a> &rsaquo; Plunger Lift Optimization Checklist</div>
+
+<div class="kicker">Field Engineer's Guide · Plunger Lift</div>
+<h1>Plunger Lift Optimization Checklist — 21 Points That Actually Move Production</h1>
+<p class="lede">Most plunger-lift "optimization" attempts move one variable, watch for two days, and call it good. Real optimization works the well's <strong>30-day envelope</strong> — pre-tuning data, baseline, change, validate against the right KPIs. This 21-point checklist is what a field engineer with a target on production efficiency runs through before, during, and after every meaningful tuning campaign on a plunger well.</p>
+
+<div class="group">
+  <div class="gh"><h2>Group 1 — Pre-Tuning Data (don't skip)</h2><span class="meta">Points 01–07</span></div>
+
+  <div class="check"><div class="num">01</div><div class="body">
+    <h4>Pull the well file in full</h4>
+    <p>Original completion details, perforation depths, last 3 workovers, current tubing depth and ID, last DHTOP / DHCAS pressure survey, last fluid level shot. Tuning a plunger without knowing the tubing ID is rounding-error work.</p>
+  </div></div>
+
+  <div class="check"><div class="num">02</div><div class="body">
+    <h4>Confirm mechanical state</h4>
+    <p>Plunger type and weight installed, last installation date, last bumper spring change, lubricator condition, valve and arrival sensor function. Mechanical drift is the single most common cause of "the controller is wrong" reports.</p>
+  </div></div>
+
+  <div class="check"><div class="num">03</div><div class="body">
+    <h4>Establish 30-day SCADA baseline</h4>
+    <p>Average and standard deviation for: arrival velocity (ft/min), cycle frequency (cycles/day), afterflow duration (min), fall time (min), MCF rate, casing pressure, flowing tubing pressure, line pressure. <span class="target">Target: capture all 8 series at minimum hourly resolution</span></p>
+  </div></div>
+
+  <div class="check"><div class="num">04</div><div class="body">
+    <h4>Document current chemistry program</h4>
+    <p>Foamer SKU, dose rate (gal/day or lbs/cycle), last program change date, FSR notes for last 90 days. Plunger and chemistry interact — don't tune one in isolation.</p>
+  </div></div>
+
+  <div class="check"><div class="num">05</div><div class="body">
+    <h4>Pull line-pressure history at the wellhead's gathering segment</h4>
+    <p>If line pressure has crept up 30+ psi over the prior 60 days, plunger arrivals were going to slow regardless. Eliminate this confounder before changing setpoints.</p>
+  </div></div>
+
+  <div class="check"><div class="num">06</div><div class="body">
+    <h4>Pull the gathering pressure for sister wells</h4>
+    <p>If three wells on the same CTB are all slowing simultaneously, the problem is downstream and tuning your one well will accomplish nothing. Diagnose by group, not by well.</p>
+  </div></div>
+
+  <div class="check"><div class="num">07</div><div class="body">
+    <h4>Decide and write down the success criteria</h4>
+    <p>Which KPI is moving the wrong direction? Arrival velocity? No-arrival count? MCF rate? "Optimize the well" without a quantified target is a way to spend a week and not know whether you helped.</p>
+  </div></div>
+</div>
+
+<div class="group">
+  <div class="gh"><h2>Group 2 — Cycle and Arrival Tuning</h2><span class="meta">Points 08–14</span></div>
+
+  <div class="check"><div class="num">08</div><div class="body">
+    <h4>Set arrival velocity target</h4>
+    <p>For typical conventional plungers: <code>700–1000 ft/min</code>. Brush plungers: <code>500–700</code>. Pad / bypass plungers: <code>300–500</code>. <span class="target">Target arrival inside this window 90% of cycles</span> <span class="red">Below 300 ft/min repeatedly: plunger is fighting too much head, redesign territory</span></p>
+  </div></div>
+
+  <div class="check"><div class="num">09</div><div class="body">
+    <h4>Tune cycle time toward target arrival</h4>
+    <p>If arrivals are slow, cycle is too short — the well isn't building enough casing pressure to lift the plunger. Lengthen cycle 10% per iteration. If arrivals are fast and afterflow MCF is small, cycle is too long. Shorten cycle 10% per iteration.</p>
+  </div></div>
+
+  <div class="check"><div class="num">10</div><div class="body">
+    <h4>Set afterflow target</h4>
+    <p>End afterflow when the well's MCF curve has flattened and is starting to roll over (entering decline phase before the next cycle). Continuing afterflow beyond this point gains marginal MCF but extends fluid accumulation time. <span class="target">Typical afterflow: 30–90 min depending on well GLR</span></p>
+  </div></div>
+
+  <div class="check"><div class="num">11</div><div class="body">
+    <h4>Verify fall time</h4>
+    <p>Plunger fall time should be <code>0.7–1.2 ft/min</code> for conventional plungers in dry tubing, faster (0.5 ft/min) when wet. Anomalies usually mean tubing wear, plunger damage, or fluid accumulation in the lower joints.</p>
+  </div></div>
+
+  <div class="check"><div class="num">12</div><div class="body">
+    <h4>Tune to no-arrival rate, not arrival velocity alone</h4>
+    <p>A well at 950 ft/min average arrival with 8 no-arrivals/day is NOT optimized — it has a bimodal distribution and the no-arrival cycles are erasing your gains. Tune cycle frequency until no-arrival rate is below 1%, then refine on velocity.</p>
+  </div></div>
+
+  <div class="check"><div class="num">13</div><div class="body">
+    <h4>Validate against MCF, not just velocity</h4>
+    <p>Fastest arrivals don't mean the highest production. The relationship is non-linear and well-specific. After every change, the question is whether 14-day rolling MCF is up — that's the only KPI that pays the bill.</p>
+  </div></div>
+
+  <div class="check"><div class="num">14</div><div class="body">
+    <h4>Re-baseline after each change, not after a campaign</h4>
+    <p>Wait 7–14 days between meaningful changes. Plunger lift dynamics have a long settling time and you'll chase noise if you tune daily. Document each change with a timestamp; future-you will need it.</p>
+  </div></div>
+</div>
+
+<div class="group">
+  <div class="gh"><h2>Group 3 — Diagnostic and Redesign Triggers</h2><span class="meta">Points 15–21</span></div>
+
+  <div class="check"><div class="num">15</div><div class="body">
+    <h4>Track plunger run hours / cycles since install</h4>
+    <p>Conventional plungers typically run 30,000–80,000 cycles. Brush plungers: 50,000–120,000. If you're tuning a plunger that's been in the hole 18 months on a well doing 50 cycles/day, the answer may be "swap it before tuning anything."</p>
+  </div></div>
+
+  <div class="check"><div class="num">16</div><div class="body">
+    <h4>Watch for fall-time inflation</h4>
+    <p>If fall time has increased 25% over baseline without a chemistry change or reservoir change, the plunger or tubing has worn enough to leak past. <span class="red">Trigger: schedule plunger pull for inspection</span></p>
+  </div></div>
+
+  <div class="check"><div class="num">17</div><div class="body">
+    <h4>Watch for afterflow MCF / cycle MCF ratio</h4>
+    <p>If afterflow is producing &gt;65% of the cycle's total MCF, the plunger is working but the cycle is too short. If afterflow is producing &lt;15%, cycle is too long or well is over-producing during build-up phase. Sweet spot is roughly 30–50%.</p>
+  </div></div>
+
+  <div class="check"><div class="num">18</div><div class="body">
+    <h4>Cross-check against tubing critical velocity</h4>
+    <p>If the well is consistently below Coleman critical velocity at current rate (see <a href="/learn/liquid-loading-early-warning-signs/" style="color:var(--accent);">Liquid Loading Early Warnings</a> for the formula), no plunger tuning is going to fix it — the well needs a velocity string or smaller tubing.</p>
+  </div></div>
+
+  <div class="check"><div class="num">19</div><div class="body">
+    <h4>Match plunger type to fluid load</h4>
+    <p>High water cut + dry plunger = no-arrivals. High water cut + brush plunger = healthy arrivals + extended life. Low fluid load + brush plunger = unnecessary friction and slower velocities. <span class="target">Re-evaluate plunger type whenever the FSR shows water-cut step change</span></p>
+  </div></div>
+
+  <div class="check"><div class="num">20</div><div class="body">
+    <h4>Accept tune vs. redesign</h4>
+    <p>If three full tuning iterations across 30 days haven't pulled KPIs back into target range, you're not tuning anymore — you're masking. Redesign is plunger swap, velocity string, gas-assisted plunger, or transition off plunger. The matrix below decides which.</p>
+  </div></div>
+
+  <div class="check"><div class="num">21</div><div class="body">
+    <h4>Document the tune for the next person</h4>
+    <p>A single sentence in the well file: "What I changed, when, why, and what KPI moved." Plunger lift expertise lives in the well file or it doesn't exist. The next engineer or the next pumper has to be able to pick up where you left off.</p>
+  </div></div>
+</div>
+
+<h2>Tune-vs-Redesign Decision Matrix</h2>
+<p>When the 21-point checklist has been worked and KPIs still won't budge, this is what the symptom set is telling you.</p>
+
+<div class="matrix">
+  <table>
+    <thead>
+      <tr><th>Symptom set</th><th>Likely cause</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Slow arrivals, no-arrivals &lt;5%, fall time normal</td>
+        <td>Cycle / chemistry mistune</td>
+        <td class="tag tune">TUNE</td>
+      </tr>
+      <tr>
+        <td>Fall time inflated &gt;25% baseline, arrivals slow</td>
+        <td>Plunger or tubing wear</td>
+        <td class="tag redesign">REDESIGN — pull plunger</td>
+      </tr>
+      <tr>
+        <td>No-arrivals &gt;5% even after cycle increase</td>
+        <td>Insufficient pressure build / fluid load too high</td>
+        <td class="tag redesign">REDESIGN — heavier plunger or velocity string</td>
+      </tr>
+      <tr>
+        <td>Three or more wells on same CTB with similar pattern</td>
+        <td>Gathering-side issue (line pressure, compressor)</td>
+        <td class="tag escalate">ESCALATE — gathering, not artificial lift</td>
+      </tr>
+      <tr>
+        <td>MCF below Coleman critical velocity even with healthy arrivals</td>
+        <td>Tubing too large for current rate</td>
+        <td class="tag redesign">REDESIGN — velocity string</td>
+      </tr>
+      <tr>
+        <td>Wide bimodal arrival velocity distribution</td>
+        <td>Fluid slugging / inconsistent build-up</td>
+        <td class="tag tune">TUNE — chemistry first, then cycle</td>
+      </tr>
+      <tr>
+        <td>Increasing soap stick consumption with no MCF lift</td>
+        <td>Foamer mismatch with current fluid composition</td>
+        <td class="tag tune">TUNE — chemistry SKU change</td>
+      </tr>
+      <tr>
+        <td>Plunger lift well producing below own baseline at lower line pressure</td>
+        <td>Reservoir-side decline, not lift problem</td>
+        <td class="tag escalate">ESCALATE — DCA / reservoir review</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>Why systematic checklists matter on portfolio scale</h2>
+<p>One engineer can carry this checklist in their head for 5 wells. At 50 wells, the depth-of-attention required to apply all 21 points to every well drops below the threshold for catching subtle drift. At 200 wells, the checklist is theoretical — nobody has the hours.</p>
+<p>That's the point at which automation earns its keep. Daily diagnostics that check arrival velocity drift, no-arrival rate inflation, fall-time creep, afterflow ratio shift, and the rest of the signature for every plunger-lift well in the portfolio every morning — and surface only the 3–5 that need attention today — is what scales the engineer's judgment instead of replacing it.</p>
+<p>WellRX runs that automation. It is not a black-box "AI optimizer." It is a virtual-engineering team applying the same checklist above, every day, to every well, and showing the data and reasoning when something fires.</p>
+
+<div class="cta-block">
+  <h2>Run This Checklist on Every Plunger Well, Every Morning</h2>
+  <p>Charter-partner operators (20–200 active gas wells) get every plunger-lift well checked against this 21-point framework daily, with the deviations surfaced in a ranked queue before 6:30 AM CT. Setup waived, 50% off three months, penalty-free wind-down at week 12.</p>
+  <a class="cta-btn" href="/beta/">Apply to Charter Beta &rarr;</a>
+  <a class="cta-secondary" href="/quote/">Or build a quote</a>
+</div>
+
+<div class="related">
+  <div class="rl-label">Related reading</div>
+  <ul>
+    <li><span class="rl-kind">Field Guide</span><a href="/learn/liquid-loading-early-warning-signs/">7 Early-Warning Signs Your Gas Well Is Loading Up — Before MCF Drops</a></li>
+    <li><span class="rl-kind">Guide</span><a href="/learn/">The five problems that quietly drain gas-well revenue</a></li>
+    <li><span class="rl-kind">Sample</span><a href="/samples/02_pumper_daily.html">Daily Pumper Field Brief — what arrives in the field at 6:30 AM</a></li>
+    <li><span class="rl-kind">Sample</span><a href="/samples/05_foreman_daily.html">Daily Operations Desk — foreman variant with decision queue</a></li>
+  </ul>
+</div>
+
+<footer>
+  <span>&copy; 2026 WellRX &middot; <a href="/">wellrx.app</a></span>
+  <span><a href="mailto:wellrx@wellrx.app">wellrx@wellrx.app</a> &middot; <a href="tel:+19039326584">903.932.6584</a></span>
+</footer>
+</body>
+</html>
