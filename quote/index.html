@@ -86,7 +86,7 @@
   .rx { font-family: var(--font-brand); font-style: italic; font-weight: 900;
         font-size: 56px; color: var(--gold); line-height: 0.85;
         font-variation-settings: "opsz" 144; }
-  h1.brand { font-family: var(--font-brand); font-style: italic; font-weight: 900;
+  .brand { font-family: var(--font-brand); font-style: italic; font-weight: 900;
              font-size: 46px; letter-spacing: -0.02em; margin: 0; line-height: 0.95;
              color: var(--ink-strong); font-variation-settings: "opsz" 144; }
   .subtitle { font-family: var(--font-brand); font-style: italic; font-weight: 400;
@@ -260,7 +260,7 @@
   }
 
   @media (max-width: 720px) {
-    h1.brand { font-size: 36px; }
+    .brand { font-size: 36px; }
     .rx { font-size: 44px; }
     .wrap { padding: 24px 16px 60px; }
     form#quote-form, .price-card, #quote-output { padding: 18px 16px; }
@@ -361,10 +361,9 @@
   <div class="mast-rule"></div>
   <div class="title">
     <span class="rx">℞</span>
-    <h1 class="brand">Quote Calculator</h1>
+    <div class="brand">Quote Calculator</div>
   </div>
-  <div class="subtitle">Internal pricing tool. Bid generation for charter and post-charter operators.</div>
-  <div class="privnote">⚠ Confidential · Do not share this URL publicly · No public link from wellrx.app</div>
+  <h1 class="subtitle">Per-well pricing for AI-powered gas well diagnostics — SCADA-integrated, no long-term contract.</h1>
 
   <div class="sec">
     <div class="kick">§ I · Pricing Reference (intro pricing — first cohort)</div>
