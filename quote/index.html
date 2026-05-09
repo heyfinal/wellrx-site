@@ -902,9 +902,10 @@
   }
 
   // ── Wire up ──
+  const debouncedRender = (fn => { let t; return () => { clearTimeout(t); t = setTimeout(fn, 150); }; })(render);
   document.querySelectorAll('#quote-form input, #quote-form select, #quote-form textarea')
     .forEach(el => {
-      el.addEventListener('input', render);
+      el.addEventListener('input', debouncedRender);
       el.addEventListener('change', render);
     });
 
@@ -935,3 +936,4 @@
 })();
 </script>
 </body></html>
+
