@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Free engineering tools for natural gas well operators — critical velocity calculator (Turner / Coleman / Lea), liquid loading diagnostics, and more. No signup, no email gate, browser-based.">
+<link rel="canonical" href="https://wellrx.app/tools/">
+<title>Free Tools for Gas-Well Operators — Critical Velocity, Diagnostics | WellRX</title>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WellRX">
+<meta property="og:title" content="Free Tools for Gas-Well Operators">
+<meta property="og:description" content="Critical velocity calculator (Turner / Coleman / Lea) and other field-engineering tools. Free, browser-based, no signup.">
+<meta property="og:url" content="https://wellrx.app/tools/">
+<meta property="og:image" content="https://wellrx.app/og.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23070b17'/%3E%3Ctext x='50' y='78' font-family='Georgia,serif' font-size='80' font-style='italic' font-weight='900' fill='%23fbbf24' text-anchor='middle'%3E%E2%84%9E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #070b17;
+    --card: #0d1426;
+    --panel: rgba(21,32,60,0.55);
+    --ink: #e6edf7;
+    --ink-strong: #f8fafc;
+    --muted: #94a3b8;
+    --line: rgba(255,255,255,0.07);
+    --accent: #38bdf8;
+    --gold: #fbbf24;
+    --money: #34d399;
+    --font-body: 'Inter', sans-serif;
+    --font-brand: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  [data-theme="light"] {
+    --bg: #f8fafc; --card: #ffffff; --panel: rgba(240,244,252,0.8);
+    --ink: #1e293b; --ink-strong: #0f172a; --muted: #64748b;
+    --line: rgba(0,0,0,0.1); --accent: #0284c7; --gold: #d97706; --money: #059669;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); font-family: var(--font-body); }
+  body { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; line-height: 1.7; font-size: 16px; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 56px; }
+  .nav a { color: var(--gold); text-decoration: none; font-family: var(--font-mono); font-size: 12px; }
+  .nav a:hover { text-decoration: underline; }
+  .nav-logo { font-family: var(--font-brand); font-style: italic; font-weight: 900; font-size: 22px; color: var(--ink-strong); }
+
+  .crumbs { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-bottom: 14px; }
+  .crumbs a { color: var(--muted); text-decoration: none; }
+  .crumbs a:hover { color: var(--gold); }
+
+  .kicker { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-family: var(--font-brand); font-size: clamp(28px,5vw,40px); font-weight: 700; color: var(--ink-strong); line-height: 1.2; margin-bottom: 18px; }
+  .lede { font-size: 16px; color: var(--muted); margin-bottom: 36px; line-height: 1.7; max-width: 720px; }
+
+  h2 { font-family: var(--font-brand); font-size: 22px; font-weight: 700; color: var(--ink-strong); margin: 48px 0 14px; }
+
+  .tool-card { display: block; padding: 28px 32px; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 12px; text-decoration: none; color: inherit; margin: 18px 0; transition: border-color .15s, transform .15s; }
+  .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .tool-card .meta { font-family: var(--font-mono); font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; margin-bottom: 8px; }
+  .tool-card h3 { font-family: var(--font-brand); font-style: italic; font-weight: 700; font-size: 22px; color: var(--ink-strong); margin: 0 0 10px; line-height: 1.25; }
+  .tool-card p { font-size: 14px; color: var(--ink); margin: 0 0 8px; line-height: 1.65; }
+  .tool-card .badges { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .tool-card .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: rgba(52,211,153,0.10); border: 1px solid rgba(52,211,153,0.28); color: var(--money); font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .tool-card .badge.lib { background: rgba(56,189,248,0.10); border-color: rgba(56,189,248,0.28); color: var(--accent); }
+
+  .cta-block { background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(251,191,36,0.08)); border: 1px solid rgba(251,191,36,0.25); border-radius: 14px; padding: 32px 30px; margin: 48px 0 24px; text-align: center; }
+  .cta-block h2 { margin: 0 0 12px; font-size: 22px; }
+  .cta-block p { color: var(--muted); margin-bottom: 22px; font-size: 14px; }
+  .cta-btn { display: inline-block; background: var(--gold); color: #070b17; font-weight: 700; font-size: 14px; padding: 12px 26px; border-radius: 8px; text-decoration: none; font-family: var(--font-mono); }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-secondary { display: inline-block; margin-left: 14px; color: var(--accent); font-size: 13px; text-decoration: underline; }
+
+  footer { margin-top: 48px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: var(--muted); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<script>(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s)s='dark';document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+
+<nav class="nav">
+  <a class="nav-logo" href="/">℞ WellRX</a>
+  <div style="display:flex;gap:24px;">
+    <a href="/">Home</a>
+    <a href="/learn/">Learn</a>
+    <a href="/quote/">Get a Quote</a>
+    <a href="/beta/">Beta</a>
+  </div>
+</nav>
+
+<div class="crumbs"><a href="/">Home</a> &rsaquo; Tools</div>
+<div class="kicker">Free Engineering Tools · No Signup, No Email Gate</div>
+<h1>Free Tools for Gas-Well Operators</h1>
+<p class="lede">A small library of browser-based engineering tools and open-source utilities for natural gas well operators. Use them as quick references at the truck or as planning aids before you commit to a workover. None require an account.</p>
+
+<h2>Calculators</h2>
+
+<a class="tool-card" href="/tools/critical-velocity/">
+  <div class="meta">Calculator · Liquid Loading</div>
+  <h3>Critical Velocity Calculator (Turner / Coleman / Lea)</h3>
+  <p>Enter tubing ID, flowing tubing pressure, temperature, gas SG, and liquid type. Get critical velocity (ft/s) and critical rate (Mcfd) from all three correlations side-by-side, with a regime-aware recommendation for which one to use as your operational threshold.</p>
+  <div class="badges"><span class="badge">Free</span><span class="badge">No signup</span><span class="badge">Live calc</span></div>
+</a>
+
+<h2>Open-source libraries</h2>
+
+<a class="tool-card" href="https://github.com/heyfinal/wellrx-tcl" style="border-left-color:var(--accent);" target="_blank" rel="noopener">
+  <div class="meta" style="color:var(--accent);">Python Library · Apache 2.0</div>
+  <h3>wellrx-tcl — gas well critical-velocity for Python</h3>
+  <p>The Python companion to the calculator above. Compute Turner / Coleman / Lea critical velocity and critical rate programmatically. Useful when you need to run the calc across a portfolio, embed it in a notebook, or drop it into a SCADA pipeline. Apache-2.0 licensed.</p>
+  <div class="badges"><span class="badge lib">pip install</span><span class="badge lib">Python ≥3.10</span><span class="badge lib">Open source</span></div>
+</a>
+
+<h2>Field guides</h2>
+
+<a class="tool-card" href="/learn/liquid-loading-early-warning-signs/" style="border-left-color:var(--gold);">
+  <div class="meta">Field Guide · Liquid Loading</div>
+  <h3>7 Early-Warning Signs Your Gas Well Is Loading Up — Before MCF Drops</h3>
+  <p>The SCADA signals that fire 5-14 days before MCF rate confirms a well is loaded. With critical-velocity context, a 24-hour decision tree, and the cost of misdiagnosis ($10k–$40k per workover).</p>
+</a>
+
+<a class="tool-card" href="/learn/plunger-lift-optimization-checklist/" style="border-left-color:var(--accent);">
+  <div class="meta" style="color:var(--accent);">Field Guide · Plunger Lift</div>
+  <h3>Plunger Lift Optimization Checklist — 21 Points That Actually Move Production</h3>
+  <p>Pre-tuning data, target arrival velocity by plunger type, cycle and afterflow tuning rules, fall-time triggers, and a tune-vs-redesign decision matrix. Field-engineer-grade reference.</p>
+</a>
+
+<a class="tool-card" href="/learn/" style="border-left-color:var(--money);">
+  <div class="meta" style="color:var(--money);">Overview Guide</div>
+  <h3>The Five Problems That Quietly Drain Gas-Well Revenue</h3>
+  <p>Liquid loading, paraffin, artificial lift drift, chemical program drift, and gathering/RTU faults — the SCADA signatures of each, the cost exposure, and why daily automated review catches them faster than manual scroll.</p>
+</a>
+
+<div class="cta-block">
+  <h2>Want all this run automatically every morning?</h2>
+  <p>WellRX charter partners (20-200 well gas operators) get every well diagnosed against critical velocity, the seven early-warning signs, the 21-point plunger checklist, and 40+ other patterns daily, before 6:30 AM CT. Setup waived, 50% off three months, penalty-free wind-down at week 12.</p>
+  <a class="cta-btn" href="/beta/">Apply to Charter Beta &rarr;</a>
+  <a class="cta-secondary" href="/quote/">Build a quote</a>
+</div>
+
+<footer>
+  <span>&copy; 2026 WellRX &middot; <a href="/">wellrx.app</a></span>
+  <span><a href="mailto:wellrx@wellrx.app">wellrx@wellrx.app</a> &middot; <a href="tel:+19039326584">903.932.6584</a></span>
+</footer>
+</body>
+</html>
