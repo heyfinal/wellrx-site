@@ -367,6 +367,8 @@
                     padding-top: 2px; }
   .integ .row .v { font-size: 13px; color: var(--ink); line-height: 1.6; }
   .integ .row .v strong { color: var(--ink-strong); }
+  .faq-block .row { grid-template-columns: 220px 1fr; }
+  .faq-block .row .k { font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--ink-strong); }
   .integ .row .v .pill { display: inline-block; padding: 2px 10px; border-radius: 999px;
                             font-family: var(--font-mono); font-size: 9px;
                             text-transform: uppercase; letter-spacing: 0.18em;
@@ -654,6 +656,62 @@
   html, body { overflow-x: hidden !important; max-width: 100% !important; }
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is WellRX different from the alerts in my SCADA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SCADA alerts tell you a threshold was crossed. WellRX tells you why, what it means for the well, and what to do — across production ops, artificial lift, chemical program, and wellbore — in the same report. It reads your thermal floor, DP trend, and recent FSR together and writes an actionable Rx, rather than just firing on a set point breach."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I only have CSV exports and no live SCADA API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A CSV or Excel export from your historian is enough to run a full diagnostic. WellRX generates a sample portfolio diagnostic from your historical data at no commitment so you see exactly what it surfaces on your own wells before you decide. A live SCADA API connection unlocks daily automated delivery."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can my chemical vendor receive the WellRX Rx directly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — vendor is one of the standard recipient roles. Your chemical vendor gets a role-specific chemistry Rx: which wells have a flagged chemical issue, what the data shows, and the recommended program adjustment. You configure which contacts get which role profile during onboarding."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens to offline or unreachable wells?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Offline and unreachable wells are not billed. If a well drops off your SCADA feed, WellRX flags it in the next morning's report and removes it from the active-well count for that billing period. When it comes back online it is automatically re-included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What SCADA systems does WellRX support?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WellRX is currently integrated with zdSCADA and any system that exposes a standard REST or OData API. Historian CSV/Excel exports work for evaluation and can be automated. Additional integrations are confirmed during onboarding. No changes to your SCADA configuration are required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my well data kept confidential?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. WellRX operates on operator-held credentials in a single-tenant deployment. Your telemetry stays within the boundary you control and is never commingled with another operator's data. No raw SCADA data leaves your environment. SOC 2 Type II is on the roadmap."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <button type="button" class="wrx-theme-toggle" aria-label="Switch theme" title="Switch theme">
@@ -972,6 +1030,37 @@
     </div>
   </div>
 
+  <div class="sec">
+    <div class="kick">§ VII · Common Questions</div>
+    <h2>Questions operators ask before signing on.</h2>
+  </div>
+  <div class="integ faq-block">
+    <div class="row">
+      <div class="k">How is WellRX different from the alerts in my SCADA?</div>
+      <div class="v">SCADA alerts tell you a threshold was crossed. WellRX tells you <strong>why, what it means for the well, and what to do</strong> — across production ops, artificial lift, chemical program, and wellbore — in the same report. An alert fires when tubing pressure exceeds your set point; WellRX reads the thermal floor, DP trend, and recent FSR together and writes "liquid loading, soap stick or plunger cycle adjustment." It's the difference between a smoke detector and a production engineer who reviewed every well overnight.</div>
+    </div>
+    <div class="row">
+      <div class="k">What if I only have CSV exports and no live API?</div>
+      <div class="v">A CSV or Excel export from your historian is enough to run a full diagnostic. We routinely generate a <strong>sample portfolio diagnostic from your historical data at no commitment</strong> — so you see exactly what WellRX surfaces on your own wells before you decide. A live SCADA API connection unlocks daily automated delivery; CSV mode covers the evaluation period and can be automated via SFTP drop.</div>
+    </div>
+    <div class="row">
+      <div class="k">Can my chemical vendor receive the Rx directly?</div>
+      <div class="v">Yes — vendor is one of the standard recipient roles. Your chemical vendor gets a <strong>role-specific chemistry Rx</strong>: which wells have a flagged chemical issue, what the data shows, and the recommended program adjustment. The same underlying diagnostic drives the pumper's field card, the engineer's technical write-up, and the vendor's Rx. You configure which contacts get which role profile during onboarding — no extra setup for the vendor.</div>
+    </div>
+    <div class="row">
+      <div class="k">What happens to offline or unreachable wells?</div>
+      <div class="v"><strong>Offline and unreachable wells are not billed.</strong> If a well drops off your SCADA feed, WellRX flags it in the next morning's report and removes it from the active-well count for that billing period. When it comes back online it's automatically re-included. You only pay for wells we can actually read.</div>
+    </div>
+    <div class="row">
+      <div class="k">What SCADA systems does WellRX support?</div>
+      <div class="v">Currently integrated with <strong>zdSCADA</strong> and any system that exposes a standard REST or OData API. Historian CSV/Excel exports work for evaluation and can be automated. Additional integrations are confirmed during onboarding — if you tell us your platform we'll verify compatibility before you commit. We don't require changes to your SCADA configuration; we read what you already have.</div>
+    </div>
+    <div class="row">
+      <div class="k">Is my well data kept confidential?</div>
+      <div class="v">Yes. WellRX operates on <strong>operator-held credentials in a single-tenant deployment</strong> — your telemetry stays within the boundary you control and is never commingled with another operator's data. No raw SCADA data leaves your environment; WellRX reads it, writes the Rx, and discards the raw feed. Email delivery uses a sender address you authorize. SOC 2 Type II is on the roadmap.</div>
+    </div>
+  </div>
+
   <div class="cta">
     <div>
       <h3>Want a diagnostic run against your data?</h3>
@@ -987,7 +1076,7 @@
       <div class="contact-card">
         <div class="cc-label">CEO, Developer &amp; Drilling Consultant</div>
         <div class="cc-name">Daniel Gillaspy</div>
-        <a href="mailto:dgillaspy@me.com">dgillaspy@me.com</a>
+        <a href="mailto:wellrx@wellrx.app">wellrx@wellrx.app</a>
       </div>
     </div>
   </div>
