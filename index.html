@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <script>
-(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s){s='dark';}document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+(function(){try{var k='wrx_theme_v1',s=localStorage.getItem(k);if(!s){s='dark';}document.documentElement.setAttribute('data-theme',s);}catch(e){document.documentElement.setAttribute('data-theme','dark');}try{if(!localStorage.getItem('wrx_beta_banner_dismissed_v2')){document.documentElement.classList.add('wrx-banner-visible');}}catch(e){}})();
 </script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>WellRX — AI-Powered Daily Rx for Gas-Well Operators</title>
@@ -433,7 +433,7 @@
   box-shadow: 0 4px 18px rgba(0,0,0,0.35);
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-body.wrx-banner-visible { padding-top: 48px; }
+.wrx-banner-visible body { padding-top: 48px; }
 .wrx-banner-rx {
   font-family: var(--font-brand); font-style: italic; font-weight: 900;
   font-size: 22px; color: #b45309;
@@ -460,7 +460,7 @@ body.wrx-banner-visible { padding-top: 48px; }
   .wrx-banner { font-size: 12px; padding: 9px 44px 9px 12px; gap: 10px; flex-wrap: wrap; }
   .wrx-banner-copy strong { display: block; margin-bottom: 2px; }
   .wrx-banner-cta { padding: 7px 14px; font-size: 11.5px; }
-  body.wrx-banner-visible { padding-top: 82px; }
+  .wrx-banner-visible body { padding-top: 82px; }
 }
 
 /* ── Theme system: dark (default) + light (prescription-pad) ─────── */
@@ -536,9 +536,9 @@ body.wrx-banner-visible { padding-top: 48px; }
 [data-theme="light"] .wrx-theme-light-label { display: none; }
 [data-theme="dark"] .wrx-theme-moon-glyph, :root:not([data-theme="light"]) .wrx-theme-moon-glyph { display: none; }
 [data-theme="light"] .wrx-theme-sun-glyph { display: none; }
-body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
+.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
 @media (max-width: 720px) {
-  body.wrx-banner-visible .wrx-theme-toggle { top: 92px; }
+  .wrx-banner-visible .wrx-theme-toggle { top: 92px; }
   .wrx-theme-toggle { top: 10px; right: 10px; padding: 7px 12px; font-size: 10px; }
 }
 @media print { .wrx-theme-toggle { display: none !important; } }
@@ -680,10 +680,10 @@ body.wrx-banner-visible .wrx-theme-toggle { top: 58px; }
   var dismissed = false;
   try { dismissed = localStorage.getItem(KEY) === '1'; } catch (e) {}
   if (dismissed) { banner.style.display = 'none'; return; }
-  document.body.classList.add('wrx-banner-visible');
+  document.documentElement.classList.add('wrx-banner-visible');
   banner.querySelector('.wrx-banner-close').addEventListener('click', function () {
     banner.style.display = 'none';
-    document.body.classList.remove('wrx-banner-visible');
+    document.documentElement.classList.remove('wrx-banner-visible');
     try { localStorage.setItem(KEY, '1'); } catch (e) {}
   });
 })();
